@@ -1,29 +1,30 @@
 -- 전체조회(25)
-select * from oi_user;
-select * from oi_recipe;
+select * from oi_qna;
+select * from oi_payment;
+select * from oi_delivery_company;
 select * from oi_order;
+select * from oi_account_transfer;
+select * from oi_refund;
 select * from oi_material;
+select * from oi_product;
+select * from oi_order_list;
+select * from oi_user;
+select * from oi_level;
+select * from oi_recipe;
+select * from oi_recipe_step;
+select * from oi_comment;
+select * from oi_follow;
+select * from oi_report_type;
+select * from oi_recipe_category;
+select * from oi_recipe_material;
+select * from oi_kakaopay;
+select * from oi_basket;
+select * from oi_board_like;
 select * from oi_notice;
 select * from oi_category;
-select * from oi_recipe_material;
-select * from oi_recipe_category;
-select * from oi_follow;
-select * from oi_comment;
-select * from oi_product;
-select * from oi_recipe_step;
-select * from oi_notice_type;
-select * from oi_qna;
-select * from oi_level;
-select * from oi_board_like;
-select * from oi_basket;
-select * from oi_refund;
 select * from oi_report;
-select * from oi_delivery_company;
-select * from oi_payment;
-select * from oi_account_transfer;
-select * from oi_kakaopay;
-select * from oi_order_list;
-select * from oi_report_type;
+select * from oi_notice_type;
+
 
 -- Q/A
 insert into oi_qna(qnano, uno, content, secret) values (1, 1, '테스트', 0);
