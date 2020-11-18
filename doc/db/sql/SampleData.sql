@@ -14,16 +14,17 @@ select * from oi_recipe;
 select * from oi_recipe_step;
 select * from oi_comment;
 select * from oi_follow;
-select * from oi_report_type;
+select * from oi_category;
 select * from oi_recipe_category;
 select * from oi_recipe_material;
 select * from oi_kakaopay;
 select * from oi_basket;
 select * from oi_board_like;
-select * from oi_notice;
-select * from oi_category;
+select * from oi_report_type;
 select * from oi_report;
 select * from oi_notice_type;
+select * from oi_notice;
+
 
 
 -- Q/A
@@ -216,3 +217,27 @@ insert into oi_board_like(uno, rno) values (2, 1);
 insert into oi_board_like(uno, rno) values (3, 1);
 insert into oi_board_like(uno, rno) values (4, 3);
 insert into oi_board_like(uno, rno) values (5, 5);
+
+-- 신고 유형
+
+insert into oi_report_type(rtno, name) values (1, '욕설');
+insert into oi_report_type(rtno, name) values (2, '비매너');
+insert into oi_report_type(rtno, name) values (3, '부적절한 컨텐츠');
+
+
+-- 신고
+
+insert into oi_report(rpno, reporter, attacker, rtno, content, stat) values (1, 2, 3, 1, '욕했어요', 0);
+insert into oi_report(rpno, reporter, attacker, rtno, content, stat) values (2, 2, 4, 2, '매너가 없어요', 1);
+insert into oi_report(rpno, reporter, attacker, rtno, content, stat) values (3, 3, 4, 3, ';;;', 0);
+insert into oi_report(rpno, reporter, attacker, rtno, content, stat) values (4, 5, 9, 1, '심한욕했어요', 0);
+
+-- 공지사항분류
+
+insert into oi_notice_type(ntno, name) values (1, '필독');
+insert into oi_notice_type(ntno, name) values (2, '공지');
+
+-- 공지사항
+
+insert into oi_notice(nono, ntno, title, content) values (1, 1, '필독사항입니다!', '잘 부탁드립니다.');
+insert into oi_notice(nono, ntno, title, content) values (2, 2, '공지사항입니다!', '조만간 오픈합니다.');
