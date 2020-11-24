@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ProductDao">
+  
+  <resultMap type="product" id="ProductMap">
+    <id column="pno"           property="productNo"/>
+    <result column="mno"    property="materialNo"/>
+    <result column="stock"  property="stock"/>
+    <result column="price"      property="price"/>
+    <result column="discount"   property="discount"/>
+    <result column="content"   property="content"/>
+  </resultMap>
+
+  <select id="findAll" resultMap="ProductMap" parameterType="string">
+    select 
+      p.pno,
+      p.mno,
+      p.stock,
+      p.price,
+      p.discount,
+      p.content
+    from 
+      oi_product p 
+    <if test="keyword != null">
+    <bind name="pattern" value="'%' + _parameter + '%'" />
+    where 
+      b.title like #{pattern}
+      or b.content like #{pattern}
+      or m.name like #{pattern} 
+    </if>
+    order by 
+      p.pno desc
+  </select>
+  
+</mapper>
+
+
+
+
+
+
