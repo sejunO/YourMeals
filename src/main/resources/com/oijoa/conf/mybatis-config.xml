@@ -12,13 +12,13 @@
 
   <typeAliases>
     <package name="com.oijoa.domain"/>
+  </typeAliases>
 <!--  
     <typeAlias type="com.eomcs.pms.domain.Board" alias="board"/>
     <typeAlias type="com.eomcs.pms.domain.Member" alias="member"/>
     <typeAlias type="com.eomcs.pms.domain.Project" alias="project"/>
     <typeAlias type="com.eomcs.pms.domain.Task" alias="task"/>
 -->
-  </typeAliases>
 
   <!-- DBMS 접속 정보들 -->
   <environments default="development">
@@ -41,7 +41,8 @@
   
   <!-- SQL 문이 들어 있는 파일들 -->
   <mappers>
-    <mapper resource="com/oijoa/mapper/BoardMapper.xml"/>
+    <mapper resource="com/oijoa/mapper/OrderMapper.xml"/>
+    <!-- <mapper resource="com/oijoa/mapper/BoardMapper.xml"/> -->
   </mappers>
 
 </configuration>

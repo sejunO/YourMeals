@@ -30,55 +30,9 @@
       tno, 
       pno,
       stat
-    <if test="keyword != null">
-    <bind name="pattern" value="'%' + _parameter + '%'" />
-    where 
-      b.title like #{pattern}
-      or b.content like #{pattern}
-      or m.name like #{pattern} 
-    </if>
-    order by 
-      b.no desc
+      from oi_order
   </select>
   
-  <insert id="insert" parameterType="board">
-    insert into pms_board(title,content,writer) 
-    values(#{title}, #{content}, #{writer.no})
-  </insert>
-  
-  <select id="findByNo" 
-    parameterType="int" 
-    resultMap="BoardMap">
-    select
-	    b.no,
-	    b.title,
-	    b.content,
-	    b.cdt,
-	    b.vw_cnt,
-	    m.no writer_no,
-	    m.name
-    from 
-      pms_board b inner join pms_member m on b.writer=m.no
-    where b.no = #{no}
-  </select>
-  
-  <update id="updateViewCount" parameterType="int">
-    update pms_board set 
-      vw_cnt = vw_cnt + 1
-    where no = #{no}
-  </update>
-
-  <update id="update" parameterType="board">
-    update pms_board set 
-      title = #{title}, 
-      content = #{content} 
-    where no = #{no}
-  </update>
-  
-  <delete id="delete" parameterType="int">
-    delete from pms_board 
-    where no=#{no}
-  </delete>
 </mapper>
 
 
