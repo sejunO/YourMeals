@@ -39,6 +39,7 @@
   <mappers>
     <mapper resource="com/oijoa/mapper/OrderMapper.xml"/>
     <mapper resource="com/oijoa/mapper/ProductMapper.xml"/>
+    <mapper resource="com/oijoa/mapper/RecipeMapper.xml"/>
   </mappers>
 
 </configuration>

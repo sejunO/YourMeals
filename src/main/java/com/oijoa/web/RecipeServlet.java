@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.oijoa.domain.Order;
-import com.oijoa.service.OrderService;
+import com.oijoa.domain.Recipe;
+import com.oijoa.service.RecipeService;
 
-@WebServlet("/order/list")
-public class OrderListServlet extends HttpServlet {
+@WebServlet("/recipe")
+public class RecipeServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -25,33 +25,32 @@ public class OrderListServlet extends HttpServlet {
     PrintWriter out = res.getWriter();
 
     ServletContext ctx = request.getServletContext();
-    OrderService orderService = (OrderService) ctx.getAttribute("orderService");
+    RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
 
     try {
 
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>OrderList</title></head>");
+      out.println("<head><title>Recipe Test</title></head>");
       out.println("<body><h1>안녕하세요</h1>");
 
       out.println("[게시물 목록]");
-      List<Order> list = orderService.list();
+      List<Recipe> list = recipeService.list();
 
-      for (Order order : list) {
-        out.println("<table><tr>");
-        out.printf("<td>번호 : ");
-        out.printf("%d</td>", order.getOrderNo());
-        out.printf("<td>번호 : ");
-        out.printf("%d</td>", order.getPaymentNo());
-        out.printf("<td>번호 : ");
-        out.printf("%s</td>", order.getAddress());
-        out.printf("<td>번호 : ");
-        out.printf("%s</td>", order.getDetailAddress());
-        out.println("</tr></table>");
-        out.println();
+      out.println("<table border='1'><tr>"
+          + "<th>제목</th>"
+          //          + "<th>작성자</th>"
+          //          + "<th>방법</th>"
+          + "<th>작성일</th>"
+          + "<th>조회</th></tr>");
+
+      for (Recipe recipe : list) {
+        out.println("<tr>");
+        out.printf("<td>%s</td>", recipe.getTitle());
+        out.printf("<td>%s</td>", recipe.getCreatedDate());
+        out.printf("<td>%d</td>", recipe.getHits());
       }
-      out.println("</body>");
-      out.println("</html>");
+      out.println("</table></body></html>");
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
       e.printStackTrace();
