@@ -41,15 +41,12 @@ public class OrderListServlet extends HttpServlet {
       for (Order order : list) {
         out.println("<table><tr>");
         out.printf("<td>번호 : ");
-        out.printf("%s</td>", order.getMemo());
-
-        out.printf("<td> 제목 : ");
+        out.printf("%d</td>", order.getOrderNo());
+        out.printf("<td>번호 : ");
+        out.printf("%d</td>", order.getPaymentNo());
+        out.printf("<td>번호 : ");
         out.printf("%s</td>", order.getAddress());
-
-        out.printf("<td> 작성자 : ");
-        out.printf("%s</td>", order.getDeleveryCompanyNo());
-
-        out.printf("<td> 생성일 : ");
+        out.printf("<td>번호 : ");
         out.printf("%s</td>", order.getDetailAddress());
         out.println("</tr></table>");
         out.println();

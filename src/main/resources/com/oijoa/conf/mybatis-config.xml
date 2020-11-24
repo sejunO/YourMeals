@@ -42,7 +42,6 @@
   <!-- SQL 문이 들어 있는 파일들 -->
   <mappers>
     <mapper resource="com/oijoa/mapper/OrderMapper.xml"/>
-    <!-- <mapper resource="com/oijoa/mapper/BoardMapper.xml"/> -->
   </mappers>
 
 </configuration>

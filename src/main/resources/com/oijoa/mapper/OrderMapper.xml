@@ -3,14 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="BoardDao">
+<mapper namespace="OrderDao">
   
   <resultMap type="order" id="OrderMap">
-    <id column="no"           property="orderNo"/>
+    <id column="odno"           property="orderNo"/>
     <result column="uno"    property="userNo"/>
     <result column="pno"  property="paymentNo"/>
     <result column="dcno"      property="deleveryCompanyNo"/>
-    <result column="tno"   property="transportNo"/>
     <result column="pno"   property="postNo"/>
     <result column="stat"   property="status"/>
     
@@ -23,11 +22,10 @@
 
   <select id="findAll" resultMap="OrderMap" parameterType="string">
     select 
-      no, 
+      odno, 
       uno, 
       pno, 
       dcno, 
-      tno, 
       pno,
       stat
       from oi_order
