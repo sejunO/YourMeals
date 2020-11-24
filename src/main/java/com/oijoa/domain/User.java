@@ -6,6 +6,13 @@ public class User {
   private int point;
   private String name;
   private String nick;
+  private String email;
+  private String password;
+  private String postNo;
+  private String address;
+  private String detailAddress;
+  private String photo;
+  
   public int getUserNo() {
     return userNo;
   }
@@ -72,10 +79,4 @@ public class User {
   public void setPhoto(String photo) {
     this.photo = photo;
   }
-  private String email;
-  private String password;
-  private String postNo;
-  private String address;
-  private String detailAddress;
-  private String photo;
 }

@@ -6,6 +6,7 @@ public class BoardLike {
   private int userNo;
   private int recipeNo;
   private Date registeredDate;
+  
   public int getUserNo() {
     return userNo;
   }
@@ -24,7 +25,4 @@ public class BoardLike {
   public void setRegisteredDate(Date registeredDate) {
     this.registeredDate = registeredDate;
   }
-
-
-
 }

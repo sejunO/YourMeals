@@ -10,6 +10,7 @@ public class Report {
   private String content;
   private Date registeredDate;
   private int stat;
+  
   public int getReportNo() {
     return reportNo;
   }

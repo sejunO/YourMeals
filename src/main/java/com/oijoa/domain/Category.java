@@ -3,6 +3,7 @@ package com.oijoa.domain;
 public class Category {
   private int categoryNo;
   private String categoryName;
+  
   public int getCategoryNo() {
     return categoryNo;
   }
@@ -15,6 +16,4 @@ public class Category {
   public void setCategoryName(String categoryName) {
     this.categoryName = categoryName;
   }
-
-
 }

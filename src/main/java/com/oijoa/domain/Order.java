@@ -10,6 +10,11 @@ public class Order {
   private int transportNo;
   private int postNo;
   private int status;
+  private String memo;
+  private Date orderDate;
+  private String address;
+  private String detailAddress;
+  
   public int getOrderNo() {
     return orderNo;
   }
@@ -76,10 +81,6 @@ public class Order {
   public void setDetailAddress(String detailAddress) {
     this.detailAddress = detailAddress;
   }
-  private String memo;
-  private Date orderDate;
-  private String address;
-  private String detailAddress;
 }
 
 

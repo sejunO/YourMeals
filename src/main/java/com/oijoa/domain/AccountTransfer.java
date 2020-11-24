@@ -8,6 +8,7 @@ public class AccountTransfer {
   private String account;
   private Date transferedDate;
   private String bankName;
+  
   public int getOrderNo() {
     return orderNo;
   }
@@ -38,6 +39,4 @@ public class AccountTransfer {
   public void setBankName(String bankName) {
     this.bankName = bankName;
   }
-
-
 }

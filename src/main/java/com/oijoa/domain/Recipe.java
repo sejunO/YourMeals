@@ -9,6 +9,12 @@ public class Recipe {
   private String content;
   private String photo;
   private int hits;
+  private int recomendCount;
+  private Date createdDate;
+  private Date modifiedDate;
+  private int min;
+  private int levelNo;
+  
   public int getRecipeNo() {
     return recipeNo;
   }
@@ -75,9 +81,4 @@ public class Recipe {
   public void setLevelNo(int levelNo) {
     this.levelNo = levelNo;
   }
-  private int recomendCount;
-  private Date createdDate;
-  private Date modifiedDate;
-  private int min;
-  private int levelNo;
 }

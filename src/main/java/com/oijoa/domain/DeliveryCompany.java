@@ -3,6 +3,7 @@ package com.oijoa.domain;
 public class DeliveryCompany {
   private int deliveryNo;
   private String deliveryName;
+  
   public int getDeliveryNo() {
     return deliveryNo;
   }
@@ -15,5 +16,4 @@ public class DeliveryCompany {
   public void setDeliveryName(String deliveryName) {
     this.deliveryName = deliveryName;
   }
-
 }

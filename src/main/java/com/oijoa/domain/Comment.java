@@ -9,6 +9,7 @@ public class Comment {
   private String content;
   private Date creadtedDate;
   private Date modifiedDate;
+  
   public int getCommentNo() {
     return commentNo;
   }
@@ -45,7 +46,4 @@ public class Comment {
   public void setModifiedDate(Date modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
-
-
-
 }
