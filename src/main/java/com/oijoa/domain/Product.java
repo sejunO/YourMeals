@@ -7,6 +7,7 @@ public class Product {
   private int price;
   private int discount;
   private String content;
+  
   public int getProductNo() {
     return productNo;
   }
@@ -43,5 +44,4 @@ public class Product {
   public void setContent(String content) {
     this.content = content;
   }
-
 }

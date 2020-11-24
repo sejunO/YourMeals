@@ -6,6 +6,11 @@ public class QnA {
   private int QnaNo;
   private int userNo;
   private int secret;
+  private String content;
+  private Date createdDate;
+  private String answer;
+  private Date answerDate;
+  
   public int getQnaNo() {
     return QnaNo;
   }
@@ -48,9 +53,4 @@ public class QnA {
   public void setAnswerDate(Date answerDate) {
     this.answerDate = answerDate;
   }
-  private String content;
-  private Date createdDate;
-  private String answer;
-  private Date answerDate;
-
 }

@@ -6,6 +6,7 @@ public class RecipeStep {
   private int step;
   private String photo;
   private String content;
+  
   public int getStepNo() {
     return stepNo;
   }
@@ -36,5 +37,4 @@ public class RecipeStep {
   public void setContent(String content) {
     this.content = content;
   }
-
 }

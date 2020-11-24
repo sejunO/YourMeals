@@ -3,6 +3,7 @@ package com.oijoa.domain;
 public class ReportType {
   private int reportTypeNo;
   private String reportTypename;
+  
   public int getReportTypeNo() {
     return reportTypeNo;
   }

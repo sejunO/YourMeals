@@ -5,6 +5,7 @@ public class Basket {
   private int productNo;
   private int amount;
   private int userNo;
+  
   public int getBankNo() {
     return bankNo;
   }
@@ -29,6 +30,4 @@ public class Basket {
   public void setUserNo(int userNo) {
     this.userNo = userNo;
   }
-
-
 }

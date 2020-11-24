@@ -7,6 +7,7 @@ public class OrderList {
   private int amount;
   private int discount;
   private int price;
+  
   public int getOrderListNo() {
     return orderListNo;
   }
@@ -43,7 +44,6 @@ public class OrderList {
   public void setPrice(int price) {
     this.price = price;
   }
-
 }
 
 

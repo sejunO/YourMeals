@@ -2,12 +2,11 @@ package com.oijoa.domain;
 
 import java.sql.Date;
 
-public class AccountTransfer {
+public class KakaoPay {
   private int orderNo;
-  private String userName;
+  private String name;
   private String account;
   private Date transferedDate;
-  private String bankName;
   
   public int getOrderNo() {
     return orderNo;
@@ -15,11 +14,11 @@ public class AccountTransfer {
   public void setOrderNo(int orderNo) {
     this.orderNo = orderNo;
   }
-  public String getUserName() {
-    return userName;
+  public String getName() {
+    return name;
   }
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setName(String name) {
+    this.name = name;
   }
   public String getAccount() {
     return account;
@@ -32,11 +31,5 @@ public class AccountTransfer {
   }
   public void setTransferedDate(Date transferedDate) {
     this.transferedDate = transferedDate;
-  }
-  public String getBankName() {
-    return bankName;
-  }
-  public void setBankName(String bankName) {
-    this.bankName = bankName;
   }
 }

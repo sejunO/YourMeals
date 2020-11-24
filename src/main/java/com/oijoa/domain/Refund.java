@@ -8,6 +8,7 @@ public class Refund {
   private int stat;
   private Date processedDate;
   private String rsn;
+  
   public int getOrderNo() {
     return orderNo;
   }
