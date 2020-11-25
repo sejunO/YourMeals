@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.oijoa.domain.OrderList;
-import com.oijoa.service.OrderListService;
+import com.oijoa.domain.Qna;
+import com.oijoa.service.QnaService;
 
-@WebServlet("/order/list")
-public class OrderListServlet extends HttpServlet {
+@WebServlet("/QnA")
+public class QnaServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -25,32 +25,32 @@ public class OrderListServlet extends HttpServlet {
     PrintWriter out = res.getWriter();
 
     ServletContext ctx = request.getServletContext();
-    OrderListService orderListService = (OrderListService) ctx.getAttribute("orderListService");
+    QnaService qnaService = (QnaService) ctx.getAttribute("qnaService");
 
     try {
 
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>OrderList</title></head>");
+      out.println("<head><title>qnaList</title></head>");
       out.println("<body><h1>안녕하세요</h1>");
 
-      out.println("[게시물 목록]");
-      List<OrderList> list = orderListService.list();
+      out.println("[Q/A 목록]");
+      List<Qna> list = qnaService.list();
 
-      for (OrderList orderList : list) {
+      for (Qna qna : list) {
         out.println("<table><tr>");
-        out.printf("<td>주문번호 : ");
-        out.printf("%d</td>", orderList.getOrderListNo());
-        out.printf("<td>주문번호 : ");
-        out.printf("%d</td>", orderList.getOrderNo());
-        out.printf("<td>상품번호 : ");
-        out.printf("%d</td>", orderList.getProductNo());
-        out.printf("<td>수량 : ");
-        out.printf("%d</td>", orderList.getAmount());
-        out.printf("<td>할인율 : ");
-        out.printf("%d</td>", orderList.getDiscount());
-        out.printf("<td>가격 : ");
-        out.printf("%d</td>", orderList.getPrice());
+        out.printf("<td>질문번호 : ");
+        out.printf("%d</td>", qna.getQnaNo());
+        out.printf("<td>회원번호 : ");
+        out.printf("%d</td>", qna.getUserNo());
+        out.printf("<td>질문 : ");
+        out.printf("%s</td>", qna.getContent());
+        out.printf("<td>등록일 : ");
+        out.printf("%s</td>", qna.getCreatedDate());
+        out.printf("<td>답변 : ");
+        out.printf("%s</td>", qna.getAnswer());
+        out.printf("<td>답변일 : ");
+        out.printf("%s</td>", qna.getAnswerDate());
         out.println("</tr></table>");
         out.println();
       }

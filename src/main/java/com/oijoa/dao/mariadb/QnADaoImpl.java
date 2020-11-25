@@ -4,7 +4,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.QnADao;
-import com.oijoa.domain.QnA;
+import com.oijoa.domain.Qna;
 
 public class QnADaoImpl implements QnADao{
 
@@ -15,7 +15,7 @@ public class QnADaoImpl implements QnADao{
   }
 
   @Override
-  public List<QnA> findAll(String keyword) throws Exception {
+  public List<Qna> findAll(String keyword) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("QnADao.findAll", keyword);
     }

@@ -2,7 +2,7 @@ package com.oijoa.domain;
 
 import java.sql.Date;
 
-public class QnA {
+public class Qna {
   private int QnaNo;
   private int userNo;
   private int secret;
@@ -10,7 +10,7 @@ public class QnA {
   private Date createdDate;
   private String answer;
   private Date answerDate;
-  
+
   public int getQnaNo() {
     return QnaNo;
   }

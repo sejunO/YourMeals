@@ -1,10 +1,10 @@
 package com.oijoa.dao;
 
 import java.util.List;
-import com.oijoa.domain.QnA;
+import com.oijoa.domain.Qna;
 
 public interface QnADao {
-  List<QnA> findAll(String keyword) throws Exception;
+  List<Qna> findAll(String keyword) throws Exception;
 }
 
 
