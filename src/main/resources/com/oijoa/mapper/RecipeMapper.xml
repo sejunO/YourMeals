@@ -18,18 +18,28 @@
     <result column="min"  property="min"/>
     <result column="lno"  property="levelNo"/>
     
-    
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
+    <association property="user" javaType="user">
+      <id column="user_no"    property="userNo"/>
       <result column="name"     property="name"/>
-    </association> -->
+    </association>
+
+    <association property="user" javaType="user">
+      <id column="user_no"    property="userNo"/>
+      <result column="name"     property="name"/>
+    </association>
+    
+    <collection property="members" ofType="member">
+      <id column="member_no"          property="no"/>
+      <result column="member_name"    property="name"/>
+    </collection>    
+    
   </resultMap>
 
   <select id="findAll" resultMap="RecipeMap" parameterType="string">
     select 
-      r.title, 
-      u.nick, 
+      r.title,
+      r.uno user_no,
+      u.name, 
       c.name,
       r.cdt, 
       r.hits 
