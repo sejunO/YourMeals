@@ -2,18 +2,19 @@ package com.oijoa.domain;
 
 public class Payment {
   private int paymentNo;
-  private int name;
-  
+  private String name;
+
   public int getPaymentNo() {
     return paymentNo;
   }
   public void setPaymentNo(int paymentNo) {
     this.paymentNo = paymentNo;
   }
-  public int getName() {
+  public String getName() {
     return name;
   }
-  public void setName(int name) {
+  public void setName(String name) {
     this.name = name;
   }
+
 }
