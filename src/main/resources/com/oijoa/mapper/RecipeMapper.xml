@@ -23,10 +23,7 @@
       <result column="name"     property="name"/>
     </association>
 
-    <association property="user" javaType="user">
-      <id column="user_no"    property="userNo"/>
-      <result column="name"     property="name"/>
-    </association>
+
     
     <collection property="members" ofType="member">
       <id column="member_no"          property="no"/>
