@@ -6,7 +6,7 @@
 <mapper namespace="AccountTransferDao">
   
   <resultMap type="accountTransfer" id="AccountTransferMap">
-    <id column="adno"           property="orderNo"/>
+    <id column="odno"           property="orderNo"/>
     <result column="name"    property="userName"/>
     <result column="account"  property="account"/>
     <result column="tdt"      property="transferedDate"/>
