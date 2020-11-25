@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="BasketDao">
+  
+  <resultMap type="basket" id="BasketMap">
+    <id column="bkno"           property="bankNo"/>
+    <result column="pno"    property="productNo"/>
+    <result column="amount"  property="amount"/>
+    <result column="uno"      property="userNo"/>
+    
+    <!-- 
+    <association property="writer" javaType="member">
+      <id column="writer_no"    property="no"/>
+      <result column="name"     property="name"/>
+    </association> -->
+  </resultMap>
+
+  <select id="findAll" resultMap="BasketMap" parameterType="string">
+    select 
+      bkno, 
+      pno, 
+      amount, 
+      uno
+      from oi_basket
+  </select>
+  
+</mapper>
+
+
+
+
+
+

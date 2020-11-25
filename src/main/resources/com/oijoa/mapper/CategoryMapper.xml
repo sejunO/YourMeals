@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="CategoryDao">
+  
+  <resultMap type="category" id="CategoryMap">
+    <id column="cno"           property="categoryNo"/>
+    <result column="name"    property="categoryName"/>
+    
+    <!-- 
+    <association property="writer" javaType="member">
+      <id column="writer_no"    property="no"/>
+      <result column="name"     property="name"/>
+    </association> -->
+  </resultMap>
+
+  <select id="findAll" resultMap="CategoryMap" parameterType="string">
+    select 
+      cno,
+      name
+      from oi_category
+  </select>
+  
+</mapper>
+
+
+
+
+
+
