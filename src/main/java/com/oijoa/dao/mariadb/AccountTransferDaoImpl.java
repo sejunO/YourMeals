@@ -41,7 +41,7 @@ public class AccountTransferDaoImpl implements AccountTransferDao{
   @Override
   public List<AccountTransfer> findAll(String keyword) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectList("AccountTransfer.findAll", keyword);
+      return sqlSession.selectList("AccountTransferDao.findAll", keyword);
     }
   }
   //

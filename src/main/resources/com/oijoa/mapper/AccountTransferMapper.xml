@@ -6,19 +6,16 @@
 <mapper namespace="AccountTransferDao">
   
   <resultMap type="accountTransfer" id="AccountTransferMap">
-    <id column="adno"           property="orderNo"/>
-    <result column="name"    property="userName"/>
+    <id     column="odno"     property="orderNo"/>
+    <result column="name"     property="userName"/>
     <result column="account"  property="account"/>
     <result column="tdt"      property="transferedDate"/>
-    <result column="bname"   property="bankName"/>
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
-  </resultMap>
+    <result column="bname"    property="bankName"/>
 
-  <select id="findAll" resultMap="AccountTransferMap" parameterType="string">
+  </resultMap>
+  
+
+  <select id="findAll" resultMap="AccountTransferMap" parameterType="String">
     select 
       odno,
       name,
@@ -26,50 +23,8 @@
       tdt,
       bname
     from 
-      oi_account_transfer 
+      oi_account_transfer
   </select>
   
-  <!-- <insert id="insert" parameterType="board">
-    insert into pms_board(title,content,writer) 
-    values(#{title}, #{content}, #{writer.no})
-  </insert>
-  <select id="findByNo" 
-    parameterType="int" 
-    resultMap="AccountTransferMap">
-    select
-	    b.no,
-	    b.title,
-	    b.content,
-	    b.cdt,
-	    b.vw_cnt,
-	    m.no writer_no,
-	    m.name
-    from 
-      pms_board b inner join pms_member m on b.writer=m.no
-    where b.no = #{no}
-  </select>
-  
-  <update id="updateViewCount" parameterType="int">
-    update pms_board set 
-      vw_cnt = vw_cnt + 1
-    where no = #{no}
-  </update>
 
-  <update id="update" parameterType="String">
-    update pms_board set 
-      title = #{title}, 
-      content = #{content} 
-    where no = #{no}
-  </update>
-  
-  <delete id="delete" parameterType="int">
-    delete from pms_board 
-    where no=#{no}
-  </delete> -->
 </mapper>
-
-
-
-
-
-

@@ -54,7 +54,6 @@ public class RecipeServlet extends HttpServlet {
         out.printf("<td>%s</td>", recipe.getWriter().getNick());
         out.printf("<td>%s</td>", recipe.getCategory().getCategoryName());
         out.printf("<td>%s</td>", recipe.getCreatedDate());
-        out.printf("<td>%s</td>", user.getName());
         out.printf("<td>%d</td>", recipe.getHits());
         out.println("</tr>");
       }
