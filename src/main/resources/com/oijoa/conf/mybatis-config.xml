@@ -43,6 +43,10 @@
     <mapper resource="com/oijoa/mapper/OrderListMapper.xml"/>
     <mapper resource="com/oijoa/mapper/QnaMapper.xml"/>
     <mapper resource="com/oijoa/mapper/PaymentMapper.xml"/>
+    <mapper resource="com/oijoa/mapper/AccountTransferMapper.xml"/>
+    <mapper resource="com/oijoa/mapper/BasketMapper.xml"/>
+    <mapper resource="com/oijoa/mapper/BoardLikeMapper.xml"/>
+    <mapper resource="com/oijoa/mapper/CategoryMapper.xml"/>
     
   </mappers>
 
