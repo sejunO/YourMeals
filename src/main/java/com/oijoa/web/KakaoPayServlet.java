@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.oijoa.domain.Follow;
-import com.oijoa.service.FollowService;
+import com.oijoa.domain.KakaoPay;
+import com.oijoa.service.KakaoPayService;
 
-@WebServlet("/follow")
-public class FollowServlet extends HttpServlet {
+@WebServlet("/kakaoPay")
+public class KakaoPayServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -25,24 +25,28 @@ public class FollowServlet extends HttpServlet {
     PrintWriter out = res.getWriter();
 
     ServletContext ctx = request.getServletContext();
-    FollowService followService = (FollowService) ctx.getAttribute("followService");
+    KakaoPayService kakaoPayService = (KakaoPayService) ctx.getAttribute("kakaoPayService");
 
     try {
 
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>CommentService</title></head>");
+      out.println("<head><title>kakaoPayService</title></head>");
       out.println("<body><h1>안녕하세요</h1>");
 
-      out.println("[댓글 목록]");
-      List<Follow> list = followService.list();
+      out.println("[주문정보]");
+      List<KakaoPay> list = kakaoPayService.list();
 
-      for (Follow follow : list) {
+      for (KakaoPay kakaoPay : list) {
         out.println("<table><tr>");
-        out.printf("<td>팔로워: ");
-        out.printf("%d</td>", follow.getFollower());
-        out.printf("<td>팔로잉 : ");
-        out.printf("%d</td>", follow.getFollowing());
+        out.printf("<td>주문번호: ");
+        out.printf("%d</td>", kakaoPay.getOrderNo());
+        out.printf("<td>주문이름: ");
+        out.printf("%d</td>", kakaoPay.getName());
+        out.printf("<td>총금액: ");
+        out.printf("%d</td>", kakaoPay.getAccount());
+        out.printf("<td>송금일: ");
+        out.printf("%d</td>", kakaoPay.getTransferedDate());
 
 
         out.println("</tr></table>");

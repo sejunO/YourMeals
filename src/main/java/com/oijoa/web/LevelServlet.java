@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.oijoa.domain.Follow;
-import com.oijoa.service.FollowService;
+import com.oijoa.domain.Level;
+import com.oijoa.service.LevelService;
 
-@WebServlet("/follow")
-public class FollowServlet extends HttpServlet {
+@WebServlet("level")
+public class LevelServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -25,32 +25,32 @@ public class FollowServlet extends HttpServlet {
     PrintWriter out = res.getWriter();
 
     ServletContext ctx = request.getServletContext();
-    FollowService followService = (FollowService) ctx.getAttribute("followService");
+    LevelService levelService = (LevelService) ctx.getAttribute("levelService");
 
     try {
 
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>CommentService</title></head>");
+      out.println("<head><title>LevelService</title></head>");
       out.println("<body><h1>안녕하세요</h1>");
 
-      out.println("[댓글 목록]");
-      List<Follow> list = followService.list();
+      out.println("[등급 목록]");
 
-      for (Follow follow : list) {
+      List<Level> list =levelService.list();
+
+      for (Level level : list) {
         out.println("<table><tr>");
-        out.printf("<td>팔로워: ");
-        out.printf("%d</td>", follow.getFollower());
-        out.printf("<td>팔로잉 : ");
-        out.printf("%d</td>", follow.getFollowing());
+        out.printf("<td>등급 번호 : ");
+        out.printf("%d</td>", level.getLevelNo());
 
+        out.printf("<td> 등급 : ");
+        out.printf("%d</td>", level.getLevel());
 
         out.println("</tr></table>");
         out.println();
       }
       out.println("</body>");
       out.println("</html>");
-
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
       e.printStackTrace();
