@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Recipe {
   private int recipeNo;
-  private int userNo;
+  private User writer;
   private String title;
   private String content;
   private String photo;
@@ -14,6 +14,7 @@ public class Recipe {
   private Date modifiedDate;
   private int min;
   private int levelNo;
+  private Category category;
   
   public int getRecipeNo() {
     return recipeNo;
@@ -21,11 +22,11 @@ public class Recipe {
   public void setRecipeNo(int recipeNo) {
     this.recipeNo = recipeNo;
   }
-  public int getUserNo() {
-    return userNo;
+  public User getWriter() {
+    return writer;
   }
-  public void setUserNo(int userNo) {
-    this.userNo = userNo;
+  public void setWriter(User writer) {
+    this.writer = writer;
   }
   public String getTitle() {
     return title;
@@ -80,5 +81,11 @@ public class Recipe {
   }
   public void setLevelNo(int levelNo) {
     this.levelNo = levelNo;
+  }
+  public Category getCategory() {
+    return category;
+  }
+  public void setCategory(Category category) {
+    this.category = category;
   }
 }
