@@ -6,16 +6,16 @@
 <mapper namespace="PaymentDao">
   
   <resultMap type="payment" id="PaymentMap">
-    <id column="pno"           property="paymentNo"/>
+    <id column="pno"         property="paymentNo"/>
     <result column="name"    property="name"/>
   </resultMap>
 
-  <select id="findAll" resultMap="ProductMap" parameterType="string">
+  <select id="findAll" resultMap="PaymentMap" parameterType="string">
     select 
-      p.pno,
-      p.name,
+      pno,
+      name
     from 
-      oi_payment p 
+      oi_payment
   </select>
   
 </mapper>
