@@ -38,17 +38,22 @@ public class RecipeServlet extends HttpServlet {
       List<Recipe> list = recipeService.list();
 
       out.println("<table border='1'><tr>"
+          + "<th>번호</th>"
           + "<th>제목</th>"
-          //          + "<th>작성자</th>"
-          //          + "<th>방법</th>"
+          + "<th>작성자</th>"
+          + "<th>방법</th>"
           + "<th>작성일</th>"
           + "<th>조회</th></tr>");
 
       for (Recipe recipe : list) {
         out.println("<tr>");
+        out.printf("<td>%d</td>", recipe.getRecipeNo());
         out.printf("<td>%s</td>", recipe.getTitle());
+        out.printf("<td>%s</td>", recipe.getWriter().getNick());
+        out.printf("<td>%s</td>", recipe.getCategory().getCategoryName());
         out.printf("<td>%s</td>", recipe.getCreatedDate());
         out.printf("<td>%d</td>", recipe.getHits());
+        out.println("</tr>");
       }
       out.println("</table></body></html>");
     } catch (Exception e) {

@@ -7,7 +7,6 @@
   
   <resultMap type="recipe" id="RecipeMap">
     <id column="rno"           property="recipeNo"/>
-    <result column="uno"    property="userNo"/>
     <result column="title"  property="title"/>
     <result column="content"  property="content"/>
     <result column="photo"  property="photo"/>
@@ -18,6 +17,14 @@
     <result column="min"  property="min"/>
     <result column="lno"  property="levelNo"/>
     
+    <association property="writer" javaType="user">
+      <id column="writer_no"    property="userNo"/>
+      <result column="writer_nick"     property="nick"/>
+    </association>
+    
+    <association property="category" javaType="category">
+      <result column="category_name"     property="categoryName"/>
+    </association>
     
     <!-- 
     <association property="writer" javaType="member">
@@ -28,9 +35,10 @@
 
   <select id="findAll" resultMap="RecipeMap" parameterType="string">
     select 
+      r.rno,
       r.title, 
-      u.nick, 
-      c.name,
+      u.nick writer_nick, 
+      c.name category_name,
       r.cdt, 
       r.hits 
     from 
