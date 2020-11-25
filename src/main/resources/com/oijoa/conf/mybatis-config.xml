@@ -42,6 +42,7 @@
     <mapper resource="com/oijoa/mapper/RecipeMapper.xml"/>
     <mapper resource="com/oijoa/mapper/OrderListMapper.xml"/>
     <mapper resource="com/oijoa/mapper/QnaMapper.xml"/>
+    <mapper resource="com/oijoa/mapper/PaymentMapper.xml"/>
     
   </mappers>
 
