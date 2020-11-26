@@ -2,14 +2,12 @@ package com.oijoa.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.oijoa.domain.User;
 import com.oijoa.service.UserService;
 
@@ -26,7 +24,7 @@ public class UserServlet extends HttpServlet {
     PrintWriter out = res.getWriter();
 
     ServletContext ctx = request.getServletContext();
-    UserService userService = (UserService) ctx.getAttribute("UserService");
+    UserService userService = (UserService) ctx.getAttribute("userService");
 
     try {
 
@@ -36,11 +34,11 @@ public class UserServlet extends HttpServlet {
       out.println("<body><h1>안녕하세요</h1>");
 
       out.println("[게시물 목록]");
-      
+
       List<User> list = userService.list();
 
       for (User user : list) {
-    	out.println("<table border='1'>");
+        out.println("<table border='1'>");
         out.println("<tr>");
         out.printf("<td>회원번호: %d</td>", user.getUserNo());
         out.printf("<td>회원유형: %d</td>", user.getUserTypeNo());
@@ -56,9 +54,9 @@ public class UserServlet extends HttpServlet {
         out.println("</tr>");
       }
       out.println("</table>"
-    		  	+ "</body>"
-      			+ "</html>");
-      	
+          + "</body>"
+          + "</html>");
+
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
       e.printStackTrace();

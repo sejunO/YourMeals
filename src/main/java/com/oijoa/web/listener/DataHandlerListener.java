@@ -21,6 +21,7 @@ import com.oijoa.dao.PaymentDao;
 import com.oijoa.dao.ProductDao;
 import com.oijoa.dao.QnADao;
 import com.oijoa.dao.RecipeDao;
+import com.oijoa.dao.UserDao;
 import com.oijoa.dao.mariadb.AccountTransferDaoImpl;
 import com.oijoa.dao.mariadb.BasketDaoImpl;
 import com.oijoa.dao.mariadb.BoardDaoImpl;
@@ -36,6 +37,7 @@ import com.oijoa.dao.mariadb.PaymentDaoImpl;
 import com.oijoa.dao.mariadb.ProductDaoImpl;
 import com.oijoa.dao.mariadb.QnADaoImpl;
 import com.oijoa.dao.mariadb.RecipeDaoImpl;
+import com.oijoa.dao.mariadb.UserDaoImpl;
 import com.oijoa.service.AccountTransferService;
 import com.oijoa.service.BasketService;
 import com.oijoa.service.BoardLikeService;
@@ -57,6 +59,7 @@ import com.oijoa.service.DefaultPaymentService;
 import com.oijoa.service.DefaultProductService;
 import com.oijoa.service.DefaultQnaService;
 import com.oijoa.service.DefaultRecipeService;
+import com.oijoa.service.DefaultUserService;
 import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.FollowService;
 import com.oijoa.service.NoticeService;
@@ -66,6 +69,7 @@ import com.oijoa.service.PaymentService;
 import com.oijoa.service.ProductService;
 import com.oijoa.service.QnaService;
 import com.oijoa.service.RecipeService;
+import com.oijoa.service.UserService;
 import com.oijoa.util.SqlSessionFactoryProxy;
 
 @WebListener
@@ -105,7 +109,7 @@ public class DataHandlerListener implements ServletContextListener {
       //      RefundDao refundDao = new RefundDaoImpl(sqlSessionFactory);
       //      ReportDao reportDao = new ReportDaoImpl(sqlSessionFactory);
       //      ReportTypeDao reportTypeDao = new ReportTypeDaoImpl(sqlSessionFactory);
-      //      UserDao userDao = new UserDaoImpl(sqlSessionFactory);
+      UserDao userDao = new UserDaoImpl(sqlSessionFactory);
 
 
       // Service 구현체 생성
@@ -136,7 +140,7 @@ public class DataHandlerListener implements ServletContextListener {
       //      RefundService refundService = new DefaultRefundService(refundDao);
       //      ReportService reportService = new DefaultReportService(reportDao);
       //      ReportTypeService reportTypeService = new DefaultReportTypeService(reportTypeDao);
-      //      UserService userService = new DefaultUserService(userDao);
+      UserService userService = new DefaultUserService(userDao);
 
       // 다른 객체가 사용할 수 있도록 context 맵 보관소에 저장해둔다.
       ServletContext ctx = sce.getServletContext();
@@ -167,7 +171,7 @@ public class DataHandlerListener implements ServletContextListener {
       //      ctx.setAttribute("refundService", refundService);
       //      ctx.setAttribute("reportService", reportService);
       //      ctx.setAttribute("reportTypeService", reportTypeService);
-      //      ctx.setAttribute("userService", userService);
+      ctx.setAttribute("userService", userService);
 
 
     } catch (Exception e) {

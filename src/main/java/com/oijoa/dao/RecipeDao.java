@@ -5,6 +5,7 @@ import com.oijoa.domain.Recipe;
 
 public interface RecipeDao {
   List<Recipe> findAll(String keyword) throws Exception;
+  int add(Recipe recipe) throws Exception;
 }
 
 

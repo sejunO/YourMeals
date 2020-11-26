@@ -57,5 +57,4 @@ public class BoardLikeServlet extends HttpServlet {
 
   }
 
-
 }
