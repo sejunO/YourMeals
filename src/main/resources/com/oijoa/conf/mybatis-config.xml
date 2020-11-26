@@ -46,9 +46,8 @@
     <mapper resource="com/oijoa/mapper/FollowMapper.xml"/>
     <mapper resource="com/oijoa/mapper/KakaoPayMapper.xml"/>
     <mapper resource="com/oijoa/mapper/LevelMapper.xml"/>
-    <!--          
     <mapper resource="com/oijoa/mapper/MaterialMapper.xml"/>
-    <mapper resource="com/oijoa/mapper/MemberMapper.xml"/>
+    <!--          
     <mapper resource="com/oijoa/mapper/NoticeMapper.xml"/>
     <mapper resource="com/oijoa/mapper/NoticeTypeMapper.xml"/>
      -->
@@ -59,12 +58,11 @@
     <mapper resource="com/oijoa/mapper/OrderListMapper.xml"/>
     <mapper resource="com/oijoa/mapper/QnaMapper.xml"/>
     <mapper resource="com/oijoa/mapper/PaymentMapper.xml"/>
-    
-    <!--
     <mapper resource="com/oijoa/mapper/RecipeStepMapper.xml"/>
     <mapper resource="com/oijoa/mapper/RefundMapper.xml"/>
     <mapper resource="com/oijoa/mapper/ReportMapper.xml"/>
     <mapper resource="com/oijoa/mapper/ReportTypeMapper.xml"/>
+    <!--
     <mapper resource="com/oijoa/mapper/UserMapper.xml"/>
     -->
     

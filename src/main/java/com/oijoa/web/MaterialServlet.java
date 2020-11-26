@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.oijoa.domain.Product;
-import com.oijoa.service.ProductService;
+import com.oijoa.domain.Material;
+import com.oijoa.service.MaterialService;
 
-@WebServlet("/product")
-public class ProductServlet extends HttpServlet {
+@WebServlet("/material")
+public class MaterialServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -25,29 +25,30 @@ public class ProductServlet extends HttpServlet {
     PrintWriter out = res.getWriter();
 
     ServletContext ctx = request.getServletContext();
-    ProductService productService = (ProductService) ctx.getAttribute("productService");
+    MaterialService materialService = (MaterialService) ctx.getAttribute("materialService");
 
     try {
 
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>servlet03</title></head>");
+      out.println("<head><title>Recipe Test</title></head>");
       out.println("<body><h1>안녕하세요</h1>");
 
       out.println("[게시물 목록]");
+      List<Material> list = materialService.list();
 
-      List<Product> list = productService.list(null);
+      out.println("<table border='1'><tr>"
+          + "<th>번호</th>"
+          + "<th>이름</th>"
+          );
 
-      for (Product product : list) {
-        out.println("<table><tr>");
-        out.printf("<td>번호 : ");
-        out.printf("%s</td>", product.getProductNo());
-
-        out.println("</tr></table>");
-        out.println();
+      for (Material material : list) {
+        out.println("<tr>");
+        out.printf("<td>%d</td>", material.getMaterialNo());
+        out.printf("<td>%s</td>", material.getName());
+        out.println("</tr>");
       }
-      out.println("</body>");
-      out.println("</html>");
+      out.println("</table></body></html>");
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
       e.printStackTrace();

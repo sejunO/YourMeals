@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.OrderList;
 import com.oijoa.service.OrderListService;
 
-@WebServlet("/order/list")
+@WebServlet("/orderList")
 public class OrderListServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
