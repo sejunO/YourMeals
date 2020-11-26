@@ -79,6 +79,7 @@ public class Recipe {
   public int getLevelNo() {
     return levelNo;
   }
+
   public void setLevelNo(int levelNo) {
     this.levelNo = levelNo;
   }
@@ -88,4 +89,6 @@ public class Recipe {
   public void setCategory(Category category) {
     this.category = category;
   }
+
+
 }

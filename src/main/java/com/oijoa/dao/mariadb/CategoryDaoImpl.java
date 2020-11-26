@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.CategoryDao;
 import com.oijoa.domain.Category;
 
-public class CategoryDaoImpl implements CategoryDao{
+public class CategoryDaoImpl implements CategoryDao {
 
   SqlSessionFactory sqlSessionFactory;
 
@@ -20,12 +20,14 @@ public class CategoryDaoImpl implements CategoryDao{
       return sqlSession.selectList("CategoryDao.findAll", keyword);
     }
   }
+
+  @Override
+  public Category findByNo(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectOne("CategoryDao.findByNo", no);
+    }
+  }
+
 }
-
-
-
-
-
-
 
 
