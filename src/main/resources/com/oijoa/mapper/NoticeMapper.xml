@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="NoticeDao">
+  
+  <resultMap type="notice" id="NoticeMap">
+    <id column="nono"           property="noticeNo"/>
+    <result column="ntno"    property="noticeTypeNo"/>
+    <result column="title"    property="title"/>
+    <result column="content"    property="content"/>
+    <result column="rdt"    property="registeredDate"/>
+    
+    <!-- 
+    <association property="writer" javaType="member">
+      <id column="writer_no"    property="no"/>
+      <result column="name"     property="name"/>
+    </association> -->
+  </resultMap>
+
+  <select id="findAll" resultMap="NoticeMap" parameterType="string">
+    select 
+      nono,
+      ntno,
+      title,
+      content,
+      rdt
+      from oi_notice
+  </select>
+  
+</mapper>
+
+
+
+
+
+
