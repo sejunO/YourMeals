@@ -14,12 +14,7 @@ import com.oijoa.dao.CategoryDao;
 import com.oijoa.dao.CommentDao;
 import com.oijoa.dao.DeliveryCompanyDao;
 import com.oijoa.dao.FollowDao;
-<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
-import com.oijoa.dao.KakaoPayDao;
-import com.oijoa.dao.LevelDao;
 import com.oijoa.dao.NoticeDao;
-=======
->>>>>>> 370172a0b0c698c564e18f70ee440ec8516319d1:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.dao.OrderDao;
 import com.oijoa.dao.OrderListDao;
 import com.oijoa.dao.PaymentDao;
@@ -34,12 +29,7 @@ import com.oijoa.dao.mariadb.CategoryDaoImpl;
 import com.oijoa.dao.mariadb.CommentDaoImpl;
 import com.oijoa.dao.mariadb.DeliveryCompanyDaoImpl;
 import com.oijoa.dao.mariadb.FollowDaoImpl;
-<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
-import com.oijoa.dao.mariadb.KakaoPayDaoImpl;
-import com.oijoa.dao.mariadb.LevelDaoImpl;
 import com.oijoa.dao.mariadb.NoticeDaoImpl;
-=======
->>>>>>> 370172a0b0c698c564e18f70ee440ec8516319d1:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.dao.mariadb.OrderDaoImpl;
 import com.oijoa.dao.mariadb.OrderListDaoImpl;
 import com.oijoa.dao.mariadb.PaymentDaoImpl;
@@ -60,12 +50,7 @@ import com.oijoa.service.DefaultCategoryService;
 import com.oijoa.service.DefaultCommentService;
 import com.oijoa.service.DefaultDeliveryCompanyService;
 import com.oijoa.service.DefaultFollowService;
-<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
-import com.oijoa.service.DefaultKakaoPayService;
-import com.oijoa.service.DefaultLevelService;
 import com.oijoa.service.DefaultNoticeService;
-=======
->>>>>>> 370172a0b0c698c564e18f70ee440ec8516319d1:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.service.DefaultOrderListService;
 import com.oijoa.service.DefaultOrderService;
 import com.oijoa.service.DefaultPaymentService;
@@ -74,12 +59,7 @@ import com.oijoa.service.DefaultQnaService;
 import com.oijoa.service.DefaultRecipeService;
 import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.FollowService;
-<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
-import com.oijoa.service.KakaoPayService;
-import com.oijoa.service.LevelService;
 import com.oijoa.service.NoticeService;
-=======
->>>>>>> 370172a0b0c698c564e18f70ee440ec8516319d1:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.service.OrderListService;
 import com.oijoa.service.OrderService;
 import com.oijoa.service.PaymentService;
