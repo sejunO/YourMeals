@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Product;
 import com.oijoa.service.ProductService;
 
-@WebServlet("/pro")
+@WebServlet("/product")
 public class ProductServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
