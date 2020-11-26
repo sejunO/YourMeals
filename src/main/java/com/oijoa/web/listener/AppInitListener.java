@@ -1,4 +1,4 @@
-package com.oijoa.web;
+package com.oijoa.web.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
