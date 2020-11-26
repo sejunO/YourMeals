@@ -65,8 +65,8 @@
     <mapper resource="com/oijoa/mapper/RefundMapper.xml"/>
     <mapper resource="com/oijoa/mapper/ReportMapper.xml"/>
     <mapper resource="com/oijoa/mapper/ReportTypeMapper.xml"/>
-    <mapper resource="com/oijoa/mapper/UserMapper.xml"/>
     -->
+    <mapper resource="com/oijoa/mapper/UserMapper.xml"/>
     
   </mappers>
 
