@@ -1,4 +1,4 @@
-package com.oijoa.web;
+package com.oijoa.web.listener;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -14,19 +14,27 @@ import com.oijoa.dao.CategoryDao;
 import com.oijoa.dao.CommentDao;
 import com.oijoa.dao.DeliveryCompanyDao;
 import com.oijoa.dao.FollowDao;
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
 import com.oijoa.dao.KakaoPayDao;
 import com.oijoa.dao.LevelDao;
 import com.oijoa.dao.MaterialDao;
+=======
+import com.oijoa.dao.NoticeDao;
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.dao.OrderDao;
 import com.oijoa.dao.OrderListDao;
 import com.oijoa.dao.PaymentDao;
 import com.oijoa.dao.ProductDao;
 import com.oijoa.dao.QnADao;
 import com.oijoa.dao.RecipeDao;
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
 import com.oijoa.dao.RecipeStepDao;
 import com.oijoa.dao.RefundDao;
 import com.oijoa.dao.ReportDao;
 import com.oijoa.dao.ReportTypeDao;
+=======
+import com.oijoa.dao.UserDao;
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.dao.mariadb.AccountTransferDaoImpl;
 import com.oijoa.dao.mariadb.BasketDaoImpl;
 import com.oijoa.dao.mariadb.BoardDaoImpl;
@@ -35,19 +43,27 @@ import com.oijoa.dao.mariadb.CategoryDaoImpl;
 import com.oijoa.dao.mariadb.CommentDaoImpl;
 import com.oijoa.dao.mariadb.DeliveryCompanyDaoImpl;
 import com.oijoa.dao.mariadb.FollowDaoImpl;
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
 import com.oijoa.dao.mariadb.KakaoPayDaoImpl;
 import com.oijoa.dao.mariadb.LevelDaoImpl;
 import com.oijoa.dao.mariadb.MaterialDaoImpl;
+=======
+import com.oijoa.dao.mariadb.NoticeDaoImpl;
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.dao.mariadb.OrderDaoImpl;
 import com.oijoa.dao.mariadb.OrderListDaoImpl;
 import com.oijoa.dao.mariadb.PaymentDaoImpl;
 import com.oijoa.dao.mariadb.ProductDaoImpl;
 import com.oijoa.dao.mariadb.QnADaoImpl;
 import com.oijoa.dao.mariadb.RecipeDaoImpl;
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
 import com.oijoa.dao.mariadb.RecipeStepDaoImpl;
 import com.oijoa.dao.mariadb.RefundDaoImpl;
 import com.oijoa.dao.mariadb.ReportDaoImpl;
 import com.oijoa.dao.mariadb.ReportTypeDaoImpl;
+=======
+import com.oijoa.dao.mariadb.UserDaoImpl;
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.service.AccountTransferService;
 import com.oijoa.service.BasketService;
 import com.oijoa.service.BoardLikeService;
@@ -62,15 +78,20 @@ import com.oijoa.service.DefaultCategoryService;
 import com.oijoa.service.DefaultCommentService;
 import com.oijoa.service.DefaultDeliveryCompanyService;
 import com.oijoa.service.DefaultFollowService;
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
 import com.oijoa.service.DefaultKakaoPayService;
 import com.oijoa.service.DefaultLevelService;
 import com.oijoa.service.DefaultMaterialService;
+=======
+import com.oijoa.service.DefaultNoticeService;
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.service.DefaultOrderListService;
 import com.oijoa.service.DefaultOrderService;
 import com.oijoa.service.DefaultPaymentService;
 import com.oijoa.service.DefaultProductService;
 import com.oijoa.service.DefaultQnaService;
 import com.oijoa.service.DefaultRecipeService;
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
 import com.oijoa.service.DefaultRecipeStepService;
 import com.oijoa.service.DefaultRefundService;
 import com.oijoa.service.DefaultReportService;
@@ -80,16 +101,26 @@ import com.oijoa.service.FollowService;
 import com.oijoa.service.KakaoPayService;
 import com.oijoa.service.LevelService;
 import com.oijoa.service.MaterialService;
+=======
+import com.oijoa.service.DefaultUserService;
+import com.oijoa.service.DeliveryCompanyService;
+import com.oijoa.service.FollowService;
+import com.oijoa.service.NoticeService;
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.service.OrderListService;
 import com.oijoa.service.OrderService;
 import com.oijoa.service.PaymentService;
 import com.oijoa.service.ProductService;
 import com.oijoa.service.QnaService;
 import com.oijoa.service.RecipeService;
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
 import com.oijoa.service.RecipeStepService;
 import com.oijoa.service.RefundService;
 import com.oijoa.service.ReportService;
 import com.oijoa.service.ReportTypeService;
+=======
+import com.oijoa.service.UserService;
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 import com.oijoa.util.SqlSessionFactoryProxy;
 
 @WebListener
@@ -113,10 +144,18 @@ public class DataHandlerListener implements ServletContextListener {
       CommentDao commentDao = new CommentDaoImpl(sqlSessionFactory);
       DeliveryCompanyDao deliveryCompanyDao = new DeliveryCompanyDaoImpl(sqlSessionFactory);
       FollowDao followDao = new FollowDaoImpl(sqlSessionFactory);
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
       KakaoPayDao kakaopayDao = new KakaoPayDaoImpl(sqlSessionFactory);
       LevelDao levelDao = new LevelDaoImpl(sqlSessionFactory);
       MaterialDao materialDao = new MaterialDaoImpl(sqlSessionFactory);
       //      NoticeDao noticeDao = new NoticeDaoImpl(sqlSessionFactory);
+=======
+      //      KakaopayDao kakopayDao = new KakaopayDaoImpl(sqlSessionFactory);
+      //      LevelDao levelDao = new LevelDaoImpl(sqlSessionFactory);
+      //      MaterialDao materialDao = new MaterialDaoImpl(sqlSessionFactory);
+      //      MemberDao memberDao = new MemberDaoImpl(sqlSessionFactory);
+      NoticeDao noticeDao = new NoticeDaoImpl(sqlSessionFactory);
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
       //      NoticeTypeDao noticeTypeDao = new NoticeTypeDaoImpl(sqlSessionFactory);
       OrderDao orderDao = new OrderDaoImpl(sqlSessionFactory);
       OrderListDao orderListDao = new OrderListDaoImpl(sqlSessionFactory);
@@ -124,11 +163,19 @@ public class DataHandlerListener implements ServletContextListener {
       RecipeDao recipeDao = new RecipeDaoImpl(sqlSessionFactory);
       QnADao qnaDao = new QnADaoImpl(sqlSessionFactory);
       PaymentDao paymentDao = new PaymentDaoImpl(sqlSessionFactory);
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
       RecipeStepDao recipeStepDao = new RecipeStepDaoImpl(sqlSessionFactory);
       RefundDao refundDao = new RefundDaoImpl(sqlSessionFactory);
       ReportDao reportDao = new ReportDaoImpl(sqlSessionFactory);
       ReportTypeDao reportTypeDao = new ReportTypeDaoImpl(sqlSessionFactory);
       //      UserDao userDao = new UserDaoImpl(sqlSessionFactory);
+=======
+      //      RecipeStepDao recipeStepDao = new RecipeStepDaoImpl(sqlSessionFactory);
+      //      RefundDao refundDao = new RefundDaoImpl(sqlSessionFactory);
+      //      ReportDao reportDao = new ReportDaoImpl(sqlSessionFactory);
+      //      ReportTypeDao reportTypeDao = new ReportTypeDaoImpl(sqlSessionFactory);
+      UserDao userDao = new UserDaoImpl(sqlSessionFactory);
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 
 
       // Service 구현체 생성
@@ -140,10 +187,19 @@ public class DataHandlerListener implements ServletContextListener {
       CommentService commentService = new DefaultCommentService(commentDao);
       DeliveryCompanyService deliveryCompanyService = new DefaultDeliveryCompanyService(deliveryCompanyDao);
       FollowService followService = new DefaultFollowService(followDao);
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
       KakaoPayService kakaoPayService = new DefaultKakaoPayService(kakaopayDao);
       LevelService levelService = new DefaultLevelService(levelDao);
       MaterialService materialService = new DefaultMaterialService(materialDao);
       //      NoticeService noticeService = new DefaultNoticeService(noticeDao);
+=======
+
+      //      KakaoPayService kakaoPayService = new DefaultKakaoPayService(kakaoPayDao);
+      //      LevelService levelService = new DefaultLevelService(levelDao);
+      //      MaterialService materialService = new DefaultMaterialService(materialDao);
+      //      MemberService memberService = new DefaultMemberService(memberDao);
+      NoticeService noticeService = new DefaultNoticeService(noticeDao);
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
       //      NoticeTypeService noticeTypeService = new DefaultNoticeTypeService(noticeTypeDao);
 
       OrderService orderService = new DefaultOrderService(orderDao);
@@ -152,11 +208,20 @@ public class DataHandlerListener implements ServletContextListener {
       RecipeService recipeService = new DefaultRecipeService(recipeDao);
       QnaService qnaService = new DefaultQnaService(qnaDao);
       PaymentService paymentService = new DefaultPaymentService(paymentDao);
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
       RecipeStepService recipeStepService = new DefaultRecipeStepService(recipeStepDao);
       RefundService refundService = new DefaultRefundService(refundDao);
       ReportService reportService = new DefaultReportService(reportDao);
       ReportTypeService reportTypeService = new DefaultReportTypeService(reportTypeDao);
       //      UserService userService = new DefaultUserService(userDao);
+=======
+
+      //      RecipeStepService RecipeStepService = new DefaultRecipeStepService(RecipeStepDao);
+      //      RefundService refundService = new DefaultRefundService(refundDao);
+      //      ReportService reportService = new DefaultReportService(reportDao);
+      //      ReportTypeService reportTypeService = new DefaultReportTypeService(reportTypeDao);
+      UserService userService = new DefaultUserService(userDao);
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 
       // 다른 객체가 사용할 수 있도록 context 맵 보관소에 저장해둔다.
       ServletContext ctx = sce.getServletContext();
@@ -168,10 +233,19 @@ public class DataHandlerListener implements ServletContextListener {
       ctx.setAttribute("commentService", commentService);
       ctx.setAttribute("deliveryCompanyService", deliveryCompanyService);
       ctx.setAttribute("followService", followService);
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
       ctx.setAttribute("kakaoPayService", kakaoPayService);
       ctx.setAttribute("levelService", levelService);
       ctx.setAttribute("materialService", materialService);
       //      ctx.setAttribute("noticeService", noticeService);
+=======
+
+      //      ctx.setAttribute("kakopayService", kakopayService);
+      //      ctx.setAttribute("levelService", levelService);
+      //      ctx.setAttribute("materialService", materialService);
+      //      ctx.setAttribute("memberService", memberService);
+      ctx.setAttribute("noticeService", noticeService);
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
       //      ctx.setAttribute("noticeTypeService", noticeTypeService);
 
       ctx.setAttribute("orderService", orderService);
@@ -181,11 +255,19 @@ public class DataHandlerListener implements ServletContextListener {
       ctx.setAttribute("qnaService", qnaService);
       ctx.setAttribute("paymentService", paymentService);
 
+<<<<<<< HEAD:src/main/java/com/oijoa/web/DataHandlerListener.java
       ctx.setAttribute("recipeStepService", recipeStepService);
       ctx.setAttribute("refundService", refundService);
       ctx.setAttribute("reportService", reportService);
       ctx.setAttribute("reportTypeService", reportTypeService);
       //            ctx.setAttribute("userService", userService);
+=======
+      //      ctx.setAttribute("recipeStepService", recipeStepService);
+      //      ctx.setAttribute("refundService", refundService);
+      //      ctx.setAttribute("reportService", reportService);
+      //      ctx.setAttribute("reportTypeService", reportTypeService);
+      ctx.setAttribute("userService", userService);
+>>>>>>> 317f11d59c9010af97eb4cb57266c38ff1663ce4:src/main/java/com/oijoa/web/listener/DataHandlerListener.java
 
 
     } catch (Exception e) {

@@ -15,7 +15,7 @@ public class Recipe {
   private int min;
   private int levelNo;
   private Category category;
-  
+
   public int getRecipeNo() {
     return recipeNo;
   }

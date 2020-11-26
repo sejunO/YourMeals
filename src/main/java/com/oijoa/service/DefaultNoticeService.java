@@ -1,15 +1,15 @@
 package com.oijoa.service;
 
 import java.util.List;
-import com.oijoa.dao.RecipeDao;
-import com.oijoa.domain.Recipe;
+import com.oijoa.dao.NoticeDao;
+import com.oijoa.domain.Notice;
 
-public class DefaultRecipeService implements RecipeService {
+public class DefaultNoticeService implements NoticeService {
 
-  RecipeDao recipeDao;
+  NoticeDao noticeDao;
 
-  public DefaultRecipeService(RecipeDao recipeDao) {
-    this.recipeDao = recipeDao;
+  public DefaultNoticeService(NoticeDao noticeDao) {
+    this.noticeDao = noticeDao;
   }
 
   //  @Override
@@ -23,13 +23,10 @@ public class DefaultRecipeService implements RecipeService {
   //  }
   //
   @Override
-  public List<Recipe> list() throws Exception {
-    return recipeDao.findAll(null);
+  public List<Notice> list() throws Exception {
+    return noticeDao.findAll(null);
   }
-  @Override
-  public int add(Recipe recipe) throws Exception {
-    return recipeDao.add(recipe);
-  }
+
   //  @Override
   //  public List<Order> list(String keyword) throws Exception {
   //    return orderDao.findAll(keyword);

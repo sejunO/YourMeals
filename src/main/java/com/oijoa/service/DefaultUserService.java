@@ -1,15 +1,16 @@
 package com.oijoa.service;
 
 import java.util.List;
-import com.oijoa.dao.RecipeDao;
-import com.oijoa.domain.Recipe;
 
-public class DefaultRecipeService implements RecipeService {
+import com.oijoa.dao.UserDao;
+import com.oijoa.domain.User;
 
-  RecipeDao recipeDao;
+public class DefaultUserService implements UserService {
 
-  public DefaultRecipeService(RecipeDao recipeDao) {
-    this.recipeDao = recipeDao;
+  UserDao userDao;
+
+  public DefaultUserService(UserDao userDao) {
+    this.userDao = userDao;
   }
 
   //  @Override
@@ -23,13 +24,10 @@ public class DefaultRecipeService implements RecipeService {
   //  }
   //
   @Override
-  public List<Recipe> list() throws Exception {
-    return recipeDao.findAll(null);
+  public List<User> list() throws Exception {
+    return userDao.findAll(null);
   }
-  @Override
-  public int add(Recipe recipe) throws Exception {
-    return recipeDao.add(recipe);
-  }
+
   //  @Override
   //  public List<Order> list(String keyword) throws Exception {
   //    return orderDao.findAll(keyword);
