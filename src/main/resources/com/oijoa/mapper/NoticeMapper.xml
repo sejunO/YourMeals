@@ -29,6 +29,11 @@
       from oi_notice
   </select>
   
+  <insert id="insert" parameterType="notice">
+    insert into oi_notice(ntno,title,content)
+    values(#{noticeTypeNo},#{title},#{content})
+  </insert>
+  
 </mapper>
 
 

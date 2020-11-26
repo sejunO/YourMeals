@@ -34,11 +34,14 @@ public class NoticeServlet extends HttpServlet {
       out.println("<head><title>NoticeService</title></head>");
       out.println("<body><h1>안녕하세요</h1>");
 
-      out.println("[공지사항 목록]");
+      out.println("[공지사항 목록]<br>");
+
+      out.println("<a href='notice/noticeAdd.html'>새글</a><br>");
+
       List<Notice> list = noticeService.list();
 
       for (Notice notice : list) {
-        out.println("<table><tr>");
+        out.println("<table border=1><tr>");
         out.printf("<td>공지사항 번호 : ");
         out.printf("%d</td>", notice.getNoticeNo());
         out.printf("<td>공지사항 타입 번호 : ");

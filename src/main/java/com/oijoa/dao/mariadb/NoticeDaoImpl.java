@@ -20,6 +20,13 @@ public class NoticeDaoImpl implements NoticeDao{
       return sqlSession.selectList("NoticeDao.findAll", keyword);
     }
   }
+
+  @Override
+  public int add(Notice notice) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.insert("NoticeDao.insert", notice);
+    }
+  }
 }
 
 
