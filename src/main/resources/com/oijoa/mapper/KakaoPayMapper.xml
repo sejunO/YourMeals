@@ -19,7 +19,7 @@
       name,
       account,
       tdt
-      from oi_kakaopay
+      from oi_kakaopay 
   </select>
   
 </mapper>
