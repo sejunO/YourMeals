@@ -121,7 +121,6 @@ public class DataHandlerListener implements ServletContextListener {
       CommentService commentService = new DefaultCommentService(commentDao);
       DeliveryCompanyService deliveryCompanyService = new DefaultDeliveryCompanyService(deliveryCompanyDao);
       FollowService followService = new DefaultFollowService(followDao);
-
       KakaoPayService kakaoPayService = new DefaultKakaoPayService(kakaopayDao);
       LevelService levelService = new DefaultLevelService(levelDao);
       //      MaterialService materialService = new DefaultMaterialService(materialDao);
@@ -135,7 +134,6 @@ public class DataHandlerListener implements ServletContextListener {
       RecipeService recipeService = new DefaultRecipeService(recipeDao);
       QnaService qnaService = new DefaultQnaService(qnaDao);
       PaymentService paymentService = new DefaultPaymentService(paymentDao);
-
       //      RecipeStepService RecipeStepService = new DefaultRecipeStepService(RecipeStepDao);
       //      RefundService refundService = new DefaultRefundService(refundDao);
       //      ReportService reportService = new DefaultReportService(reportDao);

@@ -11,20 +11,13 @@
     <result column="account"    property="account"/>
     <result column="tdt"    property="transferedDate"/>
     
-    
-    
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
   </resultMap>
 
   <select id="findAll" resultMap="KakaoPayMap" parameterType="string">
     select 
       odno,
       name,
-      acount,
+      account,
       tdt
       from oi_kakaopay
   </select>
