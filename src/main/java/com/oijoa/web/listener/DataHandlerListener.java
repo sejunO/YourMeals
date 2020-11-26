@@ -14,8 +14,6 @@ import com.oijoa.dao.CategoryDao;
 import com.oijoa.dao.CommentDao;
 import com.oijoa.dao.DeliveryCompanyDao;
 import com.oijoa.dao.FollowDao;
-import com.oijoa.dao.KakaoPayDao;
-import com.oijoa.dao.LevelDao;
 import com.oijoa.dao.OrderDao;
 import com.oijoa.dao.OrderListDao;
 import com.oijoa.dao.PaymentDao;
@@ -30,8 +28,6 @@ import com.oijoa.dao.mariadb.CategoryDaoImpl;
 import com.oijoa.dao.mariadb.CommentDaoImpl;
 import com.oijoa.dao.mariadb.DeliveryCompanyDaoImpl;
 import com.oijoa.dao.mariadb.FollowDaoImpl;
-import com.oijoa.dao.mariadb.KakaoPayDaoImpl;
-import com.oijoa.dao.mariadb.LevelDaoImpl;
 import com.oijoa.dao.mariadb.OrderDaoImpl;
 import com.oijoa.dao.mariadb.OrderListDaoImpl;
 import com.oijoa.dao.mariadb.PaymentDaoImpl;
@@ -52,8 +48,6 @@ import com.oijoa.service.DefaultCategoryService;
 import com.oijoa.service.DefaultCommentService;
 import com.oijoa.service.DefaultDeliveryCompanyService;
 import com.oijoa.service.DefaultFollowService;
-import com.oijoa.service.DefaultKakaoPayService;
-import com.oijoa.service.DefaultLevelService;
 import com.oijoa.service.DefaultOrderListService;
 import com.oijoa.service.DefaultOrderService;
 import com.oijoa.service.DefaultPaymentService;
@@ -62,8 +56,6 @@ import com.oijoa.service.DefaultQnaService;
 import com.oijoa.service.DefaultRecipeService;
 import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.FollowService;
-import com.oijoa.service.KakaoPayService;
-import com.oijoa.service.LevelService;
 import com.oijoa.service.OrderListService;
 import com.oijoa.service.OrderService;
 import com.oijoa.service.PaymentService;
@@ -93,8 +85,8 @@ public class DataHandlerListener implements ServletContextListener {
       CommentDao commentDao = new CommentDaoImpl(sqlSessionFactory);
       DeliveryCompanyDao deliveryCompanyDao = new DeliveryCompanyDaoImpl(sqlSessionFactory);
       FollowDao followDao = new FollowDaoImpl(sqlSessionFactory);
-      KakaoPayDao kakaopayDao = new KakaoPayDaoImpl(sqlSessionFactory);
-      LevelDao levelDao = new LevelDaoImpl(sqlSessionFactory);
+      //      KakaopayDao kakopayDao = new KakaopayDaoImpl(sqlSessionFactory);
+      //      LevelDao levelDao = new LevelDaoImpl(sqlSessionFactory);
       //      MaterialDao materialDao = new MaterialDaoImpl(sqlSessionFactory);
       //      MemberDao memberDao = new MemberDaoImpl(sqlSessionFactory);
       //      NoticeDao noticeDao = new NoticeDaoImpl(sqlSessionFactory);
@@ -121,8 +113,9 @@ public class DataHandlerListener implements ServletContextListener {
       CommentService commentService = new DefaultCommentService(commentDao);
       DeliveryCompanyService deliveryCompanyService = new DefaultDeliveryCompanyService(deliveryCompanyDao);
       FollowService followService = new DefaultFollowService(followDao);
-      KakaoPayService kakaoPayService = new DefaultKakaoPayService(kakaopayDao);
-      LevelService levelService = new DefaultLevelService(levelDao);
+
+      //      KakaoPayService kakaoPayService = new DefaultKakaoPayService(kakaoPayDao);
+      //      LevelService levelService = new DefaultLevelService(levelDao);
       //      MaterialService materialService = new DefaultMaterialService(materialDao);
       //      MemberService memberService = new DefaultMemberService(memberDao);
       //      NoticeService noticeService = new DefaultNoticeService(noticeDao);
@@ -134,6 +127,7 @@ public class DataHandlerListener implements ServletContextListener {
       RecipeService recipeService = new DefaultRecipeService(recipeDao);
       QnaService qnaService = new DefaultQnaService(qnaDao);
       PaymentService paymentService = new DefaultPaymentService(paymentDao);
+
       //      RecipeStepService RecipeStepService = new DefaultRecipeStepService(RecipeStepDao);
       //      RefundService refundService = new DefaultRefundService(refundDao);
       //      ReportService reportService = new DefaultReportService(reportDao);
@@ -150,8 +144,9 @@ public class DataHandlerListener implements ServletContextListener {
       ctx.setAttribute("commentService", commentService);
       ctx.setAttribute("deliveryCompanyService", deliveryCompanyService);
       ctx.setAttribute("followService", followService);
-      ctx.setAttribute("kakaoPayService", kakaoPayService);
-      ctx.setAttribute("levelService", levelService);
+
+      //      ctx.setAttribute("kakopayService", kakopayService);
+      //      ctx.setAttribute("levelService", levelService);
       //      ctx.setAttribute("materialService", materialService);
       //      ctx.setAttribute("memberService", memberService);
       //      ctx.setAttribute("noticeService", noticeService);
