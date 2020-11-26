@@ -42,11 +42,11 @@ public class KakaoPayServlet extends HttpServlet {
         out.printf("<td>주문번호: ");
         out.printf("%d</td>", kakaoPay.getOrderNo());
         out.printf("<td>주문이름: ");
-        out.printf("%d</td>", kakaoPay.getName());
+        out.printf("%s</td>", kakaoPay.getName());
         out.printf("<td>총금액: ");
-        out.printf("%d</td>", kakaoPay.getAccount());
+        out.printf("%s</td>", kakaoPay.getAccount());
         out.printf("<td>송금일: ");
-        out.printf("%d</td>", kakaoPay.getTransferedDate());
+        out.printf("%s</td>", kakaoPay.getTransferedDate());
 
 
         out.println("</tr></table>");

@@ -150,7 +150,7 @@ public class DataHandlerListener implements ServletContextListener {
       ctx.setAttribute("commentService", commentService);
       ctx.setAttribute("deliveryCompanyService", deliveryCompanyService);
       ctx.setAttribute("followService", followService);
-      ctx.setAttribute("kakopayService", kakaoPayService);
+      ctx.setAttribute("kakaoPayService", kakaoPayService);
       ctx.setAttribute("levelService", levelService);
       //      ctx.setAttribute("materialService", materialService);
       //      ctx.setAttribute("memberService", memberService);
