@@ -45,8 +45,8 @@
     <mapper resource="com/oijoa/mapper/DeliveryCompanyMapper.xml"/>
     <mapper resource="com/oijoa/mapper/FollowMapper.xml"/>
     <mapper resource="com/oijoa/mapper/KakaoPayMapper.xml"/>
-    <!--         
     <mapper resource="com/oijoa/mapper/LevelMapper.xml"/>
+    <!--          
     <mapper resource="com/oijoa/mapper/MaterialMapper.xml"/>
     <mapper resource="com/oijoa/mapper/MemberMapper.xml"/>
     <mapper resource="com/oijoa/mapper/NoticeMapper.xml"/>

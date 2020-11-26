@@ -42,7 +42,7 @@ public class DeliveryCompanyServlet extends HttpServlet {
         out.printf("<td>배송번호: ");
         out.printf("%d</td>", deliveryCompany.getDeliveryNo());
         out.printf("<td>배송사이름 : ");
-        out.printf("%d</td>", deliveryCompany.getDeliveryName());
+        out.printf("%s</td>", deliveryCompany.getDeliveryName());
 
         out.println("</tr></table>");
         out.println();
