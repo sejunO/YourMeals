@@ -32,41 +32,33 @@ public class UserServlet extends HttpServlet {
 
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>Recipe Test</title></head>");
+      out.println("<head><title>User Test</title></head>");
       out.println("<body><h1>안녕하세요</h1>");
 
       out.println("[게시물 목록]");
+      
       List<User> list = userService.list();
 
-      out.println("<table border='1'><tr>"
-          + "<th>번호</th>"
-          + "<th>회원유형</th>"
-          + "<th>포인트</th>"
-          + "<th>이름</th>"
-          + "<th>닉네임</th>"
-          + "<th>이메일</th>"
-          + "<th>암호</th>"
-          + "<th>우편번호</th>"
-          + "<th>기본주소</th>"
-          + "<th>상세주소</th>"
-          + "<th>사진</th></tr>");
-
       for (User user : list) {
+    	out.println("<table border='1'>");
         out.println("<tr>");
-        out.printf("<td>%d</td>", user.getUserNo());
-        out.printf("<td>%d</td>", user.getUserTypeNo());
-        out.printf("<td>%d</td>", user.getPoint());
-        out.printf("<td>%s</td>", user.getName());
-        out.printf("<td>%s</td>", user.getNick());
-        out.printf("<td>%s</td>", user.getEmail());
-        out.printf("<td>%s</td>", user.getPassword());
-        out.printf("<td>%s</td>", user.getPostNo());
-        out.printf("<td>%s</td>", user.getAddress());
-        out.printf("<td>%s</td>", user.getDetailAddress());
-        out.printf("<td>%s</td>", user.getPhoto());
+        out.printf("<td>회원번호: %d</td>", user.getUserNo());
+        out.printf("<td>회원유형: %d</td>", user.getUserTypeNo());
+        out.printf("<td>포인트: %d</td>", user.getPoint());
+        out.printf("<td>이름: %s</td>", user.getName());
+        out.printf("<td>닉네임: %s</td>", user.getNick());
+        out.printf("<td>이메일: %s</td>", user.getEmail());
+        out.printf("<td>암호: %s</td>", user.getPassword());
+        out.printf("<td>우편번호: %s</td>", user.getPostNo());
+        out.printf("<td>기본주소: %s</td>", user.getAddress());
+        out.printf("<td>상세주소: %s</td>", user.getDetailAddress());
+        out.printf("<td>사진: %s</td>", user.getPhoto());
         out.println("</tr>");
       }
-      out.println("</table></body></html>");
+      out.println("</table>"
+    		  	+ "</body>"
+      			+ "</html>");
+      	
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
       e.printStackTrace();

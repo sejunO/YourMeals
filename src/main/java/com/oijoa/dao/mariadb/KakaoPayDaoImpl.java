@@ -1,25 +1,23 @@
 package com.oijoa.dao.mariadb;
 
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import com.oijoa.dao.KakaoPayDao;
+import com.oijoa.domain.KakaoPay;
 
-import com.oijoa.dao.UserDao;
-import com.oijoa.domain.User;
-
-public class UserDaoImpl implements UserDao{
+public class KakaoPayDaoImpl implements KakaoPayDao{
 
   SqlSessionFactory sqlSessionFactory;
 
-  public UserDaoImpl(SqlSessionFactory sqlSessionFactory) {
+  public KakaoPayDaoImpl(SqlSessionFactory sqlSessionFactory) {
     this.sqlSessionFactory = sqlSessionFactory;
   }
 
   @Override
-  public List<User> findAll(String keyword) throws Exception {
+  public List<KakaoPay> findAll(String keyword) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectList("UserDao.findAll", keyword);
+      return sqlSession.selectList("KakaoPayDao.findAll", keyword);
     }
   }
 }

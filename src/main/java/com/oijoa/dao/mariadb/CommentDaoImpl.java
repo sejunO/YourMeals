@@ -17,7 +17,7 @@ public class CommentDaoImpl implements CommentDao{
   @Override
   public List<Comment> findAll(String keyword) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectList("CommnetDao.findAll", keyword);
+      return sqlSession.selectList("CommentDao.findAll", keyword);
     }
   }
 }

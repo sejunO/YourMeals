@@ -7,7 +7,7 @@ public class Comment {
   private int userNo;
   private int recipeNo;
   private String content;
-  private Date creadtedDate;
+  private Date createdDate;
   private Date modifiedDate;
   
   public int getCommentNo() {
@@ -34,11 +34,11 @@ public class Comment {
   public void setContent(String content) {
     this.content = content;
   }
-  public Date getCreadtedDate() {
-    return creadtedDate;
+  public Date getCreatedDate() {
+    return createdDate;
   }
-  public void setCreadtedDate(Date creadtedDate) {
-    this.creadtedDate = creadtedDate;
+  public void setCreatedDate(Date createdDate) {
+    this.createdDate = createdDate;
   }
   public Date getModifiedDate() {
     return modifiedDate;

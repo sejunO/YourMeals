@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.oijoa.domain.Product;
-import com.oijoa.service.ProductService;
+import com.oijoa.domain.KakaoPay;
+import com.oijoa.service.KakaoPayService;
 
-@WebServlet("/product")
-public class ProductServlet extends HttpServlet {
+@WebServlet("/kakaoPay")
+public class KakaoPayServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -25,29 +25,36 @@ public class ProductServlet extends HttpServlet {
     PrintWriter out = res.getWriter();
 
     ServletContext ctx = request.getServletContext();
-    ProductService productService = (ProductService) ctx.getAttribute("productService");
+    KakaoPayService kakaoPayService = (KakaoPayService) ctx.getAttribute("kakaoPayService");
 
     try {
 
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>servlet03</title></head>");
+      out.println("<head><title>kakaoPayService</title></head>");
       out.println("<body><h1>안녕하세요</h1>");
 
-      out.println("[게시물 목록]");
+      out.println("[주문정보]");
+      List<KakaoPay> list = kakaoPayService.list();
 
-      List<Product> list = productService.list(null);
-
-      for (Product product : list) {
+      for (KakaoPay kakaoPay : list) {
         out.println("<table><tr>");
-        out.printf("<td>번호 : ");
-        out.printf("%s</td>", product.getProductNo());
+        out.printf("<td>주문번호: ");
+        out.printf("%d</td>", kakaoPay.getOrderNo());
+        out.printf("<td>주문이름: ");
+        out.printf("%s</td>", kakaoPay.getName());
+        out.printf("<td>총금액: ");
+        out.printf("%s</td>", kakaoPay.getAccount());
+        out.printf("<td>송금일: ");
+        out.printf("%s</td>", kakaoPay.getTransferedDate());
+
 
         out.println("</tr></table>");
         out.println();
       }
       out.println("</body>");
       out.println("</html>");
+
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
       e.printStackTrace();

@@ -50,6 +50,7 @@ public class FollowServlet extends HttpServlet {
       }
       out.println("</body>");
       out.println("</html>");
+
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
       e.printStackTrace();

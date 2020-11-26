@@ -46,11 +46,11 @@ public class CommentServlet extends HttpServlet {
         out.printf("<td>레시피 번호 : ");
         out.printf("%d</td>", comment.getRecipeNo());
         out.printf("<td>댓글내용 : ");
-        out.printf("%d</td>", comment.getContent());
+        out.printf("%s</td>", comment.getContent());
         out.printf("<td>등록일 : ");
-        out.printf("%d</td>", comment.getCreadtedDate());
+        out.printf("%s</td>", comment.getCreatedDate());
         out.printf("<td>수정일 : ");
-        out.printf("%d</td>", comment.getModifiedDate());
+        out.printf("%s</td>", comment.getModifiedDate());
 
         out.println("</tr></table>");
         out.println();
