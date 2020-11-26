@@ -15,6 +15,7 @@ import com.oijoa.dao.CommentDao;
 import com.oijoa.dao.DeliveryCompanyDao;
 import com.oijoa.dao.FollowDao;
 import com.oijoa.dao.NoticeDao;
+import com.oijoa.dao.NoticeTypeDao;
 import com.oijoa.dao.OrderDao;
 import com.oijoa.dao.OrderListDao;
 import com.oijoa.dao.PaymentDao;
@@ -31,6 +32,7 @@ import com.oijoa.dao.mariadb.CommentDaoImpl;
 import com.oijoa.dao.mariadb.DeliveryCompanyDaoImpl;
 import com.oijoa.dao.mariadb.FollowDaoImpl;
 import com.oijoa.dao.mariadb.NoticeDaoImpl;
+import com.oijoa.dao.mariadb.NoticeTypeDaoImpl;
 import com.oijoa.dao.mariadb.OrderDaoImpl;
 import com.oijoa.dao.mariadb.OrderListDaoImpl;
 import com.oijoa.dao.mariadb.PaymentDaoImpl;
@@ -53,6 +55,7 @@ import com.oijoa.service.DefaultCommentService;
 import com.oijoa.service.DefaultDeliveryCompanyService;
 import com.oijoa.service.DefaultFollowService;
 import com.oijoa.service.DefaultNoticeService;
+import com.oijoa.service.DefaultNoticeTypeService;
 import com.oijoa.service.DefaultOrderListService;
 import com.oijoa.service.DefaultOrderService;
 import com.oijoa.service.DefaultPaymentService;
@@ -63,6 +66,7 @@ import com.oijoa.service.DefaultUserService;
 import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.FollowService;
 import com.oijoa.service.NoticeService;
+import com.oijoa.service.NoticeTypeService;
 import com.oijoa.service.OrderListService;
 import com.oijoa.service.OrderService;
 import com.oijoa.service.PaymentService;
@@ -80,9 +84,9 @@ public class DataHandlerListener implements ServletContextListener {
     // 시스템에서 사용할 객체를 준비한다.
     try {
       // Mybatis 객체 준비
-      SqlSessionFactoryProxy sqlSessionFactory = new SqlSessionFactoryProxy(
-          new SqlSessionFactoryBuilder().build(
-              Resources.getResourceAsStream("com/oijoa/conf/mybatis-config.xml")));
+      SqlSessionFactoryProxy sqlSessionFactory =
+          new SqlSessionFactoryProxy(new SqlSessionFactoryBuilder()
+              .build(Resources.getResourceAsStream("com/oijoa/conf/mybatis-config.xml")));
 
       // DAO 구현체 생성
       BoardDao boardDao = new BoardDaoImpl(sqlSessionFactory);
@@ -93,41 +97,43 @@ public class DataHandlerListener implements ServletContextListener {
       CommentDao commentDao = new CommentDaoImpl(sqlSessionFactory);
       DeliveryCompanyDao deliveryCompanyDao = new DeliveryCompanyDaoImpl(sqlSessionFactory);
       FollowDao followDao = new FollowDaoImpl(sqlSessionFactory);
-      //      KakaopayDao kakopayDao = new KakaopayDaoImpl(sqlSessionFactory);
-      //      LevelDao levelDao = new LevelDaoImpl(sqlSessionFactory);
-      //      MaterialDao materialDao = new MaterialDaoImpl(sqlSessionFactory);
-      //      MemberDao memberDao = new MemberDaoImpl(sqlSessionFactory);
+      // KakaopayDao kakopayDao = new KakaopayDaoImpl(sqlSessionFactory);
+      // LevelDao levelDao = new LevelDaoImpl(sqlSessionFactory);
+      // MaterialDao materialDao = new MaterialDaoImpl(sqlSessionFactory);
+      // MemberDao memberDao = new MemberDaoImpl(sqlSessionFactory);
       NoticeDao noticeDao = new NoticeDaoImpl(sqlSessionFactory);
-      //      NoticeTypeDao noticeTypeDao = new NoticeTypeDaoImpl(sqlSessionFactory);
+      NoticeTypeDao noticeTypeDao = new NoticeTypeDaoImpl(sqlSessionFactory);
       OrderDao orderDao = new OrderDaoImpl(sqlSessionFactory);
       OrderListDao orderListDao = new OrderListDaoImpl(sqlSessionFactory);
       ProductDao productDao = new ProductDaoImpl(sqlSessionFactory);
       RecipeDao recipeDao = new RecipeDaoImpl(sqlSessionFactory);
       QnADao qnaDao = new QnADaoImpl(sqlSessionFactory);
       PaymentDao paymentDao = new PaymentDaoImpl(sqlSessionFactory);
-      //      RecipeStepDao recipeStepDao = new RecipeStepDaoImpl(sqlSessionFactory);
-      //      RefundDao refundDao = new RefundDaoImpl(sqlSessionFactory);
-      //      ReportDao reportDao = new ReportDaoImpl(sqlSessionFactory);
-      //      ReportTypeDao reportTypeDao = new ReportTypeDaoImpl(sqlSessionFactory);
+      // RecipeStepDao recipeStepDao = new RecipeStepDaoImpl(sqlSessionFactory);
+      // RefundDao refundDao = new RefundDaoImpl(sqlSessionFactory);
+      // ReportDao reportDao = new ReportDaoImpl(sqlSessionFactory);
+      // ReportTypeDao reportTypeDao = new ReportTypeDaoImpl(sqlSessionFactory);
       UserDao userDao = new UserDaoImpl(sqlSessionFactory);
 
 
       // Service 구현체 생성
       BoardService boardService = new DefaultBoardService(boardDao);
-      AccountTransferService accountTransferService = new DefaultAccountTransferService(accountTransferDao);
+      AccountTransferService accountTransferService =
+          new DefaultAccountTransferService(accountTransferDao);
       BasketService basketService = new DefaultBasketService(basketDao);
       BoardLikeService boardLikeService = new DefaultBoardLikeService(boardLikeDao);
       CategoryService categoryService = new DefaultCategoryService(categoryDao);
       CommentService commentService = new DefaultCommentService(commentDao);
-      DeliveryCompanyService deliveryCompanyService = new DefaultDeliveryCompanyService(deliveryCompanyDao);
+      DeliveryCompanyService deliveryCompanyService =
+          new DefaultDeliveryCompanyService(deliveryCompanyDao);
       FollowService followService = new DefaultFollowService(followDao);
 
-      //      KakaoPayService kakaoPayService = new DefaultKakaoPayService(kakaoPayDao);
-      //      LevelService levelService = new DefaultLevelService(levelDao);
-      //      MaterialService materialService = new DefaultMaterialService(materialDao);
-      //      MemberService memberService = new DefaultMemberService(memberDao);
+      // KakaoPayService kakaoPayService = new DefaultKakaoPayService(kakaoPayDao);
+      // LevelService levelService = new DefaultLevelService(levelDao);
+      // MaterialService materialService = new DefaultMaterialService(materialDao);
+      // MemberService memberService = new DefaultMemberService(memberDao);
       NoticeService noticeService = new DefaultNoticeService(noticeDao);
-      //      NoticeTypeService noticeTypeService = new DefaultNoticeTypeService(noticeTypeDao);
+      NoticeTypeService noticeTypeService = new DefaultNoticeTypeService(noticeTypeDao);
 
       OrderService orderService = new DefaultOrderService(orderDao);
       OrderListService orderListService = new DefaultOrderListService(orderListDao);
@@ -136,10 +142,10 @@ public class DataHandlerListener implements ServletContextListener {
       QnaService qnaService = new DefaultQnaService(qnaDao);
       PaymentService paymentService = new DefaultPaymentService(paymentDao);
 
-      //      RecipeStepService RecipeStepService = new DefaultRecipeStepService(RecipeStepDao);
-      //      RefundService refundService = new DefaultRefundService(refundDao);
-      //      ReportService reportService = new DefaultReportService(reportDao);
-      //      ReportTypeService reportTypeService = new DefaultReportTypeService(reportTypeDao);
+      // RecipeStepService RecipeStepService = new DefaultRecipeStepService(RecipeStepDao);
+      // RefundService refundService = new DefaultRefundService(refundDao);
+      // ReportService reportService = new DefaultReportService(reportDao);
+      // ReportTypeService reportTypeService = new DefaultReportTypeService(reportTypeDao);
       UserService userService = new DefaultUserService(userDao);
 
       // 다른 객체가 사용할 수 있도록 context 맵 보관소에 저장해둔다.
@@ -153,12 +159,12 @@ public class DataHandlerListener implements ServletContextListener {
       ctx.setAttribute("deliveryCompanyService", deliveryCompanyService);
       ctx.setAttribute("followService", followService);
 
-      //      ctx.setAttribute("kakopayService", kakopayService);
-      //      ctx.setAttribute("levelService", levelService);
-      //      ctx.setAttribute("materialService", materialService);
-      //      ctx.setAttribute("memberService", memberService);
+      // ctx.setAttribute("kakopayService", kakopayService);
+      // ctx.setAttribute("levelService", levelService);
+      // ctx.setAttribute("materialService", materialService);
+      // ctx.setAttribute("memberService", memberService);
       ctx.setAttribute("noticeService", noticeService);
-      //      ctx.setAttribute("noticeTypeService", noticeTypeService);
+      ctx.setAttribute("noticeTypeService", noticeTypeService);
 
       ctx.setAttribute("orderService", orderService);
       ctx.setAttribute("productService", productService);
@@ -167,10 +173,10 @@ public class DataHandlerListener implements ServletContextListener {
       ctx.setAttribute("qnaService", qnaService);
       ctx.setAttribute("paymentService", paymentService);
 
-      //      ctx.setAttribute("recipeStepService", recipeStepService);
-      //      ctx.setAttribute("refundService", refundService);
-      //      ctx.setAttribute("reportService", reportService);
-      //      ctx.setAttribute("reportTypeService", reportTypeService);
+      // ctx.setAttribute("recipeStepService", recipeStepService);
+      // ctx.setAttribute("refundService", refundService);
+      // ctx.setAttribute("reportService", reportService);
+      // ctx.setAttribute("reportTypeService", reportTypeService);
       ctx.setAttribute("userService", userService);
 
 

@@ -47,10 +47,10 @@
     <mapper resource="com/oijoa/mapper/KakaoPayMapper.xml"/>
     <mapper resource="com/oijoa/mapper/LevelMapper.xml"/>
     <mapper resource="com/oijoa/mapper/NoticeMapper.xml"/>
+    <mapper resource="com/oijoa/mapper/NoticeTypeMapper.xml"/>
     <!--          
     <mapper resource="com/oijoa/mapper/MaterialMapper.xml"/>
     <mapper resource="com/oijoa/mapper/MemberMapper.xml"/>
-    <mapper resource="com/oijoa/mapper/NoticeTypeMapper.xml"/>
      -->
     
     <mapper resource="com/oijoa/mapper/OrderMapper.xml"/>
