@@ -51,6 +51,13 @@
       on rc.cno = c.cno
   </select>
   
+  <insert id="insert" parameterType="recipe">
+    insert into oi_recipe(title,content,uno)
+    values(#{title},#{content},#{writer.no})
+  </insert>
+  
+
+  
 </mapper>
 
 

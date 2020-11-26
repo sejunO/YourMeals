@@ -20,6 +20,14 @@ public class RecipeDaoImpl implements RecipeDao{
       return sqlSession.selectList("RecipeDao.findAll", keyword);
     }
   }
+
+  @Override
+  public int add(Recipe recipe) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.insert("RecipeDao.insert", recipe);
+    }
+  }
+
 }
 
 
