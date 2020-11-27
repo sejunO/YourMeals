@@ -43,7 +43,8 @@ public class NoticeAddServlet extends HttpServlet {
 
       Notice notice = new Notice();
 
-      notice.setNoticeNo(1);
+
+      notice.setNoticeTypeNo(Integer.parseInt(request.getParameter("type")));
       notice.setTitle(request.getParameter("title"));
       notice.setContent(request.getParameter("content"));
       noticeService.add(notice);

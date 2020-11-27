@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Notice;
 import com.oijoa.service.NoticeService;
 
-@WebServlet("/notice")
+@WebServlet("/notice/list")
 public class NoticeServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
@@ -36,7 +36,7 @@ public class NoticeServlet extends HttpServlet {
 
       out.println("[공지사항 목록]<br>");
 
-      out.println("<a href='notice/noticeAdd.html'>새글</a><br>");
+      out.println("<a href='noticeAdd.html'>새글</a><br>");
 
       List<Notice> list = noticeService.list();
 

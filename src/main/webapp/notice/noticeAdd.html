@@ -7,9 +7,10 @@
 <body>
 	<h1>공지사항 등록</h1>
 	<form action="add" method="post">
-		공지사항종류 : <select id="select1" onchange="alert_select_value(this);">
-			<option value="important">필독</option>
-			<option value="notice">공지</option>
+		공지사항종류 : 
+		<select id="select1" onchange="alert_select_value(this)" name="type">
+			<option  value="1">필독</option>
+			<option  value="2">공지</option>
 		</select> 
 		제목 : <input type="text" name="title"><br> 
 		내용 : <textarea name="content" cols="60" rows="10">
