@@ -18,26 +18,23 @@
     <result column="lno"  property="levelNo"/>
     
     <association property="writer" javaType="user">
-      <id column="writer_no"    property="userNo"/>
-      <result column="writer_nick"     property="nick"/>
+      <id column="writer_no"        property="userNo"/>
+      <result column="writer_nick"  property="nick"/>
     </association>
-    
+        
     <association property="category" javaType="category">
+      <id column="category_no"  property="categoryNo"/>
       <result column="category_name"     property="categoryName"/>
     </association>
-    
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
   </resultMap>
 
   <select id="findAll" resultMap="RecipeMap" parameterType="string">
     select 
       r.rno,
       r.title, 
-      u.nick writer_nick, 
+      u.uno writer_no,
+      u.nick writer_nick,
+      c.cno category_no, 
       c.name category_name,
       r.cdt, 
       r.hits 
@@ -54,6 +51,11 @@
   <insert id="insert" parameterType="recipe">
     insert into oi_recipe(title,content,uno,min,lno)
     values(#{title},#{content},#{writer.userNo},#{min},#{levelNo})
+  </insert>
+  
+  <insert id="insertCategory" parameterType="map">
+    insert into oi_recipe_category(rno, cno) 
+    values (#{recipeNo},#{categoryNo})
   </insert>
   
 

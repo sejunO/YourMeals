@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.oijoa.domain.Category;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
+import com.oijoa.service.CategoryService;
 import com.oijoa.service.RecipeService;
 
 @WebServlet("/recipe/add")
@@ -26,14 +28,14 @@ public class RecipeAddServlet extends HttpServlet {
 
     ServletContext ctx = request.getServletContext();
     RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
-
+    CategoryService categoryService = (CategoryService) ctx.getAttribute("categoryService");
+    System.out.println(request.getParameter("category"));
     try {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head><title>Recipe Test</title></head>");
-      out.println("<body><h1>안녕하세요</h1>");
 
-      out.println("[게시물 목록]");
+      out.println("[게시물 추가]");
 
       Recipe recipe = new Recipe();
       recipe.setTitle(request.getParameter("title"));
@@ -44,8 +46,11 @@ public class RecipeAddServlet extends HttpServlet {
       recipe.setLevelNo(Integer.parseInt(request.getParameter("level")));
       recipe.setMin(Integer.parseInt(request.getParameter("min")));
       recipeService.add(recipe);
-      recipe.setCategory(Integer.parseInt(request.getParameter("category")));
 
+      Category category = categoryService.findByNo(Integer.parseInt(request.getParameter("category")));
+      recipe.setCategory(category);
+
+      recipeService.add(recipe);
 
       out.println("</table></body></html>");
 

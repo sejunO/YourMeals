@@ -23,6 +23,17 @@
       from oi_category
   </select>
   
+  <select id="findByNo" resultMap="CategoryMap" parameterType="int">
+    select 
+      cno,
+      name
+    from 
+      oi_category
+    where
+      cno=#{cno}
+  </select>
+  
+  
 </mapper>
 
 

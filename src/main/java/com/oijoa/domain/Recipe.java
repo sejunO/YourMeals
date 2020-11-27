@@ -79,7 +79,6 @@ public class Recipe {
   public int getLevelNo() {
     return levelNo;
   }
-
   public void setLevelNo(int levelNo) {
     this.levelNo = levelNo;
   }

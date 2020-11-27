@@ -27,6 +27,11 @@ public class DefaultCategoryService implements CategoryService {
     return categoryDao.findAll(null);
   }
 
+  @Override
+  public Category findByNo(int no) throws Exception {
+    return categoryDao.findByNo(no);
+  }
+
   //  @Override
   //  public List<Order> list(String keyword) throws Exception {
   //    return orderDao.findAll(keyword);
