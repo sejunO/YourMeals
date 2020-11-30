@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.User;
 import com.oijoa.service.UserService;
 
-@WebServlet("/user/change")
-public class UserChangeServlet extends HttpServlet {
+@WebServlet("/user/update")
+public class UserUpdateServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -41,7 +41,7 @@ public class UserChangeServlet extends HttpServlet {
 
       out.println("<table border='1'>");
       out.println("<thead><tr>"
-          + "<th>이름</th>"
+          + "<tr>이름</th>"
           + "<th>닉네임</th>"
           + "<th>이메일</th>"
           + "<th>비밀번호</th>"

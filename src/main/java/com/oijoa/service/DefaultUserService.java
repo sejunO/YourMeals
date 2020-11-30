@@ -13,38 +13,19 @@ public class DefaultUserService implements UserService {
     this.userDao = userDao;
   }
 
-  //  @Override
-  //  public int delete(int no) throws Exception {
-  //    return boardDao.delete(no);
-  //  }
-  //
-  //  @Override
-  //  public int add(Board board) throws Exception {
-  //    return boardDao.insert(board);
-  //  }
-  //
+   @Override
+   public int delete(int no) throws Exception {
+     return userDao.delete(no);
+   }
+  
   @Override
   public List<User> list() throws Exception {
-    return userDao.findAll(null);
+    return userDao.findAll();
   }
 
-  //  @Override
-  //  public List<Order> list(String keyword) throws Exception {
-  //    return orderDao.findAll(keyword);
-  //  }
-  //
-  //  @Override
-  //  public Board get(int no) throws Exception {
-  //    Board board = boardDao.findByNo(no);
-  //    if (board != null) {
-  //      boardDao.updateViewCount(no);
-  //    }
-  //    return board;
-  //  }
-  //
-  //  @Override
-  //  public int update(Board board) throws Exception {
-  //    return boardDao.update(board);
-  //  }
+    @Override
+    public int update(User user) throws Exception {
+      return userDao.update(user);
+    }
 
 }
