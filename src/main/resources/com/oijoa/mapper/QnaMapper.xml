@@ -49,6 +49,18 @@
     insert into oi_qna(uno,title,content,secret) 
     values(1, #{title}, #{content}, 0)
   </insert>
+  
+  <update id="update" parameterType="qna">
+    update oi_qna set 
+      title = #{title}, 
+      content = #{content} 
+    where qnano = #{QnaNo}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from oi_qna 
+    where qnano=#{QnaNo}
+  </delete>
 </mapper>
 
 

@@ -12,11 +12,11 @@ public class DefaultQnaService implements QnaService {
     this.qnaDao = qnaDao;
   }
 
-  //  @Override
-  //  public int delete(int no) throws Exception {
-  //    return boardDao.delete(no);
-  //  }
-  //
+  @Override
+  public int delete(int no) throws Exception {
+    return qnaDao.delete(no);
+  }
+
   @Override
   public int add(Qna qna) throws Exception {
     return qnaDao.insert(qna);
@@ -41,9 +41,8 @@ public class DefaultQnaService implements QnaService {
     return qnaDao.findByNo(no);
   }
   //
-  //  @Override
-  //  public int update(Board board) throws Exception {
-  //    return boardDao.update(board);
-  //  }
-
+  @Override
+  public int update(Qna qna) throws Exception {
+    return qnaDao.update(qna);
+  }
 }

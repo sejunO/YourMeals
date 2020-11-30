@@ -34,6 +34,20 @@ public class QnADaoImpl implements QnADao{
       return sqlSession.insert("QnADao.insert", qna);
     }
   }
+
+  @Override
+  public int update(Qna qna) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.update("QnADao.update", qna);
+    }
+  }
+
+  @Override
+  public int delete(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.delete("QnADao.delete", no);
+    }
+  }
 }
 
 
