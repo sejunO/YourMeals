@@ -329,7 +329,7 @@ ALTER TABLE oi_notice_type
 CREATE TABLE oi_qna (
   qnano   INTEGER      NOT NULL COMMENT 'QNA번호', -- QNA번호
   uno     INTEGER      NOT NULL COMMENT '사용자번호', -- 사용자번호
-	title   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
+  title   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
   content MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
   cdt     DATETIME     NOT NULL DEFAULT  now() COMMENT '작성일', -- 작성일
   secret  INTEGER      NOT NULL COMMENT '비밀글여부', -- 비밀글여부
