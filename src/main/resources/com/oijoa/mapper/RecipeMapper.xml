@@ -53,9 +53,9 @@
     values(#{title},#{content},#{writer.userNo},#{min},#{levelNo})
   </insert>
   
-  <insert id="insertCategory" parameterType="map">
-    insert into oi_recipe_category(rno, cno) 
-    values (#{recipeNo},#{categoryNo})
+  <insert id="insertCategory" parameterType="recipe">
+    insert into oi_recipe_category(rno,cno) 
+    values (#{recipeNo},#{category.categoryNo})
   </insert>
   
 

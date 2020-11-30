@@ -29,7 +29,14 @@ public class RecipeAddServlet extends HttpServlet {
     ServletContext ctx = request.getServletContext();
     RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
     CategoryService categoryService = (CategoryService) ctx.getAttribute("categoryService");
-    System.out.println(request.getParameter("category"));
+    Category category = null;
+    try {
+      category = categoryService.get(Integer.parseInt(request.getParameter("category")));
+      System.out.println(category.getCategoryNo());
+      System.out.println(category.getCategoryName());
+    } catch (Exception e) {
+      System.out.println("카테고리 값 받아올 때 오류");
+    }
     try {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
@@ -45,9 +52,8 @@ public class RecipeAddServlet extends HttpServlet {
       recipe.setWriter(user);
       recipe.setLevelNo(Integer.parseInt(request.getParameter("level")));
       recipe.setMin(Integer.parseInt(request.getParameter("min")));
-      recipeService.add(recipe);
 
-      Category category = categoryService.findByNo(Integer.parseInt(request.getParameter("category")));
+      //      Category category = categoryService.get(Integer.parseInt(request.getParameter("category")));
       recipe.setCategory(category);
 
       recipeService.add(recipe);

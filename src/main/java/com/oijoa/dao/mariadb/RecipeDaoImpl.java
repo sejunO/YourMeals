@@ -1,7 +1,6 @@
 package com.oijoa.dao.mariadb;
 
 import java.util.List;
-import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.RecipeDao;
@@ -30,9 +29,9 @@ public class RecipeDaoImpl implements RecipeDao{
   }
 
   @Override
-  public int insertCategory(Map<String,Object> map) throws Exception {
+  public int insertCategory(Recipe recipe) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.insert("RecipeDao.insertCategory", map);
+      return sqlSession.insert("RecipeDao.insertCategory", recipe);
     }
   }
 }

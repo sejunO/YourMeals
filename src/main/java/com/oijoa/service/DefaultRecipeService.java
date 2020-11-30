@@ -1,8 +1,6 @@
 package com.oijoa.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import com.oijoa.dao.RecipeDao;
 import com.oijoa.domain.Recipe;
 
@@ -30,12 +28,9 @@ public class DefaultRecipeService implements RecipeService {
   }
   @Override
   public int add(Recipe recipe) throws Exception {
-    Map<String,Object> map = new HashMap<>();
-    map.put("recipeNo", recipe.getRecipeNo());
-    map.put("categoryNo", recipe.getCategory().getCategoryNo());
-
-    recipeDao.insertCategory(map);
-    return recipeDao.insert(recipe);
+    recipeDao.insertCategory(recipe);
+    recipeDao.insert(recipe);
+    return 1;
   }
   //  @Override
   //  public List<Order> list(String keyword) throws Exception {

@@ -6,6 +6,6 @@ import com.oijoa.domain.Category;
 public interface CategoryService {
 
   List<Category> list() throws Exception;
-  Category findByNo(int no) throws Exception;
+  Category get(int no) throws Exception;
 
 }

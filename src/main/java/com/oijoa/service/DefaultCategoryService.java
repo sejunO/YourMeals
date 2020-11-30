@@ -28,7 +28,7 @@ public class DefaultCategoryService implements CategoryService {
   }
 
   @Override
-  public Category findByNo(int no) throws Exception {
+  public Category get(int no) throws Exception {
     return categoryDao.findByNo(no);
   }
 
