@@ -9,8 +9,10 @@
     <id column="qnano"           property="QnaNo"/>
     <result column="uno"    property="userNo"/>
     <result column="secret"  property="secret"/>
+    <result column="title"  property="title"/>
     <result column="content"  property="content"/>
     <result column="cdt"  property="createdDate"/>
+    <result column="ansStat"  property="answerStatus"/>
     <result column="answer"  property="answer"/>
     <result column="adt"  property="answerDate"/>
     
@@ -25,14 +27,11 @@
   <select id="findAll" resultMap="QnAMap" parameterType="string">
     select 
       qnano, 
-      uno, 
-      secret,
-      content, 
-      cdt,
-      answer,
-      adt
-      from oi_qna 
-      
+      title, 
+      cdt, 
+    if(isnull(answer), "답변대기중", "답변완료") 
+    as ansStat 
+    from oi_qna;
   </select>
   
 </mapper>
