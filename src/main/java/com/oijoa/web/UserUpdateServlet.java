@@ -52,14 +52,13 @@ public class UserUpdateServlet extends HttpServlet {
       for(User user : list) {
       out.printf("<tr>"
           + "<td>%s</td>"
-          + "<td><a>%s</a></td>"
+          + "<td>%s</td>"
           + "<td>%s</td>"
           + "<td>%s</td>"
           + "<td>%s</td>"
           + "</tr>\n",
           user.getName(),
           user.getNick(),
-          user.getEmail(),
           user.getEmail(),
           user.getPassword(),
           user.getAddress());

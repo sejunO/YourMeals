@@ -20,7 +20,7 @@ public class DefaultUserService implements UserService {
   
   @Override
   public List<User> list() throws Exception {
-    return userDao.findAll();
+    return userDao.findAll(null);
   }
 
     @Override
