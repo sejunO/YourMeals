@@ -20,6 +20,13 @@ public class QnADaoImpl implements QnADao{
       return sqlSession.selectList("QnADao.findAll", keyword);
     }
   }
+
+  @Override
+  public Qna findByNo(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectOne("QnADao.findByNo", no);
+    }
+  }
 }
 
 

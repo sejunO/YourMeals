@@ -32,14 +32,14 @@ public class DefaultQnaService implements QnaService {
   //    return orderDao.findAll(keyword);
   //  }
   //
-  //  @Override
-  //  public Board get(int no) throws Exception {
-  //    Board board = boardDao.findByNo(no);
-  //    if (board != null) {
-  //      boardDao.updateViewCount(no);
-  //    }
-  //    return board;
-  //  }
+  @Override
+  public Qna get(int no) throws Exception {
+    //Qna qna = qnaDao.findByNo(no);
+    //    if (qna != null) {
+    //      qnaDao.updateViewCount(no);
+    //    }
+    return qnaDao.findByNo(no);
+  }
   //
   //  @Override
   //  public int update(Board board) throws Exception {

@@ -6,5 +6,5 @@ import com.oijoa.domain.Qna;
 public interface QnaService {
 
   List<Qna> list() throws Exception;
-
+  Qna get(int no) throws Exception;
 }

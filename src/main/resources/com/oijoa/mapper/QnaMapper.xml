@@ -34,6 +34,15 @@
     from oi_qna;
   </select>
   
+  <select id="findByNo" parameterType="int" resultMap="QnAMap">
+    select
+      qnano,
+      title,
+      cdt
+    from 
+      oi_qna
+    where qnano = #{no}
+  </select>
 </mapper>
 
 
