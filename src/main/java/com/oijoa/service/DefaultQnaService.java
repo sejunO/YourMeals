@@ -17,11 +17,11 @@ public class DefaultQnaService implements QnaService {
   //    return boardDao.delete(no);
   //  }
   //
-  //  @Override
-  //  public int add(Board board) throws Exception {
-  //    return boardDao.insert(board);
-  //  }
-  //
+  @Override
+  public int add(Qna qna) throws Exception {
+    return qnaDao.insert(qna);
+  }
+
   @Override
   public List<Qna> list() throws Exception {
     return qnaDao.findAll(null);

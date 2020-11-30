@@ -32,6 +32,9 @@ public class QnaServlet extends HttpServlet {
     out.println("<body>");
     try {
       out.println("<h1>[QnA 게시글 목록]</h1>");
+
+      out.println("<a href='form.html'>글쓰기</a><br>");
+
       List<Qna> list = qnaService.list();
 
       out.println("<table border='1'><tr>"

@@ -27,6 +27,13 @@ public class QnADaoImpl implements QnADao{
       return sqlSession.selectOne("QnADao.findByNo", no);
     }
   }
+
+  @Override
+  public int insert(Qna qna) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.insert("QnADao.insert", qna);
+    }
+  }
 }
 
 

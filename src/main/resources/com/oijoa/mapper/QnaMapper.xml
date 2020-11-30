@@ -38,11 +38,17 @@
     select
       qnano,
       title,
+      content,
       cdt
     from 
       oi_qna
     where qnano = #{no}
   </select>
+  
+  <insert id="insert" parameterType="qna">
+    insert into oi_qna(uno,title,content,secret) 
+    values(1, #{title}, #{content}, 0)
+  </insert>
 </mapper>
 
 
