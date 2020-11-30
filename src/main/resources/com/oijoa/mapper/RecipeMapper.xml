@@ -48,7 +48,8 @@
       on rc.cno = c.cno
   </select>
   
-  <insert id="insert" parameterType="recipe">
+  <insert id="insert" parameterType="recipe"
+  useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
     insert into oi_recipe(title,content,uno,min,lno)
     values(#{title},#{content},#{writer.userNo},#{min},#{levelNo})
   </insert>
