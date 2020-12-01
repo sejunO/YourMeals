@@ -5,11 +5,11 @@ import java.util.List;
 import com.oijoa.dao.UserDao;
 import com.oijoa.domain.User;
 
-public class DefaultUserService implements UserService {
+public class DefaultUserUpdateService implements UserService {
 
   UserDao userDao;
 
-  public DefaultUserService(UserDao userDao) {
+  public DefaultUserUpdateService(UserDao userDao) {
     this.userDao = userDao;
   }
 

@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.UserDao;
 import com.oijoa.domain.User;
 
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
   SqlSessionFactory sqlSessionFactory;
 
@@ -16,19 +16,25 @@ public class UserDaoImpl implements UserDao{
   }
 
   @Override
-  public List<User> findAll(String keyword) throws Exception {
+  public List<User> findAll() throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectList("UserDao.findAll", keyword);
+      return sqlSession.selectList("UserDao.findAll");
     }
   }
-  
+
+  @Override
+  public User findByNo(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("UserDao.findByNo", no);
+    }
+
   @Override
   public int update(User user) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.update("UserDao.update", user);
     }
   }
-  
+
   @Override
   public int delete(int no) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
