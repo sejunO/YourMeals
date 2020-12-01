@@ -22,9 +22,9 @@ public class RecipeDaoImpl implements RecipeDao{
   }
 
   @Override
-  public List<Recipe> findMy(int userNo) throws Exception {
+  public List<Recipe> findMy(int loginUserNo) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectList("RecipeDao.findMy", userNo);
+      return sqlSession.selectList("RecipeDao.findMy", loginUserNo);
     }
   }
 

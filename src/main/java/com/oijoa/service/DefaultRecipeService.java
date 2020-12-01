@@ -28,8 +28,8 @@ public class DefaultRecipeService implements RecipeService {
   }
 
   @Override
-  public List<Recipe> myList(int userNo) throws Exception {
-    return recipeDao.findMy(userNo);
+  public List<Recipe> myList(int loginUserNo) throws Exception {
+    return recipeDao.findMy(loginUserNo);
   }
 
   @Override
