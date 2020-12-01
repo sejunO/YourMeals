@@ -38,6 +38,7 @@
     order by
       uno desc
   </select>
+
   
     <update id="update" parameterType="user">
     update oi_user
@@ -56,6 +57,26 @@
     where no=#{no}
   </delete>
   
+  <select id="findByEmailPassword" parameterType="map" resultMap="UserMap">
+    select
+      uno,
+      name,
+      nick,
+      email,
+      point,
+      postno,
+      addr,
+      det_addr,
+      photo,
+      utype
+    from
+      oi_user
+    where
+      email = #{email}
+      and password = password(#{password})
+      
+  </select>
+
 </mapper>
 
 

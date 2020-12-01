@@ -30,6 +30,7 @@ insert into oi_product(pno, mno, content, stock, price, discount) value (7, 7, '
 insert into oi_product(pno, mno, content, stock, price, discount) value (8, 8, '할라피뇨', 111, 5000, 0);
 insert into oi_product(pno, mno, content, stock, price, discount) value (9, 9, '브라질닭', 30, 2700, 0);
 insert into oi_product(pno, mno, content, stock, price, discount) value (10, 10, '평창한우', 10, 45000, 0);
+
 -- 회원 
 insert into oi_user(uno, name, nick, email, password, point, utype) values (1, 'sejunO', 'sj', 'sj@test.com', '1111', 0, 1);
 insert into oi_user(uno, name, nick, email, password, point, utype) values (2, 'eunchae-Cho', 'ec', 'ec@test.com', '1111', 0, 0);
@@ -41,6 +42,8 @@ insert into oi_user(uno, name, nick, email, password, point, utype) values (7, '
 insert into oi_user(uno, name, nick, email, password, point, utype) values (8, 'Test02', 't2', 't2@test.com', '1111', 0, 0);
 insert into oi_user(uno, name, nick, email, password, point, utype) values (9, 'Test03', 't3', 't3@test.com', '1111', 0, 0);
 insert into oi_user(uno, name, nick, email, password, point, utype) values (10, 'youngjinEom', 'yj', 'yj@test.com', '1111', 0, 0);
+insert into oi_user(uno, name,email,password,photo,nick,point,utype) values(11,'테스트','test@test.com',password(1111),'test.jpeg','테스트',0,1);
+
 -- 난이도번호
 insert into oi_level(lno, lv) values (1, 1);
 insert into oi_level(lno, lv) values (2, 2);
