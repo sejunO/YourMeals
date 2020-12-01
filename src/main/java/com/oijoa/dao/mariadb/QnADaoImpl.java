@@ -20,6 +20,34 @@ public class QnADaoImpl implements QnADao{
       return sqlSession.selectList("QnADao.findAll", keyword);
     }
   }
+
+  @Override
+  public Qna findByNo(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectOne("QnADao.findByNo", no);
+    }
+  }
+
+  @Override
+  public int insert(Qna qna) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.insert("QnADao.insert", qna);
+    }
+  }
+
+  @Override
+  public int update(Qna qna) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.update("QnADao.update", qna);
+    }
+  }
+
+  @Override
+  public int delete(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.delete("QnADao.delete", no);
+    }
+  }
 }
 
 

@@ -12,56 +12,53 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Qna;
 import com.oijoa.service.QnaService;
 
-@WebServlet("/qna")
+@WebServlet("/qna/list")
 public class QnaServlet extends HttpServlet {
-
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse res)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
 
     ServletContext ctx = request.getServletContext();
     QnaService qnaService = (QnaService) ctx.getAttribute("qnaService");
 
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+
+    out.println("<!DOCTYPE html>");
+    out.println("<html>");
+    out.println("<head><title>MyPage</title></head>");
+    out.println("<body>");
     try {
+      out.println("<h1>[QnA 게시글 목록]</h1>");
 
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head><title>qnaList</title></head>");
-      out.println("<body><h1>안녕하세요</h1>");
+      out.println("<a href='form.html'>글쓰기</a><br>");
 
-      out.println("[Q/A 목록]");
       List<Qna> list = qnaService.list();
 
+      out.println("<table border='1'><tr>"
+          + "<th>번호</th>"
+          + "<th>제목</th>"
+          + "<th>등록일</th>"
+          + "<th>진행상태</th></tr>");
+
       for (Qna qna : list) {
-        out.println("<table><tr>");
-        out.printf("<td>질문번호 : ");
-        out.printf("%d</td>", qna.getQnaNo());
-        out.printf("<td>회원번호 : ");
-        out.printf("%d</td>", qna.getUserNo());
-        out.printf("<td>질문 : ");
-        out.printf("%s</td>", qna.getContent());
-        out.printf("<td>등록일 : ");
-        out.printf("%s</td>", qna.getCreatedDate());
-        out.printf("<td>답변 : ");
-        out.printf("%s</td>", qna.getAnswer());
-        out.printf("<td>답변일 : ");
-        out.printf("%s</td>", qna.getAnswerDate());
-        out.println("</tr></table>");
-        out.println();
+        out.printf("<tr>"
+            + "<td>%d</td>"
+            + "<td><a href='detail?no=%1$d'>%s</a></td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "</tr>\n",
+            qna.getQnaNo(),
+            qna.getTitle(),
+            qna.getCreatedDate(),
+            qna.getAnswerStatus());
       }
-      out.println("</body>");
-      out.println("</html>");
+      out.println("</table></body></html>");
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
       e.printStackTrace();
     }
-
   }
-
-
 }

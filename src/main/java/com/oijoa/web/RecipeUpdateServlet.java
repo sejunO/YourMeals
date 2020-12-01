@@ -31,7 +31,10 @@ public class RecipeUpdateServlet extends HttpServlet {
 
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>Recipe Test</title></head>");
+      out.println("<head>");
+      out.println("<meta http-equiv='Refresh' content='1;url=list'>");
+      out.println("<title>Recipe Test</title>");
+      out.println("</head>");
       out.println("<body>");
 
       try {

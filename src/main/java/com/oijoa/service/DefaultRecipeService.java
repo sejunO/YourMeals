@@ -28,8 +28,8 @@ public class DefaultRecipeService implements RecipeService {
   }
   @Override
   public int add(Recipe recipe) throws Exception {
-    recipeDao.insertCategory(recipe);
     recipeDao.insert(recipe);
+    recipeDao.insertCategory(recipe);
     return 1;
   }
   //  @Override

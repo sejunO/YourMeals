@@ -6,11 +6,13 @@ public class Qna {
   private int QnaNo;
   private int userNo;
   private int secret;
+  private String title;
   private String content;
   private Date createdDate;
+  private String answerStatus;
   private String answer;
   private Date answerDate;
-
+  
   public int getQnaNo() {
     return QnaNo;
   }
@@ -29,6 +31,12 @@ public class Qna {
   public void setSecret(int secret) {
     this.secret = secret;
   }
+  public String getTitle() {
+    return title;
+  }
+  public void setTitle(String title) {
+    this.title = title;
+  }
   public String getContent() {
     return content;
   }
@@ -40,6 +48,12 @@ public class Qna {
   }
   public void setCreatedDate(Date createdDate) {
     this.createdDate = createdDate;
+  }
+  public String getAnswerStatus() {
+    return answerStatus;
+  }
+  public void setAnswerStatus(String answerStatus) {
+    this.answerStatus = answerStatus;
   }
   public String getAnswer() {
     return answer;

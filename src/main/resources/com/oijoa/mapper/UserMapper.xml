@@ -39,6 +39,23 @@
       uno desc
   </select>
   
+    <update id="update" parameterType="user">
+    update oi_user
+    <set>
+      <if test="nick != ''">nick = #{nick},</if>
+      <if test="password != ''">password = password(#{password}),</if>
+      <if test="postno != ''">postno = #{postno},</if>
+      <if test="addr != ''">addr = #{addr},</if>
+      <if test="det_addr != ''">det_addr = #{det_addr},</if>
+    </set>
+    where no = #{no}
+  </update>
+  
+    <delete id="delete" parameterType="int">
+    delete from oi_user
+    where no=#{no}
+  </delete>
+  
 </mapper>
 
 
