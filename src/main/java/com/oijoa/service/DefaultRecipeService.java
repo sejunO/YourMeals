@@ -37,18 +37,18 @@ public class DefaultRecipeService implements RecipeService {
   //    return orderDao.findAll(keyword);
   //  }
   //
-  //  @Override
-  //  public Board get(int no) throws Exception {
-  //    Board board = boardDao.findByNo(no);
-  //    if (board != null) {
-  //      boardDao.updateViewCount(no);
-  //    }
-  //    return board;
-  //  }
-  //
-  //  @Override
-  //  public int update(Board board) throws Exception {
-  //    return boardDao.update(board);
-  //  }
+    @Override
+    public Recipe get(int no) throws Exception {
+      Recipe recipe = recipeDao.findByNo(no);
+      if (recipe != null) {
+    	  recipeDao.updateViewCount(no);
+      }
+      return recipe;
+    }
+  
+    @Override
+    public int update(Recipe recipe) throws Exception {
+      return recipeDao.update(recipe);
+    }
 
 }

@@ -52,7 +52,7 @@ public class RecipeAddServlet extends HttpServlet {
       recipe.setWriter(user);
       recipe.setLevelNo(Integer.parseInt(request.getParameter("level")));
       recipe.setMin(Integer.parseInt(request.getParameter("min")));
-
+      
       //      Category category = categoryService.get(Integer.parseInt(request.getParameter("category")));
       recipe.setCategory(category);
 

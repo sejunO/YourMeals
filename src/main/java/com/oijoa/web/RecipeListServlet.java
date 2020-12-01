@@ -3,18 +3,20 @@ package com.oijoa.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.RecipeService;
 
 @WebServlet("/recipe")
-public class RecipeServlet extends HttpServlet {
+public class RecipeListServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 

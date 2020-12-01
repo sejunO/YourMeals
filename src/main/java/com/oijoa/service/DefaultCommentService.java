@@ -1,6 +1,7 @@
 package com.oijoa.service;
 
 import java.util.List;
+
 import com.oijoa.dao.CommentDao;
 import com.oijoa.domain.Comment;
 
@@ -17,11 +18,11 @@ public class DefaultCommentService implements CommentService {
   //    return boardDao.delete(no);
   //  }
   //
-  //  @Override
-  //  public int add(Board board) throws Exception {
-  //    return boardDao.insert(board);
-  //  }
-  //
+    @Override
+    public int add(Comment comment) throws Exception {
+      return commentDao.insert(comment);
+    }
+  
   @Override
   public List<Comment> list() throws Exception {
     return commentDao.findAll(null);

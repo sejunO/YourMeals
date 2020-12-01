@@ -7,6 +7,9 @@ public interface RecipeDao {
   List<Recipe> findAll(String keyword) throws Exception;
   int insert(Recipe recipe) throws Exception;
   int insertCategory(Recipe recipe) throws Exception;
+  int update(Recipe recipe) throws Exception;
+  Recipe findByNo(int no) throws Exception;
+  int updateViewCount(int no) throws Exception;
 }
 
 

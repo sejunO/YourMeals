@@ -15,6 +15,13 @@ public class CommentDaoImpl implements CommentDao{
   }
 
   @Override
+	public int insert(Comment comment) throws Exception {
+	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+	      return sqlSession.insert("CommentDao.insert", comment);
+	    }
+	}
+  
+  @Override
   public List<Comment> findAll(String keyword) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("CommentDao.findAll", keyword);

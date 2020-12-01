@@ -31,6 +31,12 @@
       from oi_comment
   </select>
   
+  <insert id="insert" parameterType="comment">
+    insert into oi_comment(uno,rno,content) 
+    values(#{userNo}, #{recipeNo}, #{content})
+  </insert>
+  
+  
 </mapper>
 
 
