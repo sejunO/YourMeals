@@ -31,10 +31,11 @@
   <select id="findAll" resultMap="RecipeMap" parameterType="string">
     select 
       r.rno,
-      r.title, 
+      r.title,
+      r.photo, 
       u.uno writer_no,
       u.nick writer_nick,
-      c.cno category_no, 
+      c.cno category_no,
       c.name category_name,
       r.cdt, 
       r.hits 
@@ -50,8 +51,8 @@
   
   <insert id="insert" parameterType="recipe"
   useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
-    insert into oi_recipe(title,content,uno,min,lno)
-    values(#{title},#{content},#{writer.userNo},#{min},#{levelNo})
+    insert into oi_recipe(title,content,uno,min,lno,photo)
+    values(#{title},#{content},#{writer.userNo},#{min},#{levelNo},#{photo})
   </insert>
   
   <insert id="insertCategory" parameterType="recipe">

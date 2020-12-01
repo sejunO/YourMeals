@@ -10,11 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Recipe;
-import com.oijoa.domain.User;
 import com.oijoa.service.RecipeService;
 
-@WebServlet("/recipe")
-public class RecipeServlet extends HttpServlet {
+@WebServlet("/recipe/list")
+public class RecipeListServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -29,9 +28,6 @@ public class RecipeServlet extends HttpServlet {
     RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
 
     try {
-
-
-
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head><title>Recipe Test</title></head>");
@@ -42,6 +38,7 @@ public class RecipeServlet extends HttpServlet {
 
       out.println("<table border='1'><tr>"
           + "<th>번호</th>"
+          + "<th>사진</th>"
           + "<th>제목</th>"
           + "<th>작성자</th>"
           + "<th>방법</th>"
@@ -49,9 +46,9 @@ public class RecipeServlet extends HttpServlet {
           + "<th>조회</th></tr>");
 
       for (Recipe recipe : list) {
-        User user = recipe.getWriter();
         out.println("<tr>");
         out.printf("<td>%d</td>", recipe.getRecipeNo());
+        out.printf("<td><img src='../upload/%s_30x30.jpg'></td>", recipe.getPhoto());
         out.printf("<td>%s</td>", recipe.getTitle());
         out.printf("<td>%s</td>", recipe.getWriter().getNick());
         out.printf("<td>%s</td>", recipe.getCategory().getCategoryName());
