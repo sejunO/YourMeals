@@ -26,12 +26,12 @@ public class DefaultRecipeService implements RecipeService {
   public List<Recipe> list() throws Exception {
     return recipeDao.findAll(null);
   }
-  
+
   @Override
-  public List<Recipe> myList() throws Exception {
-    return recipeDao.findMy(null);
+  public List<Recipe> myList(int userNo) throws Exception {
+    return recipeDao.findMy(userNo);
   }
-  
+
   @Override
   public int add(Recipe recipe) throws Exception {
     recipeDao.insert(recipe);

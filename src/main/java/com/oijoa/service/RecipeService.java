@@ -6,6 +6,6 @@ import com.oijoa.domain.Recipe;
 public interface RecipeService {
 
   List<Recipe> list() throws Exception;
-  List<Recipe> myList() throws Exception;
+  List<Recipe> myList(int userNo) throws Exception;
   int add (Recipe recipe) throws Exception;
 }

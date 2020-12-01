@@ -49,14 +49,15 @@
       on rc.cno = c.cno
   </select>
   
-  <select id="findMy" resultMap="RecipeMap" parameterType="string">
+  <select id="findMy" resultMap="RecipeMap" parameterType="int">
     select 
       rno,
       title,
-      photo 
+      photo, 
+      cdt
     from 
       oi_recipe
-    where uno = 1
+    where uno = #{userNo}
   </select>
   
   <insert id="insert" parameterType="recipe"
