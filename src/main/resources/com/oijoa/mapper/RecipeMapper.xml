@@ -49,6 +49,16 @@
       on rc.cno = c.cno
   </select>
   
+  <select id="findMy" resultMap="RecipeMap" parameterType="string">
+    select 
+      rno,
+      title,
+      photo 
+    from 
+      oi_recipe
+    where uno = 1
+  </select>
+  
   <insert id="insert" parameterType="recipe"
   useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
     insert into oi_recipe(title,content,uno,min,lno,photo)
