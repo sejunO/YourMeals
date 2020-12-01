@@ -7,13 +7,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.UserDao;
 import com.oijoa.domain.User;
 
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
   SqlSessionFactory sqlSessionFactory;
 
   public UserDaoImpl(SqlSessionFactory sqlSessionFactory) {
     this.sqlSessionFactory = sqlSessionFactory;
   }
+
 
   @Override
   public User findByEmailPassword(String email, String password) {
@@ -24,12 +25,15 @@ public class UserDaoImpl implements UserDao{
       return sqlSession.selectOne("UserDao.findByEmailPassword", map);
     }
   }
+
+
   @Override
-  public List<User> findAll(String keyword) throws Exception {
+  public List<User> findAll() throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectList("UserDao.findAll", keyword);
+      return sqlSession.selectList("UserDao.findAll");
     }
   }
+
 
   @Override
   public int update(User user) throws Exception {
@@ -42,6 +46,14 @@ public class UserDaoImpl implements UserDao{
   public int delete(int no) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.delete("MemberDao.delete", no);
+    }
+  }
+
+
+  @Override
+  public User findByNo(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectOne("UserDao.findByNo", no);
     }
   }
 }

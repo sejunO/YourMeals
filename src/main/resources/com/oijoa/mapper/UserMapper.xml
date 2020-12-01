@@ -40,21 +40,35 @@
   </select>
 
   
-    <update id="update" parameterType="user">
+  <select id = "findByNo" resultMap = "UserMap" parameterType="int">
+    select
+      name,
+      nick,
+      email,
+      password,
+      postno,
+      addr,
+      det_addr,
+    from
+      oi_user
+    where
+      no = #{no}
+  </select>
+  
+  <update id="update" parameterType="user">
     update oi_user
-    <set>
-      <if test="nick != ''">nick = #{nick},</if>
-      <if test="password != ''">password = password(#{password}),</if>
-      <if test="postno != ''">postno = #{postno},</if>
-      <if test="addr != ''">addr = #{addr},</if>
-      <if test="det_addr != ''">det_addr = #{det_addr},</if>
-    </set>
+      nick = #{nick},
+      password = password(#{password}),
+      postno = #{postno},
+      addr = #{addr},
+      det_addr = #{det_addr},
+      photo = #{photo}
     where no = #{no}
   </update>
   
-    <delete id="delete" parameterType="int">
+  <delete id="delete" parameterType="int">
     delete from oi_user
-    where no=#{no}
+    where no = #{no}
   </delete>
   
   <select id="findByEmailPassword" parameterType="map" resultMap="UserMap">
