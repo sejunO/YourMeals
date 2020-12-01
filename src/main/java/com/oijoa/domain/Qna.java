@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Qna {
   private int QnaNo;
-  private int userNo;
+  private User userNo;
   private int secret;
   private String title;
   private String content;
@@ -12,17 +12,17 @@ public class Qna {
   private String answerStatus;
   private String answer;
   private Date answerDate;
-  
+
   public int getQnaNo() {
     return QnaNo;
   }
   public void setQnaNo(int qnaNo) {
     QnaNo = qnaNo;
   }
-  public int getUserNo() {
+  public User getUserNo() {
     return userNo;
   }
-  public void setUserNo(int userNo) {
+  public void setUserNo(User userNo) {
     this.userNo = userNo;
   }
   public int getSecret() {

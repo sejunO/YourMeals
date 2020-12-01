@@ -32,19 +32,19 @@ insert into oi_product(pno, mno, content, stock, price, discount) value (9, 9, '
 insert into oi_product(pno, mno, content, stock, price, discount) value (10, 10, '평창한우', 10, 45000, 0);
 
 -- 회원 
-insert into oi_user(uno, name, nick, email, password, point, utype) values (1, 'sejunO854', 'sj', 'sj@test.com', '1111', 0, 1);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (2, 'eunchae-Cho', 'ec', 'ec@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (3, 'aramYu', 'ar', 'ar@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (4, 'seunghyuck', 'sh', 'sh@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (5, 'dragonmin', 'ym', 'ym@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (6, 'somi-Shin', 'sm', 'sm@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (7, 'jinyoungChoi', 'jy', 'jy@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (8, 'Test01', 't1', 't1@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (9, 'EomTeacher', 'et', 'et@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (10, 'Test02', 't2', 't2@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (11, 'Test03', 't3', 't3@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (12, 'youngjinEom', 'yj', 'yj@test.com', '1111', 0, 0);
-insert into oi_user(uno, name,email,password,photo,nick,point,utype) values(13,'테스트','test@test.com',password(1111),'test.jpeg','테스트',0,1);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (1, 'sejunO854', 'sj', 'sj@test.com', password(1111), 0, 1);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (2, 'eunchae-Cho', 'ec', 'ec@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (3, 'aramYu', 'ar', 'ar@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (4, 'seunghyuck', 'sh', 'sh@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (5, 'dragonmin', 'ym', 'ym@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (6, 'somi-Shin', 'sm', 'sm@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (7, 'jinyoungChoi', 'jy', 'jy@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (8, 'Test01', 't1', 't1@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (9, 'EomTeacher', 'et', 'et@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (10, 'Test02', 't2', 't2@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (11, 'Test03', 't3', 't3@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (12, 'youngjinEom', 'yj', 'yj@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name,email,password,photo,nick,point,utype) values(13,'테스트','test@test.com', password(1111),'test.jpeg','테스트',0,1);
 
 -- 난이도번호
 insert into oi_level(lno, lv) values (1, 1);
