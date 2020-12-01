@@ -163,16 +163,16 @@ insert into oi_board_like(uno, rno) values (3, 1);
 insert into oi_board_like(uno, rno) values (4, 3);
 insert into oi_board_like(uno, rno) values (5, 5);
 -- Q/A
-insert into oi_qna(qnano, uno, title, content, secret) values (1, 1, '테스트제목', '테스트', 0);
-insert into oi_qna(qnano, uno, title, content, secret) values (2, 2, '테스트제목2', '테스트2', 0);
-insert into oi_qna(qnano, uno, title, content, secret, answer) values (3, 3, '테스트제목3', '테스트3', 0, '답변드립니다.');
-insert into oi_qna(qnano, uno, title, content, secret) values (4, 4, '테스트제목4', '테스트4', 0);
-insert into oi_qna(qnano, uno, title, content, secret) values (5, 5, '테스트제목5', '테스트5', 0);
-insert into oi_qna(qnano, uno, title, content, secret) values (6, 6, '테스트제목6', '테스트6', 0);
-insert into oi_qna(qnano, uno, title, content, secret) values (7, 7, '테스트제목7', '테스트7', 0);
-insert into oi_qna(qnano, uno, title, content, secret) values (8, 3, '테스트제목9', '테스트8', 0);
-insert into oi_qna(qnano, uno, title, content, secret, answer) values (9, 3, '테스트제목9', '테스트9', 0, '답변22');
-insert into oi_qna(qnano, uno, title, content, secret) values (10, 1, '테스트제목10', '테스트10', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (1, 1, '테스트제목', '테스트', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (2, 2, '테스트제목2', '테스트2', 0);
+insert into oi_qna(qnano, writer, title, content, secret, answer) values (3, 3, '테스트제목3', '테스트3', 0, '답변드립니다.');
+insert into oi_qna(qnano, writer, title, content, secret) values (4, 4, '테스트제목4', '테스트4', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (5, 5, '테스트제목5', '테스트5', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (6, 6, '테스트제목6', '테스트6', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (7, 7, '테스트제목7', '테스트7', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (8, 3, '테스트제목9', '테스트8', 0);
+insert into oi_qna(qnano, writer, title, content, secret, answer) values (9, 3, '테스트제목9', '테스트9', 0, '답변22');
+insert into oi_qna(qnano, writer, title, content, secret) values (10, 1, '테스트제목10', '테스트10', 0);
 -- 주문
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (1, 1, 1, 1, '123-2345', '부재시 경비실', '10301','비트교육센터','로비','1');
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (2, 2, 2, 2, '123-2345', '부재시 경비실', '10301','비트교육센터','203호','2');

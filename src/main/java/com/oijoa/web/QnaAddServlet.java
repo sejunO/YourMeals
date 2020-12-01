@@ -43,7 +43,7 @@ public class QnaAddServlet extends HttpServlet {
       out.println("<h1>[QnA 게시글 등록]</h1>");
 
       User loginUser = (User) session.getAttribute("loginUser");
-      qna.setUserNo(loginUser);
+      qna.setWriter(loginUser);
 
       qnaService.add(qna);
 

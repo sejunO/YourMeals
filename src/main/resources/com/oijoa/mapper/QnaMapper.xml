@@ -7,7 +7,6 @@
   
   <resultMap type="qna" id="QnAMap">
     <id column="qnano"           property="QnaNo"/>
-    <result column="uno"    property="userNo"/>
     <result column="secret"  property="secret"/>
     <result column="title"  property="title"/>
     <result column="content"  property="content"/>
@@ -16,12 +15,9 @@
     <result column="answer"  property="answer"/>
     <result column="adt"  property="answerDate"/>
     
-    
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
+    <association property="writer" javaType="user">
+      <id column="writer_uno"    property="userNo"/>
+    </association>
   </resultMap>
 
   <select id="findAll" resultMap="QnAMap" parameterType="string">
@@ -46,8 +42,8 @@
   </select>
   
   <insert id="insert" parameterType="qna">
-    insert into oi_qna(uno,title,content,secret) 
-    values(#{userNo}, #{title}, #{content}, 0)
+    insert into oi_qna(writer,title,content,secret) 
+    values(#{writer.userNo}, #{title}, #{content}, 0)
   </insert>
   
   <update id="update" parameterType="qna">
@@ -62,9 +58,3 @@
     where qnano=#{QnaNo}
   </delete>
 </mapper>
-
-
-
-
-
-
