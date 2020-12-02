@@ -49,7 +49,7 @@ public class UserDaoImpl implements UserDao {
   }
 
   @Override
-  public User findByNo() throws Exception {
+  public User findByNo(int no) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectOne("UserDao.findByNo");
     }
