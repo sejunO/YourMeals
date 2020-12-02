@@ -10,11 +10,18 @@ public class Order {
   private int transportNo;
   private int postNo;
   private int status;
+  private Basket basket;
   private String memo;
   private Date orderDate;
   private String address;
   private String detailAddress;
-  
+
+  public Basket getBasket() {
+    return basket;
+  }
+  public void setBasket(Basket basket) {
+    this.basket = basket;
+  }
   public int getOrderNo() {
     return orderNo;
   }

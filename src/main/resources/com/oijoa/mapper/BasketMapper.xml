@@ -57,10 +57,10 @@
     where b.uno = #{writer.userNo}
   </select>
   
-  <insert id="insert" parameterType="basket"
-        useGeneratedKeys="true" keyColumn="no" keyProperty="no">
+  <insert id="insert" parameterType="basket">
+        <!-- useGeneratedKeys="true" keyColumn="no" keyProperty="no"> -->
     insert into oi_basket(amount,pno,uno)
-    values(#{amount},#{product.productNo},#{writer.userNo})
+    values(#{amount},#{productNo},#{writer.userNo})
   </insert>
   
 </mapper>
