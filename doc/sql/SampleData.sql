@@ -147,6 +147,12 @@ insert into oi_basket(bkno, pno, amount, uno) values (1, 4, 1, 1);
 insert into oi_basket(bkno, pno, amount, uno) values (2, 2, 1, 2);
 insert into oi_basket(bkno, pno, amount, uno) values (3, 9, 3, 10);
 insert into oi_basket(bkno, pno, amount, uno) values (4, 1, 2, 7);
+insert into oi_basket(bkno, pno, amount, uno) values (5, 1, 2, 11);
+insert into oi_basket(bkno, pno, amount, uno) values (6, 7, 2, 11);
+insert into oi_basket(bkno, pno, amount, uno) values (7, 4, 3, 11);
+insert into oi_basket(bkno, pno, amount, uno) values (8, 6, 2, 11);
+insert into oi_basket(bkno, pno, amount, uno) values (9, 8, 5, 11);
+insert into oi_basket(bkno, pno, amount, uno) values (10, 2, 1, 11);
 -- 신고 유형
 insert into oi_report_type(rtno, name) values (1, '욕설');
 insert into oi_report_type(rtno, name) values (2, '비매너');
