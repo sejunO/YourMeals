@@ -16,6 +16,7 @@ import com.oijoa.service.ProductService;
 
 @WebServlet("/basket/form")
 public class BasketAddFormServlet extends HttpServlet {
+
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -25,6 +26,8 @@ public class BasketAddFormServlet extends HttpServlet {
     ServletContext ctx = request.getServletContext();
     ProductService productService =
         (ProductService) ctx.getAttribute("productService");
+    BasketService basketService =
+        (BasketService) ctx.getAttribute("basketService");
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
@@ -42,13 +45,13 @@ public class BasketAddFormServlet extends HttpServlet {
       out.println("수량 : <input type='int' name='amount'><br> ");
       out.println("<ul>");
 
-      List<Product> products = productService.list(null);
-
+      List<Product> products = productService.list();
       for (Product p : products) {
-        out.printf("<li><input type='radio' name='products' value='%d'>%s</li>\n",
+        out.printf("<li><input type='radio' name='product' value='%d'>%s</li>\n",
             p.getProductNo(),
             p.getContent());
       }
+
       out.println("</ul><br>");
       out.println("<button>생성</button>");
       out.println("</form>");
