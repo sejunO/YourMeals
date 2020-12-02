@@ -109,7 +109,7 @@
       on l.rno = r.rno
     where l.uno = #{loginNo}
   </select>
-  
+  <!-- hits default 0 설정 해야함. -->
   <insert id="insert" parameterType="recipe"
   useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
     insert into oi_recipe(title,content,uno,min,lno,photo)

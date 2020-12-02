@@ -8,6 +8,7 @@ public interface UserService {
   List<User> list() throws Exception;
   int update(User user) throws Exception;
   int delete(int no) throws Exception;
+  User get() throws Exception;
   User get(String email, String password) throws Exception;
 
 }
