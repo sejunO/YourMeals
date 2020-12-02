@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.RecipeDao;
 import com.oijoa.domain.Recipe;
 
+
 public class RecipeDaoImpl implements RecipeDao {
 
 	SqlSessionFactory sqlSessionFactory;

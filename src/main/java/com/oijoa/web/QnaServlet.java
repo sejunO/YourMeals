@@ -2,6 +2,7 @@ package com.oijoa.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Qna;
 import com.oijoa.service.QnaService;
 
-@WebServlet("/qna/list")
+@WebServlet("/mypage/qna/list")
 public class QnaServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
@@ -57,8 +58,15 @@ public class QnaServlet extends HttpServlet {
       }
       out.println("</table></body></html>");
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      out.println("<h2>작업 처리 중 오류 발생!</h2>");
+      out.printf("<pre>%s</pre>\n", e.getMessage());
+
+      StringWriter errOut = new StringWriter();
+      e.printStackTrace(new PrintWriter(errOut));
+      out.println("<h3>상세 오류 내용</h3>");
+      out.printf("<pre>%s</pre>\n", errOut.toString());
     }
+    out.println("</body>");
+    out.println("</html>");
   }
 }

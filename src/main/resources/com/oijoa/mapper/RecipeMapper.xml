@@ -5,6 +5,7 @@
 
 <mapper namespace="RecipeDao">
 
+<<<<<<< HEAD
 	<resultMap type="recipe" id="RecipeMap">
 		<id column="rno" property="recipeNo" />
 		<result column="title" property="title" />
@@ -69,6 +70,50 @@
 		lno= #{levelNo}
 		where rno = #{recipeNo}
 	</update>
+=======
+  <select id="findAll" resultMap="RecipeMap" parameterType="string">
+    select 
+      r.rno,
+      r.title,
+      r.photo, 
+      u.uno writer_no,
+      u.nick writer_nick,
+      c.cno category_no,
+      c.name category_name,
+      r.cdt, 
+      r.hits 
+    from 
+      oi_recipe r 
+      inner join oi_user u 
+      on r.uno=u.uno
+      inner join oi_recipe_category rc
+      on r.rno = rc.rno
+      inner join oi_category c
+      on rc.cno = c.cno
+  </select>
+  
+  <select id="findMy" resultMap="RecipeMap" parameterType="string">
+    select 
+      rno,
+      title,
+      photo 
+    from 
+      oi_recipe
+    where uno = 1
+  </select>
+  
+  <insert id="insert" parameterType="recipe"
+  useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
+    insert into oi_recipe(title,content,uno,min,lno,photo)
+    values(#{title},#{content},#{writer.userNo},#{min},#{levelNo},#{photo})
+  </insert>
+  
+  <insert id="insertCategory" parameterType="recipe">
+    insert into oi_recipe_category(rno,cno) 
+    values (#{recipeNo},#{category.categoryNo})
+  </insert>
+  
+>>>>>>> 26e7e90fd92a96e29c67ceddbe743e843412e725
 
 </mapper>
 

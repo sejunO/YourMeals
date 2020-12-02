@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Qna;
 import com.oijoa.service.QnaService;
 
-@WebServlet("/qna/update")
+@WebServlet("/mypage/qna/update")
 public class QnaUpdateServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
