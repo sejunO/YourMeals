@@ -61,7 +61,8 @@ public class RecipeDetailServlet extends HttpServlet {
 	      out.printf("등록일: %s<br>\n", recipe.getCreatedDate());
 	      out.printf("수정일: %s<br>\n", recipe.getModifiedDate());
 	      out.printf("조회수: %d<br>\n", recipe.getHits());
-//	      out.printf("난이도: %s",);
+	      out.printf("난이도: %s<br>\n", recipe.getLevelNo());
+	      out.printf("시간:  %s<br>\n", recipe.getMin());
 	      out.printf("카테고리: %s<br>\n", recipe.getCategory().getCategoryName());
 	      out.println("</ul><br>");
 	      out.println("<h3>조리순서</h3>");
@@ -72,7 +73,7 @@ public class RecipeDetailServlet extends HttpServlet {
 	      for(RecipeStep recipeStep : recipeStepService.findByRecipeNo(no)) {
 	    	  out.printf("<tr><td>%d</td>"
 	    	  		+ "<td>%s</td>"
-	    	  		+ "<td>%s</td></tr>/n",
+	    	  		+ "<td>%s</td></tr>",
 	    	  		recipeStep.getStep(), recipeStep.getPhoto(), recipeStep.getContent());
 	      }
 	      out.println("</table>");

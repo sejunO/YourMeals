@@ -14,26 +14,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.oijoa.domain.Basket;
 import com.oijoa.domain.Product;
+import com.oijoa.domain.User;
 import com.oijoa.service.BasketService;
 
 @WebServlet("/basket/add")
 public class BasketAddServlet extends HttpServlet {
-
   private static final long serialVersionUID = 1L;
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+    
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    
     ServletContext ctx = request.getServletContext();
     BasketService basketService =
         (BasketService) ctx.getAttribute("basketService");
 
-    // 클라이언트가 POST 요청할 때 보낸 데이터를 읽는다.
-    //request.setCharacterEncoding("UTF-8");
+    HttpSession session = request.getSession();
 
-    response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
-
+    
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
@@ -41,14 +42,14 @@ public class BasketAddServlet extends HttpServlet {
     out.println("<title>장바구니 등록</title></head>");
     out.println("<body>");
     try {
-      out.println("<h1>장바구닝 등록</h1>");
+      
+      User loginUser = (User) session.getAttribute("loginUser");
+      
+      out.println("<h1>장바구니 등록</h1>");
 
       Basket basket = new Basket();
       basket.setAmount(Integer.parseInt(request.getParameter("amount")));
-
-      HttpSession session = request.getSession();
-
-
+      basket.setWriter(loginUser);
       List<Product> products = new ArrayList<>();
       String[] materialList = request.getParameterValues("products");
       if(materialList != null) {

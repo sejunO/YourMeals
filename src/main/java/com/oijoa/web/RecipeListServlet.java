@@ -54,7 +54,7 @@ public class RecipeListServlet extends HttpServlet {
         out.println("<tr>");
         out.printf("<td>%d</td>", recipe.getRecipeNo());
         out.printf("<td><img src='../upload/%1$s_30x30.jpg'>%s</td>", recipe.getPhoto());
-        out.printf("<td><a href='detail?recipeNo=%1$d'>%s</a></td>",recipe.getRecipeNo(),recipe.getTitle());
+        out.printf("<td><a href='detail?recipeNo=%d'>%s</a></td>",recipe.getRecipeNo(),recipe.getTitle());
         out.printf("<td>%s</td>", recipe.getWriter().getNick());
         out.printf("<td>%s</td>", recipe.getCategory().getCategoryName());
         out.printf("<td>%s</td>", recipe.getCreatedDate());

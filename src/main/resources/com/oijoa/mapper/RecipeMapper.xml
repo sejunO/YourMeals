@@ -11,7 +11,7 @@
     <result column="content"  property="content"/>
     <result column="photo"  property="photo"/>
     <result column="hits"  property="hits"/>
-    <result column="rcmdcnt"  property="recomendCount"/>
+    <result column="rcmd"  property="recommendCount"/>
     <result column="cdt"  property="createdDate"/>
     <result column="mdt"  property="modifiedDate"/>
     <result column="min"  property="min"/>
@@ -35,13 +35,17 @@
     select 
       r.rno,
       r.title,
-      r.photo, 
+      r.photo,
+      r.min,
+      r.lno, 
       u.uno writer_no,
       u.nick writer_nick,
       c.cno category_no,
       c.name category_name,
-      r.cdt, 
-      r.hits 
+      r.cdt,
+      r.mdt, 
+      r.hits, 
+      r.rcmd
     from 
       oi_recipe r 
       inner join oi_user u 
@@ -65,16 +69,20 @@
   
 
   <select id="findByRecipeNo" resultMap="RecipeMap" parameterType="int">
-    select 
+     select 
       r.rno,
       r.title,
-      r.photo, 
+      r.photo,
+      r.min,
+      r.lno, 
       u.uno writer_no,
       u.nick writer_nick,
       c.cno category_no,
       c.name category_name,
-      r.cdt, 
-      r.hits 
+      r.cdt,
+      r.mdt, 
+      r.hits, 
+      r.rcmd
     from 
       oi_recipe r 
       inner join oi_user u 
@@ -99,7 +107,7 @@
       on l.uno = u.uno
       inner join oi_recipe r
       on l.rno = r.rno
-    where l.uno = #{loginno}
+    where l.uno = #{loginNo}
   </select>
   
   <insert id="insert" parameterType="recipe"
@@ -114,12 +122,11 @@
   </insert>
   
     <update id="update" parameterType="recipe">
-    update oi_recipe set
-    title = #{title},
-    content = #{content},
-    photo = #{photo},
-    min = #{min},
-    lno= #{levelNo}
+    update oi_recipe 
+    <set>
+      <if test="title != null">title = #{title},</if>
+      <if test="content != null">content = #{content}</if>
+    </set>
     where rno = #{recipeNo}
   </update>
   

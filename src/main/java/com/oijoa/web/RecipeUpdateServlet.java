@@ -32,7 +32,7 @@ public class RecipeUpdateServlet extends HttpServlet {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head>");
-      out.println("<meta http-equiv='Refresh' content='1;url=list'>");
+      //out.println("<meta http-equiv='Refresh' content='1;url=list'>");
       out.println("<title>Recipe Test</title>");
       out.println("</head>");
       out.println("<body>");
@@ -42,10 +42,8 @@ public class RecipeUpdateServlet extends HttpServlet {
           Recipe recipe = new Recipe();
           recipe.setRecipeNo(Integer.parseInt(request.getParameter("recipeNo")));
           recipe.setTitle(request.getParameter("title"));
-          recipe.setContent(request.getParameter("content"));
-          recipe.setPhoto(request.getParameter("photo"));
-          recipe.setMin(Integer.parseInt(request.getParameter("min")));
-          recipe.setLevelNo(Integer.parseInt(request.getParameter("levelNo")));
+          recipe.setContent(request.getParameter("recipe_content"));
+         
                    
           int count = recipeService.update(recipe);
 
