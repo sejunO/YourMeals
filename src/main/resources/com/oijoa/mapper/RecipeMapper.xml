@@ -60,14 +60,32 @@
       cdt
     from 
       oi_recipe
-    where uno = #{loginno}
+    where uno = #{loginNo}
   </select>
   
-  <!-- 뭘 넣을지 아직 고민중
+
   <select id="findByRecipeNo" resultMap="RecipeMap" parameterType="int">
-      
+    select 
+      r.rno,
+      r.title,
+      r.photo, 
+      u.uno writer_no,
+      u.nick writer_nick,
+      c.cno category_no,
+      c.name category_name,
+      r.cdt, 
+      r.hits 
+    from 
+      oi_recipe r 
+      inner join oi_user u 
+         on r.uno=u.uno
+      inner join oi_recipe_category rc
+         on r.rno = rc.rno
+      inner join oi_category c
+         on rc.cno = c.cno
+     where r.rno = #{recipeNo}
   </select>
-  -->
+  
   
   <insert id="insert" parameterType="recipe"
   useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">

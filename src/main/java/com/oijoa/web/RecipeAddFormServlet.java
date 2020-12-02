@@ -32,28 +32,31 @@ public class RecipeAddFormServlet extends HttpServlet {
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
-    out.println("<title>레시피 생성</title></head>");
+    out.println("<title>레시피 등록</title></head>");
     out.println("<body>");
     try {
       out.println("<h1>레시피 등록</h1>");
       out.println("<form action='add' method='post'enctype='multipart/form-data'>");
-      out.println("제목:  <input type='text' name='title'><br>");
-      out.println("만드는 시간:  <input type='number' name='min'<br>");
+      out.println("제목: <input type='text' name='title'><br>");
+      out.println("사진: <input type='file' name='recipe_photo'><br>");
+      out.println("내용: <textarea name='recipe_content' rows='10' cols='60'></textarea><br>");
+      out.println("<h3>만드는 시간</h3>  <input type='number' name='min'<br>");
       out.println("<h3>난이도</h3>");
       out.println("<input type='radio' name='level' value='1'>☆");
       out.println("<input type='radio' name='level' value='2'>☆☆");
-      out.println("<input type='radio' name='level' value='3'>☆☆☆");
+      out.println("<input type='radio' name='level' value='3'>☆☆☆<br>");
 
-      out.println("<br>카테고리: <br>");
+      out.println("<br><h3>카테고리 </h3><br>");
       out.println("<ul>");
       List<Category> list = categoryService.list();
       for (Category c : list) {
         out.printf("<li><input type='radio' name='category' value='%d'>%s</li><br>", c.getCategoryNo(),c.getCategoryName());
       }
       out.println("</ul><br>");
-      out.println("내용: <textarea name='content' rows='10' cols='60'></textarea><br>");
-      out.println("사진: <input type='file' name='photo'><br>");
-      out.println("<button>프로젝트 등록</button>");
+      out.println("<h3>조리순서</h3>");
+      out.println("사진: <input type='file' name='step_photo'><br>");
+      out.println("내용: <textarea name='step_content' rows='10' cols='30'></textarea><br>");
+      out.println("<p><button>등록</button></p>");
       out.println("</form>");
 
     } catch (Exception e) {

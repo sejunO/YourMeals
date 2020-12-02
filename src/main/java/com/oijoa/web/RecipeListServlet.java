@@ -34,9 +34,11 @@ public class RecipeListServlet extends HttpServlet {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head><title>Recipe Test</title></head>");
-      out.println("<body><h1>안녕하세요</h1>");
-
-      out.println("[게시물 목록]");
+      out.println("<body>");
+      out.println("<h1>레시피 목록</h1>");
+      
+      out.println("<a href='form'>새 레시피</a><br>");
+      
       List<Recipe> list = recipeService.list();
 
       out.println("<table border='1'><tr>"
@@ -51,8 +53,8 @@ public class RecipeListServlet extends HttpServlet {
       for (Recipe recipe : list) {
         out.println("<tr>");
         out.printf("<td>%d</td>", recipe.getRecipeNo());
-        out.printf("<td><img src='../upload/%s_30x30.jpg'></td>", recipe.getPhoto());
-        out.printf("<td>%s</td>", recipe.getTitle());
+        out.printf("<td><img src='../upload/%1$s_30x30.jpg'>%s</td>", recipe.getPhoto());
+        out.printf("<td><a href='detail?recipeNo=%1$d'>%s</a></td>",recipe.getRecipeNo(),recipe.getTitle());
         out.printf("<td>%s</td>", recipe.getWriter().getNick());
         out.printf("<td>%s</td>", recipe.getCategory().getCategoryName());
         out.printf("<td>%s</td>", recipe.getCreatedDate());

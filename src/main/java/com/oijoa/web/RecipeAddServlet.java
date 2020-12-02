@@ -52,14 +52,16 @@ public class RecipeAddServlet extends HttpServlet {
     try {
       category = categoryService.get(Integer.parseInt(request.getParameter("category")));
     } catch (Exception e) {
-      System.out.println("카테고리 값 받아올 때 오류");
+      out.println("카테고리 값 받아올 때 오류");
     }
     try {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>Recipe Test</title></head>");
+      out.println("<head>");
+      out.println("<meta http-equiv='Refresh' content='1;url=list'>");
+      out.println("<title>Recipe Test</title></head>");
 
-      out.println("[게시물 추가]");
+      out.println("<h1>레시피 생성<h1>");
 
       Recipe recipe = new Recipe();
       recipe.setTitle(request.getParameter("title"));
@@ -69,11 +71,10 @@ public class RecipeAddServlet extends HttpServlet {
       recipe.setWriter(user);
       recipe.setLevelNo(Integer.parseInt(request.getParameter("level")));
       recipe.setMin(Integer.parseInt(request.getParameter("min")));
-<<<<<<< HEAD
+
       
       //      Category category = categoryService.get(Integer.parseInt(request.getParameter("category")));
-=======
->>>>>>> df0b109cac50a581346cafa52e2d9e3d381dcf89
+
       recipe.setCategory(category);
       recipe.setPhoto(filename);
 
