@@ -19,7 +19,7 @@
     
     <association property="writer" javaType="user">
       <id column="writer_no"        property="userNo"/>
-      <result column="writer_nick"  property="nick"/>
+      <result column="writer_name"  property="name"/>
     </association>
   </resultMap>
 
@@ -45,7 +45,7 @@
     select 
       b.bkno,
       u.uno writer_no,
-      u.nick writer_nick, 
+      u.name writer_name, 
       p.pno product_no, 
       p.content product_content,
       p.price product_price,

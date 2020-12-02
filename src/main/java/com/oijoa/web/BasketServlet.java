@@ -47,7 +47,7 @@ public class BasketServlet extends HttpServlet {
           + "<th>상품정보</th>"
           + "<th>수량</th>"
           + "<th>가격</th>"
-          + "<th>회원번호</th>"
+          + "<th>회원이름</th>"
           + "</tr></thead>");
       out.println("<tbody>");
 
@@ -56,12 +56,12 @@ public class BasketServlet extends HttpServlet {
             +"<td>%s</td>"
             +"<td>%d</td>"
             +"<td>%s</td>"
-            +"<td>%d</td>"
+            +"<td>%s</td>"
             +"</tr>\n",
             basket.getProducts().getContent(), 
             basket.getAmount(), 
             basket.getProducts().getPrice(), 
-            basket.getWriter().getUserNo());
+            basket.getWriter().getName());
       }
 
       out.println("</tbody>");
