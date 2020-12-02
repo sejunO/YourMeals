@@ -7,6 +7,7 @@ public interface RecipeService {
 
   List<Recipe> list() throws Exception;
   List<Recipe> myList(int loginUserNo) throws Exception;
+  List<Recipe> myLikeList(int loginUserNo) throws Exception;
   int add (Recipe recipe) throws Exception;
   int update(Recipe recipe) throws Exception;
   Recipe get(int no) throws Exception;

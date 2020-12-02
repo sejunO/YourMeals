@@ -69,6 +69,21 @@
   </select>
   -->
   
+  <select id="findByLike" resultMap="RecipeMap" parameterType="int">
+    select 
+      r.rno,
+      r.title,
+      r.photo, 
+      r.cdt
+    from 
+      oi_board_like l
+      inner join oi_user u
+      on l.uno = u.uno
+      inner join oi_recipe r
+      on l.rno = r.rno
+    where l.uno = #{loginno}
+  </select>
+  
   <insert id="insert" parameterType="recipe"
   useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
     insert into oi_recipe(title,content,uno,min,lno,photo)

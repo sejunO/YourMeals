@@ -29,7 +29,12 @@ public class DefaultRecipeService implements RecipeService {
 
   @Override
   public List<Recipe> myList(int loginUserNo) throws Exception {
-    return recipeDao.findMy(loginUserNo);
+    return recipeDao.findByUserNo(loginUserNo);
+  }
+  
+  @Override
+  public List<Recipe> myLikeList(int loginUserNo) throws Exception {
+    return recipeDao.findByLike(loginUserNo);
   }
 
   @Override
@@ -45,7 +50,7 @@ public class DefaultRecipeService implements RecipeService {
   //
     @Override
     public Recipe get(int no) throws Exception {
-      Recipe recipe = recipeDao.findByNo(no);
+      Recipe recipe = recipeDao.findByRecipeNo(no);
       if (recipe != null) {
     	  recipeDao.updateViewCount(no);
       }
