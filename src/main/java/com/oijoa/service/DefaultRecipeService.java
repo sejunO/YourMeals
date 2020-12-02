@@ -30,14 +30,11 @@ public class DefaultRecipeService implements RecipeService {
   @Override
   public List<Recipe> myList(int loginUserNo) throws Exception {
     return recipeDao.findByUserNo(loginUserNo);
-<<<<<<< HEAD
-=======
   }
   
   @Override
   public List<Recipe> myLikeList(int loginUserNo) throws Exception {
     return recipeDao.findByLike(loginUserNo);
->>>>>>> 4544d210e5027db02625c8a283be6974f0c755f3
   }
 
   @Override
