@@ -14,13 +14,19 @@
       <id column="product_no"    property="productNo"/>
       <result column="product_content"    property="content"/>
       <result column="product_price"    property="price"/>
-      
+    </association>
+    
+    <association property="writer" javaType="user">
+      <id column="writer_no"        property="userNo"/>
+      <result column="writer_nick"  property="nick"/>
     </association>
   </resultMap>
 
   <select id="findAll" resultMap="BasketMap" parameterType="string">
     select 
-      b.bkno, 
+      b.bkno,
+      u.uno writer_no,
+      u.nick writer_nick, 
       p.pno product_no, 
       p.content product_content,
       p.price product_price,
@@ -29,7 +35,21 @@
     from
       oi_basket b
       inner join oi_product p
-      on b.bkno=p.pno
+        on b.bkno=p.pno
+      inner join oi_user u 
+         on b.uno=u.uno
+      
+  </select>
+
+  <select id="findByUserNo" resultMap="BasketMap" parameterType="int">
+    select 
+      rno,
+      title,
+      photo, 
+      cdt
+    from 
+      oi_recipe
+    where uno = #{loginno}
   </select>
   
   <insert id="insert" parameterType="basket"

@@ -23,6 +23,11 @@ public class DefaultBasketService implements BasketService {
   }
 
   @Override
+  public List<Basket> myList(int loginUserNo) throws Exception {
+    return basketDao.findByUserNo(loginUserNo);
+  }
+
+  @Override
   public List<Basket> list() throws Exception {
     return basketDao.findAll(null);
   }

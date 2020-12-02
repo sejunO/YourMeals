@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import com.oijoa.domain.Basket;
+import com.oijoa.domain.User;
 import com.oijoa.service.BasketService;
 
 @WebServlet("/basket/list")
@@ -27,14 +29,19 @@ public class BasketServlet extends HttpServlet {
     ServletContext ctx = request.getServletContext();
     BasketService basketService = (BasketService) ctx.getAttribute("basketService");
 
+    HttpSession session = request.getSession();
+
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head><title>BasketService</title></head>");
     out.println("<body><h1>장바구니</h1>");
     try {
+
+      User loginUser = (User) session.getAttribute("loginUser");
+
       out.println("<p>[장바구니 목록]</p>");
       out.println("<a href='form'>장바구니 등록</a><br>");
-      List<Basket> list = basketService.list();
+      List<Basket> list = basketService.myList(loginUser.getUserNo());
 
       out.println("<table border='1'>");
       out.println("<thead><tr>"
