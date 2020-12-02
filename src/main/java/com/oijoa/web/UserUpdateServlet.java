@@ -3,7 +3,6 @@ package com.oijoa.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,7 +36,7 @@ public class UserUpdateServlet extends HttpServlet {
     try {
       out.println("<h1>정보 수정</h1>");
 
-      List<User> list = userService.list();
+      User list = userService.get();
 
       out.println("<table border='1'>");
       out.println("<thead><tr>"
