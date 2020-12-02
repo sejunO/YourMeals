@@ -27,9 +27,21 @@ public class DefaultRecipeService implements RecipeService {
 		return recipeDao.findAll(null);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public List<Recipe> myList(int loginUserNo) throws Exception {
 		return recipeDao.findByUserNo(loginUserNo);
+=======
+  @Override
+  public List<Recipe> myList(int loginUserNo) throws Exception {
+    return recipeDao.findByUserNo(loginUserNo);
+  }
+  
+  @Override
+  public List<Recipe> myLikeList(int loginUserNo) throws Exception {
+    return recipeDao.findByLike(loginUserNo);
+  }
+>>>>>>> 408b9381c665422a9575d1b3c193038fadf935fb
 
 	}
 

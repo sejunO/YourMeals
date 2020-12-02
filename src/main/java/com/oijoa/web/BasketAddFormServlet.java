@@ -16,7 +16,6 @@ import com.oijoa.service.ProductService;
 
 @WebServlet("/basket/form")
 public class BasketAddFormServlet extends HttpServlet {
-
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -26,8 +25,6 @@ public class BasketAddFormServlet extends HttpServlet {
     ServletContext ctx = request.getServletContext();
     ProductService productService =
         (ProductService) ctx.getAttribute("productService");
-    BasketService basketService =
-        (BasketService) ctx.getAttribute("basketService");
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();

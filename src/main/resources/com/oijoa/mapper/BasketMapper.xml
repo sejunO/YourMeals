@@ -61,8 +61,8 @@
   
   <insert id="insert" parameterType="basket"
         useGeneratedKeys="true" keyColumn="no" keyProperty="no">
-    insert into oi_basket(amount,pno)
-    values(#{amount},#{products.no})
+    insert into oi_basket(amount,product_no,writer_no)
+    values(#{amount},#{products.no},#{writer.userNo})
   </insert>
   
 </mapper>
