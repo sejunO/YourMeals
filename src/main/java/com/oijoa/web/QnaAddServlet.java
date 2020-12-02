@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.oijoa.domain.Qna;
+import com.oijoa.domain.User;
 import com.oijoa.service.QnaService;
 
 @WebServlet("/mypage/qna/add")
@@ -41,7 +42,8 @@ public class QnaAddServlet extends HttpServlet {
     try {
       out.println("<h1>[QnA 게시글 등록]</h1>");
 
-      // 로그인부분 추가 => Mapper insert uno 고정부분 수정해야함.
+      User loginUser = (User) session.getAttribute("loginUser");
+      qna.setWriter(loginUser);
 
       qnaService.add(qna);
 

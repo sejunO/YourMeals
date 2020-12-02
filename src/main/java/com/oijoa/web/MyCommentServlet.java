@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
-import com.oijoa.service.RecipeService;
+import com.oijoa.service.CommentService;
 
-@WebServlet("/mypage/myrecipe/list")
-public class MyRecipeServlet extends HttpServlet {
+@WebServlet("/mypage/mycomment/list")
+public class MyCommentServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -24,7 +24,7 @@ public class MyRecipeServlet extends HttpServlet {
       throws ServletException, IOException {
 
     ServletContext ctx = request.getServletContext();
-    RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
+    CommentService commentService = (CommentService) ctx.getAttribute("commentService");
 
     HttpSession session = request.getSession();
 
@@ -41,7 +41,7 @@ public class MyRecipeServlet extends HttpServlet {
       // 로그인부분 추가 => Mapper findMy uno(=1) 고정부분 수정해야함.
       User loginUser = (User) session.getAttribute("loginUser");
 
-      List<Recipe> list = recipeService.myList(loginUser.getUserNo());
+      List<Recipe> list = commentService.myList(loginUser.getUserNo());
 
       out.println("<table border='1'><tr>"
           + "<th>번호</th>"

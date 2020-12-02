@@ -21,6 +21,21 @@ public class RecipeDaoImpl implements RecipeDao {
 			return sqlSession.selectList("RecipeDao.findAll", keyword);
 		}
 	}
+	
+	@Override
+	public List<Recipe> findByUserNo(int loginUserNo) throws Exception {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+			return sqlSession.selectList("RecipeDao.findByUserNo", loginUserNo);
+		}
+	}
+	
+	@Override
+	public Recipe findByRecipeNo(int no) throws Exception {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+			return sqlSession.selectOne("RecipeDao.findByRecipeNo", no);
+		}
+	}
+
 
 	@Override
 	public int insert(Recipe recipe) throws Exception {
@@ -43,12 +58,6 @@ public class RecipeDaoImpl implements RecipeDao {
 		}
 	}
 
-	@Override
-	public Recipe findByNo(int no) throws Exception {
-		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-			return sqlSession.selectOne("RecipeDao.findByNo", no);
-		}
-	}
 
 	@Override
 	public int updateViewCount(int no) throws Exception {
@@ -56,4 +65,6 @@ public class RecipeDaoImpl implements RecipeDao {
 			return sqlSession.update("RecipeDao.updateViewCount", no);
 		}
 	}
+	
+
 }

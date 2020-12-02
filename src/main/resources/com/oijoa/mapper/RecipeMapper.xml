@@ -4,73 +4,33 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="RecipeDao">
+  
+  <resultMap type="recipe" id="RecipeMap">
+    <id column="rno"           property="recipeNo"/>
+    <result column="title"  property="title"/>
+    <result column="content"  property="content"/>
+    <result column="photo"  property="photo"/>
+    <result column="hits"  property="hits"/>
+    <result column="rcmdcnt"  property="recomendCount"/>
+    <result column="cdt"  property="createdDate"/>
+    <result column="mdt"  property="modifiedDate"/>
+    <result column="min"  property="min"/>
+    <result column="lno"  property="levelNo"/>
+    <result column="loginno" property="loginUserNo"/>
+    
+    <association property="writer" javaType="user">
+      <id column="writer_no"        property="userNo"/>
+      <result column="writer_nick"  property="nick"/>
+    </association>
+        
+    <association property="category" javaType="category">
+      <id column="category_no"  property="categoryNo"/>
+      <result column="category_name"     property="categoryName"/>
+    </association>
+  </resultMap>
 
-<<<<<<< HEAD
-	<resultMap type="recipe" id="RecipeMap">
-		<id column="rno" property="recipeNo" />
-		<result column="title" property="title" />
-		<result column="content" property="content" />
-		<result column="photo" property="photo" />
-		<result column="hits" property="hits" />
-		<result column="rcmdcnt" property="recommendCount" />
-		<result column="cdt" property="createdDate" />
-		<result column="mdt" property="modifiedDate" />
-		<result column="min" property="min" />
-		<result column="lno" property="levelNo" />
 
-		<association property="writer" javaType="user">
-			<id column="writer_no" property="userNo" />
-			<result column="writer_nick" property="nick" />
-		</association>
 
-		<association property="category" javaType="category">
-			<id column="category_no" property="categoryNo" />
-			<result column="category_name" property="categoryName" />
-		</association>
-	</resultMap>
-
-	<select id="findAll" resultMap="RecipeMap"
-		parameterType="string">
-		select
-		r.rno,
-		r.title,
-		u.uno writer_no,
-		u.nick writer_nick,
-		c.cno category_no,
-		c.name category_name,
-		r.cdt,
-		r.hits
-		from
-		oi_recipe r
-		inner join oi_user u
-		on r.uno=u.uno
-		inner join oi_recipe_category rc
-		on r.rno = rc.rno
-		inner join oi_category c
-		on rc.cno = c.cno
-	</select>
-
-	<insert id="insert" parameterType="recipe"
-		useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
-		insert into oi_recipe(title,content,uno,min,lno)
-		values(#{title},#{content},#{writer.userNo},#{min},#{levelNo})
-	</insert>
-
-	<insert id="insertCategory" parameterType="recipe">
-		insert into oi_recipe_category(rno,cno)
-		values (#{recipeNo},#{category.categoryNo})
-	</insert>
-
-	<update id="update" parameterType="recipe">
-		update oi_recipe set
-		title = #{title},
-		content = #{content},
-		photo = #{photo},
-		min = #{min},
-		lno= #{levelNo}
-		where rno = #{recipeNo}
-	</update>
-=======
   <select id="findAll" resultMap="RecipeMap" parameterType="string">
     select 
       r.rno,
@@ -85,22 +45,29 @@
     from 
       oi_recipe r 
       inner join oi_user u 
-      on r.uno=u.uno
+         on r.uno=u.uno
       inner join oi_recipe_category rc
-      on r.rno = rc.rno
+         on r.rno = rc.rno
       inner join oi_category c
-      on rc.cno = c.cno
+         on rc.cno = c.cno
   </select>
   
-  <select id="findMy" resultMap="RecipeMap" parameterType="string">
+  <select id="findByUserNo" resultMap="RecipeMap" parameterType="int">
     select 
       rno,
       title,
-      photo 
+      photo, 
+      cdt
     from 
       oi_recipe
-    where uno = 1
+    where uno = #{loginno}
   </select>
+  
+  <!-- 뭘 넣을지 아직 고민중
+  <select id="findByRecipeNo" resultMap="RecipeMap" parameterType="int">
+      
+  </select>
+  -->
   
   <insert id="insert" parameterType="recipe"
   useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
@@ -113,8 +80,16 @@
     values (#{recipeNo},#{category.categoryNo})
   </insert>
   
->>>>>>> 26e7e90fd92a96e29c67ceddbe743e843412e725
-
+    <update id="update" parameterType="recipe">
+    update oi_recipe set
+    title = #{title},
+    content = #{content},
+    photo = #{photo},
+    min = #{min},
+    lno= #{levelNo}
+    where rno = #{recipeNo}
+  </update>
+  
 </mapper>
 
 

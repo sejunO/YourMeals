@@ -32,17 +32,19 @@ insert into oi_product(pno, mno, content, stock, price, discount) value (9, 9, '
 insert into oi_product(pno, mno, content, stock, price, discount) value (10, 10, '평창한우', 10, 45000, 0);
 
 -- 회원 
-insert into oi_user(uno, name, nick, email, password, point, utype) values (1, 'sejunO', 'sj', 'sj@test.com', '1111', 0, 1);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (2, 'eunchae-Cho', 'ec', 'ec@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (3, 'aramYu', 'ar', 'ar@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (4, 'seunghyuck', 'sh', 'sh@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (5, 'jinyoungChoi', 'jy', 'jy@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (6, 'Test01', 't1', 't1@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (7, 'EomTeacher', 'et', 'et@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (8, 'Test02', 't2', 't2@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (9, 'Test03', 't3', 't3@test.com', '1111', 0, 0);
-insert into oi_user(uno, name, nick, email, password, point, utype) values (10, 'youngjinEom', 'yj', 'yj@test.com', '1111', 0, 0);
-insert into oi_user(uno, name,email,password,photo,nick,point,utype) values(11,'테스트','test@test.com',password(1111),'test.jpeg','테스트',0,1);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (1, 'sejunO854', 'sj', 'sj@test.com', password(1111), 0, 1);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (2, 'eunchae-Cho', 'ec', 'ec@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (3, 'aramYu', 'ar', 'ar@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (4, 'seunghyuck', 'sh', 'sh@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (5, 'dragonmin', 'ym', 'ym@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (6, 'somi-Shin', 'sm', 'sm@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (7, 'jinyoungChoi', 'jy', 'jy@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (8, 'Test01', 't1', 't1@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (9, 'EomTeacher', 'et', 'et@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (10, 'Test02', 't2', 't2@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (11, 'Test03', 't3', 't3@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (12, 'youngjinEom', 'yj', 'yj@test.com', password(1111), 0, 0);
+insert into oi_user(uno, name,email,password,photo,nick,point,utype) values(13,'테스트','test@test.com', password(1111),'test.jpeg','테스트',0,1);
 
 -- 난이도번호
 insert into oi_level(lno, lv) values (1, 1);
@@ -54,8 +56,19 @@ insert into oi_level(lno, lv) values (5, 5);
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (1, 1, 'notice', '오호라', 'test.gif', 0, 0, '2020-11-18', 0, 1); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (2, 1, '제육볶음만들기', '첫번째,고기를산다', 'test1.gif', 0, 0, '2020-11-18 12:40:40', 40, 2); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (3, 2, '콩나물밥만들기', '콩나물을 산다', 'test2.gif', 2, 1, '2020-11-18 16:44:44', 60, 3); 
-insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (4, 3, '불닭만들기', '무조건맵게만든다', 'test3.gif', 3, 2, '2020-11-18 18:05:59', 40, 4); 
-insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (5, 4, '계란찜만들기', '계란을산다', 'test4.gif', 4, 3, '2020-11-18 20:24:32', 20, 5); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (4, 3, '불닭만들기', '무조건 맵게 만든다', 'test3.gif', 3, 2, '2020-11-18 18:05:59', 40, 4); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (5, 4, '계란찜만들기', '계란을 산다', 'test4.gif', 4, 3, '2020-11-18 20:24:32', 20, 5); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (6, 3, '라면끓이기', '라면을 산다', 'test5.gif', 0, 0, '2020-11-18 20:24:32', 10, 1); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (7, 3, '김치볶음밥만들기', '김치볶음밥은 김치가 맛있어야 한다', 'test6.gif', 0, 0, '2020-11-18 20:24:32', 20, 2); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (8, 3, '계란말이만들기', '계란을산다', 'test7.gif', 0, 0, '2020-11-18 20:24:32', 20, 2); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (9, 3, '치즈밥만들기', '치즈를 아주 많이 구매한다', 'test8.gif', 0, 0, '2020-11-18 20:24:32', 20, 1); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (10, 3, '만두국만들기', '사리곰탕에 만두 넣기', 'test9.gif', 0, 0, '2020-11-18 20:24:32', 30, 1); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (11, 3, '떡볶이만들기', '떡과 고추장 필수', 'test10.gif', 0, 0, '2020-11-18 20:24:32', 30, 2); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (12, 3, '피자만들기', '빵과 케찹 필수', 'test11.gif', 0, 0, '2020-11-18 20:24:32', 50, 2); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (13, 3, '얼음얼리기', '물을 얼린다', 'test12.gif', 0, 0, '2020-11-18 20:24:32', 180, 1); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (14, 3, '식혜만들기', '일단...', 'test13.gif', 0, 0, '2020-11-18 20:24:32', 300, 5); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (15, 3, '과일주만들기', '술을 산다', 'test14.gif', 0, 0, '2020-11-18 20:24:32', 300, 1); 
+
 -- 레시피 단계
 insert into oi_recipe_step(rsno, rno, step, photo, content) values (1, 1, 1, 'hi.jpg', '1단계 입니다');
 insert into oi_recipe_step(rsno, rno, step, photo, content) values (2, 1, 2, 'hi2.jpg', '2단계 입니다');
@@ -150,11 +163,16 @@ insert into oi_board_like(uno, rno) values (3, 1);
 insert into oi_board_like(uno, rno) values (4, 3);
 insert into oi_board_like(uno, rno) values (5, 5);
 -- Q/A
-insert into oi_qna(qnano, uno, title, content, secret) values (1, 1, '테스트제목', '테스트', 0);
-insert into oi_qna(qnano, uno, title, content, secret) values (2, 2, '테스트제목2', '테스트2', 0);
-insert into oi_qna(qnano, uno, title, content, secret) values (3, 3, '테스트제목3', '테스트3', 0);
-insert into oi_qna(qnano, uno, title, content, secret) values (4, 4, '테스트제목4', '테스트4', 0);
-insert into oi_qna(qnano, uno, title, content, secret) values (5, 5, '테스트제목5', '테스트5', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (1, 1, '테스트제목', '테스트', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (2, 2, '테스트제목2', '테스트2', 0);
+insert into oi_qna(qnano, writer, title, content, secret, answer) values (3, 3, '테스트제목3', '테스트3', 0, '답변드립니다.');
+insert into oi_qna(qnano, writer, title, content, secret) values (4, 4, '테스트제목4', '테스트4', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (5, 5, '테스트제목5', '테스트5', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (6, 6, '테스트제목6', '테스트6', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (7, 7, '테스트제목7', '테스트7', 0);
+insert into oi_qna(qnano, writer, title, content, secret) values (8, 3, '테스트제목9', '테스트8', 0);
+insert into oi_qna(qnano, writer, title, content, secret, answer) values (9, 3, '테스트제목9', '테스트9', 0, '답변22');
+insert into oi_qna(qnano, writer, title, content, secret) values (10, 1, '테스트제목10', '테스트10', 0);
 -- 주문
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (1, 1, 1, 1, '123-2345', '부재시 경비실', '10301','비트교육센터','로비','1');
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (2, 2, 2, 2, '123-2345', '부재시 경비실', '10301','비트교육센터','203호','2');
