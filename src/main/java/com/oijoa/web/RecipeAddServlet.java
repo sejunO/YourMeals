@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Recipe;
@@ -38,9 +39,11 @@ public class RecipeAddServlet extends HttpServlet {
     ServletContext ctx = request.getServletContext();
     RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
     CategoryService categoryService = (CategoryService) ctx.getAttribute("categoryService");
+    HttpSession session = request.getSession();
+    User user = (User) session.getAttribute("loginUser");
 
     //사진
-    Part photoPart = request.getPart("photo");
+    Part photoPart = request.getPart("recipe_photo");
     String filename = UUID.randomUUID().toString();
     String saveFilePath = ctx.getRealPath("/upload/" + filename);
     photoPart.write(saveFilePath);
@@ -65,14 +68,10 @@ public class RecipeAddServlet extends HttpServlet {
 
       Recipe recipe = new Recipe();
       recipe.setTitle(request.getParameter("title"));
-      recipe.setContent(request.getParameter("content"));
-      User user = new User();
-      user.setUserNo(1);
+      recipe.setContent(request.getParameter("recipe_content"));
       recipe.setWriter(user);
       recipe.setLevelNo(Integer.parseInt(request.getParameter("level")));
       recipe.setMin(Integer.parseInt(request.getParameter("min")));
-
-
       recipe.setCategory(category);
       recipe.setPhoto(filename);
 
