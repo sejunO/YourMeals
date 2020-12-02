@@ -9,6 +9,7 @@
     <id column="bkno"           property="basketNo"/>
     <result column="amount"  property="amount"/>
     <result column="uno"      property="userNo"/>
+    <result column="loginno" property="loginUserNo"/>
     
     <association property="products" javaType="product">
       <id column="product_no"    property="productNo"/>
@@ -30,8 +31,7 @@
       p.pno product_no, 
       p.content product_content,
       p.price product_price,
-      b.amount, 
-      b.uno
+      b.amount 
     from
       oi_basket b
       inner join oi_product p
@@ -43,13 +43,20 @@
 
   <select id="findByUserNo" resultMap="BasketMap" parameterType="int">
     select 
-      rno,
-      title,
-      photo, 
-      cdt
-    from 
-      oi_recipe
-    where uno = #{loginno}
+      b.bkno,
+      u.uno writer_no,
+      u.nick writer_nick, 
+      p.pno product_no, 
+      p.content product_content,
+      p.price product_price,
+      b.amount 
+    from
+      oi_basket b
+      inner join oi_product p
+        on b.bkno=p.pno
+      inner join oi_user u 
+         on b.uno=u.uno
+    where b.uno = #{loginno}
   </select>
   
   <insert id="insert" parameterType="basket"

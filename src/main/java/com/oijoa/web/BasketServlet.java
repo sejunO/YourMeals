@@ -16,7 +16,6 @@ import com.oijoa.service.BasketService;
 
 @WebServlet("/basket/list")
 public class BasketServlet extends HttpServlet {
-
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -45,10 +44,10 @@ public class BasketServlet extends HttpServlet {
 
       out.println("<table border='1'>");
       out.println("<thead><tr>"
-          + "<th>상품정보 :</th>"
-          + "<th>수량 :</th>"
-          + "<th>가격 :</th>"
-          + "<th>회원번호 :</th>"
+          + "<th>상품정보</th>"
+          + "<th>수량</th>"
+          + "<th>가격</th>"
+          + "<th>회원번호</th>"
           + "</tr></thead>");
       out.println("<tbody>");
 
@@ -59,7 +58,10 @@ public class BasketServlet extends HttpServlet {
             +"<td>%s</td>"
             +"<td>%d</td>"
             +"</tr>\n",
-            basket.getProducts().getContent(), basket.getAmount(), basket.getProducts().getPrice(), basket.getUserNo());
+            basket.getProducts().getContent(), 
+            basket.getAmount(), 
+            basket.getProducts().getPrice(), 
+            basket.getWriter().getUserNo());
       }
 
       out.println("</tbody>");

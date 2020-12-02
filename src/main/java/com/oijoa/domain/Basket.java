@@ -6,31 +6,11 @@ public class Basket {
   private int basketNo;
   private int productNo;
   private int amount;
-  private int userNo;
+  private User writer;
   private Product products;
   private List<Product> product;
   private List<User> users;
-
-  public List<Product> getProduct() {
-    return product;
-  }
-  public void setProduct(List<Product> product) {
-    this.product = product;
-  }
-
-  public Product getProducts() {
-    return products;
-  }
-  public void setProducts(Product products) {
-    this.products = products;
-  }
-  public List<User> getUsers() {
-    return users;
-  }
-  public void setUsers(List<User> users) {
-    this.users = users;
-  }
-
+  
   public int getBasketNo() {
     return basketNo;
   }
@@ -49,10 +29,28 @@ public class Basket {
   public void setAmount(int amount) {
     this.amount = amount;
   }
-  public int getUserNo() {
-    return userNo;
+  public User getWriter() {
+    return writer;
   }
-  public void setUserNo(int userNo) {
-    this.userNo = userNo;
+  public void setWriter(User writer) {
+    this.writer = writer;
+  }
+  public Product getProducts() {
+    return products;
+  }
+  public void setProducts(Product products) {
+    this.products = products;
+  }
+  public List<Product> getProduct() {
+    return product;
+  }
+  public void setProduct(List<Product> product) {
+    this.product = product;
+  }
+  public List<User> getUsers() {
+    return users;
+  }
+  public void setUsers(List<User> users) {
+    this.users = users;
   }
 }
