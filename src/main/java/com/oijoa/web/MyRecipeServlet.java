@@ -38,7 +38,6 @@ public class MyRecipeServlet extends HttpServlet {
     try {
       out.println("<h1>[My Recipe 목록]</h1>");
 
-      // 로그인부분 추가 => Mapper findMy uno(=1) 고정부분 수정해야함.
       User loginUser = (User) session.getAttribute("loginUser");
 
       List<Recipe> list = recipeService.myList(loginUser.getUserNo());
@@ -61,7 +60,11 @@ public class MyRecipeServlet extends HttpServlet {
             recipe.getPhoto(),
             recipe.getCreatedDate());
       }
-      out.println("</table></body></html>");
+      out.println("</table>");
+      out.println("<hr>\n");
+      out.println("<a href=../index.html>뒤로가기</a><br>\n");
+      out.println("<a href=../../index.html>홈으로</a><br>\n");
+      out.println("</body></html>");
     } catch (Exception e) {
       out.println("<h2>작업 처리 중 오류 발생!</h2>");
       out.printf("<pre>%s</pre>\n", e.getMessage());
