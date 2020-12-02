@@ -69,11 +69,7 @@ public class RecipeAddServlet extends HttpServlet {
       recipe.setWriter(user);
       recipe.setLevelNo(Integer.parseInt(request.getParameter("level")));
       recipe.setMin(Integer.parseInt(request.getParameter("min")));
-<<<<<<< HEAD
-      
-      //      Category category = categoryService.get(Integer.parseInt(request.getParameter("category")));
-=======
->>>>>>> df0b109cac50a581346cafa52e2d9e3d381dcf89
+
       recipe.setCategory(category);
       recipe.setPhoto(filename);
 
