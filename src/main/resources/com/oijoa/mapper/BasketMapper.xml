@@ -6,26 +6,37 @@
 <mapper namespace="BasketDao">
   
   <resultMap type="basket" id="BasketMap">
-    <id column="bkno"           property="bankNo"/>
-    <result column="pno"    property="productNo"/>
+    <id column="bkno"           property="basketNo"/>
     <result column="amount"  property="amount"/>
     <result column="uno"      property="userNo"/>
     
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
+    <association property="products" javaType="product">
+      <id column="product_no"    property="productNo"/>
+      <result column="product_content"    property="content"/>
+      <result column="product_price"    property="price"/>
+      
+    </association>
   </resultMap>
 
   <select id="findAll" resultMap="BasketMap" parameterType="string">
     select 
-      bkno, 
-      pno, 
-      amount, 
-      uno
-      from oi_basket
+      b.bkno, 
+      p.pno product_no, 
+      p.content product_content,
+      p.price product_price,
+      b.amount, 
+      b.uno
+    from
+      oi_basket b
+      inner join oi_product p
+      on b.bkno=p.pno
   </select>
+  
+  <insert id="insert" parameterType="basket"
+        useGeneratedKeys="true" keyColumn="no" keyProperty="no">
+    insert into oi_basket(amount,pno)
+    values(#{amount},#{products.no})
+  </insert>
   
 </mapper>
 

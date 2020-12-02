@@ -1,16 +1,41 @@
 package com.oijoa.domain;
 
+import java.util.List;
+
 public class Basket {
-  private int bankNo;
+  private int basketNo;
   private int productNo;
   private int amount;
   private int userNo;
-  
-  public int getBankNo() {
-    return bankNo;
+  private Product products;
+  private List<Product> product;
+  private List<User> users;
+
+  public List<Product> getProduct() {
+    return product;
   }
-  public void setBankNo(int bankNo) {
-    this.bankNo = bankNo;
+  public void setProduct(List<Product> product) {
+    this.product = product;
+  }
+
+  public Product getProducts() {
+    return products;
+  }
+  public void setProducts(Product products) {
+    this.products = products;
+  }
+  public List<User> getUsers() {
+    return users;
+  }
+  public void setUsers(List<User> users) {
+    this.users = users;
+  }
+
+  public int getBasketNo() {
+    return basketNo;
+  }
+  public void setBasketNo(int basketNo) {
+    this.basketNo = basketNo;
   }
   public int getProductNo() {
     return productNo;

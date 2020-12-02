@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Basket;
 import com.oijoa.service.BasketService;
 
-@WebServlet("/basket")
+@WebServlet("/basket/list")
 public class BasketServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
@@ -27,29 +27,36 @@ public class BasketServlet extends HttpServlet {
     ServletContext ctx = request.getServletContext();
     BasketService basketService = (BasketService) ctx.getAttribute("basketService");
 
+    out.println("<!DOCTYPE html>");
+    out.println("<html>");
+    out.println("<head><title>BasketService</title></head>");
+    out.println("<body><h1>장바구니</h1>");
     try {
-
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head><title>BasketService</title></head>");
-      out.println("<body><h1>안녕하세요</h1>");
-
-      out.println("[게시물 목록]");
+      out.println("<p>[장바구니 목록]</p>");
+      out.println("<a href='form'>장바구니 등록</a><br>");
       List<Basket> list = basketService.list();
 
+      out.println("<table border='1'>");
+      out.println("<thead><tr>"
+          + "<th>상품정보 :</th>"
+          + "<th>수량 :</th>"
+          + "<th>가격 :</th>"
+          + "<th>회원번호 :</th>"
+          + "</tr></thead>");
+      out.println("<tbody>");
+
       for (Basket basket : list) {
-        out.println("<table><tr>");
-        out.printf("<td>은행번호 : ");
-        out.printf("%d</td>", basket.getBankNo());
-        out.printf("<td>상품번호 : ");
-        out.printf("%d</td>", basket.getProductNo());
-        out.printf("<td>수량 : ");
-        out.printf("%d</td>", basket.getAmount());
-        out.printf("<td>회원번호 : ");
-        out.printf("%d</td>", basket.getUserNo());
-        out.println("</tr></table>");
-        out.println();
+        out.printf("<tr>"
+            +"<td>%s</td>"
+            +"<td>%d</td>"
+            +"<td>%s</td>"
+            +"<td>%d</td>"
+            +"</tr>\n",
+            basket.getProducts().getContent(), basket.getAmount(), basket.getProducts().getPrice(), basket.getUserNo());
       }
+
+      out.println("</tbody>");
+      out.println("</table>");
       out.println("</body>");
       out.println("</html>");
     } catch (Exception e) {

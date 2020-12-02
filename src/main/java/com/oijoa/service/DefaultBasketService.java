@@ -17,11 +17,11 @@ public class DefaultBasketService implements BasketService {
   //    return boardDao.delete(no);
   //  }
   //
-  //  @Override
-  //  public int add(Board board) throws Exception {
-  //    return boardDao.insert(board);
-  //  }
-  //
+  @Override
+  public int add(Basket basket) throws Exception {
+    return basketDao.insert(basket);
+  }
+
   @Override
   public List<Basket> list() throws Exception {
     return basketDao.findAll(null);

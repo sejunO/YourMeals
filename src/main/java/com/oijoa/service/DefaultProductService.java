@@ -12,6 +12,10 @@ public class DefaultProductService implements ProductService {
     this.productDao = productDao;
   }
 
+  @Override
+  public List<Product> list() throws Exception {
+    return productDao.findAll(null);
+  }
 
   @Override
   public List<Product> list(String keyword) throws Exception {
