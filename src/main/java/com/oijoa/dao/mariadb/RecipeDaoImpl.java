@@ -30,6 +30,13 @@ public class RecipeDaoImpl implements RecipeDao {
 	}
 	
 	@Override
+    public List<Recipe> findByLike(int loginUserNo) throws Exception {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            return sqlSession.selectList("RecipeDao.findByLike", loginUserNo);
+        }
+    }
+	
+	@Override
 	public Recipe findByRecipeNo(int no) throws Exception {
 		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 			return sqlSession.selectOne("RecipeDao.findByRecipeNo", no);

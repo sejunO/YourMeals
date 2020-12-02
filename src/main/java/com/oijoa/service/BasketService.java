@@ -6,5 +6,6 @@ import com.oijoa.domain.Basket;
 public interface BasketService {
 
   List<Basket> list() throws Exception;
-
+  int add(Basket basket) throws Exception;
+  List<Basket> myList(int loginUserNo) throws Exception;
 }

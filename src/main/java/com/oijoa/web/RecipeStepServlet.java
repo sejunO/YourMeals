@@ -25,10 +25,10 @@ public class RecipeStepServlet extends HttpServlet {
     PrintWriter out = res.getWriter();
 
     ServletContext ctx = request.getServletContext();
-    RecipeStepService recipeStepService = (RecipeStepService) ctx.getAttribute("recipeStepService");
+    RecipeStepService recipeStepService = (
+        RecipeStepService) ctx.getAttribute("recipeStepService");
 
     try {
-
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head><title>RecipeStepService</title></head>");

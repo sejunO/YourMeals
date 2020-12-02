@@ -20,6 +20,19 @@ public class BasketDaoImpl implements BasketDao{
       return sqlSession.selectList("BasketDao.findAll", keyword);
     }
   }
+  @Override
+  public int insert(Basket basket) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.insert("BasketDao.insert", basket);
+    }
+  }
+  @Override
+  public List<Basket> findByUserNo(int loginUserNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("BasketDao.findByUserNo", loginUserNo);
+    }
+  }
+
 }
 
 

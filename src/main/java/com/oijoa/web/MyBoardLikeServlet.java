@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
-import com.oijoa.service.CommentService;
+import com.oijoa.service.RecipeService;
 
-@WebServlet("/mypage/mycomment/list")
-public class MyCommentServlet extends HttpServlet {
+@WebServlet("/mypage/mylikerecipe/list")
+public class MyBoardLikeServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -24,7 +24,7 @@ public class MyCommentServlet extends HttpServlet {
       throws ServletException, IOException {
 
     ServletContext ctx = request.getServletContext();
-    CommentService commentService = (CommentService) ctx.getAttribute("commentService");
+    RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
 
     HttpSession session = request.getSession();
 
@@ -36,12 +36,11 @@ public class MyCommentServlet extends HttpServlet {
     out.println("<head><title>MyPage</title></head>");
     out.println("<body>");
     try {
-      out.println("<h1>[My Recipe 목록]</h1>");
+      out.println("<h1>[My Like Recipe 목록]</h1>");
 
-      // 로그인부분 추가 => Mapper findMy uno(=1) 고정부분 수정해야함.
       User loginUser = (User) session.getAttribute("loginUser");
 
-      List<Recipe> list = commentService.myList(loginUser.getUserNo());
+      List<Recipe> list = recipeService.myLikeList(loginUser.getUserNo());
 
       out.println("<table border='1'><tr>"
           + "<th>번호</th>"
@@ -61,7 +60,11 @@ public class MyCommentServlet extends HttpServlet {
             recipe.getPhoto(),
             recipe.getCreatedDate());
       }
-      out.println("</table></body></html>");
+      out.println("</table>");
+      out.println("<hr>\n");
+      out.println("<a href=../index.html>뒤로가기</a><br>\n");
+      out.println("<a href=../../index.html>홈으로</a><br>\n");
+      out.println("</body></html>");
     } catch (Exception e) {
       out.println("<h2>작업 처리 중 오류 발생!</h2>");
       out.printf("<pre>%s</pre>\n", e.getMessage());
