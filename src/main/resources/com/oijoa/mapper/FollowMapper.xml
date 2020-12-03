@@ -6,9 +6,15 @@
 <mapper namespace="FollowDao">
   
   <resultMap type="follow" id="FollowMap">
-    <id column="follower"           property="follower"/>
+    <result column="follower"           property="follower"/>
     <result column="following"    property="following"/>
+    <result column="loginNo" property="loginUserNo"/>
     
+    <association property="follower" javaType="user">
+      <id column="follower_no"        property="userNo"/>
+      <id column="follower_name"        property="name"/>
+      <result column="follower_nick"  property="nick"/>
+    </association>
     
     <!-- 
     <association property="writer" javaType="member">
@@ -24,6 +30,19 @@
       from oi_follow
   </select>
   
+  <select id="findByFollowerUserNo" resultMap="FollowMap"
+    parameterType="int">
+    select
+      u.uno follower_no,
+      u.name follower_name,
+      u.nick follower_nick
+    from
+      oi_follow f
+      inner join oi_user u
+      on f.follower = u.uno
+    where
+      f.following = #{loginNo}
+  </select>
 </mapper>
 
 
