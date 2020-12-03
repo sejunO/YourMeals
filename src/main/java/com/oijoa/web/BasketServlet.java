@@ -57,11 +57,13 @@ public class BasketServlet extends HttpServlet {
             +"<td>%d</td>"
             +"<td>%s</td>"
             +"<td>%s</td>"
+            +"<td>%s</td>"
             +"</tr>\n",
-            basket.getProducts().getContent(), 
-            basket.getAmount(), 
-            basket.getProducts().getPrice(), 
-            basket.getWriter().getName());
+            basket.getProduct().getContent(),
+            basket.getAmount(),
+            basket.getProduct().getPrice(),
+            basket.getWriter().getName(),
+            basket.getWriter().getUserNo());
       }
 
       out.println("</tbody>");

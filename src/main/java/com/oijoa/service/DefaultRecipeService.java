@@ -6,39 +6,33 @@ import com.oijoa.domain.Recipe;
 
 public class DefaultRecipeService implements RecipeService {
 
-	RecipeDao recipeDao;
+  RecipeDao recipeDao;
 
-	public DefaultRecipeService(RecipeDao recipeDao) {
-		this.recipeDao = recipeDao;
-	}
+  public DefaultRecipeService(RecipeDao recipeDao) {
+    this.recipeDao = recipeDao;
+  }
 
-	// @Override
-	// public int delete(int no) throws Exception {
-	// return boardDao.delete(no);
-	// }
-	//
-	// @Override
-	// public int add(Board board) throws Exception {
-	// return boardDao.insert(board);
-	// }
-	//
-	@Override
-	public List<Recipe> list() throws Exception {
-		return recipeDao.findAll(null);
-	}
+  // @Override
+  // public int delete(int no) throws Exception {
+  // return boardDao.delete(no);
+  // }
+  //
+  // @Override
+  // public int add(Board board) throws Exception {
+  // return boardDao.insert(board);
+  // }
+  //
+  @Override
+  public List<Recipe> list() throws Exception {
+    return recipeDao.findAll(null);
+  }
 
 
   @Override
   public List<Recipe> myList(int loginUserNo) throws Exception {
     return recipeDao.findByUserNo(loginUserNo);
   }
-  
 
-	@Override
-	public List<Recipe> myLikeList(int loginUserNo) throws Exception {
-		return recipeDao.findByLike(loginUserNo);
-
-	}
 
 	@Override
 	public int add(Recipe recipe) throws Exception {
@@ -70,5 +64,14 @@ public class DefaultRecipeService implements RecipeService {
 	public int delete(int no) throws Exception {
 		return recipeDao.delete(no);
 	}
+
+	@Override
+	public List<Recipe> myLikeList(int loginUserNo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 
 }

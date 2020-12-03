@@ -15,7 +15,6 @@ public class UserDaoImpl implements UserDao {
     this.sqlSessionFactory = sqlSessionFactory;
   }
 
-
   @Override
   public User findByEmailPassword(String email, String password) {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
@@ -49,19 +48,12 @@ public class UserDaoImpl implements UserDao {
     }
   }
 
-
   @Override
   public User findByNo(int no) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectOne("UserDao.findByNo", no);
+      return sqlSession.selectOne("UserDao.findByNo");
     }
   }
 }
-
-
-
-
-
-
 
 

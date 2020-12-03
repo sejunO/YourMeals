@@ -7,7 +7,14 @@ public class OrderList {
   private int amount;
   private int discount;
   private int price;
-  
+  private Basket basket;
+
+  public Basket getBasket() {
+    return basket;
+  }
+  public void setBasket(Basket basket) {
+    this.basket = basket;
+  }
   public int getOrderListNo() {
     return orderListNo;
   }
