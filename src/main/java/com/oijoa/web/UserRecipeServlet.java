@@ -10,13 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import com.oijoa.domain.Recipe;
-import com.oijoa.domain.User;
 import com.oijoa.service.RecipeService;
 
-@WebServlet("/mypage/myrecipe/list")
-public class MyRecipeServlet extends HttpServlet {
+@WebServlet("/user/recipe")
+public class UserRecipeServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -26,21 +24,21 @@ public class MyRecipeServlet extends HttpServlet {
     ServletContext ctx = request.getServletContext();
     RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
 
-    HttpSession session = request.getSession();
+    int no = Integer.parseInt(request.getParameter("userNo"));
+    String name = request.getParameter("userName");
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html>");
-    out.println("<head><title>MyPage</title></head>");
+    out.println("<head><title>사용자 레시피</title></head>");
     out.println("<body>");
     try {
-      out.println("<h1>[My Recipe 목록]</h1>");
+      out.printf("<h1>[%s]님의 레시피</h1>\n", name);
 
-      User loginUser = (User) session.getAttribute("loginUser");
 
-      List<Recipe> list = recipeService.userNoList(loginUser.getUserNo());
+      List<Recipe> list = recipeService.userNoList(no);
 
       out.println("<table border='1'><tr>"
           + "<th>번호</th>"
@@ -49,21 +47,17 @@ public class MyRecipeServlet extends HttpServlet {
           + "<th>등록일</th></tr>");
 
       for (Recipe recipe : list) {
-        out.printf("<tr>"
-            + "<td>%d</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "</tr>\n",
-            recipe.getRecipeNo(),
-            recipe.getTitle(),
-            recipe.getPhoto(),
-            recipe.getCreatedDate());
+        out.println("<tr>");
+        out.printf("<td>%d</td>\n",recipe.getRecipeNo());
+        out.printf("<td><a href='detail?recipeNo=%d'>%s</a></td>",recipe.getRecipeNo(),recipe.getTitle());
+        out.printf("<td>%s</td>\n",recipe.getPhoto());
+        out.printf("<td>%s</td>\n",recipe.getCreatedDate());
+        out.println("</tr>");
       }
       out.println("</table>");
       out.println("<hr>\n");
-      out.println("<a href=../index.html>뒤로가기</a><br>\n");
-      out.println("<a href=../../index.html>홈으로</a><br>\n");
+      out.println("<a href=list>뒤로가기</a><br>\n");
+      out.println("<a href=../index.html>홈으로</a><br>\n");
     } catch (Exception e) {
       out.println("<h2>작업 처리 중 오류 발생!</h2>");
       out.printf("<pre>%s</pre>\n", e.getMessage());

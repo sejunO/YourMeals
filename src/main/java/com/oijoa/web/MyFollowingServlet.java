@@ -62,7 +62,6 @@ public class MyFollowingServlet extends HttpServlet {
       out.println("<hr>\n");
       out.println("<a href=../index.html>뒤로가기</a><br>\n");
       out.println("<a href=../../index.html>홈으로</a><br>\n");
-      out.println("</body></html>");
     } catch (Exception e) {
       out.println("<h2>작업 처리 중 오류 발생!</h2>");
       out.printf("<pre>%s</pre>\n", e.getMessage());
