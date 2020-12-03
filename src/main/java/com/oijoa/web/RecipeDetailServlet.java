@@ -51,7 +51,7 @@ public class RecipeDetailServlet extends HttpServlet {
 	        return;
 	      }
 	      out.println("<form action='update' method='post'>");
-	      out.printf("번호: <input type='text' name='no' value='%d' readonly><br>\n",
+	      out.printf("번호: <input type='text' name='recipeNo' value='%d' readonly><br>\n",
 	    		  recipe.getRecipeNo());
 	      out.printf("제목: <input type='text' name='title' value='%s'><br>\n",
 	    		  recipe.getTitle());
@@ -81,9 +81,12 @@ public class RecipeDetailServlet extends HttpServlet {
 	      
 	      out.println("<p>");
 	      out.println("<button>변경</button>");
-	      out.printf("<a href='delete?no=%d'>삭제</a><br>\n", recipe.getRecipeNo());
-	      out.println("<a href='list'>레시피 목록 보기</a>");
+	      out.printf("<a href='delete?reipeNo=%d'>"
+	      		+ "<button>삭제</button>"
+	      		+ "</a>"
+	      		+ "<br>\n", recipe.getRecipeNo());
 	      out.println("</p>");
+	      out.println("<a href='list'>레시피 목록 보기</a>");
 	      out.println("</form>");
 
 	    } catch (Exception e) {

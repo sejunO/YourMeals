@@ -12,4 +12,5 @@ public interface RecipeDao {
 	int update(Recipe recipe) throws Exception;
 	Recipe findByRecipeNo(int no) throws Exception;
 	int updateViewCount(int no) throws Exception;
+	int delete(int no) throws Exception;
 }

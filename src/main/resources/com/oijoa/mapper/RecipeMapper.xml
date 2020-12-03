@@ -130,6 +130,11 @@
     where rno = #{recipeNo}
   </update>
   
+  <delete id="delete" parameterType="int">
+    delete from oi_recipe
+    where rno = #{recipeNo}
+  </delete>
+  
 </mapper>
 
 

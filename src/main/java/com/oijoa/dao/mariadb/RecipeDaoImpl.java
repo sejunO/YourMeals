@@ -73,5 +73,11 @@ public class RecipeDaoImpl implements RecipeDao {
 		}
 	}
 	
+	@Override
+	public int delete(int no) throws Exception {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+			return sqlSession.delete("RecipeDao.delete", no);
+	}
+	}
 
 }
