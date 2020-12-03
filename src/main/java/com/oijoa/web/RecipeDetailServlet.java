@@ -21,7 +21,8 @@ public class RecipeDetailServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+  
+		  throws ServletException, IOException {
 
     ServletContext ctx = request.getServletContext();
     RecipeService recipeService =

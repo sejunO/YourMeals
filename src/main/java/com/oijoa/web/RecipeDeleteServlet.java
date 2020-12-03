@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oijoa.service.RecipeService;
 
-@WebServlet("/recipe/list")
+@WebServlet("/recipe/delete")
 public class RecipeDeleteServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
