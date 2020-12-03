@@ -10,10 +10,10 @@
     <result column="following"    property="following"/>
     <result column="loginNo" property="loginUserNo"/>
     
-    <association property="follower" javaType="user">
-      <id column="follower_no"        property="userNo"/>
-      <id column="follower_name"        property="name"/>
-      <result column="follower_nick"  property="nick"/>
+    <association property="user" javaType="user">
+      <id column="user_no"        property="userNo"/>
+      <id column="user_name"        property="name"/>
+      <result column="user_nick"  property="nick"/>
     </association>
     
     <!-- 
@@ -33,15 +33,29 @@
   <select id="findByFollowerUserNo" resultMap="FollowMap"
     parameterType="int">
     select
-      u.uno follower_no,
-      u.name follower_name,
-      u.nick follower_nick
+      u.uno user_no,
+      u.name user_name,
+      u.nick user_nick
     from
       oi_follow f
       inner join oi_user u
       on f.follower = u.uno
     where
       f.following = #{loginNo}
+  </select>
+  
+  <select id="findByFollowingUserNo" resultMap="FollowMap"
+    parameterType="int">
+    select 
+      u.uno user_no,
+      u.name user_name,
+      u.nick user_nick
+    from
+      oi_follow f
+      inner join oi_user u
+      on f.following = u.uno
+    where   
+      f.follower = #{loginNo}
   </select>
 </mapper>
 

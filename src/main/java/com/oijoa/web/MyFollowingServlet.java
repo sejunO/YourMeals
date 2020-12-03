@@ -15,8 +15,8 @@ import com.oijoa.domain.Follow;
 import com.oijoa.domain.User;
 import com.oijoa.service.FollowService;
 
-@WebServlet("/mypage/follower/list")
-public class MyFollowerServlet extends HttpServlet {
+@WebServlet("/mypage/following/list")
+public class MyFollowingServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -36,11 +36,11 @@ public class MyFollowerServlet extends HttpServlet {
     out.println("<head><title>MyPage</title></head>");
     out.println("<body>");
     try {
-      out.println("<h1>[My Follower 목록]</h1>");
+      out.println("<h1>[My Following 목록]</h1>");
 
       User loginUser = (User) session.getAttribute("loginUser");
 
-      List<Follow> list = followService.myFollowerList(loginUser.getUserNo());
+      List<Follow> list = followService.myFollowingList(loginUser.getUserNo());
 
       out.println("<table border='1'><tr>"
           + "<th>번호</th>"

@@ -3,8 +3,8 @@ package com.oijoa.domain;
 public class Follow {
   private int follower;
   private int following;
-  private int User;
-  
+  private User User;
+
   public int getFollower() {
     return follower;
   }
@@ -17,10 +17,10 @@ public class Follow {
   public void setFollowing(int following) {
     this.following = following;
   }
-  public int getUser() {
+  public User getUser() {
     return User;
   }
-  public void setUser(int user) {
+  public void setUser(User user) {
     User = user;
   }
 }

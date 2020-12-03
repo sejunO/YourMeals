@@ -5,7 +5,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.FollowDao;
 import com.oijoa.domain.Follow;
-import com.oijoa.domain.User;
 
 public class FollowDaoImpl implements FollowDao{
 
@@ -23,9 +22,16 @@ public class FollowDaoImpl implements FollowDao{
   }
 
   @Override
-  public List<User> myFollowerList(int loginUserNo) throws Exception {
+  public List<Follow> myFollowerList(int loginUserNo) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("FollowDao.findByFollowerUserNo", loginUserNo);
+    }
+  }
+
+  @Override
+  public List<Follow> myFollowingList(int loginUserNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("FollowDao.findByFollowingUserNo", loginUserNo);
     }
   }
 }

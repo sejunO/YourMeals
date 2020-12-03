@@ -3,7 +3,6 @@ package com.oijoa.service;
 import java.util.List;
 import com.oijoa.dao.FollowDao;
 import com.oijoa.domain.Follow;
-import com.oijoa.domain.User;
 
 public class DefaultFollowService implements FollowService {
 
@@ -29,8 +28,14 @@ public class DefaultFollowService implements FollowService {
   }
 
   @Override
-  public List<User> myFollowerList(int loginUserNo) throws Exception {
+  public List<Follow> myFollowerList(int loginUserNo) throws Exception {
     return followDao.myFollowerList(loginUserNo);
+  }
+
+  @Override
+  public List<Follow> myFollowingList(int loginUserNo) throws Exception {
+    // TODO Auto-generated method stub
+    return followDao.myFollowingList(loginUserNo);
   }
 
   //  @Override
