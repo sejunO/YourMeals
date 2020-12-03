@@ -26,6 +26,11 @@ public class DefaultUserUpdateService implements UserService {
   public int update(User user) throws Exception {
     return userDao.update(user);
   }
+  
+  @Override
+  public User get() throws Exception {
+    return userDao.findByNo();
+  }
 
   @Override
   public User get(String email, String password) throws Exception {

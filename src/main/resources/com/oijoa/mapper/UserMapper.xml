@@ -42,13 +42,14 @@
   
   <select id = "findByNo" resultMap ="UserMap" parameterType="int">
     select
+      uno,
       name,
       nick,
       email,
       password,
       postno,
       addr,
-      det_addr,
+      det_addr
     from
       oi_user
   </select>
