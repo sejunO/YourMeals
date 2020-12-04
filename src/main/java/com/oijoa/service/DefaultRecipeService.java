@@ -54,36 +54,37 @@ public class DefaultRecipeService implements RecipeService {
 	}
 
   @Override
-  public List<Recipe> myList(int loginUserNo) throws Exception {
-    return recipeDao.findByUserNo(loginUserNo);
+  public List<Recipe> userNoList(int UserNo) throws Exception {
+    return recipeDao.findByUserNo(UserNo);
+  }
+  
+  @Override
+  public List<Recipe> myLikeList(int loginUserNo) throws Exception {
+    return recipeDao.findByLike(loginUserNo);
   }
 
 
-	@Override
-	public int add(Recipe recipe) throws Exception {
-		recipeDao.insert(recipe);
-		recipeDao.insertCategory(recipe);
-		return 1;
-	}
+  @Override
+  public int add(Recipe recipe) throws Exception {
+    recipeDao.insert(recipe);
+    recipeDao.insertCategory(recipe);
+    return 1;
+  }
 
-	// @Override
-	// public List<Order> list(String keyword) throws Exception {
-	// return orderDao.findAll(keyword);
-	// }
-	//
-	@Override
-	public Recipe get(int no) throws Exception {
-		Recipe recipe = recipeDao.findByRecipeNo(no);
-		if (recipe != null) {
-			// recipeDao.updateViewCount(no);
-		}
-		return recipe;
-	}
+  // @Override
+  // public List<Order> list(String keyword) throws Exception {
+  // return orderDao.findAll(keyword);
+  // }
+  //
+  @Override
+  public Recipe get(int no) throws Exception {
+    Recipe recipe = recipeDao.findByRecipeNo(no);
+    if (recipe != null) {
+      // recipeDao.updateViewCount(no);
+    }
+    return recipe;
+  }
 
-	@Override
-	public int update(Recipe recipe) throws Exception {
-		return recipeDao.update(recipe);
-	}
 	
 	@Override
 	public int deleteByNo(int recipeNo) throws Exception {
@@ -95,11 +96,11 @@ public class DefaultRecipeService implements RecipeService {
 		return recipeDao.delete(recipeNo);
 	}
 
-	@Override
-	public List<Recipe> myLikeList(int loginUserNo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  @Override
+  public int update(Recipe recipe) throws Exception {
+    return recipeDao.update(recipe);
+  }
+  
 
 
 

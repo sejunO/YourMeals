@@ -10,7 +10,7 @@ public interface RecipeService {
   List<Recipe> list() throws Exception;
   List<Recipe> list(String keyword) throws Exception;
   List<Recipe> list(Map<String,Object> map) throws Exception;
-  List<Recipe> myList(int loginUserNo) throws Exception;
+  List<Recipe> userNoList(int UserNo) throws Exception;
   List<Recipe> myLikeList(int loginUserNo) throws Exception;
   int add (Recipe recipe) throws Exception;
   int update(Recipe recipe) throws Exception;
