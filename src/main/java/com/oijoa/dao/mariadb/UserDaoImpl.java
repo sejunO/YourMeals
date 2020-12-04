@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao {
   @Override
   public User findByEmailPassword(String email, String password) {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      HashMap<String,Object> map = new HashMap<>();
+      HashMap<String, Object> map = new HashMap<>();
       map.put("email", email);
       map.put("password", password);
       return sqlSession.selectOne("UserDao.findByEmailPassword", map);
