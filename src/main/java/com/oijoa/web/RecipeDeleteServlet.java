@@ -2,6 +2,7 @@ package com.oijoa.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -38,16 +39,24 @@ public class RecipeDeleteServlet extends HttpServlet {
 
 			int no = Integer.parseInt(request.getParameter("recipeNo"));
 
-			if (recipeService.delete(no) == 0) {
-				out.println("<p>해당 프로젝트가 없습니다.</p>");
+			if (recipeService.deleteByNo(no) == 0) {
+				out.println("<p>해당 레시피가 없습니다.</p>");
 			} else {
-				out.println("<p>프로젝트를 삭제하였습니다.</p>");
+				out.println("<p>레시피를 삭제하였습니다.</p>");
 			}
 
 		} catch (Exception e) {
-			out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-			e.printStackTrace();
-		}
+		      out.println("<h2>작업 처리 중 오류 발생!</h2>");
+		      out.printf("<pre>%s</pre>\n", e.getMessage());
+
+		      StringWriter errOut = new StringWriter();
+		      e.printStackTrace(new PrintWriter(errOut));
+		      out.println("<h3>상세 오류 내용</h3>");
+		      out.printf("<pre>%s</pre>\n", errOut.toString());
+		    }
+
+		    out.println("</body>");
+		    out.println("</html>");
 
 	}
 

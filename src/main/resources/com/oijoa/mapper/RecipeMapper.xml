@@ -54,6 +54,7 @@
          on r.rno = rc.rno
       inner join oi_category c
          on rc.cno = c.cno
+    order by r.rno desc
   </select>
   
   <select id="findByUserNo" resultMap="RecipeMap" parameterType="int">
@@ -130,9 +131,28 @@
     where rno = #{recipeNo}
   </update>
   
+   <delete id="deleteByLike" parameterType="int">
+    delete r
+    from oi_board_like
+    where rno=#{recipeNo}
+    inner join oi_board_like bl on bl.rno = r.rno
+    inner join oi_recipe_material rm on rm.rno = bl.rno
+    where r.rno = #{recipeNo} 
+  </delete>
+  
   <delete id="delete" parameterType="int">
     delete from oi_recipe
-    where rno = #{recipeNo}
+    where rno = #{recipeNo} 
+  </delete>
+  
+  <delete id="deleteRecipeCategory" parameterType="int">
+    delete from oi_recipe_category
+    where rno = #{recipeNo} 
+  </delete>
+  
+  <delete id="deleteRecipeMaterial" parameterType="int">
+    delete from oi_recipe_material
+    where rno = #{recipeNo} 
   </delete>
   
 </mapper>

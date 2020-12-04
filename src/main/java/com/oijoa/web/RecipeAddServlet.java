@@ -76,6 +76,7 @@ public class RecipeAddServlet extends HttpServlet {
       recipe.setPhoto(filename);
 
       recipeService.add(recipe);
+      out.println("<p>레시피가 등록되었습니다.</p>");
 
       out.println("</table></body></html>");
 

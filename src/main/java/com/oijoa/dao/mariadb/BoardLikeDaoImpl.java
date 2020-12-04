@@ -20,6 +20,13 @@ public class BoardLikeDaoImpl implements BoardLikeDao{
       return sqlSession.selectList("BoardLikeDao.findAll", keyword);
     }
   }
+  
+  @Override
+	public int deleteByRecipeNo(int recipeNo) throws Exception {
+	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+	      return sqlSession.delete("BoardLikeDao.deleteByRecipeNo", recipeNo);
+	}
+  }
 }
 
 
