@@ -94,12 +94,12 @@ CREATE TABLE oi_recipe (
   title   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
   content MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
   photo   VARCHAR(255) NULL     COMMENT '사진', -- 사진
-  hits    INTEGER      NOT NULL COMMENT '조회수', -- 조회수
-  rcmd    INTEGER      NOT NULL COMMENT '추천수', -- 추천수
+  hits    INTEGER      NOT NULL DEFAULT '0', -- 조회수
+  rcmd    INTEGER      NOT NULL DEFAULT '0', -- 추천수
   cdt     DATETIME     NOT NULL DEFAULT now()
    COMMENT '작성일', -- 작성일
   mdt     DATETIME     NULL     COMMENT '수정일', -- 수정일
-  min     INTEGER      NOT NULL COMMENT '조리시간', -- 조리시간
+  min     INTEGER      NOT NULL DEFAULT '0', -- 조리시간
   lno     INTEGER      NOT NULL COMMENT '난이도번호' -- 난이도번호
 )
 COMMENT '레시피';

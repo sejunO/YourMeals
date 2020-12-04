@@ -1,6 +1,8 @@
 package com.oijoa.dao.mariadb;
 
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.RecipeDao;
@@ -35,6 +37,13 @@ public class RecipeDaoImpl implements RecipeDao {
             return sqlSession.selectList("RecipeDao.findByLike", loginUserNo);
         }
     }
+	
+	@Override
+	public List<Recipe> findByDetailKeyword(Map<String, Object> map) throws Exception {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            return sqlSession.selectList("RecipeDao.findByDetailKeyword", map);
+        }
+	}
 	
 	@Override
 	public Recipe findByRecipeNo(int no) throws Exception {
@@ -77,7 +86,21 @@ public class RecipeDaoImpl implements RecipeDao {
 	public int delete(int no) throws Exception {
 		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 			return sqlSession.delete("RecipeDao.delete", no);
+		}
 	}
+	
+	@Override
+	public int deleteRecipeCategory(int recipeNo) throws Exception {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+			return sqlSession.delete("RecipeDao.deleteRecipeCategory", recipeNo);
+		}
 	}
-
+	
+	@Override
+	public int deleteRecipeMaterial(int recipeNo) throws Exception {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+			return sqlSession.delete("RecipeDao.deleteRecipeMaterial", recipeNo);
+		}
+	}
+	
 }

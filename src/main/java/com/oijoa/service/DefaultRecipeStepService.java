@@ -12,11 +12,11 @@ public class DefaultRecipeStepService implements RecipeStepService {
 		this.recipeStepDao = recipeStepDao;
 	}
 
-	// @Override
-	// public int delete(int no) throws Exception {
-	// return boardDao.delete(no);
-	// }
-	//
+	 @Override
+	 public int deleteByRecipeNo(int recipeNo) throws Exception {
+	 return recipeStepDao.deleteByRecipeNo(recipeNo);
+	 }
+	
 	// @Override
 	// public int add(Board board) throws Exception {
 	// return boardDao.insert(board);

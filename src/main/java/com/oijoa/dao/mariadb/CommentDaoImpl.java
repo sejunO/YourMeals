@@ -27,6 +27,13 @@ public class CommentDaoImpl implements CommentDao{
       return sqlSession.selectList("CommentDao.findAll", keyword);
     }
   }
+  
+  @Override
+	public int deleteByRecipeNo(int recipeNo) throws Exception {
+	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+	      return sqlSession.delete("CommentDao.deleteByRecipeNo", recipeNo);
+	}
+  }
 }
 
 

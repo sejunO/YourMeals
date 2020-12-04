@@ -80,12 +80,14 @@ public class RecipeDetailServlet extends HttpServlet {
       
       out.println("<p>");
       out.println("<button>변경</button>");
-      out.printf("<a href='delete?reipeNo=%d'>"
-      		+ "<button>삭제</button>"
-      		+ "</a>"
+      out.printf("<button>"
+      		+ "<a href='delete?recipeNo=%d'>삭제 </a>"
+      		+ "</button>"
       		+ "<br>\n", recipe.getRecipeNo());
       out.println("</p>");
-      out.println("<a href='list'>레시피 목록 보기</a>");
+      out.println("<button>"
+      		+ "<a href='list'>레시피 목록 보기</a>"
+      		+ "</button>");
       out.println("</form>");
 
     } catch (Exception e) {

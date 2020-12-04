@@ -36,6 +36,11 @@
     where r.rno = #{recipeNo}
   </select>
   
+  <delete id="deleteByRecipeNo" parameterType="int">
+    delete from oi_recipe_step
+    where rno=#{recipeNo}
+  </delete>
+  
 </mapper>
 
 

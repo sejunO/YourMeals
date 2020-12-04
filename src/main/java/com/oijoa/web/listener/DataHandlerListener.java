@@ -162,7 +162,7 @@ public class DataHandlerListener implements ServletContextListener {
       OrderService orderService = new DefaultOrderService(orderDao);
       OrderListService orderListService = new DefaultOrderListService(orderListDao);
       ProductService productService = new DefaultProductService(productDao);
-      RecipeService recipeService = new DefaultRecipeService(recipeDao);
+      RecipeService recipeService = new DefaultRecipeService(recipeDao,boardLikeDao,recipeStepDao,commentDao);
       QnaService qnaService = new DefaultQnaService(qnaDao);
       PaymentService paymentService = new DefaultPaymentService(paymentDao);
       RecipeStepService recipeStepService = new DefaultRecipeStepService(recipeStepDao);
