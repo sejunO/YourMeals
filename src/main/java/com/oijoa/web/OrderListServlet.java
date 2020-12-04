@@ -64,7 +64,7 @@ public class OrderListServlet extends HttpServlet {
             orderList.getProductNo().getContent(),
             orderList.getPrice(),
             orderList.getDiscount(),
-            orderList.getOrderNo().getUserNo()
+            orderList.getOrderNo().getUserNo().getName()
             );
       }
 
