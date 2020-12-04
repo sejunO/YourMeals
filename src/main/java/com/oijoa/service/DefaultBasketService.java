@@ -32,6 +32,11 @@ public class DefaultBasketService implements BasketService {
     return basketDao.findAll(null);
   }
 
+  @Override
+  public Basket get(int no) throws Exception {
+    return basketDao.findByNo(no);
+  }
+
   //  @Override
   //  public List<Order> list(String keyword) throws Exception {
   //    return orderDao.findAll(keyword);

@@ -7,17 +7,26 @@
   
   <resultMap type="orderList" id="OrderListMap">
     <id column="olno"           property="orderListNo"/>
-    <result column="odno"    property="orderNo"/>
-    <result column="pno"  property="productNo"/>
     <result column="amount"      property="amount"/>
     <result column="discount"   property="discount"/>
     <result column="price"   property="price"/>
     
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
+    <association property="orderNo" javaType="order">
+      <id column="order_no"        property="orderNo"/>
+      <association property="userNo" javaType="user">
+        <id column="user_no"        property="userNo"/>
+      </association>
+    </association>
+    
+<!--       <association property="userNo" javaType="user">
+        <id column="order_no"        property="userNo"/>
+        <result column="order_name"  property="name"/>
+      </association>  -->
+
+    <association property="product" javaType="product">
+       <id column="product_no"          property="no"/>
+      <result column="product_content"    property="content"/>
+    </association>
   </resultMap>
 
   <select id="findAll" resultMap="OrderListMap" parameterType="string">
@@ -31,6 +40,25 @@
       from oi_order_list
   </select>
   
+  <select id="findByUserNo" resultMap="OrderListMap" parameterType="int">
+    select 
+      ol.olno,
+      ol.pno,
+      p.pno product_no, 
+      p.content product_content,
+      o.odno order_no,
+      o.uno user_no,
+      ol.amount,
+      ol.discount,
+      ol.price
+    from
+      oi_order_list ol
+      inner join oi_product p
+        on ol.pno=p.pno
+      inner join oi_order o 
+         on ol.odno=o.odno
+    where o.uno = #{writer.userNo}
+  </select>
 </mapper>
 
 

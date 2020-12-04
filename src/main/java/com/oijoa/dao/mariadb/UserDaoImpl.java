@@ -33,7 +33,6 @@ public class UserDaoImpl implements UserDao {
     }
   }
 
-
   @Override
   public int update(User user) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
@@ -49,9 +48,9 @@ public class UserDaoImpl implements UserDao {
   }
 
   @Override
-  public User findByNo() throws Exception {
+  public User findByNo(int no) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectOne("UserDao.findByNo");
+      return sqlSession.selectOne("UserDao.findByNo", no);
     }
   }
 }

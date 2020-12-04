@@ -83,7 +83,7 @@ import com.oijoa.service.DefaultRecipeStepService;
 import com.oijoa.service.DefaultRefundService;
 import com.oijoa.service.DefaultReportService;
 import com.oijoa.service.DefaultReportTypeService;
-import com.oijoa.service.DefaultUserUpdateService;
+import com.oijoa.service.DefaultUserService;
 import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.FollowService;
 import com.oijoa.service.KakaoPayService;
@@ -169,7 +169,7 @@ public class DataHandlerListener implements ServletContextListener {
       RefundService refundService = new DefaultRefundService(refundDao);
       ReportService reportService = new DefaultReportService(reportDao);
       ReportTypeService reportTypeService = new DefaultReportTypeService(reportTypeDao);
-      UserService userService = new DefaultUserUpdateService(userDao);
+      UserService userService = new DefaultUserService(userDao);
 
       // 다른 객체가 사용할 수 있도록 context 맵 보관소에 저장해둔다.
       ServletContext ctx = sce.getServletContext();

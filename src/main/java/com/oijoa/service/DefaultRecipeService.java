@@ -12,7 +12,6 @@ public class DefaultRecipeService implements RecipeService {
     this.recipeDao = recipeDao;
   }
 
-
   // @Override
   // public int delete(int no) throws Exception {
   // return boardDao.delete(no);
@@ -28,15 +27,12 @@ public class DefaultRecipeService implements RecipeService {
     return recipeDao.findAll(null);
   }
 
-  @Override
-  public List<Recipe> myList(int loginUserNo) throws Exception {
-    return recipeDao.findByUserNo(loginUserNo);
-  }
 
   @Override
-  public List<Recipe> myLikeList(int loginUserNo) throws Exception {
-    return recipeDao.findByLike(loginUserNo);
+  public List<Recipe> userNoList(int UserNo) throws Exception {
+    return recipeDao.findByUserNo(UserNo);
   }
+
 
   @Override
   public int add(Recipe recipe) throws Exception {
@@ -63,5 +59,17 @@ public class DefaultRecipeService implements RecipeService {
   public int update(Recipe recipe) throws Exception {
     return recipeDao.update(recipe);
   }
+
+  @Override
+  public int delete(int no) throws Exception {
+    return recipeDao.delete(no);
+  }
+
+  @Override
+  public List<Recipe> myLikeList(int loginUserNo) throws Exception {
+    return recipeDao.findByLike(loginUserNo);
+  }
+
+
 
 }

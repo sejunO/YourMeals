@@ -10,13 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.oijoa.domain.Product;
-import com.oijoa.service.BasketService;
-import com.oijoa.service.ProductService;
+import javax.servlet.http.HttpSession;
+import com.oijoa.domain.Follow;
+import com.oijoa.domain.User;
+import com.oijoa.service.FollowService;
 
-@WebServlet("/basket/form")
-public class BasketAddFormServlet extends HttpServlet {
-
+@WebServlet("/mypage/following/list")
+public class MyFollowingServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -24,38 +24,44 @@ public class BasketAddFormServlet extends HttpServlet {
       throws ServletException, IOException {
 
     ServletContext ctx = request.getServletContext();
-    ProductService productService =
-        (ProductService) ctx.getAttribute("productService");
-    BasketService basketService =
-        (BasketService) ctx.getAttribute("basketService");
+    FollowService followService = (FollowService) ctx.getAttribute("followService");
+
+    HttpSession session = request.getSession();
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html>");
-    out.println("<head>");
-    out.println("<title>장바구니 등록</title></head>");
+    out.println("<head><title>MyPage</title></head>");
     out.println("<body>");
-
     try {
-      out.println("<h1>장바구니 생성</h1>");
+      out.println("<h1>[My Following 목록]</h1>");
 
-      out.println("<form action='add' method='post'>");
-      out.println("수량 : <input type='int' name='amount'><br> ");
-      out.println("<ul>");
+      User loginUser = (User) session.getAttribute("loginUser");
 
-      List<Product> products = productService.list();
-      for (Product p : products) {
-        out.printf("<li><input type='radio' name='product' value='%d'>%s</li>\n",
-            p.getProductNo(),
-            p.getContent());
+      List<Follow> list = followService.FollowingList(loginUser.getUserNo());
+
+      out.println("<table border='1'><tr>"
+          + "<th>번호</th>"
+          + "<th>이름</th>"
+          + "<th>닉네임</th></tr>");
+
+      for (Follow follow : list) {
+        User user = follow.getUser();
+        out.printf("<tr>"
+            + "<td>%d</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "</tr>\n",
+            user.getUserNo(),
+            user.getName(),
+            user.getNick());
       }
-
-      out.println("</ul><br>");
-      out.println("<button>생성</button>");
-      out.println("</form>");
-
+      out.println("</table>");
+      out.println("<hr>\n");
+      out.println("<a href=../index.html>뒤로가기</a><br>\n");
+      out.println("<a href=../../index.html>홈으로</a><br>\n");
     } catch (Exception e) {
       out.println("<h2>작업 처리 중 오류 발생!</h2>");
       out.printf("<pre>%s</pre>\n", e.getMessage());
@@ -65,7 +71,6 @@ public class BasketAddFormServlet extends HttpServlet {
       out.println("<h3>상세 오류 내용</h3>");
       out.printf("<pre>%s</pre>\n", errOut.toString());
     }
-
     out.println("</body>");
     out.println("</html>");
   }

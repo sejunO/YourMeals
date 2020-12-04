@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.User;
 import com.oijoa.service.UserService;
 
-@WebServlet("/user/update")
+@WebServlet("/mypage/user/update")
 public class UserUpdateServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
@@ -26,16 +26,18 @@ public class UserUpdateServlet extends HttpServlet {
     UserService userService =
         (UserService) ctx.getAttribute("userService");
 
-    response.setContentType("text/html; charset=UTF-8");
+    response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html>");
-    out.println("<head><title>정보수정</title></head>");
+    out.println("<head>");
+    //    out.println("<meta http-equiv='Refresh' content='2;url=detail'>");
+    out.println("<title>MyPage</title></head>");
     out.println("<body>");
 
     try {
-      out.println("<h1>정보 수정</h1>");
+      out.println("<h1>[정보 수정]</h1>");
 
       List<User> list = userService.list();
 
@@ -62,19 +64,31 @@ public class UserUpdateServlet extends HttpServlet {
             user.getEmail(),
             user.getPassword(),
             user.getAddress());
+        User user = new User();
+        user.setName(request.getParameter("name"));
+        user.setNick(request.getParameter("nick"));
+        user.setEmail(request.getParameter("email"));
+        user.setPassword(request.getParameter("password"));
+        user.setPostNo(request.getParameter("postno"));
+        user.setAddress(request.getParameter("addr"));
+        user.setDetailAddress(request.getParameter("det_addr"));
+        int no = userService.update(user);
+
+        if(no != 0) {
+          out.println("<p>수정이 완료되었습니다.</p>");
+        }
+
+      } catch (Exception e) {
+        out.println("<h2>작업 처리 중 오류 발생!</h2>");
+        out.printf("<pre>%s</pre>\n", e.getMessage());
+
+        StringWriter errOut = new StringWriter();
+        e.printStackTrace(new PrintWriter(errOut));
+        out.println("<h3>상세 오류 내용</h3>");
+        out.printf("<pre>%s</pre>\n", errOut.toString());
       }
-      out.println("</tbody>");
-      out.println("</table>");
-
-    } catch (Exception e) {
-      out.printf("<p>작업 처리 중 오류 발생! - %s</p>\n", e.getMessage());
-
-      StringWriter errOut = new StringWriter();
-      e.printStackTrace(new PrintWriter(errOut));
-
-      out.printf("<pre>%s</pre>\n", errOut.toString());
+      out.println("</body>");
+      out.println("</html>");
     }
-    out.println("</body>");
-    out.println("</html>");
   }
 }

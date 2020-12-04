@@ -44,8 +44,8 @@
                 </li>
               </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li role="presentation"><a href="./auth/login.jsp">로그인</a></li>
-            <li role="presentation"><a href="./auth/logout">로그아웃</a></li>
+            <li role="presentation"><a href="../auth/login.jsp">로그인</a></li>
+            <li role="presentation"><a href="../auth/logout">로그아웃</a></li>
             <li role="presentation"><a href="#">회원가입</a></li>
             
           </ul>

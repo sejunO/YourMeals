@@ -30,12 +30,12 @@ if (cookies != null) {
       <form class="form-signin" action="login" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" value="<%=email%>" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" value="<%=email%>" id="inputEmail" name="email" class="form-control" placeholder="Email address"  autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="password"class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="saveEmail"> Remember me
+            <input type="checkbox" name="saveEmail" checked> Remember me
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

@@ -27,6 +27,17 @@ public class DefaultFollowService implements FollowService {
     return followDao.findAll(null);
   }
 
+  @Override
+  public List<Follow> FollowerList(int UserNo) throws Exception {
+    return followDao.FollowerList(UserNo);
+  }
+
+  @Override
+  public List<Follow> FollowingList(int UserNo) throws Exception {
+    // TODO Auto-generated method stub
+    return followDao.FollowingList(UserNo);
+  }
+
   //  @Override
   //  public List<Order> list(String keyword) throws Exception {
   //    return orderDao.findAll(keyword);

@@ -4,27 +4,28 @@ import java.sql.Date;
 
 public class Order {
   private int orderNo;
-  private int userNo;
+  private User userNo;
   private int paymentNo;
   private int deleveryCompanyNo;
   private int transportNo;
   private int postNo;
   private int status;
+  private Basket basket;
   private String memo;
   private Date orderDate;
   private String address;
   private String detailAddress;
-  
+
   public int getOrderNo() {
     return orderNo;
   }
   public void setOrderNo(int orderNo) {
     this.orderNo = orderNo;
   }
-  public int getUserNo() {
+  public User getUserNo() {
     return userNo;
   }
-  public void setUserNo(int userNo) {
+  public void setUserNo(User userNo) {
     this.userNo = userNo;
   }
   public int getPaymentNo() {
@@ -57,6 +58,12 @@ public class Order {
   public void setStatus(int status) {
     this.status = status;
   }
+  public Basket getBasket() {
+    return basket;
+  }
+  public void setBasket(Basket basket) {
+    this.basket = basket;
+  }
   public String getMemo() {
     return memo;
   }
@@ -81,6 +88,7 @@ public class Order {
   public void setDetailAddress(String detailAddress) {
     this.detailAddress = detailAddress;
   }
+
 }
 
 

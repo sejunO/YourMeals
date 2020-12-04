@@ -33,6 +33,7 @@
                 <li class="active"><a href="index.jsp">Home</a></li>
                 <li><a href="recipe/list">recipe</a></li>
                 <li><a href="mypage/index.html">mypage</a></li>
+                <li><a href="mypage/index.html">mypage</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">

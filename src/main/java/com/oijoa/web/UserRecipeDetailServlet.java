@@ -14,15 +14,15 @@ import com.oijoa.domain.RecipeStep;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.RecipeStepService;
 
-@WebServlet("/recipe/detail")
-public class RecipeDetailServlet extends HttpServlet {
+@WebServlet("/user/detail")
+public class UserRecipeDetailServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
-  
-		  throws ServletException, IOException {
+
+      throws ServletException, IOException {
 
     ServletContext ctx = request.getServletContext();
     RecipeService recipeService =
@@ -44,18 +44,18 @@ public class RecipeDetailServlet extends HttpServlet {
       out.println("<h1>레시피  보기</h1>");
 
       Recipe recipe = recipeService.get(no);
-      
+
       if (recipe == null) {
         out.println("해당 번호의 게시글이 없습니다.");
         return;
       }
       out.println("<form action='update' method='post'>");
       out.printf("번호: <input type='text' name='recipeNo' value='%d' readonly><br>\n",
-    		  recipe.getRecipeNo());
+          recipe.getRecipeNo());
       out.printf("제목: <input type='text' name='title' value='%s'><br>\n",
-    		  recipe.getTitle());
+          recipe.getTitle());
       out.printf("내용: <textarea name='recipe_content'>%s</textarea><br>\n",
-    		  recipe.getContent());
+          recipe.getContent());
       out.printf("작성자: %s<br>\n", recipe.getWriter().getName());
       out.printf("등록일: %s<br>\n", recipe.getCreatedDate());
       out.printf("수정일: %s<br>\n", recipe.getModifiedDate());
@@ -70,23 +70,16 @@ public class RecipeDetailServlet extends HttpServlet {
       out.println("<th>사진</th>");
       out.println("<th>내용</th></tr>");
       for(RecipeStep recipeStep : recipeStepService.findByRecipeNo(no)) {
-    	  out.printf("<tr><td>%d</td>"
-    	  		+ "<td>%s</td>"
-    	  		+ "<td>%s</td></tr>",
-    	  		recipeStep.getStep(), recipeStep.getPhoto(), recipeStep.getContent());
+        out.printf("<tr><td>%d</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td></tr>",
+            recipeStep.getStep(), recipeStep.getPhoto(), recipeStep.getContent());
       }
       out.println("</table>");
-      
-      
-      out.println("<p>");
-      out.println("<button>변경</button>");
-      out.printf("<a href='delete?reipeNo=%d'>"
-      		+ "<button>삭제</button>"
-      		+ "</a>"
-      		+ "<br>\n", recipe.getRecipeNo());
-      out.println("</p>");
-      out.println("<a href='list'>레시피 목록 보기</a>");
       out.println("</form>");
+      out.println("<hr>\n");
+      out.println("<a href=list>뒤로가기</a><br>\n");
+      out.println("<a href=../index.html>홈으로</a><br>\n");
 
     } catch (Exception e) {
       out.println("<h2>작업 처리 중 오류 발생!</h2>");
@@ -97,12 +90,9 @@ public class RecipeDetailServlet extends HttpServlet {
       out.println("<h3>상세 오류 내용</h3>");
       out.printf("<pre>%s</pre>\n", errOut.toString());
     }
-
     out.println("</body>");
     out.println("</html>");
   }
-
-
 }
 
 
