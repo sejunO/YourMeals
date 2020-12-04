@@ -27,7 +27,7 @@ public class LogoutServlet extends HttpServlet {
 
     out.println("<!DOCTYPE html>");
     out.println("<html>");
-    out.println("<head><meta http-equiv='Refresh' content='1;url=../index.html'>");
+    out.println("<head><meta http-equiv='Refresh' content='1;url=../index.jsp'>");
     out.println("<title>로그아웃</title></head>");
     out.println("<body>");
 

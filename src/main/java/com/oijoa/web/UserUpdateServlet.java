@@ -3,6 +3,7 @@ package com.oijoa.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +37,7 @@ public class UserUpdateServlet extends HttpServlet {
     try {
       out.println("<h1>정보 수정</h1>");
 
-      User list = userService.get();
+      List<User> list = userService.list();
 
       out.println("<table border='1'>");
       out.println("<thead><tr>"
@@ -49,18 +50,18 @@ public class UserUpdateServlet extends HttpServlet {
       out.println("<tbody>");
 
       for(User user : list) {
-      out.printf("<tr>"
-          + "<td>%s</td>"
-          + "<td>%s</td>"
-          + "<td>%s</td>"
-          + "<td>%s</td>"
-          + "<td>%s</td>"
-          + "</tr>\n",
-          user.getName(),
-          user.getNick(),
-          user.getEmail(),
-          user.getPassword(),
-          user.getAddress());
+        out.printf("<tr>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "</tr>\n",
+            user.getName(),
+            user.getNick(),
+            user.getEmail(),
+            user.getPassword(),
+            user.getAddress());
       }
       out.println("</tbody>");
       out.println("</table>");

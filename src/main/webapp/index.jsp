@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,13 +26,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Project name</a>
+              <a class="navbar-brand" href="index.jsp">YOURMEALS</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="index.jsp">Home</a></li>
+                <li><a href="recipe/list">recipe</a></li>
+                <li><a href="mypage/index.html">mypage</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
@@ -45,8 +47,8 @@
                 </li>
               </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li role="presentation"><a href="#">로그인</a></li>
-            <li role="presentation"><a href="#">로그아웃</a></li>
+            <li role="presentation"><a href="./auth/login.jsp">로그인</a></li>
+            <li role="presentation"><a href="./auth/logout">로그아웃</a></li>
             <li role="presentation"><a href="#">회원가입</a></li>
             
           </ul>
@@ -73,8 +75,8 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Yourmeals</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <p>내용작성</p>
+              <!-- <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p> -->
             </div>
           </div>
         </div>
@@ -82,9 +84,9 @@
           <img class="second-slide" src="./img/book2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <h1>Yourmeals</h1>
+               <p>내용작성</p>
+              <!--  <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>-->
             </div>
           </div>
         </div>
@@ -94,7 +96,7 @@
             <div class="carousel-caption">
               <h1>One more for good measure.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <!-- <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p> -->
             </div>
           </div>
         </div>
