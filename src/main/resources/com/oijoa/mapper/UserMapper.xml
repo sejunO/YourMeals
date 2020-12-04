@@ -52,6 +52,8 @@
       det_addr
     from
       oi_user
+    where
+      uno = #{no}
   </select>
   
   <update id="update" parameterType="user">
@@ -59,12 +61,12 @@
     <set>
       nick = #{nick},
       password = password(#{password}),
-      postno = #{postno},
-      addr = #{addr},
-      det_addr = #{det_addr},
-      photo = #{photo}
+      postno = #{postNo},
+      addr = #{address},
+      det_addr = #{det_addr}
     </set>
-    where no = #{no}
+    where
+    uno = #{no}
   </update>
   
   <delete id="delete" parameterType="int">

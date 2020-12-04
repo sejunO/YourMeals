@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import com.oijoa.domain.User;
 import com.oijoa.service.UserService;
 
@@ -24,6 +25,8 @@ public class UserDetailServlet extends HttpServlet {
       UserService userService =
           (UserService) ctx.getAttribute("userService");
 
+      HttpSession session = request.getSession();
+
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
 
@@ -32,24 +35,32 @@ public class UserDetailServlet extends HttpServlet {
       out.println("<head>");
       out.println("<title>MyPage</title></head>");
       out.println("<body>");
+
       try {
         out.println("<h1>[정보 수정]</h1>");
-        
-        User user = userService.get();
-        
+
+        User loginUser = (User) session.getAttribute("loginUser");
+        User user = userService.get(loginUser.getUserNo());
+
         out.printf("이름: <input type='text' name='name' value='%s' readonly><br>\n",
             user.getName());
         out.printf("닉네임: <input type='text' name='nick' value='%s'><br>\n",
             user.getNick());
         out.printf("이메일: <input type='text' name='email' value= '%s' readonly><br>\n",
             user.getEmail());
-        out.println("비밀번호: <button>비밀번호 변경</button>");
-        out.println("배송지: <button>내 주소</button>");
+        out.printf("비밀번호: <input type='text' name='password' value= '%s'><br>\n",
+            user.getPassword());
+        out.printf("우편번호: <input type='text' name='postno' value= '%d'><br>\n",
+            user.getPostNo());
+        out.printf("기본주소: <input type='textarea' name='addr' value= '%s'><br>\n",
+            user.getAddress());
+        out.printf("세부주소: <input type='det_addr' name='det_addr' value= '%s'><br>\n",
+            user.getDetailAddress());
         out.println("<p>");
-        out.println("<button>변경</button>");
+        out.println("<a href='../user/update'><button>변경</button></a>");
         out.println("<button>취소</button>");
         out.println("</p>");
-        
+
       } catch (Exception e) {
         out.println("<h2>작업 처리 중 오류 발생!</h2>");
         out.printf("<pre>%s</pre>\n", e.getMessage());

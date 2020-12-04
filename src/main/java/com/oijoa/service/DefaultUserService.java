@@ -4,11 +4,11 @@ import java.util.List;
 import com.oijoa.dao.UserDao;
 import com.oijoa.domain.User;
 
-public class DefaultUserUpdateService implements UserService {
+public class DefaultUserService implements UserService {
 
   UserDao userDao;
 
-  public DefaultUserUpdateService(UserDao userDao) {
+  public DefaultUserService(UserDao userDao) {
     this.userDao = userDao;
   }
 
@@ -26,10 +26,10 @@ public class DefaultUserUpdateService implements UserService {
   public int update(User user) throws Exception {
     return userDao.update(user);
   }
-  
+
   @Override
-  public User get() throws Exception {
-    return userDao.findByNo();
+  public User get(int no) throws Exception {
+    return userDao.findByNo(no);
   }
 
   @Override
