@@ -13,11 +13,11 @@ public class DefaultCommentService implements CommentService {
     this.commentDao = commentDao;
   }
 
-  //  @Override
-  //  public int delete(int no) throws Exception {
-  //    return boardDao.delete(no);
-  //  }
-  //
+    @Override
+    public int deleteByRecipeNo(int recipeNo) throws Exception {
+      return commentDao.deleteByRecipeNo(recipeNo);
+    }
+  
     @Override
     public int add(Comment comment) throws Exception {
       return commentDao.insert(comment);

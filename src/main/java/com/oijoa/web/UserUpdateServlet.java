@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import com.oijoa.domain.User;
 import com.oijoa.service.UserService;
 
@@ -19,12 +20,14 @@ public class UserUpdateServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
     ServletContext ctx = request.getServletContext();
     UserService userService =
         (UserService) ctx.getAttribute("userService");
+
+    HttpSession session = request.getSession();
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
@@ -32,14 +35,31 @@ public class UserUpdateServlet extends HttpServlet {
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
+<<<<<<< HEAD
     //    out.println("<meta http-equiv='Refresh' content='2;url=detail'>");
+=======
+    out.println("<meta http-equiv='Refresh' content='2;url=detail'>");
+>>>>>>> acf4079355c7b1a3f6f3887f454dd9afcf6911dd
     out.println("<title>MyPage</title></head>");
     out.println("<body>");
 
     try {
       out.println("<h1>[정보 수정]</h1>");
 
+<<<<<<< HEAD
       List<User> list = userService.list();
+=======
+      User loginUser = (User) session.getAttribute("loginUser");
+
+      User user = new User();
+      user.setUserNo(loginUser.getUserNo());
+      user.setNick(request.getParameter("nick"));
+      user.setPassword(request.getParameter("password"));
+      user.setPostNo(request.getParameter("postno"));
+      user.setAddress(request.getParameter("addr"));
+      user.setDetailAddress(request.getParameter("det_addr"));
+      int no = userService.update(user);
+>>>>>>> acf4079355c7b1a3f6f3887f454dd9afcf6911dd
 
       out.println("<table border='1'>");
       out.println("<thead><tr>"

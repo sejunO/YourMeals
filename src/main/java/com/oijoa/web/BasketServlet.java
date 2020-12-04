@@ -10,13 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.oijoa.domain.OrderList;
+import com.oijoa.domain.Basket;
 import com.oijoa.domain.User;
-import com.oijoa.service.OrderListService;
+import com.oijoa.service.BasketService;
 
-@WebServlet("/order/list")
-public class OrderListServlet extends HttpServlet {
-
+@WebServlet("/basket/list")
+public class BasketServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -26,46 +25,45 @@ public class OrderListServlet extends HttpServlet {
     res.setContentType("text/html;charset=UTF-8");
     PrintWriter out = res.getWriter();
 
-    HttpSession session = request.getSession();
     ServletContext ctx = request.getServletContext();
-    OrderListService orderListService = (OrderListService) ctx.getAttribute("orderListService");
+    BasketService basketService = (BasketService) ctx.getAttribute("basketService");
 
+    HttpSession session = request.getSession();
+
+    out.println("<!DOCTYPE html>");
+    out.println("<html>");
+    out.println("<head><title>BasketService</title></head>");
+    out.println("<body><h1>장바구니</h1>");
     try {
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head><title>OrderList</title></head>");
-      out.println("<body><h1> 주문항목</h1>");
 
-      out.println("[주문항목 목록]");
       User loginUser = (User) session.getAttribute("loginUser");
-      System.out.println(loginUser.getUserNo());
 
-      List<OrderList> list = orderListService.myList(loginUser.getUserNo());
+      out.println("<p>[장바구니 목록]</p>");
+      out.println("<a href='form'>장바구니 등록</a><br>");
+      List<Basket> list = basketService.myList(loginUser.getUserNo());
 
       out.println("<table border='1'>");
       out.println("<thead><tr>"
-          + "<th>주문항목</th>"
-          + "<th>상품명</th>"
+          + "<th>상품정보</th>"
+          + "<th>수량</th>"
           + "<th>가격</th>"
-          + "<th>할인율</th>"
-          + "<th>사용자</th>"
+          + "<th>회원이름</th>"
           + "</tr></thead>");
       out.println("<tbody>");
 
-      for (OrderList orderList : list) {
+      for (Basket basket : list) {
         out.printf("<tr>"
-            +"<td>%s</td>"
             +"<td>%s</td>"
             +"<td>%d</td>"
             +"<td>%s</td>"
             +"<td>%s</td>"
+            +"<td>%s</td>"
             +"</tr>\n",
-            orderList.getOrderListNo(),
-            orderList.getProductNo().getContent(),
-            orderList.getPrice(),
-            orderList.getDiscount(),
-            orderList.getOrderNo().getUserNo().getName()
-            );
+            basket.getProduct().getContent(),
+            basket.getAmount(),
+            basket.getProduct().getPrice(),
+            basket.getWriter().getName(),
+            basket.getWriter().getUserNo());
       }
 
       out.println("</tbody>");

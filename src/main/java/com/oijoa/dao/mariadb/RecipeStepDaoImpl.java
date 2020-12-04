@@ -27,6 +27,13 @@ public class RecipeStepDaoImpl implements RecipeStepDao{
 	      return sqlSession.selectList("RecipeStepDao.findByRecipeNo", recipeNo);
 	}
   }
+  
+  @Override
+	public int deleteByRecipeNo(int recipeNo) throws Exception {
+	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+	      return sqlSession.delete("RecipeStepDao.deleteByRecipeNo", recipeNo);
+	}
+  }
 }
 
 

@@ -29,10 +29,8 @@
     </association>
   </resultMap>
 
-
-
-  <select id="findAll" resultMap="RecipeMap" parameterType="string">
-    select 
+  <sql id='sql1'>
+   select 
       r.rno,
       r.title,
       r.photo,
@@ -47,13 +45,45 @@
       r.hits, 
       r.rcmd
     from 
-      oi_recipe r 
+      oi_recipe r    
       inner join oi_user u 
          on r.uno=u.uno
       inner join oi_recipe_category rc
          on r.rno = rc.rno
       inner join oi_category c
          on rc.cno = c.cno
+   </sql>
+   
+   <select id="findAll" resultMap="RecipeMap">
+   <include refid="sql1"/>
+    order by r.rno desc
+  </select>
+
+  <select id="findByKeyword" resultMap="RecipeMap" parameterType="string">
+   <include refid="sql1"/>
+    <if test="keyword != null">
+    where
+      r.title like concat('%', #{keyword},'%')
+      or u.nick like concat('%', #{keyword},'%')
+      or c.name like concat('%', #{keyword},'%')    
+    </if>
+    order by r.rno desc
+  </select>
+  
+  <select id="findByDetailKeyword" resultMap="RecipeMap" parameterType="map">
+    <include refid="sql1"/>
+    <where>
+    <if test="title != null">
+    r.title like concat('%', #{title}, '%')
+    </if>
+    <if test="writer != null">
+    and u.nick like concat('%', #{writer}, '%')
+    </if>
+    <if test="category != null">    
+    and c.name like concat('%', #{category}, '%')
+    </if>
+    </where>
+    order by r.rno desc
   </select>
   
   <select id="findByUserNo" resultMap="RecipeMap" parameterType="int">
@@ -69,28 +99,7 @@
   
 
   <select id="findByRecipeNo" resultMap="RecipeMap" parameterType="int">
-     select 
-      r.rno,
-      r.title,
-      r.photo,
-      r.min,
-      r.lno, 
-      u.uno writer_no,
-      u.nick writer_nick,
-      c.cno category_no,
-      c.name category_name,
-      r.cdt,
-      r.mdt, 
-      r.hits, 
-      r.rcmd
-    from 
-      oi_recipe r 
-      inner join oi_user u 
-         on r.uno=u.uno
-      inner join oi_recipe_category rc
-         on r.rno = rc.rno
-      inner join oi_category c
-         on rc.cno = c.cno
+     <include refid="sql1"/>
      where r.rno = #{recipeNo}
   </select>
   
@@ -130,9 +139,28 @@
     where rno = #{recipeNo}
   </update>
   
+   <delete id="deleteByLike" parameterType="int">
+    delete r
+    from oi_board_like
+    where rno=#{recipeNo}
+    inner join oi_board_like bl on bl.rno = r.rno
+    inner join oi_recipe_material rm on rm.rno = bl.rno
+    where r.rno = #{recipeNo} 
+  </delete>
+  
   <delete id="delete" parameterType="int">
     delete from oi_recipe
-    where rno = #{recipeNo}
+    where rno = #{recipeNo} 
+  </delete>
+  
+  <delete id="deleteRecipeCategory" parameterType="int">
+    delete from oi_recipe_category
+    where rno = #{recipeNo} 
+  </delete>
+  
+  <delete id="deleteRecipeMaterial" parameterType="int">
+    delete from oi_recipe_material
+    where rno = #{recipeNo} 
   </delete>
   
 </mapper>

@@ -36,6 +36,11 @@
     values(#{userNo}, #{recipeNo}, #{content})
   </insert>
   
+   <delete id="deleteByRecipeNo" parameterType="int">
+    delete from oi_comment
+    where rno=#{recipeNo}
+  </delete>
+  
   
 </mapper>
 

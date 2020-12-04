@@ -12,11 +12,11 @@ public class DefaultBoardLikeService implements BoardLikeService {
     this.boardLikeDao = boardLikeDao;
   }
 
-  //  @Override
-  //  public int delete(int no) throws Exception {
-  //    return boardDao.delete(no);
-  //  }
-  //
+    @Override
+    public int deleteByRecipeNo(int recipeNo) throws Exception {
+      return boardLikeDao.deleteByRecipeNo(recipeNo);
+    }
+  
   //  @Override
   //  public int add(Board board) throws Exception {
   //    return boardDao.insert(board);

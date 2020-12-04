@@ -76,10 +76,10 @@ public class RecipeAddServlet extends HttpServlet {
       recipe.setPhoto(filename);
 
       recipeService.add(recipe);
-
+      
+      out.println("<p>레시피가 등록되었습니다.</p>");
       out.println("</table></body></html>");
-
-      out.println("</table></body></html>");
+      
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
       e.printStackTrace();
