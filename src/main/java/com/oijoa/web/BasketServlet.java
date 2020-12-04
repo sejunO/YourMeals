@@ -19,7 +19,7 @@ public class BasketServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse res)
+  protected void doGet(HttpServletRequest request, HttpServletResponse res)
       throws ServletException, IOException {
 
     res.setContentType("text/html;charset=UTF-8");
