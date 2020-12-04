@@ -42,6 +42,7 @@ public class UserDetailServlet extends HttpServlet {
         User loginUser = (User) session.getAttribute("loginUser");
         User user = userService.get(loginUser.getUserNo());
 
+        out.println("<form action = 'update' method = 'post'>");
         out.printf("이름: <input type='text' name='name' value='%s' readonly><br>\n",
             user.getName());
         out.printf("닉네임: <input type='text' name='nick' value='%s'><br>\n",
@@ -50,7 +51,7 @@ public class UserDetailServlet extends HttpServlet {
             user.getEmail());
         out.printf("비밀번호: <input type='text' name='password' value= '%s'><br>\n",
             user.getPassword());
-        out.printf("우편번호: <input type='text' name='postno' value= '%d'><br>\n",
+        out.printf("우편번호: <input type='text' name='postno' value= '%s'><br>\n",
             user.getPostNo());
         out.printf("기본주소: <input type='textarea' name='addr' value= '%s'><br>\n",
             user.getAddress());
@@ -60,6 +61,7 @@ public class UserDetailServlet extends HttpServlet {
         out.println("<a href='../user/update'><button>변경</button></a>");
         out.println("<button>취소</button>");
         out.println("</p>");
+        out.println("</form>");
 
       } catch (Exception e) {
         out.println("<h2>작업 처리 중 오류 발생!</h2>");

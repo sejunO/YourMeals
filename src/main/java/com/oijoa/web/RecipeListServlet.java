@@ -41,14 +41,16 @@ public class RecipeListServlet extends HttpServlet {
 
       
       List<Recipe> list = null;
-      String keyword = request.getParameter("keyoword");
+      String keyword = request.getParameter("keyword");
       String keywordTitle = request.getParameter("keywordTitle");
       String keywordWriter = request.getParameter("keywordWriter");
       String keywordCategory = request.getParameter("keywordCategory"); 
        
       if (keyword != null) {
+    	  
     	  list = recipeService.list(keyword);
-      } else if (keywordTitle != null) {
+    	  
+      } else if (keywordTitle != null) { 
     	  HashMap<String,Object> keywordMap = new HashMap<>();
     	  keywordMap.put("title", keywordTitle);
     	  keywordMap.put("writer", keywordWriter);
