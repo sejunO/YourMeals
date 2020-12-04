@@ -7,17 +7,15 @@
   
   <resultMap type="order" id="OrderMap">
     <id column="odno"           property="orderNo"/>
-    <result column="uno"    property="userNo"/>
     <result column="pno"  property="paymentNo"/>
     <result column="dcno"      property="deleveryCompanyNo"/>
     <result column="pno"   property="postNo"/>
     <result column="stat"   property="status"/>
     
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
+    <association property="user" javaType="user">
+      <id column="user_no"    property="userNo"/>
+      <result column="user_name"     property="name"/>
+    </association>
   </resultMap>
 
   <select id="findAll" resultMap="OrderMap" parameterType="string">
