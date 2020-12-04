@@ -28,14 +28,14 @@ public class DefaultFollowService implements FollowService {
   }
 
   @Override
-  public List<Follow> myFollowerList(int loginUserNo) throws Exception {
-    return followDao.myFollowerList(loginUserNo);
+  public List<Follow> FollowerList(int UserNo) throws Exception {
+    return followDao.FollowerList(UserNo);
   }
 
   @Override
-  public List<Follow> myFollowingList(int loginUserNo) throws Exception {
+  public List<Follow> FollowingList(int UserNo) throws Exception {
     // TODO Auto-generated method stub
-    return followDao.myFollowingList(loginUserNo);
+    return followDao.FollowingList(UserNo);
   }
 
   //  @Override

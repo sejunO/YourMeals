@@ -40,7 +40,7 @@ public class MyFollowingServlet extends HttpServlet {
 
       User loginUser = (User) session.getAttribute("loginUser");
 
-      List<Follow> list = followService.myFollowingList(loginUser.getUserNo());
+      List<Follow> list = followService.FollowingList(loginUser.getUserNo());
 
       out.println("<table border='1'><tr>"
           + "<th>번호</th>"
