@@ -12,7 +12,7 @@ public class User {
   private String address;
   private String detailAddress;
   private String photo;
-  
+
   public int getUserNo() {
     return userNo;
   }
