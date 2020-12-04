@@ -16,11 +16,18 @@ public class RecipeDaoImpl implements RecipeDao {
 	public RecipeDaoImpl(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
+	
+	@Override
+	public List<Recipe> findAll() throws Exception {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+			return sqlSession.selectList("RecipeDao.findAll");
+		}
+	}
 
 	@Override
-	public List<Recipe> findAll(String keyword) throws Exception {
+	public List<Recipe> findByKeyword(String keyword) throws Exception {
 		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-			return sqlSession.selectList("RecipeDao.findAll", keyword);
+			return sqlSession.selectList("RecipeDao.findByKeyword", keyword);
 		}
 	}
 	

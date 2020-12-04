@@ -6,7 +6,8 @@ import java.util.Map;
 import com.oijoa.domain.Recipe;
 
 public interface RecipeDao {
-	List<Recipe> findAll(String keyword) throws Exception;
+	List<Recipe> findAll() throws Exception;
+	List<Recipe> findByKeyword(String keyword) throws Exception;
 	List<Recipe> findByUserNo(int loginUserNo) throws Exception;	
 	List<Recipe> findByLike(int loginUserNo) throws Exception;	
 	List<Recipe> findByDetailKeyword(Map<String,Object> map) throws Exception;
