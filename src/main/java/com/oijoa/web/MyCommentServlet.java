@@ -40,7 +40,6 @@ public class MyCommentServlet extends HttpServlet {
       out.println("<h1>[내가 작성한 댓글]</h1>");
 
       User loginUser = (User) session.getAttribute("loginUser");
-      Comment comment = commentService.list(loginUser);
       List<Comment> list = commentService.userNoList(loginUser.getUserNo());
 
       out.println("<table border = '1'><tr>"
