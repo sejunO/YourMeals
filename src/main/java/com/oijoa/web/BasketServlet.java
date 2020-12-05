@@ -14,7 +14,6 @@ import com.oijoa.domain.Basket;
 import com.oijoa.domain.User;
 import com.oijoa.service.BasketService;
 
-@WebServlet("/basket/list")
 public class BasketServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
