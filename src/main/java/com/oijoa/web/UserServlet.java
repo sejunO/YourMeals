@@ -28,7 +28,7 @@ public class UserServlet extends HttpServlet {
     try {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>Recipe Test</title></head>");
+      out.println("<head><title>UserServlet</title></head>");
       out.println("<body>");
       out.println("<h1>사용자 목록</h1>");
 
@@ -42,7 +42,7 @@ public class UserServlet extends HttpServlet {
       for (User user : list) {
         out.println("<tr>");
         out.printf("<td>%d</td>", user.getUserNo());
-        out.printf("<td><a href='recipe?userNo=%d&userName=%s'>%s</a></td>"
+        out.printf("<td><a href='info?userNo=%d&userName=%s'>%s</a></td>"
             ,user.getUserNo() 
             ,user.getName() 
             ,user.getName());
