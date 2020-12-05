@@ -5,7 +5,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.CommentDao;
 import com.oijoa.domain.Comment;
-import com.oijoa.domain.User;
 
 public class CommentDaoImpl implements CommentDao{
 
@@ -16,30 +15,30 @@ public class CommentDaoImpl implements CommentDao{
   }
 
   @Override
-	public int insert(Comment comment) throws Exception {
-	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-	      return sqlSession.insert("CommentDao.insert", comment);
-	    }
-	}
-  
+  public int insert(Comment comment) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.insert("CommentDao.insert", comment);
+    }
+  }
+
   @Override
   public List<Comment> findAll(String keyword) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("CommentDao.findAll", keyword);
     }
   }
-  
+
   @Override
-	public int deleteByRecipeNo(int recipeNo) throws Exception {
-	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-	      return sqlSession.delete("CommentDao.deleteByRecipeNo", recipeNo);
-	}
+  public int deleteByRecipeNo(int recipeNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.delete("CommentDao.deleteByRecipeNo", recipeNo);
+    }
   }
-  
+
   @Override
-  public Comment findByLogno(User user) throws Exception {
+  public List<Comment> findByUserNo(int userNo) throws Exception {
     try(SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectOne("CommentDao.findByLogno", user);
+      return sqlSession.selectList("CommentDao.findByUserNo", userNo);
     }
   }
 }
