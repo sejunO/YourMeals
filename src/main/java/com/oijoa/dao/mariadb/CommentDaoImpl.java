@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.CommentDao;
 import com.oijoa.domain.Comment;
+import com.oijoa.domain.User;
 
 public class CommentDaoImpl implements CommentDao{
 
@@ -34,12 +35,13 @@ public class CommentDaoImpl implements CommentDao{
 	      return sqlSession.delete("CommentDao.deleteByRecipeNo", recipeNo);
 	}
   }
+  
+  @Override
+  public Comment findByLogno(User user) throws Exception {
+    try(SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectOne("CommentDao.findByLogno", user);
+    }
+  }
 }
-
-
-
-
-
-
 
 

@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Comment {
   private int commentNo;
-  private int userNo;
+  private User userNo;
   private int recipeNo;
   private String content;
   private Date createdDate;
@@ -16,10 +16,10 @@ public class Comment {
   public void setCommentNo(int commentNo) {
     this.commentNo = commentNo;
   }
-  public int getUserNo() {
+  public User getUserNo() {
     return userNo;
   }
-  public void setUserNo(int userNo) {
+  public void setUserNo(User userNo) {
     this.userNo = userNo;
   }
   public int getRecipeNo() {

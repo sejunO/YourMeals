@@ -1,9 +1,9 @@
 package com.oijoa.service;
 
 import java.util.List;
-
 import com.oijoa.dao.CommentDao;
 import com.oijoa.domain.Comment;
+import com.oijoa.domain.User;
 
 public class DefaultCommentService implements CommentService {
 
@@ -28,23 +28,8 @@ public class DefaultCommentService implements CommentService {
     return commentDao.findAll(null);
   }
 
-  //  @Override
-  //  public List<Order> list(String keyword) throws Exception {
-  //    return orderDao.findAll(keyword);
-  //  }
-  //
-  //  @Override
-  //  public Board get(int no) throws Exception {
-  //    Board board = boardDao.findByNo(no);
-  //    if (board != null) {
-  //      boardDao.updateViewCount(no);
-  //    }
-  //    return board;
-  //  }
-  //
-  //  @Override
-  //  public int update(Board board) throws Exception {
-  //    return boardDao.update(board);
-  //  }
-
+  @Override
+  public Comment list(User user) throws Exception {
+    return commentDao.findByLogno(user);
+  }
 }

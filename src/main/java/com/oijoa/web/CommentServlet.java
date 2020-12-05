@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Comment;
 import com.oijoa.service.CommentService;
 
-@WebServlet("/comment")
+@WebServlet("/comment/list")
 public class CommentServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
