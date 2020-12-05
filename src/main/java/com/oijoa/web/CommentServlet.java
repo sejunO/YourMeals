@@ -42,7 +42,7 @@ public class CommentServlet extends HttpServlet {
         out.printf("<td>댓글번호: ");
         out.printf("%d</td>", comment.getCommentNo());
         out.printf("<td>회원 번호 : ");
-        out.printf("%d</td>", comment.getUserNo());
+        out.printf("%d</td>", comment.getWriter().getUserNo());
         out.printf("<td>레시피 번호 : ");
         out.printf("%d</td>", comment.getRecipeNo());
         out.printf("<td>댓글내용 : ");

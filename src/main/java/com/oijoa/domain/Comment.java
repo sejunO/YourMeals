@@ -4,23 +4,23 @@ import java.sql.Date;
 
 public class Comment {
   private int commentNo;
-  private User userNo;
+  private User writer;
   private int recipeNo;
   private String content;
   private Date createdDate;
   private Date modifiedDate;
-  
+
   public int getCommentNo() {
     return commentNo;
   }
   public void setCommentNo(int commentNo) {
     this.commentNo = commentNo;
   }
-  public User getUserNo() {
-    return userNo;
+  public User getWriter() {
+    return writer;
   }
-  public void setUserNo(User userNo) {
-    this.userNo = userNo;
+  public void setWriter(User writer) {
+    this.writer = writer;
   }
   public int getRecipeNo() {
     return recipeNo;

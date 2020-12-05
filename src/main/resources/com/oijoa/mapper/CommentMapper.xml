@@ -7,14 +7,13 @@
   
   <resultMap type="comment" id="CommentMap">
     <id column="cno"           property="commentNo"/>
-    <result column="uno"    property="userNo"/>
     <result column="rno"    property="recipeNo"/>
     <result column="content"    property="content"/>
     <result column="cdt"    property="createdDate"/>
     <result column="mdt"    property="modifiedDate"/>
    
-   <association property="user" javaType="user">
-    <id column="user_no"        property="userNo"/>
+   <association property="writer" javaType="user">
+    <id column="writer_no"        property="userNo"/>
    </association>
     <!-- 
     <association property="writer" javaType="member">
@@ -34,20 +33,20 @@
       from oi_comment
   </select>
   
-  <select id="findByLogno" resultMap="CommentMap" parameterType="user">
+  <select id="findByUserNo" resultMap="CommentMap" parameterType="int">
 	select
 	  content,
 	  cdt
 	from
  	  oi_comment
    	where
-   	  uno = #{user.userNo}
+   	  uno = #{writer.userNo}
   </select>
 
 
   <insert id="insert" parameterType="comment">
     insert into oi_comment(uno,rno,content) 
-    values(#{userNo}, #{recipeNo}, #{content})
+    values(#{writer.userNo}, #{recipeNo}, #{content})
   </insert>
   
    <delete id="deleteByRecipeNo" parameterType="int">
