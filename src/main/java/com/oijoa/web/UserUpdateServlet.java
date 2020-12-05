@@ -35,20 +35,14 @@ public class UserUpdateServlet extends HttpServlet {
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
-<<<<<<< HEAD
-    //    out.println("<meta http-equiv='Refresh' content='2;url=detail'>");
-=======
     out.println("<meta http-equiv='Refresh' content='2;url=detail'>");
->>>>>>> acf4079355c7b1a3f6f3887f454dd9afcf6911dd
     out.println("<title>MyPage</title></head>");
     out.println("<body>");
 
     try {
       out.println("<h1>[정보 수정]</h1>");
 
-<<<<<<< HEAD
       List<User> list = userService.list();
-=======
       User loginUser = (User) session.getAttribute("loginUser");
 
       User user = new User();
@@ -59,7 +53,6 @@ public class UserUpdateServlet extends HttpServlet {
       user.setAddress(request.getParameter("addr"));
       user.setDetailAddress(request.getParameter("det_addr"));
       int no = userService.update(user);
->>>>>>> acf4079355c7b1a3f6f3887f454dd9afcf6911dd
 
       out.println("<table border='1'>");
       out.println("<thead><tr>"
