@@ -27,6 +27,10 @@ public class DefaultOrderListService implements OrderListService {
     return orderListDao.findAll(null);
   }
 
+  @Override
+  public List<OrderList> myList(int loginUserNo) throws Exception {
+    return orderListDao.findByUserNo(loginUserNo);
+  }
   //  @Override
   //  public List<Order> list(String keyword) throws Exception {
   //    return orderDao.findAll(keyword);

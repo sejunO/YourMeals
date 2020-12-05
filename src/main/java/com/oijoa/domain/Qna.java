@@ -4,10 +4,12 @@ import java.sql.Date;
 
 public class Qna {
   private int QnaNo;
-  private int userNo;
+  private User writer;
   private int secret;
+  private String title;
   private String content;
   private Date createdDate;
+  private String answerStatus;
   private String answer;
   private Date answerDate;
 
@@ -17,17 +19,23 @@ public class Qna {
   public void setQnaNo(int qnaNo) {
     QnaNo = qnaNo;
   }
-  public int getUserNo() {
-    return userNo;
+  public User getWriter() {
+    return writer;
   }
-  public void setUserNo(int userNo) {
-    this.userNo = userNo;
+  public void setWriter(User writer) {
+    this.writer = writer;
   }
   public int getSecret() {
     return secret;
   }
   public void setSecret(int secret) {
     this.secret = secret;
+  }
+  public String getTitle() {
+    return title;
+  }
+  public void setTitle(String title) {
+    this.title = title;
   }
   public String getContent() {
     return content;
@@ -40,6 +48,12 @@ public class Qna {
   }
   public void setCreatedDate(Date createdDate) {
     this.createdDate = createdDate;
+  }
+  public String getAnswerStatus() {
+    return answerStatus;
+  }
+  public void setAnswerStatus(String answerStatus) {
+    this.answerStatus = answerStatus;
   }
   public String getAnswer() {
     return answer;

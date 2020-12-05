@@ -20,6 +20,12 @@ public class OrderListDaoImpl implements OrderListDao{
       return sqlSession.selectList("OrderListDao.findAll", keyword);
     }
   }
+  @Override
+  public List<OrderList> findByUserNo(int loginUserNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("OrderListDao.findByUserNo", loginUserNo);
+    }
+  }
 }
 
 

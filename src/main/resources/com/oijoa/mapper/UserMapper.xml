@@ -17,7 +17,7 @@
     <result column="addr"  property="address"/>
     <result column="det_addr"  property="detailAddress"/>
     <result column="photo"  property="photo"/>
- 
+     
   </resultMap>
 
   <select id="findAll" resultMap="UserMap" parameterType="string">
@@ -38,7 +38,62 @@
     order by
       uno desc
   </select>
+
   
+  <select id = "findByNo" resultMap ="UserMap" parameterType="int">
+    select
+      uno,
+      name,
+      nick,
+      email,
+      password,
+      postno,
+      addr,
+      det_addr
+    from
+      oi_user
+    where
+      uno = #{no}
+  </select>
+  
+  <update id="update" parameterType="user">
+    update oi_user 
+    <set>
+      nick = #{nick},
+      password = password(#{password}),
+      postno = #{postNo},
+      addr = #{address},
+      det_addr = #{detailAddress}
+    </set>
+    where
+    uno = #{userNo}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from oi_user
+    where no = #{no}
+  </delete>
+  
+  <select id="findByEmailPassword" parameterType="map" resultMap="UserMap">
+    select
+      uno,
+      name,
+      nick,
+      email,
+      point,
+      postno,
+      addr,
+      det_addr,
+      photo,
+      utype
+    from
+      oi_user
+    where
+      email = #{email}
+      and password = password(#{password})
+      
+  </select>
+
 </mapper>
 
 

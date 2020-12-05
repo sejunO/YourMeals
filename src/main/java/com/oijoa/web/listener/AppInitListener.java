@@ -8,11 +8,11 @@ public class AppInitListener implements ServletContextListener {
 
   @Override
   public void contextInitialized(ServletContextEvent sce) {
-    System.out.println("프로젝트 관리 시스템(PMS)에 오신 걸 환영합니다!");
+    System.out.println("밥상을 차리자! 신)오이조아용");
 
   }
   @Override
   public void contextDestroyed(ServletContextEvent sce) {
-    System.out.println("프로젝트 관리 시스템(PMS)을 종료합니다!");
+    System.out.println("밥상 엎어버림");
   }
 }

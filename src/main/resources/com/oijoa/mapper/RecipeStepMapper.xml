@@ -24,6 +24,23 @@
       oi_recipe_step
   </select>
   
+  <select id="findByRecipeNo" resultMap="RecipeStepMap" parameterType="int">
+    select
+      r.rno,
+      rs.step,
+      rs.photo,
+      rs.content
+    from 
+      oi_recipe_step rs inner join oi_recipe r
+      on rs.rno=r.rno
+    where r.rno = #{recipeNo}
+  </select>
+  
+  <delete id="deleteByRecipeNo" parameterType="int">
+    delete from oi_recipe_step
+    where rno=#{recipeNo}
+  </delete>
+  
 </mapper>
 
 

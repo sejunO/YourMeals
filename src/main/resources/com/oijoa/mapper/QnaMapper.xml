@@ -7,38 +7,54 @@
   
   <resultMap type="qna" id="QnAMap">
     <id column="qnano"           property="QnaNo"/>
-    <result column="uno"    property="userNo"/>
     <result column="secret"  property="secret"/>
+    <result column="title"  property="title"/>
     <result column="content"  property="content"/>
     <result column="cdt"  property="createdDate"/>
+    <result column="ansStat"  property="answerStatus"/>
     <result column="answer"  property="answer"/>
     <result column="adt"  property="answerDate"/>
     
-    
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
+    <association property="writer" javaType="user">
+      <id column="writer_uno"    property="userNo"/>
+    </association>
   </resultMap>
 
   <select id="findAll" resultMap="QnAMap" parameterType="string">
     select 
       qnano, 
-      uno, 
-      secret,
-      content, 
-      cdt,
-      answer,
-      adt
-      from oi_qna 
-      
+      title, 
+      cdt, 
+    if(isnull(answer), "답변대기중", "답변완료") 
+    as ansStat 
+    from oi_qna;
   </select>
   
+  <select id="findByNo" parameterType="int" resultMap="QnAMap">
+    select
+      qnano,
+      title,
+      content,
+      cdt
+    from 
+      oi_qna
+    where qnano = #{no}
+  </select>
+  
+  <insert id="insert" parameterType="qna">
+    insert into oi_qna(writer,title,content,secret) 
+    values(#{writer.userNo}, #{title}, #{content}, 0)
+  </insert>
+  
+  <update id="update" parameterType="qna">
+    update oi_qna set 
+      title = #{title}, 
+      content = #{content} 
+    where qnano = #{QnaNo}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from oi_qna 
+    where qnano=#{QnaNo}
+  </delete>
 </mapper>
-
-
-
-
-
-

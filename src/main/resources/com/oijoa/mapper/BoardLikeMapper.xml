@@ -25,6 +25,11 @@
       from oi_board_like
   </select>
   
+  <delete id="deleteByRecipeNo" parameterType="int">
+    delete from oi_board_like
+    where rno = #{recipeNo}
+  </delete>
+  
 </mapper>
 
 

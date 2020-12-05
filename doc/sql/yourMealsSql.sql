@@ -94,12 +94,12 @@ CREATE TABLE oi_recipe (
   title   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
   content MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
   photo   VARCHAR(255) NULL     COMMENT '사진', -- 사진
-  hits    INTEGER      NOT NULL COMMENT '조회수', -- 조회수
-  rcmd    INTEGER      NOT NULL COMMENT '추천수', -- 추천수
+  hits    INTEGER      NOT NULL DEFAULT '0', -- 조회수
+  rcmd    INTEGER      NOT NULL DEFAULT '0', -- 추천수
   cdt     DATETIME     NOT NULL DEFAULT now()
    COMMENT '작성일', -- 작성일
   mdt     DATETIME     NULL     COMMENT '수정일', -- 수정일
-  min     INTEGER      NOT NULL COMMENT '조리시간', -- 조리시간
+  min     INTEGER      NOT NULL DEFAULT '0', -- 조리시간
   lno     INTEGER      NOT NULL COMMENT '난이도번호' -- 난이도번호
 )
 COMMENT '레시피';
@@ -327,13 +327,14 @@ ALTER TABLE oi_notice_type
 
 -- QNA
 CREATE TABLE oi_qna (
-  qnano   INTEGER    NOT NULL COMMENT 'QNA번호', -- QNA번호
-  uno     INTEGER    NOT NULL COMMENT '사용자번호', -- 사용자번호
-  content MEDIUMTEXT NOT NULL COMMENT '내용', -- 내용
-  cdt     DATETIME   NOT NULL DEFAULT  now() COMMENT '작성일', -- 작성일
-  secret  INTEGER    NOT NULL COMMENT '비밀글여부', -- 비밀글여부
-  answer  MEDIUMTEXT NULL     COMMENT '답변내용', -- 답변내용
-  adt     DATETIME   NULL     COMMENT '답변일' -- 답변일
+  qnano   INTEGER      NOT NULL COMMENT 'QNA번호', -- QNA번호
+  writer     INTEGER      NOT NULL COMMENT '사용자번호', -- 사용자번호
+  title   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
+  content MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
+  cdt     DATETIME     NOT NULL DEFAULT  now() COMMENT '작성일', -- 작성일
+  secret  INTEGER      NOT NULL COMMENT '비밀글여부', -- 비밀글여부
+  answer  MEDIUMTEXT   NULL     COMMENT '답변내용', -- 답변내용
+  adt     DATETIME     NULL     COMMENT '답변일' -- 답변일
 )
 COMMENT 'QNA';
 
@@ -714,7 +715,7 @@ ALTER TABLE oi_recipe_step
 ALTER TABLE oi_qna
   ADD CONSTRAINT FK_oi_user_TO_oi_qna -- 회원 -> QNA
     FOREIGN KEY (
-      uno -- 사용자번호
+      writer -- 사용자번호
     )
     REFERENCES oi_user ( -- 회원
       uno -- 사용자번호

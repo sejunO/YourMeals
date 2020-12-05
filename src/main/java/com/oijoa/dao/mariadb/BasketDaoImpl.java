@@ -13,6 +13,12 @@ public class BasketDaoImpl implements BasketDao{
   public BasketDaoImpl(SqlSessionFactory sqlSessionFactory) {
     this.sqlSessionFactory = sqlSessionFactory;
   }
+  @Override
+  public Basket findByNo(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectOne("BasketDao.findByNo", no);
+    }
+  }
 
   @Override
   public List<Basket> findAll(String keyword) throws Exception {
@@ -20,6 +26,19 @@ public class BasketDaoImpl implements BasketDao{
       return sqlSession.selectList("BasketDao.findAll", keyword);
     }
   }
+  @Override
+  public int insert(Basket basket) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.insert("BasketDao.insert", basket);
+    }
+  }
+  @Override
+  public List<Basket> findByUserNo(int loginUserNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("BasketDao.findByUserNo", loginUserNo);
+    }
+  }
+
 }
 
 

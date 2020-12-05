@@ -20,6 +20,20 @@ public class FollowDaoImpl implements FollowDao{
       return sqlSession.selectList("FollowDao.findAll", keyword);
     }
   }
+
+  @Override
+  public List<Follow> FollowerList(int UserNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("FollowDao.findByFollowerUserNo", UserNo);
+    }
+  }
+
+  @Override
+  public List<Follow> FollowingList(int UserNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("FollowDao.findByFollowingUserNo", UserNo);
+    }
+  }
 }
 
 

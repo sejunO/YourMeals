@@ -11,58 +11,54 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.User;
 import com.oijoa.service.UserService;
 
-@WebServlet("/user")
+@WebServlet("/user/list")
 public class UserServlet extends HttpServlet {
-
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse res)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
 
     ServletContext ctx = request.getServletContext();
     UserService userService = (UserService) ctx.getAttribute("userService");
 
     try {
-
       out.println("<!DOCTYPE html>");
       out.println("<html>");
-      out.println("<head><title>User Test</title></head>");
-      out.println("<body><h1>안녕하세요</h1>");
-
-      out.println("[게시물 목록]");
+      out.println("<head><title>UserServlet</title></head>");
+      out.println("<body>");
+      out.println("<h1>사용자 목록</h1>");
 
       List<User> list = userService.list();
 
+      out.println("<table border='1'><tr>"
+          + "<th>번호</th>"
+          + "<th>이름</th>"
+          + "<th>닉네임</th></tr>");
+
       for (User user : list) {
-        out.println("<table border='1'>");
         out.println("<tr>");
-        out.printf("<td>회원번호: %d</td>", user.getUserNo());
-        out.printf("<td>회원유형: %d</td>", user.getUserTypeNo());
-        out.printf("<td>포인트: %d</td>", user.getPoint());
-        out.printf("<td>이름: %s</td>", user.getName());
-        out.printf("<td>닉네임: %s</td>", user.getNick());
-        out.printf("<td>이메일: %s</td>", user.getEmail());
-        out.printf("<td>암호: %s</td>", user.getPassword());
-        out.printf("<td>우편번호: %s</td>", user.getPostNo());
-        out.printf("<td>기본주소: %s</td>", user.getAddress());
-        out.printf("<td>상세주소: %s</td>", user.getDetailAddress());
-        out.printf("<td>사진: %s</td>", user.getPhoto());
+        out.printf("<td>%d</td>", user.getUserNo());
+        out.printf("<td><a href='info?userNo=%d&userName=%s'>%s</a></td>"
+            ,user.getUserNo() 
+            ,user.getName() 
+            ,user.getName());
+        out.printf("<td>%s</td>", user.getNick());
         out.println("</tr>");
       }
-      out.println("</table>"
-          + "</body>"
-          + "</html>");
-
+      out.println("</table>");
+      out.println("<hr>\n");
+      out.println("<a href=../index.html>뒤로가기</a><br>\n");
+      out.println("<a href=../index.html>홈으로</a><br>\n");
+      out.println("</body></html>");
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-
+    out.println("</body>");
+    out.println("</html>");
   }
-
-
 }

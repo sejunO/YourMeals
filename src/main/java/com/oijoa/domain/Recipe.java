@@ -9,7 +9,7 @@ public class Recipe {
   private String content;
   private String photo;
   private int hits;
-  private int recomendCount;
+  private int recommendCount;
   private Date createdDate;
   private Date modifiedDate;
   private int min;
@@ -52,11 +52,11 @@ public class Recipe {
   public void setHits(int hits) {
     this.hits = hits;
   }
-  public int getRecomendCount() {
-    return recomendCount;
+  public int getRecommendCount() {
+    return recommendCount;
   }
-  public void setRecomendCount(int recomendCount) {
-    this.recomendCount = recomendCount;
+  public void setRecommendCount(int recommendCount) {
+    this.recommendCount = recommendCount;
   }
   public Date getCreatedDate() {
     return createdDate;

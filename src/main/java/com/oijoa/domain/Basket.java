@@ -1,16 +1,28 @@
 package com.oijoa.domain;
 
+import java.util.List;
+
 public class Basket {
-  private int bankNo;
+  private int basketNo;
   private int productNo;
   private int amount;
-  private int userNo;
-  
-  public int getBankNo() {
-    return bankNo;
+  private User writer;
+  private Product product;
+  private List<Product> products;
+  private List<User> users;
+
+
+  public List<Product> getProducts() {
+    return products;
   }
-  public void setBankNo(int bankNo) {
-    this.bankNo = bankNo;
+  public void setProducts(List<Product> products) {
+    this.products = products;
+  }
+  public int getBasketNo() {
+    return basketNo;
+  }
+  public void setBasketNo(int basketNo) {
+    this.basketNo = basketNo;
   }
   public int getProductNo() {
     return productNo;
@@ -24,10 +36,23 @@ public class Basket {
   public void setAmount(int amount) {
     this.amount = amount;
   }
-  public int getUserNo() {
-    return userNo;
+  public User getWriter() {
+    return writer;
   }
-  public void setUserNo(int userNo) {
-    this.userNo = userNo;
+  public void setWriter(User writer) {
+    this.writer = writer;
   }
+  public Product getProduct() {
+    return product;
+  }
+  public void setProduct(Product product) {
+    this.product = product;
+  }
+  public List<User> getUsers() {
+    return users;
+  }
+  public void setUsers(List<User> users) {
+    this.users = users;
+  }
+
 }

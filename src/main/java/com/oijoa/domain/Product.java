@@ -2,23 +2,26 @@ package com.oijoa.domain;
 
 public class Product {
   private int productNo;
-  private int materialNo;
+  private Material material;
   private int stock;
   private int price;
   private int discount;
   private String content;
-  
+
+
   public int getProductNo() {
     return productNo;
   }
+
   public void setProductNo(int productNo) {
     this.productNo = productNo;
   }
-  public int getMaterialNo() {
-    return materialNo;
+
+  public Material getMaterial() {
+    return material;
   }
-  public void setMaterialNo(int materialNo) {
-    this.materialNo = materialNo;
+  public void setMaterial(Material material) {
+    this.material = material;
   }
   public int getStock() {
     return stock;

@@ -16,15 +16,17 @@ public class DefaultOrderService implements OrderService {
   //  public int delete(int no) throws Exception {
   //    return boardDao.delete(no);
   //  }
-  //
-  //  @Override
-  //  public int add(Board board) throws Exception {
-  //    return boardDao.insert(board);
-  //  }
-  //
+  @Override
+  public int add(Order order) throws Exception {
+    return orderDao.insert(order);
+  }
   @Override
   public List<Order> list() throws Exception {
     return orderDao.findAll(null);
+  }
+  @Override
+  public List<Order> myList(int loginUserNo) throws Exception {
+    return orderDao.findByUserNo(loginUserNo);
   }
 
   //  @Override

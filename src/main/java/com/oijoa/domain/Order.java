@@ -1,10 +1,11 @@
 package com.oijoa.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Order {
   private int orderNo;
-  private int userNo;
+  private User userNo;
   private int paymentNo;
   private int deleveryCompanyNo;
   private int transportNo;
@@ -14,17 +15,18 @@ public class Order {
   private Date orderDate;
   private String address;
   private String detailAddress;
-  
+  private Basket basket;
+  private List<Basket> baskets;
   public int getOrderNo() {
     return orderNo;
   }
   public void setOrderNo(int orderNo) {
     this.orderNo = orderNo;
   }
-  public int getUserNo() {
+  public User getUserNo() {
     return userNo;
   }
-  public void setUserNo(int userNo) {
+  public void setUserNo(User userNo) {
     this.userNo = userNo;
   }
   public int getPaymentNo() {
@@ -81,6 +83,19 @@ public class Order {
   public void setDetailAddress(String detailAddress) {
     this.detailAddress = detailAddress;
   }
+  public Basket getBasket() {
+    return basket;
+  }
+  public void setBasket(Basket basket) {
+    this.basket = basket;
+  }
+  public List<Basket> getBaskets() {
+    return baskets;
+  }
+  public void setBaskets(List<Basket> baskets) {
+    this.baskets = baskets;
+  }
+
 }
 
 
