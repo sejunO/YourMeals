@@ -2,7 +2,6 @@ package com.oijoa.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.StringWriter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +26,7 @@ public class UserUpdateServlet extends HttpServlet {
         (UserService) ctx.getAttribute("userService");
 
     HttpSession session = request.getSession();
- 
+
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
 
@@ -43,31 +42,26 @@ public class UserUpdateServlet extends HttpServlet {
 
       User loginUser = (User) session.getAttribute("loginUser");
       User user = userService.get(loginUser.getUserNo());
-      
-        user.setName(request.getParameter("name"));
-        user.setNick(request.getParameter("nick"));
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(request.getParameter("password"));
-        user.setPostNo(request.getParameter("postno"));
-        user.setAddress(request.getParameter("addr"));
-        user.setDetailAddress(request.getParameter("det_addr"));
-        int no = userService.update(user);
 
-        if(no != 0) {
-          out.println("<p>수정이 완료되었습니다.</p>");
-        }
+      user.setName(request.getParameter("name"));
+      user.setNick(request.getParameter("nick"));
+      user.setEmail(request.getParameter("email"));
+      user.setPassword(request.getParameter("password"));
+      user.setPostNo(request.getParameter("postno"));
+      user.setAddress(request.getParameter("addr"));
+      user.setDetailAddress(request.getParameter("det_addr"));
+      int no = userService.update(user);
 
-      } catch (Exception e) {
-        out.println("<h2>작업 처리 중 오류 발생!</h2>");
-        out.printf("<pre>%s</pre>\n", e.getMessage());
-
-        StringWriter errOut = new StringWriter();
-        e.printStackTrace(new PrintWriter(errOut));
-        out.println("<h3>상세 오류 내용</h3>");
-        out.printf("<pre>%s</pre>\n", errOut.toString());
+      if(no != 0) {
+        out.println("<p>수정이 완료되었습니다.</p>");
       }
-      out.println("</body>");
-      out.println("</html>");
+
+    } catch (Exception e) {
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
+    out.println("</body>");
+    out.println("</html>");
   }
+}
 

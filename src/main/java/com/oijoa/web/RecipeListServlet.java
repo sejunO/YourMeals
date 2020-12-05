@@ -4,14 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.oijoa.domain.Recipe;
 import com.oijoa.service.RecipeService;
 
@@ -22,11 +20,11 @@ public class RecipeListServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse res)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
 
     ServletContext ctx = request.getServletContext();
     RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
@@ -35,36 +33,36 @@ public class RecipeListServlet extends HttpServlet {
     out.println("<html>");
     out.println("<head><title>Recipe Test</title></head>");
     out.println("<body>");
-    
-    try {
-    	out.println("<h1>레시피 목록</h1>");
 
-      
+    try {
+      out.println("<h1>레시피 목록</h1>");
+
+
       List<Recipe> list = null;
       String keyword = request.getParameter("keyword");
       String keywordTitle = request.getParameter("keywordTitle");
       String keywordWriter = request.getParameter("keywordWriter");
       String keywordCategory = request.getParameter("keywordCategory"); 
-       
+
       if (keyword != null) {
-    	  
-    	  list = recipeService.list(keyword);
-    	  
+
+        list = recipeService.list(keyword);
+
       } else if (keywordTitle != null) { 
-    	  HashMap<String,Object> keywordMap = new HashMap<>();
-    	  keywordMap.put("title", keywordTitle);
-    	  keywordMap.put("writer", keywordWriter);
-    	  keywordMap.put("category", keywordCategory);
-    	  
-    	  list = recipeService.list(keywordMap);
-    	  
+        HashMap<String,Object> keywordMap = new HashMap<>();
+        keywordMap.put("title", keywordTitle);
+        keywordMap.put("writer", keywordWriter);
+        keywordMap.put("category", keywordCategory);
+
+        list = recipeService.list(keywordMap);
+
       } else {
-    	  list = recipeService.list();
+        list = recipeService.list();
       }
 
       out.println("<a href='form'>새 레시피</a><br>");
       out.println("<table border='1'>"
-      		+ "<thead><tr>"
+          + "<thead><tr>"
           + "<th>번호</th>"
           + "<th>사진</th>"
           + "<th>제목</th>"
@@ -85,7 +83,7 @@ public class RecipeListServlet extends HttpServlet {
         out.printf("<td>%d</td>", recipe.getHits());
         out.println("</tbody></tr>");
       }
-      
+
       out.println("<p>");
       out.println("<form action='list' method='get'>");
       out.printf("검색어: <input type='text' name='keyword' value='%s'>\n",
@@ -95,7 +93,7 @@ public class RecipeListServlet extends HttpServlet {
       out.println("</p>");
 
       out.println("<hr>");
-      
+
       out.println("<h3>상세 검색</h3>");
       out.println("<p>");
       out.println("<form action='list' method='get'>");
@@ -108,14 +106,14 @@ public class RecipeListServlet extends HttpServlet {
       out.println("<button>검색</button>");
       out.println("</form>");
       out.println("</p>");
-      
+
       out.println("<hr>");
-      
+
       out.println("</table></body></html>");
-      
+
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
 
   }

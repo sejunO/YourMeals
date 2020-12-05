@@ -30,11 +30,11 @@ public class RecipeAddServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse res)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
 
     ServletContext ctx = request.getServletContext();
     RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
@@ -81,8 +81,8 @@ public class RecipeAddServlet extends HttpServlet {
       out.println("</table></body></html>");
       
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
 
   }
