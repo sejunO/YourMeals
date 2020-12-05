@@ -32,19 +32,19 @@ public class OrderAddServlet extends HttpServlet {
       out.println("[게시물 목록]");
       List<Order> list = orderService.list();
 
-      for (Order order : list) {
-        out.println("<table><tr>");
-        out.printf("<td>번호 : ");
-        out.printf("%d</td>", order.getOrderNo());
-        out.printf("<td>번호 : ");
-        out.printf("%d</td>", order.getPaymentNo());
-        out.printf("<td>번호 : ");
-        out.printf("%s</td>", order.getAddress());
-        out.printf("<td>번호 : ");
-        out.printf("%s</td>", order.getDetailAddress());
-        out.println("</tr></table>");
-        out.println();
-      }
+//      for (Order order : list) {
+//        out.println("<table><tr>");
+//        out.printf("<td>번호 : ");
+//        out.printf("%d</td>", order.getOrderNo());
+//        out.printf("<td>번호 : ");
+//        out.printf("%d</td>", order.getPaymentNo());
+//        out.printf("<td>번호 : ");
+//        out.printf("%s</td>", order.getAddress());
+//        out.printf("<td>번호 : ");
+//        out.printf("%s</td>", order.getDetailAddress());
+//        out.println("</tr></table>");
+//        out.println();
+//      }
       out.println("</body>");
       out.println("</html>");
 

@@ -3,7 +3,6 @@ package com.oijoa.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,64 +34,23 @@ public class UserUpdateServlet extends HttpServlet {
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
-<<<<<<< HEAD
-    //    out.println("<meta http-equiv='Refresh' content='2;url=detail'>");
-=======
     out.println("<meta http-equiv='Refresh' content='2;url=detail'>");
->>>>>>> acf4079355c7b1a3f6f3887f454dd9afcf6911dd
     out.println("<title>MyPage</title></head>");
     out.println("<body>");
 
     try {
       out.println("<h1>[정보 수정]</h1>");
 
-<<<<<<< HEAD
-      List<User> list = userService.list();
-=======
       User loginUser = (User) session.getAttribute("loginUser");
-
-      User user = new User();
-      user.setUserNo(loginUser.getUserNo());
+      User user = userService.get(loginUser.getUserNo());
+      
+      user.setName(request.getParameter("name"));
       user.setNick(request.getParameter("nick"));
       user.setPassword(request.getParameter("password"));
       user.setPostNo(request.getParameter("postno"));
       user.setAddress(request.getParameter("addr"));
       user.setDetailAddress(request.getParameter("det_addr"));
       int no = userService.update(user);
->>>>>>> acf4079355c7b1a3f6f3887f454dd9afcf6911dd
-
-      out.println("<table border='1'>");
-      out.println("<thead><tr>"
-          + "<tr>이름</th>"
-          + "<th>닉네임</th>"
-          + "<th>이메일</th>"
-          + "<th>비밀번호</th>"
-          + "<th>나의배송지</th>"
-          + "</tr></thead>");
-      out.println("<tbody>");
-
-      for(User user : list) {
-        out.printf("<tr>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "</tr>\n",
-            user.getName(),
-            user.getNick(),
-            user.getEmail(),
-            user.getPassword(),
-            user.getAddress());
-        User user = new User();
-        user.setName(request.getParameter("name"));
-        user.setNick(request.getParameter("nick"));
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(request.getParameter("password"));
-        user.setPostNo(request.getParameter("postno"));
-        user.setAddress(request.getParameter("addr"));
-        user.setDetailAddress(request.getParameter("det_addr"));
-        int no = userService.update(user);
 
         if(no != 0) {
           out.println("<p>수정이 완료되었습니다.</p>");
@@ -111,4 +69,4 @@ public class UserUpdateServlet extends HttpServlet {
       out.println("</html>");
     }
   }
-}
+
