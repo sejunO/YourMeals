@@ -27,7 +27,7 @@ public class UserUpdateServlet extends HttpServlet {
         (UserService) ctx.getAttribute("userService");
 
     HttpSession session = request.getSession();
-
+ 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
 
