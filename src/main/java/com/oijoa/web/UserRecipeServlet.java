@@ -48,7 +48,7 @@ public class UserRecipeServlet extends HttpServlet {
       for (Recipe recipe : list) {
         out.println("<tr>");
         out.printf("<td>%d</td>\n",recipe.getRecipeNo());
-        out.printf("<td><a href='detail?recipeNo=%d'>%s</a></td>",recipe.getRecipeNo(),recipe.getTitle());
+        out.printf("<td><a href='../recipe/detail?recipeNo=%d'>%s</a></td>",recipe.getRecipeNo(),recipe.getTitle());
         out.printf("<td>%s</td>\n",recipe.getPhoto());
         out.printf("<td>%s</td>\n",recipe.getCreatedDate());
         out.println("</tr>");
