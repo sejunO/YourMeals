@@ -18,11 +18,11 @@ public class OrderAddServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse res)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
 
     ServletContext ctx = request.getServletContext();
     OrderService orderService = (OrderService) ctx.getAttribute("orderService");
@@ -32,26 +32,26 @@ public class OrderAddServlet extends HttpServlet {
       out.println("[게시물 목록]");
       List<Order> list = orderService.list();
 
-//      for (Order order : list) {
-//        out.println("<table><tr>");
-//        out.printf("<td>번호 : ");
-//        out.printf("%d</td>", order.getOrderNo());
-//        out.printf("<td>번호 : ");
-//        out.printf("%d</td>", order.getPaymentNo());
-//        out.printf("<td>번호 : ");
-//        out.printf("%s</td>", order.getAddress());
-//        out.printf("<td>번호 : ");
-//        out.printf("%s</td>", order.getDetailAddress());
-//        out.println("</tr></table>");
-//        out.println();
-//      }
+      //      for (Order order : list) {
+      //        out.println("<table><tr>");
+      //        out.printf("<td>번호 : ");
+      //        out.printf("%d</td>", order.getOrderNo());
+      //        out.printf("<td>번호 : ");
+      //        out.printf("%d</td>", order.getPaymentNo());
+      //        out.printf("<td>번호 : ");
+      //        out.printf("%s</td>", order.getAddress());
+      //        out.printf("<td>번호 : ");
+      //        out.printf("%s</td>", order.getDetailAddress());
+      //        out.println("</tr></table>");
+      //        out.println();
+      //      }
       out.println("</body>");
       out.println("</html>");
 
       orderService.add(order);
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
 
   }
