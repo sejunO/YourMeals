@@ -38,9 +38,10 @@ public class DefaultRecipeService implements RecipeService {
   // return boardDao.insert(board);
   // }
   //
+  
   @Override
-  public List<Recipe> list() throws Exception {
-    return recipeDao.findAll();
+  public List<Recipe> list() throws Exception {	 
+	  return  recipeDao.findAll();
   }
   
   @Override
@@ -76,6 +77,12 @@ public class DefaultRecipeService implements RecipeService {
   // return orderDao.findAll(keyword);
   // }
   //
+  
+  @Override
+	public List<Recipe> getRecipeMaterial(int recipeNo) throws Exception {
+		return recipeDao.findRecipeMaterial(recipeNo);
+	}
+  
   @Override
   public Recipe get(int no) throws Exception {
     Recipe recipe = recipeDao.findByRecipeNo(no);

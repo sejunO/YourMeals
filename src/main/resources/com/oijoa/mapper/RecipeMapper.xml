@@ -17,6 +17,7 @@
     <result column="min"  property="min"/>
     <result column="lno"  property="levelNo"/>
     <result column="loginno" property="loginUserNo"/>
+    <result column="material" property="material"/>
     
     <association property="writer" javaType="user">
       <id column="writer_no"        property="userNo"/>
@@ -86,6 +87,11 @@
     order by r.rno desc
   </select>
   
+  <select id="findByRecipeNo" resultMap="RecipeMap" parameterType="int">
+     <include refid="sql1"/>
+     where r.rno = #{recipeNo}
+  </select>
+  
   <select id="findByUserNo" resultMap="RecipeMap" parameterType="int">
     select 
       rno,
@@ -98,11 +104,6 @@
   </select>
   
 
-  <select id="findByRecipeNo" resultMap="RecipeMap" parameterType="int">
-     <include refid="sql1"/>
-     where r.rno = #{recipeNo}
-  </select>
-  
   
   <select id="findByLike" resultMap="RecipeMap" parameterType="int">
     select 
@@ -118,7 +119,7 @@
       on l.rno = r.rno
     where l.uno = #{loginNo}
   </select>
-  <!-- hits default 0 설정 해야함. -->
+
   <insert id="insert" parameterType="recipe"
   useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
     insert into oi_recipe(title,content,uno,min,lno,photo)
@@ -129,6 +130,30 @@
     insert into oi_recipe_category(rno,cno) 
     values (#{recipeNo},#{category.categoryNo})
   </insert>
+  
+  <insert id="insertRecipeMaterial" parameterType="recipe">
+    insert into oi_recipe_material(rno, mno)
+    values (#{recipeNo}, #{materialNo})
+   </insert>
+  
+  <select id="findRecipeMaterial" resultMap="RecipeMap" parameterType="int">
+    select 
+    /*레시피 번호(rno)와 재료번호(mno) 생략*/
+      case 
+        when (mno = 1) then '달걀'
+        when (mno = 2) then '사과'
+        when (mno = 3) then '양파'
+        when (mno = 4) then '돼지고기'
+        when (mno = 5) then '오징어'
+        when (mno = 6) then '배추'
+        when (mno = 7) then '고추'
+        when (mno = 8) then '닭고기'
+        when (mno = 9) then '소고기'
+        when (mno = 10) then '파'
+       end as material
+    from oi_recipe_material
+    where rno = #{rno}      
+  </select>
   
     <update id="update" parameterType="recipe">
     update oi_recipe 

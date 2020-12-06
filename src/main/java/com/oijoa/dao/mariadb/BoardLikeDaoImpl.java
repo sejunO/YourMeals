@@ -22,6 +22,20 @@ public class BoardLikeDaoImpl implements BoardLikeDao{
   }
   
   @Override
+	public BoardLike findByRecipeNo(int recipeNo) throws Exception {
+	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+	      return sqlSession.selectOne("BoardLikeDao.findByRecipeNo", recipeNo);
+	    }
+	}
+  
+  @Override
+	public int countBoardLike(BoardLike boardLike) throws Exception {
+	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+	      return sqlSession.selectOne("BoardLikeDao.countBoardLike", boardLike);
+	    }
+	}
+  
+  @Override
 	public int deleteByRecipeNo(int recipeNo) throws Exception {
 	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 	      return sqlSession.delete("BoardLikeDao.deleteByRecipeNo", recipeNo);

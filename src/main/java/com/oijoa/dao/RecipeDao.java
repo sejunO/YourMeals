@@ -11,10 +11,11 @@ public interface RecipeDao {
 	List<Recipe> findByUserNo(int loginUserNo) throws Exception;	
 	List<Recipe> findByLike(int loginUserNo) throws Exception;	
 	List<Recipe> findByDetailKeyword(Map<String,Object> map) throws Exception;
+	List<Recipe> findRecipeMaterial(int recipeNo) throws Exception;
+	Recipe findByRecipeNo(int no) throws Exception;
 	int insert(Recipe recipe) throws Exception;
 	int insertCategory(Recipe recipe) throws Exception;
 	int update(Recipe recipe) throws Exception;
-	Recipe findByRecipeNo(int no) throws Exception;
 	int updateViewCount(int no) throws Exception;
 	int delete(int no) throws Exception;
 	int deleteRecipeCategory(int recipeNo) throws Exception;

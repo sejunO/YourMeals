@@ -53,12 +53,18 @@ public class RecipeDaoImpl implements RecipeDao {
 	}
 	
 	@Override
+	public List<Recipe> findRecipeMaterial(int recipeNo) throws Exception {
+		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            return sqlSession.selectList("RecipeDao.findRecipeMaterial", recipeNo);
+        }
+	}
+	
+	@Override
 	public Recipe findByRecipeNo(int no) throws Exception {
 		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 			return sqlSession.selectOne("RecipeDao.findByRecipeNo", no);
 		}
 	}
-
 
 	@Override
 	public int insert(Recipe recipe) throws Exception {

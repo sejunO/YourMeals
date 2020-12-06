@@ -3,12 +3,15 @@ package com.oijoa.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.List;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.RecipeStep;
 import com.oijoa.service.RecipeService;
@@ -49,6 +52,7 @@ public class RecipeDetailServlet extends HttpServlet {
         out.println("해당 번호의 게시글이 없습니다.");
         return;
       }
+
       out.println("<form action='update' method='post'>");
       out.printf("번호: <input type='text' name='recipeNo' value='%d' readonly><br>\n",
     		  recipe.getRecipeNo());
@@ -60,9 +64,21 @@ public class RecipeDetailServlet extends HttpServlet {
       out.printf("등록일: %s<br>\n", recipe.getCreatedDate());
       out.printf("수정일: %s<br>\n", recipe.getModifiedDate());
       out.printf("조회수: %d<br>\n", recipe.getHits());
+      out.printf("추천수: %d<br>\n", recipe.getRecommendCount());
       out.printf("난이도: %s<br>\n", recipe.getLevelNo());
-      out.printf("시간:  %s<br>\n", recipe.getMin());
+      out.printf("조리시간:  %s<br>\n", recipe.getMin());
       out.printf("카테고리: %s<br>\n", recipe.getCategory().getCategoryName());
+      
+      // 재료값을 받아오는 변수를 Recipe 변수에 String material 추가하고 저장
+      // oi_recipe_material에서 select문으로 레시피번호당 재료들을 가져오고
+      // 그 재료들을 반환값 List로 DAO와 SERVICE에서 처리
+      // material 컬럼을  oi_recipe에 추가하는 것은 고민중
+      // material 변수는 자바에세 값을 저장하기 위한 용도로만 쓰여서 따로 데이터를 저장할 필요가 없기 때문
+      out.printf("필요한 재료: ");
+      List<Recipe> materialList = recipeService.getRecipeMaterial(no);
+      for (Recipe r : materialList) {
+    	  out.printf("%s ", r.getMaterial());
+      }
       out.println("</ul><br>");
       out.println("<h3>조리순서</h3>");
       out.println("<table border='1'>");
