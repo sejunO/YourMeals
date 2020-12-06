@@ -8,7 +8,7 @@
   <resultMap type="order" id="OrderMap">
     <id column="odno"           property="orderNo"/>
     <result column="pno"  property="paymentNo"/>
-    <result column="dcno"      property="deleveryCompanyNo"/>
+    <result column="dcno"      property="deliveryCompanyNo"/>
     <result column="postno"   property="postNo"/>
     <result column="stat"   property="status"/>
     <result column="memo"   property="memo"/>
@@ -80,15 +80,16 @@
     where o.uno = #{userNo.userNo}
   </select>
   
-  <insert id="insert" parameterType="order">
-    insert into oi_order(addr,det_Addr,odno)
-    values(#{address},#{detailAddress},#{userNo.userNo})
+  <insert id="insert" parameterType="order" 
+  useGeneratedKeys="true" keyColumn="odno" keyProperty="orderNo">
+    insert into oi_order(uno,pno,dcno,transno,memo,postno,addr,det_addr)
+    values(#{userNo.userNo},#{paymentNo},#{deliveryCompanyNo},
+    			 #{transportNo},#{memo},#{postNo},#{address},#{detailAddress})
+  </insert>
+  
+  <insert id="insertList" parameterType="orderList">
+  	insert into oi_order_list(odno,pno,amount,discount,price)
+  	values(#{orderNo.orderNo},#{productNo.productNo},#{amount},#{discount},#{price})
   </insert>
   
 </mapper>
-
-
-
-
-
-

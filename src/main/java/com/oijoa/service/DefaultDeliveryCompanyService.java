@@ -12,38 +12,35 @@ public class DefaultDeliveryCompanyService implements DeliveryCompanyService {
     this.deliveryCompanyDao = deliveryCompanyDao;
   }
 
-  //  @Override
-  //  public int delete(int no) throws Exception {
-  //    return boardDao.delete(no);
-  //  }
-  //
-  //  @Override
-  //  public int add(Board board) throws Exception {
-  //    return boardDao.insert(board);
-  //  }
-  //
+
+  @Override
+  public DeliveryCompany get(int no) throws Exception {
+    // TODO Auto-generated method stub
+    return deliveryCompanyDao.findByNo(no);
+  }
+
   @Override
   public List<DeliveryCompany> list() throws Exception {
     return deliveryCompanyDao.findAll(null);
   }
 
-  //  @Override
-  //  public List<Order> list(String keyword) throws Exception {
-  //    return orderDao.findAll(keyword);
-  //  }
+  // @Override
+  // public List<Order> list(String keyword) throws Exception {
+  // return orderDao.findAll(keyword);
+  // }
   //
-  //  @Override
-  //  public Board get(int no) throws Exception {
-  //    Board board = boardDao.findByNo(no);
-  //    if (board != null) {
-  //      boardDao.updateViewCount(no);
-  //    }
-  //    return board;
-  //  }
+  // @Override
+  // public Board get(int no) throws Exception {
+  // Board board = boardDao.findByNo(no);
+  // if (board != null) {
+  // boardDao.updateViewCount(no);
+  // }
+  // return board;
+  // }
   //
-  //  @Override
-  //  public int update(Board board) throws Exception {
-  //    return boardDao.update(board);
-  //  }
+  // @Override
+  // public int update(Board board) throws Exception {
+  // return boardDao.update(board);
+  // }
 
 }

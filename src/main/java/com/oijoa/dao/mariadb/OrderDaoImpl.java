@@ -5,8 +5,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.oijoa.dao.OrderDao;
 import com.oijoa.domain.Order;
+import com.oijoa.domain.OrderList;
 
-public class OrderDaoImpl implements OrderDao{
+public class OrderDaoImpl implements OrderDao {
 
   SqlSessionFactory sqlSessionFactory;
 
@@ -14,30 +15,37 @@ public class OrderDaoImpl implements OrderDao{
     this.sqlSessionFactory = sqlSessionFactory;
   }
 
+
+
   @Override
   public List<Order> findAll(String keyword) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("OrderDao.findAll", keyword);
     }
   }
+
   @Override
   public List<Order> findByUserNo(int loginUserNo) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("OrderDao.findByUserNo", loginUserNo);
     }
   }
+
+
+  @Override
+  public int insert(OrderList orderList) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.insert("OrderDao.insertList", orderList);
+    }
+  }
+
   @Override
   public int insert(Order order) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.insert("OrderDao.insert", order);
     }
   }
+
 }
-
-
-
-
-
-
 
 

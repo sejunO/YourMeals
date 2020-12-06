@@ -23,6 +23,15 @@
       from oi_delivery_company
   </select>
   
+  <select id="findByNo" resultMap="DeliveryCompanyMap" parameterType="int">
+  	 select 
+      dcno, 
+      name
+     from oi_delivery_company
+     where
+     	dcno = #{dcno}
+  </select>
+  
 </mapper>
 
 

@@ -12,16 +12,7 @@ public class DefaultOrderListService implements OrderListService {
     this.orderListDao = orderListDao;
   }
 
-  //  @Override
-  //  public int delete(int no) throws Exception {
-  //    return boardDao.delete(no);
-  //  }
-  //
-  //  @Override
-  //  public int add(Board board) throws Exception {
-  //    return boardDao.insert(board);
-  //  }
-  //
+
   @Override
   public List<OrderList> list() throws Exception {
     return orderListDao.findAll(null);
@@ -31,23 +22,15 @@ public class DefaultOrderListService implements OrderListService {
   public List<OrderList> myList(int loginUserNo) throws Exception {
     return orderListDao.findByUserNo(loginUserNo);
   }
-  //  @Override
-  //  public List<Order> list(String keyword) throws Exception {
-  //    return orderDao.findAll(keyword);
-  //  }
-  //
-  //  @Override
-  //  public Board get(int no) throws Exception {
-  //    Board board = boardDao.findByNo(no);
-  //    if (board != null) {
-  //      boardDao.updateViewCount(no);
-  //    }
-  //    return board;
-  //  }
-  //
-  //  @Override
-  //  public int update(Board board) throws Exception {
-  //    return boardDao.update(board);
-  //  }
+
+  @Override
+  public int add(OrderList orderList) throws Exception {
+    return orderListDao.insert(orderList);
+  }
+
+  @Override
+  public List<OrderList> makeList(int no) throws Exception {
+    return orderListDao.makeList(no);
+  }
 
 }

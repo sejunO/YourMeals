@@ -23,9 +23,6 @@ public class LoginServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-
-
-
     // 클라이언트 전용 보관소(세션)를 준비한다.
     HttpSession session = request.getSession();
 

@@ -54,7 +54,7 @@
         on b.pno=p.pno
       inner join oi_user u 
          on b.uno=u.uno
-    where b.uno = #{writer.userNo}
+    where b.uno = #{userNo}
   </select>
   
   <select id="findByNo" resultMap="BasketMap" parameterType="int">

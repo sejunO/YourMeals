@@ -63,6 +63,23 @@
         on o.uno=u.uno
     where o.uno = #{userNo.userNo}
   </select>
+  
+  <select id="makeList" resultMap="OrderListMap" parameterType="int">
+  	select
+  		o.odno order_no,
+  		o.uno user_no,
+  		p.pno product_no,
+  		p.content product_content,
+  		b.amount,
+  		p.discount,
+  		p.price
+  	from oi_basket b
+  		inner join oi_order o
+  		  on b.uno = o.uno
+  		inner join oi_product p
+  			on b.pno = p.pno
+  	where o.uno=#{userNo};
+  </select>
 </mapper>
 
 

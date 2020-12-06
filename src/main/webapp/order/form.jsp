@@ -1,3 +1,4 @@
+<%@page import="com.oijoa.domain.Payment"%>
 <%@page import="java.util.List"%>
 <%@page import="com.oijoa.domain.Product"%>
 <%@page import="com.oijoa.domain.User"%>
@@ -11,8 +12,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%List<Basket> list = (List<Basket>) request.getAttribute("baskets");
+<%List<Basket> baskets = (List<Basket>) request.getAttribute("baskets");
+List<Payment> payments = (List<Payment>) request.getAttribute("payments");
 User user = (User) request.getAttribute("user");
+String addr = null;
+String det_addr = null;
+if (user.getAddress() == null) {
+  addr = "";
+} else {
+  addr = user.getAddress();
+}
+if (user.getDetailAddress() == null) {
+  det_addr = "";
+} else {
+  det_addr = user.getDetailAddress();
+}
 int result = 0;%>
 
 <h3>배송지 정보</h3>
@@ -21,11 +35,12 @@ int result = 0;%>
 이름 : <input type="text" readonly name="userName" value=<%=user.getName() %>><br>
 연락처 : <input type="tel" name="tel"><br>
 우편번호: <input type="number" name="postno" value=<%=user.getPostNo() %>><br>
-기본주소: <input type="text" name="addr" value=<%=user.getAddress() %>><br>
-상세주소: <input type="text" name="det_addr" value=<%=user.getDetailAddress() %>><br>
+기본주소: <input type="text" name="addr" value=<%=addr%>><br>
+상세주소: <input type="text" name="det_addr" value=<%=det_addr%>><br>
+배송 메모: <input type="text" name="memo"><br>
 
 <h3>주문 상품 정보</h3>
-<%for (Basket b : list) { %>
+<%for (Basket b : baskets) { %>
 <table>
 <tr>
 <td><%=b.getProduct().getContent() %></td>
@@ -36,7 +51,10 @@ int result = 0;%>
 <% result += b.getProduct().getPrice() * b.getAmount();%>
 </table>
 <%} %>
-
+<h3>결제 방법 선택</h3>
+<%for (Payment p : payments) { %>
+		<input type="radio" name="payment" value=<%=p.getPaymentNo() %>><%=p.getName() %>
+<%} %>
 <h3>결제 정보</h3>
 <table border='1'>
  <thead></thead>

@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.oijoa.domain.Basket;
+import com.oijoa.domain.Payment;
 import com.oijoa.domain.User;
 import com.oijoa.service.BasketService;
+import com.oijoa.service.PaymentService;
 
 @WebServlet("/order/form")
 public class OrderFormServlet extends HttpServlet {
@@ -28,17 +30,17 @@ public class OrderFormServlet extends HttpServlet {
 
     ServletContext ctx = request.getServletContext();
     BasketService basketService = (BasketService) ctx.getAttribute("basketService");
-
+    PaymentService paymentService = (PaymentService) ctx.getAttribute("paymentService");
     HttpSession session = request.getSession();
     User user = (User) session.getAttribute("loginUser");
     try {
       List<Basket> baskets = basketService.myList(user.getUserNo());
-
-
+      List<Payment> payments = paymentService.list(null);
 
 
 
       request.setAttribute("baskets", baskets);
+      request.setAttribute("payments", payments);
       request.setAttribute("user", user);
       request.getRequestDispatcher("/order/form.jsp").include(request, response);
     } catch (Exception e) {

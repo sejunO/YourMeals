@@ -126,7 +126,7 @@ CREATE TABLE oi_order (
   postno   VARCHAR(6)   NOT NULL COMMENT '배송지우편번호', -- 배송지우편번호
   addr     VARCHAR(255) NOT NULL COMMENT '배송지기본주소', -- 배송지기본주소
   det_addr VARCHAR(255) NOT NULL COMMENT '배송지상세주소', -- 배송지상세주소
-  stat     INTEGER      NOT NULL COMMENT '주문상태' -- 주문상태
+  stat     INTEGER      NOT NULL DEFAULT 0 COMMENT '주문상태' -- 주문상태
 )
 COMMENT '주문';
 

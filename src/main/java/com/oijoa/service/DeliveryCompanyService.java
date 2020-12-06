@@ -7,4 +7,5 @@ public interface DeliveryCompanyService {
 
   List<DeliveryCompany> list() throws Exception;
 
+  DeliveryCompany get(int no) throws Exception;
 }
