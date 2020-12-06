@@ -25,6 +25,15 @@
       from oi_board_like
   </select>
   
+  <select id="findByRecipeNo" resultMap="BoardLikeMap" parameterType="int">
+    select 
+      uno,
+      rno,
+      rdt
+     from oi_board_like
+     where rno = #{recipeNo}
+  </select>
+  
   <delete id="deleteByRecipeNo" parameterType="int">
     delete from oi_board_like
     where rno = #{recipeNo}

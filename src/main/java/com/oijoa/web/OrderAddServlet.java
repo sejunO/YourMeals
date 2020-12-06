@@ -25,11 +25,11 @@ public class OrderAddServlet extends HttpServlet {
 
   @SuppressWarnings("null")
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse res)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
 
     ServletContext ctx = request.getServletContext();
     HttpSession session = request.getSession();
@@ -57,8 +57,8 @@ public class OrderAddServlet extends HttpServlet {
         orderService.add(ol);
       }
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
   }
 }

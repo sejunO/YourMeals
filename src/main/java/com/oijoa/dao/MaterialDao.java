@@ -5,6 +5,7 @@ import com.oijoa.domain.Material;
 
 public interface MaterialDao {
   List<Material> findAll(String keyword) throws Exception;
+  int insert(int no) throws Exception; 
 }
 
 

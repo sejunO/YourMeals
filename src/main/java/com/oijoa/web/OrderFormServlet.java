@@ -44,8 +44,8 @@ public class OrderFormServlet extends HttpServlet {
       request.setAttribute("user", user);
       request.getRequestDispatcher("/order/form.jsp").include(request, response);
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
 
   }

@@ -98,7 +98,7 @@ CREATE TABLE oi_recipe (
   rcmd    INTEGER      NOT NULL DEFAULT '0', -- 추천수
   cdt     DATETIME     NOT NULL DEFAULT now()
    COMMENT '작성일', -- 작성일
-  mdt     DATETIME     NULL     COMMENT '수정일', -- 수정일
+  mdt     DATETIME     NULL     DEFAULT now() COMMENT '수정일', -- 수정일
   min     INTEGER      NOT NULL DEFAULT '0', -- 조리시간
   lno     INTEGER      NOT NULL COMMENT '난이도번호' -- 난이도번호
 )

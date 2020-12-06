@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +17,11 @@ public class BasketServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse res)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
 
     ServletContext ctx = request.getServletContext();
     BasketService basketService = (BasketService) ctx.getAttribute("basketService");
@@ -70,8 +69,8 @@ public class BasketServlet extends HttpServlet {
       out.println("</body>");
       out.println("</html>");
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
 
   }

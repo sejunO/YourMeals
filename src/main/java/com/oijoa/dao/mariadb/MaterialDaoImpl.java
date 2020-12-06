@@ -20,6 +20,13 @@ public class MaterialDaoImpl implements MaterialDao{
       return sqlSession.selectList("MaterialDao.findAll", keyword);
     }
   }
+  
+  @Override
+	public int insert(int no) throws Exception {
+	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+	      return sqlSession.insert("MaterialDao.insert", no);
+	  }
+	}
 }
 
 

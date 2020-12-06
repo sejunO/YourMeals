@@ -18,6 +18,11 @@
       oi_material
   </select>
   
+  <insert id="insert" parameterType="int">
+    insert into oi_material (mno, name)
+      values (#{materialNo}, #{name})      
+  </insert>
+  
 </mapper>
 
 

@@ -2,7 +2,6 @@ package com.oijoa.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.StringWriter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,12 +51,8 @@ public class AddressAddServlet extends HttpServlet {
 
       out.println("<h1>배송지가 등록되었습니다.</h1>");
     } catch (Exception e) {
-      out.println("<h2>작업 처리 중 오류 발생!</h2>");
-      out.printf("<pre>%s</pre>\n", e.getMessage());
-      StringWriter errOut = new StringWriter();
-      e.printStackTrace(new PrintWriter(errOut));
-      out.println("<h3>상세 오류 내용</h3>");
-      out.printf("<pre>%s</pre>\n", errOut.toString());
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
     out.println("</body>");
     out.println("</html>");

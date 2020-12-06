@@ -114,6 +114,7 @@
     <a href="auth/login.html">로그인</a><br>
     <a href="auth/logout">로그아웃</a><br>
     <a href="recipe/list">레시피 목록</a><br>
+    <a href="user/list">회원 목록</a><br>
     <a href="mypage/index.html">마이페이지</a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
        <script src="./js/vendor/holder.js"></script>
