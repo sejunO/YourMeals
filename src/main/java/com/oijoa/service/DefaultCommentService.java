@@ -26,6 +26,11 @@ public class DefaultCommentService implements CommentService {
   public List<Comment> list() throws Exception {
     return commentDao.findAll(null);
   }
+  
+  @Override
+	public List<Comment> list(int recipeNo) throws Exception {
+		return commentDao.findByRecipeNo(recipeNo);
+	}
 
   @Override
   public List<Comment> userNoList(int userNo) throws Exception {

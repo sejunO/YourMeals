@@ -15,7 +15,7 @@ public class Recipe {
 	private int min;
 	private int levelNo;
 	private Category category;
-	private String material;
+	private String material;	// 자바에서만 사용하는 변수
 
 	public int getRecipeNo() {
 		return recipeNo;

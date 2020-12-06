@@ -33,7 +33,7 @@ public class DefaultRecipeStepService implements RecipeStepService {
 	}
 	
 	@Override
-	public List<RecipeStep> findByRecipeNo(int recipeNo) throws Exception {
+	public List<RecipeStep> list(int recipeNo) throws Exception {
 		return recipeStepDao.findByRecipeNo(recipeNo);
 	}
 	//

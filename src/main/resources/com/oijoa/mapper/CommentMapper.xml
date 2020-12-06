@@ -14,12 +14,9 @@
    
    <association property="writer" javaType="user">
     <id column="writer_no"        property="userNo"/>
+    <result column="writer_nick"  property="nick"/>
    </association>
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
+   
   </resultMap>
 
   <select id="findAll" resultMap="CommentMap" parameterType="string">
@@ -31,6 +28,23 @@
       cdt,
       mdt
       from oi_comment
+     order by rno desc
+  </select>
+  
+    <select id="findByRecipeNo" resultMap="CommentMap" parameterType="int">
+    select
+      /*c.cno, 댓글수 counting할지 고민중*/
+      u.nick writer_nick,
+      c.content,
+      c.cdt,
+      c.mdt
+    from 
+      oi_comment c
+      inner join oi_user u on c.uno = u.uno
+    where 
+      c.rno = #{recipeNo}
+    order by
+      c.cdt desc  
   </select>
   
   <select id="findByUserNo" resultMap="CommentMap" parameterType="int">
@@ -42,8 +56,7 @@
    	where
    	  uno = #{writer.userNo}
   </select>
-
-
+  
   <insert id="insert" parameterType="comment">
     insert into oi_comment(uno,rno,content) 
     values(#{writer.userNo}, #{recipeNo}, #{content})

@@ -29,18 +29,26 @@ public class CommentDaoImpl implements CommentDao{
   }
 
   @Override
+  public List<Comment> findByUserNo(int userNo) throws Exception {
+	  try(SqlSession sqlSession = sqlSessionFactory.openSession()) {
+		  return sqlSession.selectList("CommentDao.findByUserNo", userNo);
+	  }
+  }
+  
+  @Override
+	public List<Comment> findByRecipeNo(int recipeNo) throws Exception {
+	  try(SqlSession sqlSession = sqlSessionFactory.openSession()) {
+		  return sqlSession.selectList("CommentDao.findByRecipeNo", recipeNo);
+	  }
+	}
+  
+  @Override
   public int deleteByRecipeNo(int recipeNo) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.delete("CommentDao.deleteByRecipeNo", recipeNo);
     }
   }
 
-  @Override
-  public List<Comment> findByUserNo(int userNo) throws Exception {
-    try(SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectList("CommentDao.findByUserNo", userNo);
-    }
-  }
 }
 
 
