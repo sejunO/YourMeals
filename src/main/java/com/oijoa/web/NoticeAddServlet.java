@@ -17,7 +17,7 @@ public class NoticeAddServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse res)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
 
@@ -30,8 +30,8 @@ public class NoticeAddServlet extends HttpServlet {
 
     //    HttpSession session = request.getSession();
 
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html>");
@@ -52,8 +52,8 @@ public class NoticeAddServlet extends HttpServlet {
       out.println("게시글을 등록하였습니다.");
 
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
     out.println("</body>");
     out.println("</html>");

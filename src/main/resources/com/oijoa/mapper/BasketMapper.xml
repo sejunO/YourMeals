@@ -57,6 +57,17 @@
     where b.uno = #{writer.userNo}
   </select>
   
+  <select id="findByNo" resultMap="BasketMap" parameterType="int">
+    select
+      bkno,
+      pno,
+      amount
+    from
+      oi_basket
+    where
+      uno=#{uno}
+  </select>
+  
   <insert id="insert" parameterType="basket">
         <!-- useGeneratedKeys="true" keyColumn="no" keyProperty="no"> -->
     insert into oi_basket(amount,pno,uno)

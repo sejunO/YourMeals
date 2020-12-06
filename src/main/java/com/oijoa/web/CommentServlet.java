@@ -12,17 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Comment;
 import com.oijoa.service.CommentService;
 
-@WebServlet("/comment")
+@WebServlet("/comment/list")
 public class CommentServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse res)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
 
     ServletContext ctx = request.getServletContext();
     CommentService commentService = (CommentService) ctx.getAttribute("commentService");
@@ -42,7 +42,7 @@ public class CommentServlet extends HttpServlet {
         out.printf("<td>댓글번호: ");
         out.printf("%d</td>", comment.getCommentNo());
         out.printf("<td>회원 번호 : ");
-        out.printf("%d</td>", comment.getUserNo());
+        out.printf("%d</td>", comment.getWriter().getUserNo());
         out.printf("<td>레시피 번호 : ");
         out.printf("%d</td>", comment.getRecipeNo());
         out.printf("<td>댓글내용 : ");
@@ -58,8 +58,8 @@ public class CommentServlet extends HttpServlet {
       out.println("</body>");
       out.println("</html>");
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
-      e.printStackTrace();
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
 
   }

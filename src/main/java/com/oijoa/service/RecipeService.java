@@ -2,7 +2,6 @@ package com.oijoa.service;
 
 import java.util.List;
 import java.util.Map;
-
 import com.oijoa.domain.Recipe;
 
 public interface RecipeService {
