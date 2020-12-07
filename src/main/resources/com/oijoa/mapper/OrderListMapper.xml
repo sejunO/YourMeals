@@ -12,17 +12,13 @@
     <result column="price"   property="price"/>
     
     <association property="orderNo" javaType="order">
-      <id column="order_no"        property="orderNo"/>
+      <id column="order_no"         property="orderNo"/>
       <association property="userNo" javaType="user">
         <id column="user_no"        property="userNo"/>
+        <result column="user_name"  property="name"/>      
       </association>
     </association>
     
-<!--       <association property="userNo" javaType="user">
-        <id column="order_no"        property="userNo"/>
-        <result column="order_name"  property="name"/>
-      </association>  -->
-
     <association property="productNo" javaType="product">
        <id column="product_no"          property="productNo"/>
       <result column="product_content"    property="content"/>

@@ -161,6 +161,7 @@
     <set>
       <if test="title != null">title = #{title},</if>
       <if test="content != null">content = #{content}</if>
+      mdt=now()
     </set>
     where rno = #{recipeNo}
   </update>

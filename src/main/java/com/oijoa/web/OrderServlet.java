@@ -13,7 +13,6 @@ import com.oijoa.domain.Basket;
 import com.oijoa.domain.Order;
 import com.oijoa.domain.User;
 import com.oijoa.service.OrderService;
-
 public class OrderServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
@@ -58,8 +57,8 @@ public class OrderServlet extends HttpServlet {
         out.printf(
             "<tr>" + "<td>%s</td>" + "<td>%s</td>" + "<td>%s</td>" + "<td>%s</td>" + "<td>%s</td>"
                 + "<td>%s</td>" + "<td>%s</td>" + "<td>%s</td>" + "<td>%s</td>" + "</tr>\n",
-            order.getOrderNo(), order.getPaymentNo(), order.getOrderDate(), order.getAddress(),
-            order.getDetailAddress(), order.getMemo(), order.getTransportNo(), baskets.toString());
+                order.getOrderNo(), order.getPaymentNo(), order.getOrderDate(), order.getAddress(),
+                order.getDetailAddress(), order.getMemo(), order.getTransportNo(), baskets.toString());
       }
 
       out.println("</tbody>");
