@@ -1,77 +1,58 @@
+-- 공지사항
+DROP TABLE IF EXISTS oi_notice RESTRICT;
+-- 레시피재료
+DROP TABLE IF EXISTS oi_recipe_material RESTRICT;
+-- 레시피요리유형
+DROP TABLE IF EXISTS oi_recipe_category RESTRICT;
+-- 팔로잉
+DROP TABLE IF EXISTS oi_follow RESTRICT;
+-- 댓글
+DROP TABLE IF EXISTS oi_comment RESTRICT;
+-- 레시피단계
+DROP TABLE IF EXISTS oi_recipe_step RESTRICT;
+-- 공지사항분류
+DROP TABLE IF EXISTS oi_notice_type RESTRICT;
+-- QNA
+DROP TABLE IF EXISTS oi_qna RESTRICT;
+-- 게시글좋아요
+DROP TABLE IF EXISTS oi_board_like RESTRICT;
+-- 장바구니
+DROP TABLE IF EXISTS oi_basket RESTRICT;
+-- 환불
+DROP TABLE IF EXISTS oi_refund RESTRICT;
+-- 신고
+DROP TABLE IF EXISTS oi_report RESTRICT;
+-- 계좌이체
+DROP TABLE IF EXISTS oi_account_transfer RESTRICT;
+-- 카카오페이
+DROP TABLE IF EXISTS oi_kakaopay RESTRICT;
+-- 주문항목
+DROP TABLE IF EXISTS oi_order_list RESTRICT;
+-- 신고유형
+DROP TABLE IF EXISTS oi_report_type RESTRICT;
+-- 상품
+DROP TABLE IF EXISTS oi_product RESTRICT;
+-- 요리유형
+DROP TABLE IF EXISTS oi_category RESTRICT;
+-- 재료
+DROP TABLE IF EXISTS oi_material RESTRICT;
+-- 주문
+DROP TABLE IF EXISTS oi_order RESTRICT;
+-- 레시피
+DROP TABLE IF EXISTS oi_recipe RESTRICT;
+-- 난이도
+DROP TABLE IF EXISTS oi_level RESTRICT;
+-- 배송사
+DROP TABLE IF EXISTS oi_delivery_company RESTRICT;
+-- 결제방법
+DROP TABLE IF EXISTS oi_payment RESTRICT;
 -- 회원
 DROP TABLE IF EXISTS oi_user RESTRICT;
 
--- 레시피
-DROP TABLE IF EXISTS oi_recipe RESTRICT;
+-- 전체 테이블 확인
+SHOW tables;
 
--- 주문
-DROP TABLE IF EXISTS oi_order RESTRICT;
 
--- 재료
-DROP TABLE IF EXISTS oi_material RESTRICT;
-
--- 공지사항
-DROP TABLE IF EXISTS oi_notice RESTRICT;
-
--- 요리유형
-DROP TABLE IF EXISTS oi_category RESTRICT;
-
--- 레시피재료
-DROP TABLE IF EXISTS oi_recipe_material RESTRICT;
-
--- 레시피요리유형
-DROP TABLE IF EXISTS oi_recipe_category RESTRICT;
-
--- 팔로잉
-DROP TABLE IF EXISTS oi_follow RESTRICT;
-
--- 댓글
-DROP TABLE IF EXISTS oi_comment RESTRICT;
-
--- 상품
-DROP TABLE IF EXISTS oi_product RESTRICT;
-
--- 레시피단계
-DROP TABLE IF EXISTS oi_recipe_step RESTRICT;
-
--- 공지사항분류
-DROP TABLE IF EXISTS oi_notice_type RESTRICT;
-
--- QNA
-DROP TABLE IF EXISTS oi_qna RESTRICT;
-
--- 난이도
-DROP TABLE IF EXISTS oi_level RESTRICT;
-
--- 게시글좋아요
-DROP TABLE IF EXISTS oi_board_like RESTRICT;
-
--- 장바구니
-DROP TABLE IF EXISTS oi_basket RESTRICT;
-
--- 환불
-DROP TABLE IF EXISTS oi_refund RESTRICT;
-
--- 신고
-DROP TABLE IF EXISTS oi_report RESTRICT;
-
--- 배송사
-DROP TABLE IF EXISTS oi_delivery_company RESTRICT;
-
--- 결제방법
-DROP TABLE IF EXISTS oi_payment RESTRICT;
-
--- 계좌이체
-DROP TABLE IF EXISTS oi_account_transfer RESTRICT;
-
--- 카카오페이
-DROP TABLE IF EXISTS oi_kakaopay RESTRICT;
-
--- 주문항목
-DROP TABLE IF EXISTS oi_order_list RESTRICT;
-
--- 신고유형
-DROP TABLE IF EXISTS oi_report_type RESTRICT;
 
 -- 회원
 CREATE TABLE oi_user (
@@ -834,6 +815,5 @@ ALTER TABLE oi_order_list
 			pno -- 상품번호
 		);
 		
-		
-		-- 전체 테이블확인
+-- 전체 테이블확인
 SHOW tables;
