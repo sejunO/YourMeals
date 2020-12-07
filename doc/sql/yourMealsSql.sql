@@ -821,25 +821,6 @@ ALTER TABLE oi_kakaopay
       odno -- 주문번호
     );
 
--- 주문항목
-ALTER TABLE oi_order_list
-  ADD CONSTRAINT FK_oi_order_TO_oi_order_list -- 주문 -> 주문항목
-    FOREIGN KEY (
-      odno -- 주문번호
-    )
-    REFERENCES oi_order ( -- 주문
-      odno -- 주문번호
-    );
 
--- 주문항목
-ALTER TABLE oi_order_list
-  ADD CONSTRAINT FK_oi_product_TO_oi_order_list -- 상품 -> 주문항목
-    FOREIGN KEY (
-      pno -- 상품번호
-    )
-    REFERENCES oi_product ( -- 상품
-      pno -- 상품번호
-    );
-    
 -- 전체 테이블확인
 SHOW tables;
