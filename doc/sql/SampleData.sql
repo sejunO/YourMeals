@@ -20,16 +20,16 @@ insert into oi_material(mno, name) value (8, '닭고기');
 insert into oi_material(mno, name) value (9, '소고기');
 insert into oi_material(mno, name) value (10, '파');
 -- 상품
-insert into oi_product(pno, mno, content, stock, price, discount) value (1, 1, '지리산달걀', 50, 5000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (2, 2, '안성사과', 30, 10000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (3, 3, '양파', 100, 2000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (4, 4, '한돈돼지고기', 10, 30000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (5, 5, '주문진오징어', 50, 8000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (6, 6, '고랭지배추', 80, 3000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (7, 7, '오이고추', 100, 3000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (8, 8, '할라피뇨', 111, 5000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (9, 9, '브라질닭', 30, 2700, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (10, 10, '평창한우', 10, 45000, 0);
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (1, 1, '지리산달걀', 50, 5000, 0, 'a.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (2, 2, '안성사과', 30, 10000, 0, 'b.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (3, 3, '양파', 100, 2000, 0, 'c.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (4, 4, '한돈돼지고기', 10, 30000, 0, 'd.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (5, 5, '주문진오징어', 50, 8000, 0, 'e.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (6, 6, '고랭지배추', 80, 3000, 0, 'f.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (7, 7, '오이고추', 100, 3000, 0, 'g.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (8, 8, '할라피뇨', 111, 5000, 0, 'h.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (9, 9, '브라질닭', 30, 2700, 0, 'i.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (10, 10, '평창한우', 10, 45000, 0, 'j.jpeg');
 
 -- 회원 
 insert into oi_user(uno, name, nick, email, password, point, utype) values (1, 'sejunO854', 'sj', 'sj@test.com', password(1111), 0, 1);
