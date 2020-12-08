@@ -34,7 +34,7 @@ public class UserUpdateServlet extends HttpServlet {
     out.println("<html>");
     out.println("<head>");
     out.println("<meta http-equiv='Refresh' content='2;url=detail'>");
-    out.println("<title>MyPage</title></head>");
+    out.println("<title>정보수정</title></head>");
     out.println("<body>");
 
     try {
