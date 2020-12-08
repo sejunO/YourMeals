@@ -42,31 +42,28 @@ public class MyOrderUpdateListServlet extends HttpServlet {
       List<Order> list = orderService.myList(loginUser.getUserNo());
 
       out.println("<table border='1'><tr>"
+          + "<th>주문일자</th>"
+          + "<th>주문번호</th>"
+          + "<th>우편번호</th>"
+          + "<th>배송지주소</th>"
           + "<th>주문항목</th>"
-          + "<th>결제정보</th>"
-          + "<th>주소</th>"
-          + "<th>상세주소</th>"
-          + "<th>메모</th>"
-          + "<th>배송</th>"
-          + "<th>운송장번호</th></tr>");
+          + "<th>상태</th></tr>");
 
       for (Order order : list) {
         out.printf("<tr>"
             + "<td>%s</td>"
             + "<td>%s</td>"
+            + "<td>%s %s</td>"
             + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
+            + "<td>%s 외 %d건</td>"
             + "<td>%s</td>"
             + "</tr>\n",
-            order.getOrderNo(),
-            order.getOrderNo(),
             order.getOrderDate(),
-            order.getAddress(),
-            order.getDetailAddress(),
-            order.getMemo(),
-            order.getTransportNo());
+            order.getOrderNo(),
+            order.getPostNo(),
+            order.getAddress(), order.getDetailAddress(),
+            order.getProducts().get(0).getContent(), order.getProducts().size(),
+            order.getStatus());
       }
 
       out.println("</table>");
