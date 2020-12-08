@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.oijoa.domain.OrderList;
+import com.oijoa.domain.Order;
 import com.oijoa.domain.User;
-import com.oijoa.service.OrderListService;
+import com.oijoa.service.OrderService;
 
 @WebServlet("/mypage/order/updatelist")
 public class MyOrderUpdateListServlet extends HttpServlet {
@@ -22,61 +22,60 @@ public class MyOrderUpdateListServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
+    ServletContext ctx = request.getServletContext();
+    OrderService orderService = (OrderService) ctx.getAttribute("orderService");
+
+    HttpSession session = request.getSession();
+
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
 
-    HttpSession session = request.getSession();
-    ServletContext ctx = request.getServletContext();
-    OrderListService orderListService = (OrderListService) ctx.getAttribute("orderListService");
-
+    out.println("<!DOCTYPE html>");
+    out.println("<html>");
+    out.println("<head><title>MyPage</title></head>");
+    out.println("<body>");
     try {
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head><title>MyPage</title></head>");
-      out.println("<body>");
+      out.println("<h1>[나의 주문 취소/교환/환불내역]</h1>");
 
-      out.println("<h1>[나의 취소/교환/환불내역]</h1>");
       User loginUser = (User) session.getAttribute("loginUser");
-      System.out.println(loginUser.getUserNo());
 
-      List<OrderList> list = orderListService.myList(loginUser.getUserNo());
+      List<Order> list = orderService.myList(loginUser.getUserNo());
 
-      out.println("<table border='1'>");
-      out.println("<thead><tr>"
+      out.println("<table border='1'><tr>"
           + "<th>주문항목</th>"
-          + "<th>상품명</th>"
-          + "<th>가격</th>"
-          + "<th>할인율</th>"
-          + "<th>사용자</th>"
-          + "</tr></thead>");
-      out.println("<tbody>");
+          + "<th>결제정보</th>"
+          + "<th>주소</th>"
+          + "<th>상세주소</th>"
+          + "<th>메모</th>"
+          + "<th>배송</th>"
+          + "<th>운송장번호</th></tr>");
 
-      for (OrderList orderList : list) {
+      for (Order order : list) {
         out.printf("<tr>"
-            +"<td>%s</td>"
-            +"<td>%s</td>"
-            +"<td>%d</td>"
-            +"<td>%s</td>"
-            +"<td>%s</td>"
-            +"</tr>\n",
-            orderList.getOrderListNo(),
-            orderList.getProductNo().getContent(),
-            orderList.getPrice(),
-            orderList.getDiscount(),
-            orderList.getOrderNo().getUserNo().getName()
-            );
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "</tr>\n",
+            order.getOrderNo(),
+            order.getOrderNo(),
+            order.getOrderDate(),
+            order.getAddress(),
+            order.getDetailAddress(),
+            order.getMemo(),
+            order.getTransportNo());
       }
 
-      out.println("</tbody>");
       out.println("</table>");
-      out.println("</body>");
-      out.println("</html>");
+      out.println("<hr>\n");
+      out.println("<a href=../index.html>뒤로가기</a><br>\n");
+      out.println("<a href=../../index.html>홈으로</a><br>\n");
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-
   }
-
-
 }
