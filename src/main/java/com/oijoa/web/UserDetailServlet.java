@@ -32,7 +32,7 @@ public class UserDetailServlet extends HttpServlet {
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
-    out.println("<title>MyPage</title></head>");
+    out.println("<title>정보수정</title></head>");
     out.println("<body>");
 
     try {
@@ -56,11 +56,11 @@ public class UserDetailServlet extends HttpServlet {
           user.getAddress());
       out.printf("세부주소: <input type='det_addr' name='det_addr' value= '%s'><br>\n",
           user.getDetailAddress());
-      out.println("<p>");
-      out.println("<a href='../user/update'><button>변경</button></a>");
-      out.println("<button>취소</button>");
-      out.println("</p>");
-      out.println("</form>");
+      out.print("<p>");
+      out.print("<button>변경</button>");
+      out.print("</form>");
+      out.println("<a href='../index.html'><button>취소</button></a>");
+      out.print("</p>");
 
     } catch (Exception e) {
       request.setAttribute("exception", e);

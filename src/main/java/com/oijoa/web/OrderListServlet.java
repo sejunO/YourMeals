@@ -34,9 +34,9 @@ public class OrderListServlet extends HttpServlet {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head><title>OrderList</title></head>");
-      out.println("<body><h1> 주문항목</h1>");
+      out.println("<body><h1>주문항목목록</h1>");
 
-      out.println("[주문항목 목록]");
+      out.println("주문항목 목록");
       User loginUser = (User) session.getAttribute("loginUser");
       System.out.println(loginUser.getUserNo());
 
