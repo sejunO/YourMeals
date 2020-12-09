@@ -201,7 +201,6 @@ public class DataHandlerListener implements ServletContextListener {
       ctx.setAttribute("reportTypeService", reportTypeService);
       ctx.setAttribute("userService", userService);
 
-
     } catch (Exception e) {
       System.out.println("Mybatis 및 DAO, 서비스 객체 준비 중 오류 발생!");
       e.printStackTrace();

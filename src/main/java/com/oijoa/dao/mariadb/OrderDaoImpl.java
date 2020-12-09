@@ -25,12 +25,18 @@ public class OrderDaoImpl implements OrderDao {
   }
 
   @Override
-  public List<Order> findByUserNo(int loginUserNo) throws Exception {
+  public List<Order> findByUserNo(int UserNo) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectList("OrderDao.findByUserNo", loginUserNo);
+      return sqlSession.selectList("OrderDao.findByUserNo", UserNo);
     }
   }
 
+  @Override
+  public List<Order> findByUpdateListUserNo(int UserNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("OrderDao.findByUpdateListUserNo", UserNo);
+    }
+  }
 
   @Override
   public int insert(OrderList orderList) throws Exception {
@@ -45,7 +51,6 @@ public class OrderDaoImpl implements OrderDao {
       return sqlSession.insert("OrderDao.insert", order);
     }
   }
-
 }
 
 

@@ -80,6 +80,14 @@
     where o.uno = #{userNo.userNo}
   </select>
   
+  <select id="findByUpdateListUserNo" resultMap="OrderMap" parameterType="int">
+    select 
+      여기해야함
+    from
+      oi_order o
+    where o.uno = #{userNo.userNo}
+  </select>
+  
   <insert id="insert" parameterType="order" 
   useGeneratedKeys="true" keyColumn="odno" keyProperty="orderNo">
     insert into oi_order(uno,pno,dcno,transno,memo,postno,addr,det_addr)

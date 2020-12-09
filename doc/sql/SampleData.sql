@@ -20,16 +20,16 @@ insert into oi_material(mno, name) value (8, '닭고기');
 insert into oi_material(mno, name) value (9, '소고기');
 insert into oi_material(mno, name) value (10, '파');
 -- 상품
-insert into oi_product(pno, mno, content, stock, price, discount) value (1, 1, '지리산달걀', 50, 5000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (2, 2, '안성사과', 30, 10000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (3, 3, '양파', 100, 2000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (4, 4, '한돈돼지고기', 10, 30000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (5, 5, '주문진오징어', 50, 8000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (6, 6, '고랭지배추', 80, 3000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (7, 7, '오이고추', 100, 3000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (8, 8, '할라피뇨', 111, 5000, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (9, 9, '브라질닭', 30, 2700, 0);
-insert into oi_product(pno, mno, content, stock, price, discount) value (10, 10, '평창한우', 10, 45000, 0);
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (1, 1, '지리산달걀', 50, 5000, 0, 'a.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (2, 2, '안성사과', 30, 10000, 0, 'b.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (3, 3, '양파', 100, 2000, 0, 'c.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (4, 4, '한돈돼지고기', 10, 30000, 0, 'd.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (5, 5, '주문진오징어', 50, 8000, 0, 'e.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (6, 6, '고랭지배추', 80, 3000, 0, 'f.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (7, 7, '오이고추', 100, 3000, 0, 'g.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (8, 8, '할라피뇨', 111, 5000, 0, 'h.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (9, 9, '브라질닭', 30, 2700, 0, 'i.jpeg');
+insert into oi_product(pno, mno, content, stock, price, discount, photo) value (10, 10, '평창한우', 10, 45000, 0, 'j.jpeg');
 
 -- 회원 
 insert into oi_user(uno, name, nick, email, password, point, utype) values (1, 'sejunO854', 'sj', 'sj@test.com', password(1111), 0, 1);
@@ -182,8 +182,9 @@ insert into oi_qna(qnano, writer, title, content, secret) values (10, 1, '테스
 -- 주문
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (1, 1, 1, 1, '123-2345', '부재시 경비실', '10301','비트교육센터','로비','1');
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (2, 2, 2, 2, '123-2345', '부재시 경비실', '10301','비트교육센터','203호','2');
-insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (3, 3, 3, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','204호','0');
-insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (4, 4, 4, 4, '123-2345', '부재시 경비실', '10301','비트교육센터','205호','1');
+insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (3, 1, 2, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','204호','11');
+insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (4, 1, 2, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','305호','22');
+insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (5, 1, 2, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','405호','33');
 -- 계좌이체
 insert into oi_account_transfer(odno, name, account, bname) values (1, 'sejun', '3333-3333', 'hana');
 insert into oi_account_transfer(odno, name, account, bname) values (2, 'eunchae', '3333-3333', 'hana');
@@ -209,6 +210,12 @@ insert into oi_order_list(olno, odno, pno, amount, discount, price) value (3, 1,
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (4, 2, 4, 7, 0, 30000);
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (5, 2, 5, 4, 0, 8000);
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (6, 2, 6, 5, 0, 3000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (7, 3, 1, 1, 0, 1000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (8, 3, 2, 2, 0, 2000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (9, 4, 2, 10, 0, 3000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (10, 5, 2, 1, 0, 4000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (11, 5, 4, 2, 0, 5000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (12, 5, 5, 2, 0, 6000);
 
 -- 전체조회(25)
 select * from oi_qna;
