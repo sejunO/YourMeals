@@ -22,24 +22,27 @@ public class MyBuyListServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    
+
     response.setContentType("text/html; charset = UTF-8");
     PrintWriter out = response.getWriter();
-    
+
     HttpSession session = request.getSession();
     ServletContext ctx = request.getServletContext();
     OrderService orderService = (OrderService) ctx.getAttribute("orderService");
-    
+    OrderListService orderListService = (OrderListService) ctx.getAttribute(")
+
+
     try {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head><title>나의주문내역</title></head>");
       out.println("<body>");
       out.println("<h1>주문내역 조회</h1>");
-      
+
       User loginUser = (User) session.getAttribute("loginUser");
       List<Order> list = orderService.myList(loginUser.getUserNo());
-      
+
+
       out.println("<table border = '1'><tr>"
           + "<th>주문정보</th>"
           + "<th>구매내역</th>"
@@ -54,10 +57,10 @@ public class MyBuyListServlet extends HttpServlet {
             order.getOrderDate());
         out.printf("주문번호<br> %d</td>", order.getOrderNo());
       }
-      
+
       out.println("</table>");
       out.println("<hr>\n");
-      
+
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
