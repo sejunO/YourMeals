@@ -52,7 +52,7 @@ insert into oi_level(lno, lv) values (2, 2);
 insert into oi_level(lno, lv) values (3, 3);
 insert into oi_level(lno, lv) values (4, 4);
 insert into oi_level(lno, lv) values (5, 5);
--- 게시글
+-- 레시피
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (1, 1, 'notice', '오호라', 'test.gif', 0, 0, '2020-11-18', 0, 1); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (2, 1, '제육볶음만들기', '첫번째,고기를산다', 'test1.gif', 0, 0, '2020-11-18 12:40:40', 40, 2); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (3, 2, '콩나물밥만들기', '콩나물을 산다', 'test2.gif', 2, 1, '2020-11-18 16:44:44', 60, 3); 

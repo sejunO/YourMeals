@@ -45,7 +45,8 @@
       r.cdt,
       r.mdt, 
       r.hits, 
-      r.rcmd
+      r.rcmd,
+      r.material
     from 
       oi_recipe r    
       inner join oi_user u 
@@ -83,6 +84,9 @@
     </if>
     <if test="category != null">    
     and c.name like concat('%', #{category}, '%')
+    </if>
+    <if test="material != null">
+     and r.material like concat('%', #{material}, '%')
     </if>
     </where>
     order by r.rno desc

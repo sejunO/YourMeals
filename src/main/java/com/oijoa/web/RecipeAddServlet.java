@@ -74,6 +74,9 @@ public class RecipeAddServlet extends HttpServlet {
       recipe.setMin(Integer.parseInt(request.getParameter("min")));
       recipe.setCategory(category);
       recipe.setPhoto(filename);
+      
+      List<Material> list = r
+      recipe.setMaterial(material); 
 
       recipeService.add(recipe);
       

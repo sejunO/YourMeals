@@ -2,6 +2,9 @@ package com.oijoa.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.time.LocalDate;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,6 +43,7 @@ public class RecipeUpdateServlet extends HttpServlet {
       recipe.setRecipeNo(Integer.parseInt(request.getParameter("recipeNo")));
       recipe.setTitle(request.getParameter("title"));
       recipe.setContent(request.getParameter("recipe_content"));
+      recipe.setModifiedDate(Date.valueOf(LocalDate.now()));
 
 
       int count = recipeService.update(recipe);
