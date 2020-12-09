@@ -39,6 +39,13 @@ public class BasketDaoImpl implements BasketDao{
     }
   }
 
+  @Override
+  public int delete(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.delete("BasketDao.delete", no);
+    }
+  }
+
 }
 
 
