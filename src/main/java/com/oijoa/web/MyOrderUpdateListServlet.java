@@ -39,7 +39,7 @@ public class MyOrderUpdateListServlet extends HttpServlet {
 
       User loginUser = (User) session.getAttribute("loginUser");
 
-      List<Order> list = orderService.myList(loginUser.getUserNo());
+      List<Order> list = orderService.myUpdateList(loginUser.getUserNo());
 
       out.println("<table border='1'><tr>"
           + "<th>주문일자</th>"
