@@ -182,9 +182,9 @@ insert into oi_qna(qnano, writer, title, content, secret) values (10, 1, '테스
 -- 주문
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (1, 1, 1, 1, '123-2345', '부재시 경비실', '10301','비트교육센터','로비','1');
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (2, 2, 2, 2, '123-2345', '부재시 경비실', '10301','비트교육센터','203호','2');
-insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (3, 1, 2, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','204호','11');
-insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (4, 1, 2, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','305호','22');
-insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (5, 1, 2, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','405호','33');
+insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (3, 1, 2, 3, '123-2345', '부재시 경비실1', '10301','비트교육센터1','204호','11');
+insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (4, 1, 2, 3, '123-2345', '부재시 경비실2', '10302','비트교육센터2','305호','22');
+insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (5, 1, 2, 3, '123-2345', '부재시 경비실3', '10303','비트교육센터3','405호','33');
 -- 계좌이체
 insert into oi_account_transfer(odno, name, account, bname) values (1, 'sejun', '3333-3333', 'hana');
 insert into oi_account_transfer(odno, name, account, bname) values (2, 'eunchae', '3333-3333', 'hana');
@@ -210,12 +210,12 @@ insert into oi_order_list(olno, odno, pno, amount, discount, price) value (3, 1,
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (4, 2, 4, 7, 0, 30000);
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (5, 2, 5, 4, 0, 8000);
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (6, 2, 6, 5, 0, 3000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (7, 3, 1, 1, 0, 1000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (8, 3, 2, 2, 0, 2000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (9, 4, 2, 10, 0, 3000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (10, 5, 2, 1, 0, 4000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (11, 5, 4, 2, 0, 5000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (12, 5, 5, 2, 0, 6000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (7, 3, 1, 1, 0, 5000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (8, 4, 2, 2, 0, 10000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (9, 4, 3, 3, 0, 2000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (10, 5, 3, 4, 0, 2000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (11, 5, 4, 5, 0, 30000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (12, 5, 5, 6, 0, 8000);
 
 -- 전체조회(25)
 select * from oi_qna;

@@ -7,10 +7,8 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>52joa</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-      <link rel="stylesheet" href="../node_modules/jquery-ui-dist/jquery-ui.css">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-      <!-- <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/bootstrap-theme.min.css">-->
+      <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
     <link href="./css/carousel.css" rel="stylesheet">
     
     
@@ -124,7 +122,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="./js/vendor/holder.js"></script>
     <script src="./js/ie10-viewport-bug-workaround.js"></script>
-    <!--  <script src="./js/jquery-3.1.1.min.js"></script>--> 
+     <script src="./js/jquery-3.1.1.min.js"></script>
 
     
 </body>

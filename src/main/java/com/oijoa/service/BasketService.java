@@ -9,4 +9,5 @@ public interface BasketService {
   int add(Basket basket) throws Exception;
   List<Basket> myList(int loginUserNo) throws Exception;
   Basket get(int no) throws Exception;
+  int delete(int no) throws Exception;
 }
