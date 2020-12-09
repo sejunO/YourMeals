@@ -7,11 +7,11 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>52joa</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="./css/bootstrap.min.css"> 
+      <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
     <link href="./css/carousel.css" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    
+    
 </head>
 <body>
      <div class="navbar-wrapper">
@@ -116,11 +116,13 @@
     <a href="recipe/list">레시피 목록</a><br>
     <a href="user/list">회원 목록</a><br>
     <a href="mypage/index.html">마이페이지</a>
+    
+    
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-       <script src="./js/vendor/holder.js"></script>
+    <script src="./js/vendor/holder.js"></script>
     <script src="./js/ie10-viewport-bug-workaround.js"></script>
-    <script src="./js/jquery-3.1.1.min.js"></script> 
-    <script src="./js/bootstrap.min.js"></script>
+     <script src="./js/jquery-3.1.1.min.js"></script>
 
     
 </body>
