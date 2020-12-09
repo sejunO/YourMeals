@@ -75,7 +75,6 @@ public class MyOrderUpdateListServlet extends HttpServlet {
             orderStatus = "상태값오류";
         }
 
-
         out.printf("<tr>"
             + "<td>%s</td>"
             + "<td>%s</td>"
