@@ -92,10 +92,10 @@ public class RecipeDetailServlet extends HttpServlet {
       out.printf("<br>\n");
 
       out.printf("필요한 재료: ");
-      List<Food> foodList = foodService.list(no);
-      for (Food f : foodList) {
-        out.printf("%s ", f.getName());
-      }
+//      List<Food> foodList = foodService.list(no);
+//      for (Food f : foodList) {
+//        out.printf("%s ", f.getName());
+//      }
       out.println("</ul><br>");
       out.println("<h3>조리순서</h3>");
       out.println("<table border='1'>");

@@ -1,7 +1,8 @@
 <%@page import="com.oijoa.domain.Recipe"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html>
@@ -28,13 +29,13 @@
 <tbody>
 <%for (Recipe recipe : list) {%>
 <tr>
-  <td><%=recipe.getRecipeNo()%></td>
-  <td><img src='../upload/%1$s_30x30.jpg'><%=recipe.getPhoto()%></td>
-  <td><a href='detail?recipeNo=<%=recipe.getRecipeNo%>'><%recipe.getTitle()%></a></td>
-  <td><%=recipe.getWriter().getNick()%></td>
-  <td><%=recipe.getCategory().getCategoryName()%></td>
-  <td><%=recipe.get.getCreatedDate()%></td>
-  <td><%=recipe.getHits()%></td>
+  <td>${recipe.recipeNo}></td>
+  <td><img src='../upload/%1$s_30x30.jpg'><${recipe.photo}></td>
+  <td><a href='detail?recipeNo=${recipe.recipeNo}>'><${recipe.title}></a></td>
+  <td><${recipe.writer.vick}></td>
+  <td><${recipe.category.categoryName}></td>
+  <td><${recipe.createdDate}></td>
+  <td><${recipe.hits}></td>
 </tr>
 </tbody>
 </table>
