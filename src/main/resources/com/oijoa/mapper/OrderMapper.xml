@@ -84,10 +84,10 @@
     select 
       o.odt,
       o.odno,
-      p.content,
-      ol.amount,
+      p.content product_content,
+     <!--   ol.amount,
       ol.price,
-      ol.discount,
+      ol.discount,-->
       o.stat,
       o.postno,
       o.addr,

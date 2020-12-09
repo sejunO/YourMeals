@@ -53,16 +53,16 @@ public class MyOrderUpdateListServlet extends HttpServlet {
         out.printf("<tr>"
             + "<td>%s</td>"
             + "<td>%s</td>"
-            + "<td>%s %s</td>"
             + "<td>%s</td>"
-            + "<td>%s 외 %d건</td>"
+            + "<td>%s %s</td>"
+            //            + "<td>%s</td>"
             + "<td>%s</td>"
             + "</tr>\n",
             order.getOrderDate(),
             order.getOrderNo(),
             order.getPostNo(),
             order.getAddress(), order.getDetailAddress(),
-            order.getProducts().get(0).getContent(), order.getProducts().size(),
+            //            order.getProducts().get(0).getContent(), order.getProducts().size(),
             order.getStatus());
       }
 
