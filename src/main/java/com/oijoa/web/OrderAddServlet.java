@@ -53,16 +53,20 @@ public class OrderAddServlet extends HttpServlet {
       order.setAddress(request.getParameter("addr"));
       order.setDetailAddress(request.getParameter("det_addr"));
       order.setMemo(request.getParameter("memo"));
+
       List<OrderList> orderLists = orderListService.makeList(user.getUserNo());
       orderService.add(order);
-
+      Order latelyOrder = orderService.lately(user.getUserNo());
       for (OrderList ol : orderLists) {
+        ol.setOrderNo(latelyOrder);
         orderService.add(ol);
       }
 
       for (Basket b : baskets) {
         basketService.delete(b.getBasketNo());
       }
+
+      response.sendRedirect("success");
 
     } catch (Exception e) {
       request.setAttribute("exception", e);

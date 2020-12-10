@@ -11,6 +11,8 @@ public interface OrderListDao {
   int insert(OrderList orderList) throws Exception;
 
   List<OrderList> makeList(int no) throws Exception;
+
+  List<OrderList> findByOrderNo(int no) throws Exception;
 }
 
 

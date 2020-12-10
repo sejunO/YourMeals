@@ -76,7 +76,7 @@
   
   <delete id="delete" parameterType="int">
     delete from oi_basket
-    where bno=#{bno}
+    where bkno=#{bkno}
   </delete>
   
 </mapper>

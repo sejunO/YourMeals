@@ -38,6 +38,26 @@
       from oi_order_list
   </select>
   
+  <select id="findByOrderNo" resultMap="OrderListMap" parameterType="int">
+  	select
+  		ol.olno,
+  		ol.pno,
+  		p.pno product_no,
+  		p.content product_content,
+  		ol.amount,
+  		ol.discount,
+  		ol.price
+	 	from
+		  oi_order_list ol
+  		inner join oi_product p
+    		on ol.pno=p.pno
+   		inner join oi_order o 
+      on ol.odno=o.odno
+    where
+    	ol.odno=#{odno}  
+    
+  </select>
+  
   <select id="findByUserNo" resultMap="OrderListMap" parameterType="int">
     select 
       ol.olno,
@@ -62,21 +82,27 @@
     where o.uno = #{userNo.userNo}
   </select>
   
+  
   <select id="makeList" resultMap="OrderListMap" parameterType="int">
   	select
-  		o.odno order_no,
-  		o.uno user_no,
+  		u.uno user_no,
+  		u.name user_name,
   		p.pno product_no,
   		p.content product_content,
   		b.amount,
   		p.discount,
   		p.price
   	from oi_basket b
-  		inner join oi_order o
-  		  on b.uno = o.uno
+  		inner join oi_user u
+  			on b.uno = u.uno
   		inner join oi_product p
   			on b.pno = p.pno
-  	where o.uno=#{userNo};
+  	where b.uno=#{userNo};
+  </select>
+  
+  
+  <select id="">
+  
   </select>
   
 </mapper>

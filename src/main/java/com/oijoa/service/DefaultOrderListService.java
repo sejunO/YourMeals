@@ -12,6 +12,10 @@ public class DefaultOrderListService implements OrderListService {
     this.orderListDao = orderListDao;
   }
 
+  @Override
+  public List<OrderList> getByOrderNo(int no) throws Exception {
+    return orderListDao.findByOrderNo(no);
+  }
 
   @Override
   public List<OrderList> list() throws Exception {

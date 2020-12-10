@@ -41,6 +41,13 @@ public class OrderListDaoImpl implements OrderListDao {
       return sqlSession.selectList("OrderListDao.makeList", no);
     }
   }
+
+  @Override
+  public List<OrderList> findByOrderNo(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("OrderListDao.findByOrderNo", no);
+    }
+  }
 }
 
 
