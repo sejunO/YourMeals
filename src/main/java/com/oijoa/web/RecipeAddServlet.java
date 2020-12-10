@@ -3,6 +3,7 @@ package com.oijoa.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.UUID;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -12,11 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.CategoryService;
 import com.oijoa.service.RecipeService;
+
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -74,6 +77,8 @@ public class RecipeAddServlet extends HttpServlet {
       recipe.setMin(Integer.parseInt(request.getParameter("min")));
       recipe.setCategory(category);
       recipe.setPhoto(filename);
+      
+      //  재료 추가 코드 필요
 
       recipeService.add(recipe);
       

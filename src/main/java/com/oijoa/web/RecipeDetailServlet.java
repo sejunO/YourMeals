@@ -3,19 +3,23 @@ package com.oijoa.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Comment;
+import com.oijoa.domain.Food;
 import com.oijoa.domain.Level;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.RecipeStep;
 import com.oijoa.service.CategoryService;
 import com.oijoa.service.CommentService;
+import com.oijoa.service.FoodService;
 import com.oijoa.service.LevelService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.RecipeStepService;
@@ -36,7 +40,9 @@ public class RecipeDetailServlet extends HttpServlet {
     CategoryService categoryService = (CategoryService) ctx.getAttribute("categoryService");
     CommentService commentService = (CommentService) ctx.getAttribute("commentService");
     LevelService levelService = (LevelService) ctx.getAttribute("levelService");
+    FoodService foodService = (FoodService) ctx.getAttribute("foodService");
     int no = Integer.parseInt(request.getParameter("recipeNo"));
+    
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
@@ -58,13 +64,17 @@ public class RecipeDetailServlet extends HttpServlet {
       }
 
       out.println("<form action='update' method='post'>");
-      out.printf("번호: <input type='text' name='recipeNo' value='%d' readonly><br>\n",
+      out.printf("번호: <input type='hidden' name='recipeNo' value='%d' readonly><br>\n",
           recipe.getRecipeNo());
       out.printf("제목: <input type='text' name='title' value='%s'><br>\n", recipe.getTitle());
       out.printf("내용: <textarea name='recipe_content'>%s</textarea><br>\n", recipe.getContent());
       out.printf("작성자: %s<br>\n", recipe.getWriter().getNick());
       out.printf("등록일: %s<br>\n", recipe.getCreatedDate());
+      if(recipe.getModifiedDate() == null) {
+    	  out.println("수정일: 없음<br>");
+      } else {
       out.printf("수정일: %s<br>\n", recipe.getModifiedDate());
+      }
       out.printf("조회수: %d<br>\n", recipe.getHits());
       out.printf("추천수: %d<br>\n", recipe.getRecommendCount());
       out.printf("난이도: <br>\n");
@@ -79,18 +89,13 @@ public class RecipeDetailServlet extends HttpServlet {
         out.printf("<input type='radio' name='category' value='%d' %s> %s ", c.getCategoryNo(),
             checkedCategory(c, recipe.getCategory()), c.getCategoryName());
       }
+      out.printf("<br>\n");
 
-
-      // 재료값을 받아오는 변수를 Recipe 변수에 String material 추가하고 저장
-      // oi_recipe_material에서 select문으로 레시피번호당 재료들을 가져오고
-      // 그 재료들을 반환값 List로 DAO와 SERVICE에서 처리
-      // material 컬럼을 oi_recipe에 추가하는 것은 고민중
-      // material 변수는 자바에세 값을 저장하기 위한 용도로만 쓰여서 따로 데이터를 저장할 필요가 없기 때문
       out.printf("필요한 재료: ");
-      List<Recipe> materialList = recipeService.getRecipeMaterial(no);
-      for (Recipe r : materialList) {
-        out.printf("%s ", r.getMaterial());
-      }
+//      List<Food> foodList = foodService.list(no);
+//      for (Food f : foodList) {
+//        out.printf("%s ", f.getName());
+//      }
       out.println("</ul><br>");
       out.println("<h3>조리순서</h3>");
       out.println("<table border='1'>");
@@ -100,6 +105,7 @@ public class RecipeDetailServlet extends HttpServlet {
       out.println("<th>내용</th></tr>");
       out.println("</thead>");
       out.println("<tbody>");
+      
       for (RecipeStep recipeStep : recipeStepService.list(no)) {
         out.printf("<tr><td>%d</td>" + "<td>%s</td>" + "<td>%s</td></tr>", recipeStep.getStep(),
             recipeStep.getPhoto(), recipeStep.getContent());

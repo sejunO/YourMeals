@@ -179,12 +179,12 @@ insert into oi_qna(qnano, writer, title, content, secret) values (7, 7, '테스�
 insert into oi_qna(qnano, writer, title, content, secret) values (8, 3, '테스트제목9', '테스트8', 0);
 insert into oi_qna(qnano, writer, title, content, secret, answer) values (9, 3, '테스트제목9', '테스트9', 0, '답변22');
 insert into oi_qna(qnano, writer, title, content, secret) values (10, 1, '테스트제목10', '테스트10', 0);
----- 주문
+-- 주문
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (1, 1, 1, 1, '123-2345', '부재시 경비실', '10301','비트교육센터','로비','1');
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (2, 2, 2, 2, '123-2345', '부재시 경비실', '10301','비트교육센터','203호','2');
-insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (3, 1, 2, 3, '123-2345', '부재시 경비실1', '10301','비트교육센터1','204호','11');
-insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (4, 1, 2, 3, '123-2345', '부재시 경비실2', '10302','비트교육센터2','305호','22');
-insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (5, 1, 2, 3, '123-2345', '부재시 경비실3', '10303','비트교육센터3','405호','33');
+insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (3, 1, 2, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','204호','11');
+insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (4, 1, 2, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','305호','22');
+insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (5, 1, 2, 3, '123-2345', '부재시 경비실', '10301','비트교육센터','405호','33');
 -- 계좌이체
 insert into oi_account_transfer(odno, name, account, bname) values (1, 'sejun', '3333-3333', 'hana');
 insert into oi_account_transfer(odno, name, account, bname) values (2, 'eunchae', '3333-3333', 'hana');
@@ -210,12 +210,34 @@ insert into oi_order_list(olno, odno, pno, amount, discount, price) value (3, 1,
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (4, 2, 4, 7, 0, 30000);
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (5, 2, 5, 4, 0, 8000);
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (6, 2, 6, 5, 0, 3000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (7, 3, 1, 1, 0, 5000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (8, 4, 2, 2, 0, 10000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (9, 4, 3, 3, 0, 2000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (10, 5, 3, 4, 0, 2000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (11, 5, 4, 5, 0, 30000);
-insert into oi_order_list(olno, odno, pno, amount, discount, price) value (12, 5, 5, 6, 0, 8000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (7, 3, 1, 1, 0, 1000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (8, 3, 2, 2, 0, 2000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (9, 4, 2, 10, 0, 3000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (10, 5, 2, 1, 0, 4000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (11, 5, 4, 2, 0, 5000);
+insert into oi_order_list(olno, odno, pno, amount, discount, price) value (12, 5, 5, 2, 0, 6000);
+--음식재료
+insert into oi_food(fno,rno,name,amount) values (9,4,'불닭소스','1통');
+insert into oi_food(fno,rno,name,amount) values (10,5,'달걀','4개');
+insert into oi_food(fno,rno,name,amount) values (11,5,'소금','약간');
+insert into oi_food(fno,rno,name,amount) values (12,6,'라면','진라면');
+insert into oi_food(fno,rno,name,amount) values (13,7,'김치','200g');
+insert into oi_food(fno,rno,name,amount) values (14,7,'즉석밥','1개');
+insert into oi_food(fno,rno,name,amount) values (15,8,'달걀','5개');
+insert into oi_food(fno,rno,name,amount) values (16,8,'파','2개');
+insert into oi_food(fno,rno,name,amount) values (17,9,'치즈','1개');
+insert into oi_food(fno,rno,name,amount) values (18,9,'즉석밥','1개');
+insert into oi_food(fno,rno,name,amount) values (19,10,'만두','1봉지');
+insert into oi_food(fno,rno,name,amount) values (20,10,'간장','3T');
+insert into oi_food(fno,rno,name,amount) values (21,11,'떡','1봉지');
+insert into oi_food(fno,rno,name,amount) values (22,11,'오뎅','500g');
+insert into oi_food(fno,rno,name,amount) values (23,12,'식빵','3개');
+insert into oi_food(fno,rno,name,amount) values (24,12,'케첩','원하는만큼');
+insert into oi_food(fno,rno,name,amount) values (25,13,'물','2컵');
+insert into oi_food(fno,rno,name,amount) values (26,14,'찹쌀','1개');
+insert into oi_food(fno,rno,name,amount) values (27,14,'엿기름','1개');
+insert into oi_food(fno,rno,name,amount) values (28,15,'소주','2L');
+insert into oi_food(fno,rno,name,amount) values (29,15,'딸기','5팩');
 
 -- 전체조회(25)
 select * from oi_qna;
@@ -243,4 +265,5 @@ select * from oi_report_type;
 select * from oi_report;
 select * from oi_notice_type;
 select * from oi_notice;
+select * from oi_food;
 

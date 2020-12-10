@@ -41,6 +41,17 @@
       </association>
     </collection>
     
+    <collection property="orderLists" ofType="orderlist">
+      <id column="orderLists_no"            property="orderListNo"/>
+      <result column="orderLists_amnt"      property="amount"/>
+      <result column="orderLists_dscnt"     property="discount"/>
+      <result column="orderLists_price"     property="price"/>
+      <association property="orderProduct"  javaType="product">
+        <id column="ol_product_no"            property="productNo"/>
+        <result column="ol_product_content"   property="content"/>
+      </association>
+    </collection>
+    
   </resultMap>
 
   <select id="findAll" resultMap="OrderMap" parameterType="string">
@@ -84,17 +95,17 @@
     select 
       o.odt,
       o.odno,
-      p.content product_content,
-     <!--   ol.amount,
-      ol.price,
-      ol.discount,-->
+      p.content ol_product_content,
+      ol.amount orderLists_amnt,
+      ol.price orderLists_price,
+      ol.discount orderLists_dscnt,
       o.stat,
       o.postno,
       o.addr,
       o.det_addr
     from
       oi_order o
-      inner join oi_order_list ol
+      left outer join oi_order_list ol
         on o.odno=ol.odno
       inner join oi_product p 
          on ol.pno=p.pno
@@ -131,12 +142,12 @@
   <insert id="insert" parameterType="order"> 
     insert into oi_order(uno,pno,dcno,transno,memo,postno,addr,det_addr)
     values(#{userNo.userNo},#{paymentNo},#{deliveryCompanyNo},
-    			 #{transportNo},#{memo},#{postNo},#{address},#{detailAddress})
+           #{transportNo},#{memo},#{postNo},#{address},#{detailAddress})
   </insert>
   
   <insert id="insertList" parameterType="orderList">
-  	insert into oi_order_list(odno,pno,amount,discount,price)
-  	values(#{orderNo.orderNo},#{productNo.productNo},#{amount},#{discount},#{price})
+    insert into oi_order_list(odno,pno,amount,discount,price)
+    values(#{orderNo.orderNo},#{productNo.productNo},#{amount},#{discount},#{price})
   </insert>
   
 </mapper>
