@@ -15,8 +15,6 @@ public class OrderDaoImpl implements OrderDao {
     this.sqlSessionFactory = sqlSessionFactory;
   }
 
-
-
   @Override
   public List<Order> findAll(String keyword) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
@@ -35,6 +33,13 @@ public class OrderDaoImpl implements OrderDao {
   public List<Order> findByUpdateListUserNo(int UserNo) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("OrderDao.findByUpdateListUserNo", UserNo);
+    }
+  }
+  
+  @Override
+  public List<Order> findByUno(int userNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("OrderDao.findByUno", userNo);
     }
   }
 
@@ -58,6 +63,9 @@ public class OrderDaoImpl implements OrderDao {
       return sqlSession.selectOne("OrderDao.lately", no);
     }
   }
+
+
+
 }
 
 

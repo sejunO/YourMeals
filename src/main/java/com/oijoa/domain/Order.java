@@ -19,6 +19,7 @@ public class Order {
   private List<Basket> baskets;
   private List<Product> products;
   private List<OrderList> orderLists;
+  private List<DeliveryCompany> company;
 
   public int getOrderNo() {
     return orderNo;
@@ -110,6 +111,11 @@ public class Order {
   public void setOrderLists(List<OrderList> orderLists) {
     this.orderLists = orderLists;
   }
+  public List<DeliveryCompany> getCompany() {
+    return company;
+  }
+  public void setCompany(List<DeliveryCompany> company) {
+    this.company = company;
+  }
 }
-
 
