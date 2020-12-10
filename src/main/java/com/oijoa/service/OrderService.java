@@ -15,4 +15,6 @@ public interface OrderService {
   int add(Order order) throws Exception;
 
   int add(OrderList orderlist) throws Exception;
+
+  Order lately(int no) throws Exception;
 }

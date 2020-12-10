@@ -49,6 +49,7 @@
       <association property="orderProduct"  javaType="product">
         <id column="ol_product_no"            property="productNo"/>
         <result column="ol_product_content"   property="content"/>
+        <result column="ol_product_photo"	property="photo"/>
       </association>
     </collection>
     
@@ -95,6 +96,7 @@
     select 
       o.odt,
       o.odno,
+      p.photo ol_product_photo,
       p.content ol_product_content,
       ol.amount orderLists_amnt,
       ol.price orderLists_price,
@@ -113,8 +115,33 @@
       and o.stat > 10
   </select>
   
-  <insert id="insert" parameterType="order" 
-  useGeneratedKeys="true" keyColumn="odno" keyProperty="orderNo">
+  <select id="lately" resultMap="OrderMap" parameterType="int">
+  	select
+  		o.odno,
+  		o.pno,
+  		u.uno user_no,
+      u.name user_name,
+  		o.dcno,
+  		o.postno,
+  		o.stat,
+  		o.memo,
+  		o.odt,
+  		o.addr,
+  		o.det_addr
+  	from
+  		oi_order o
+  	inner join oi_user u
+      on o.uno=u.uno
+  	where
+  		o.uno = #{uno}
+  	order by 
+  		odt desc
+  	limit 0,1
+  </select>
+  
+
+  
+  <insert id="insert" parameterType="order"> 
     insert into oi_order(uno,pno,dcno,transno,memo,postno,addr,det_addr)
     values(#{userNo.userNo},#{paymentNo},#{deliveryCompanyNo},
            #{transportNo},#{memo},#{postNo},#{address},#{detailAddress})

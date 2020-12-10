@@ -42,6 +42,7 @@ public class OrderFormServlet extends HttpServlet {
       request.setAttribute("baskets", baskets);
       request.setAttribute("payments", payments);
       request.setAttribute("user", user);
+
       request.getRequestDispatcher("/order/form.jsp").include(request, response);
     } catch (Exception e) {
       request.setAttribute("exception", e);

@@ -41,6 +41,11 @@ public class DefaultOrderService implements OrderService {
     return orderDao.findByUpdateListUserNo(UserNo);
   }
 
+  @Override
+  public Order lately(int no) throws Exception {
+    return orderDao.findLatelyOrder(no);
+  }
+
   // @Override
   // public List<Order> list(String keyword) throws Exception {
   // return orderDao.findAll(keyword);

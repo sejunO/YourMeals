@@ -14,6 +14,8 @@ public interface OrderDao {
   int insert(Order order) throws Exception;
 
   int insert(OrderList orderList) throws Exception;
+
+  Order findLatelyOrder(int no) throws Exception;
 }
 
 

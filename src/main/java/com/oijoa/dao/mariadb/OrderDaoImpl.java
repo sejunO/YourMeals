@@ -51,6 +51,13 @@ public class OrderDaoImpl implements OrderDao {
       return sqlSession.insert("OrderDao.insert", order);
     }
   }
+
+  @Override
+  public Order findLatelyOrder(int no) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectOne("OrderDao.lately", no);
+    }
+  }
 }
 
 
