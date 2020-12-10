@@ -18,7 +18,7 @@ import com.oijoa.service.CategoryService;
 import com.oijoa.service.MaterialService;
 
 
-@WebServlet("/recipe/form")
+//@WebServlet("/recipe/form")
 public class RecipeAddFormServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 

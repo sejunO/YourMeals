@@ -26,9 +26,9 @@ import net.coobird.thumbnailator.geometry.Positions;
 import net.coobird.thumbnailator.name.Rename;
 
 
-@MultipartConfig(maxFileSize = 1024 * 1024 * 10)
-@WebServlet("/recipe/add")
-public class RecipeAddServlet extends HttpServlet {
+//@MultipartConfig(maxFileSize = 1024 * 1024 * 10)
+//@WebServlet("/recipe/add")
+public class RecipeAddServlet_backup extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -61,7 +61,14 @@ public class RecipeAddServlet extends HttpServlet {
       out.println("카테고리 값 받아올 때 오류");
     }
     try {
-    
+      out.println("<!DOCTYPE html>");
+      out.println("<html>");
+      out.println("<head>");
+      out.println("<meta http-equiv='Refresh' content='1;url=list'>");
+      out.println("<title>Recipe Test</title></head>");
+
+      out.println("<h1>레시피 생성<h1>");
+
       Recipe recipe = new Recipe();
       recipe.setTitle(request.getParameter("title"));
       recipe.setContent(request.getParameter("recipe_content"));
@@ -74,6 +81,9 @@ public class RecipeAddServlet extends HttpServlet {
       //  재료 추가 코드 필요
 
       recipeService.add(recipe);
+      
+      out.println("<p>레시피가 등록되었습니다.</p>");
+      out.println("</table></body></html>");
       
     } catch (Exception e) {
       request.setAttribute("exception", e);

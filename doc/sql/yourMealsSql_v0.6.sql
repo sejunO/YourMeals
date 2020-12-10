@@ -821,8 +821,6 @@ CREATE TABLE oi_food (
   amount MEDIUMTEXT NOT NULL -- 계량
 );
 
-ALTER TABLE oi_food
-  MODIFY COLUMN fno INTEGER NOT NULL AUTO_INCREMENT;
   
 -- 음식재료
 ALTER TABLE oi_food
@@ -841,6 +839,9 @@ ALTER TABLE oi_food
       rno -- 레시피번호
     );
 
+--음식재료
+ALTER TABLE oi_food
+  MODIFY COLUMN fno INTEGER NOT NULL AUTO_INCREMENT;
 		
 -- 전체 테이블확인
 SHOW tables;
