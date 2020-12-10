@@ -49,6 +49,7 @@
       <association property="orderProduct"  javaType="product">
         <id column="ol_product_no"            property="productNo"/>
         <result column="ol_product_content"   property="content"/>
+        <result column="ol_product_photo"	property="photo"/>
       </association>
     </collection>
     
@@ -95,6 +96,7 @@
     select 
       o.odt,
       o.odno,
+      p.photo ol_product_photo,
       p.content ol_product_content,
       ol.amount orderLists_amnt,
       ol.price orderLists_price,

@@ -7,16 +7,14 @@ public class Product {
   private int price;
   private int discount;
   private String content;
-
+  private String photo;
 
   public int getProductNo() {
     return productNo;
   }
-
   public void setProductNo(int productNo) {
     this.productNo = productNo;
   }
-
   public Material getMaterial() {
     return material;
   }
@@ -46,5 +44,11 @@ public class Product {
   }
   public void setContent(String content) {
     this.content = content;
+  }
+  public String getPhoto() {
+    return photo;
+  }
+  public void setPhoto(String photo) {
+    this.photo = photo;
   }
 }
