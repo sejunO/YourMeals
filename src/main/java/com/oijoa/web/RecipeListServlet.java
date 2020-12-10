@@ -42,7 +42,7 @@ public class RecipeListServlet extends HttpServlet {
       String keyword = request.getParameter("keyword");
       String keywordTitle = request.getParameter("keywordTitle");
       String keywordWriter = request.getParameter("keywordWriter");
-      String keywordCategory = request.getParameter("keywordCategory"); 
+      String keywordCategory = request.getParameter("keywordCategory"); ;
 
       if (keyword != null) {
 
@@ -83,14 +83,6 @@ public class RecipeListServlet extends HttpServlet {
         out.printf("<td>%d</td>", recipe.getHits());
         out.println("</tbody></tr>");
       }
-
-      out.println("<p>");
-      out.println("<form action='list' method='get'>");
-      out.printf("검색어: <input type='text' name='keyword' value='%s'>\n",
-          keyword != null ? keyword : "");
-      out.println("<button>검색</button>");
-      out.println("</form>");
-      out.println("</p>");
 
       out.println("<hr>");
 
