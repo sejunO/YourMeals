@@ -38,18 +38,18 @@ DROP TABLE IF EXISTS oi_category RESTRICT;
 DROP TABLE IF EXISTS oi_material RESTRICT;
 -- 주문
 DROP TABLE IF EXISTS oi_order RESTRICT;
--- 레시피
-DROP TABLE IF EXISTS oi_recipe RESTRICT;
--- 난이도
-DROP TABLE IF EXISTS oi_level RESTRICT;
 -- 배송사
 DROP TABLE IF EXISTS oi_delivery_company RESTRICT;
 -- 결제방법
 DROP TABLE IF EXISTS oi_payment RESTRICT;
--- 회원
-DROP TABLE IF EXISTS oi_user RESTRICT;
 -- 음식재료
 DROP TABLE IF EXISTS oi_food RESTRICT;
+-- 레시피
+DROP TABLE IF EXISTS oi_recipe RESTRICT;
+-- 난이도
+DROP TABLE IF EXISTS oi_level RESTRICT;
+-- 회원
+DROP TABLE IF EXISTS oi_user RESTRICT;
 
 -- 전체 테이블 확인
 SHOW tables;
