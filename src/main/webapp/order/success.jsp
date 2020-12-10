@@ -20,7 +20,7 @@
  주문 상품 정보
 <c:forEach items="${orderList}" var="ol">
 	<div>
-		<span>${ol.productNo.content}</span>
+		<span>${ol.orderProduct.content}</span>
 		<span>${ol.amount}</span>
 		<span>${ol.price}</span>
 	</div>
