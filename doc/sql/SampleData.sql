@@ -179,7 +179,7 @@ insert into oi_qna(qnano, writer, title, content, secret) values (7, 7, '테스�
 insert into oi_qna(qnano, writer, title, content, secret) values (8, 3, '테스트제목9', '테스트8', 0);
 insert into oi_qna(qnano, writer, title, content, secret, answer) values (9, 3, '테스트제목9', '테스트9', 0, '답변22');
 insert into oi_qna(qnano, writer, title, content, secret) values (10, 1, '테스트제목10', '테스트10', 0);
--- 주문
+---- 주문
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (1, 1, 1, 1, '123-2345', '부재시 경비실', '10301','비트교육센터','로비','1');
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (2, 2, 2, 2, '123-2345', '부재시 경비실', '10301','비트교육센터','203호','2');
 insert into oi_order(odno, uno, pno, dcno, transno, memo, postno, addr, det_addr, stat) values (3, 1, 2, 3, '123-2345', '부재시 경비실1', '10301','비트교육센터1','204호','11');
