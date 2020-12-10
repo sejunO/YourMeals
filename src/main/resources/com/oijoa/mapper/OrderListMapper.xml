@@ -76,6 +76,7 @@
   			on b.pno = p.pno
   	where o.uno=#{userNo};
   </select>
+  
 </mapper>
 
 
