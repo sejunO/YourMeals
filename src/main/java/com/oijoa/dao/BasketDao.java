@@ -8,6 +8,7 @@ public interface BasketDao {
   int insert(Basket basket) throws Exception;
   List<Basket> findByUserNo(int loginUserNo) throws Exception;
   Basket findByNo(int no) throws Exception;
+  int delete(int no) throws Exception;
 }
 
 

@@ -41,6 +41,18 @@
       </association>
     </collection>
     
+    <collection property="orderLists" ofType="orderlist">
+      <id column="orderLists_no"            property="orderListNo"/>
+      <result column="orderLists_amnt"      property="amount"/>
+      <result column="orderLists_dscnt"     property="discount"/>
+      <result column="orderLists_price"     property="price"/>
+      <association property="orderProduct"  javaType="product">
+        <id column="ol_product_no"            property="productNo"/>
+        <result column="ol_product_content"   property="content"/>
+        <result column="ol_product_photo"	property="photo"/>
+      </association>
+    </collection>
+    
   </resultMap>
 
   <select id="findAll" resultMap="OrderMap" parameterType="string">
@@ -82,22 +94,85 @@
   
   <select id="findByUpdateListUserNo" resultMap="OrderMap" parameterType="int">
     select 
-      여기해야함
+      o.odt,
+      o.odno,
+      p.photo ol_product_photo,
+      p.content ol_product_content,
+      ol.amount orderLists_amnt,
+      ol.price orderLists_price,
+      ol.discount orderLists_dscnt,
+      o.stat,
+      o.postno,
+      o.addr,
+      o.det_addr
     from
       oi_order o
+      left outer join oi_order_list ol
+        on o.odno=ol.odno
+      inner join oi_product p 
+         on ol.pno=p.pno
     where o.uno = #{userNo.userNo}
+      and o.stat > 10
   </select>
   
-  <insert id="insert" parameterType="order" 
-  useGeneratedKeys="true" keyColumn="odno" keyProperty="orderNo">
+   <select id="findByUno" resultMap="OrderMap" parameterType="int">
+    select 
+      o.odno,
+      o.odt,
+      p.photo ol_product_photo,
+      p.content ol_product_content,
+      ol.amount orderLists_amnt,
+      ol.price orderLists_price,
+      ol.discount orderLists_dscnt,
+      o.stat,
+      o.postno,
+      o.addr,
+      o.det_addr
+    from
+      oi_order o
+      left outer join oi_order_list ol
+        on o.odno=ol.odno
+      inner join oi_product p 
+         on ol.pno=p.pno
+    where o.uno = #{userNo.userNo}
+      and 10 > o.stat
+  </select>
+  
+  <select id="lately" resultMap="OrderMap" parameterType="int">
+  	select
+  		o.odno,
+  		o.pno,
+  		u.uno user_no,
+      u.name user_name,
+  		o.dcno,
+  		o.postno,
+  		o.stat,
+  		o.memo,
+  		o.odt,
+  		o.addr,
+  		o.det_addr
+  	from
+  		oi_order o
+  	inner join oi_user u
+      on o.uno=u.uno
+  	where
+  		o.uno = #{uno}
+  	order by 
+  		odt desc
+  	limit 0,1
+  </select>
+  
+
+  
+  <insert id="insert" parameterType="order"> 
     insert into oi_order(uno,pno,dcno,transno,memo,postno,addr,det_addr)
     values(#{userNo.userNo},#{paymentNo},#{deliveryCompanyNo},
-    			 #{transportNo},#{memo},#{postNo},#{address},#{detailAddress})
+           #{transportNo},#{memo},#{postNo},#{address},#{detailAddress})
   </insert>
   
   <insert id="insertList" parameterType="orderList">
-  	insert into oi_order_list(odno,pno,amount,discount,price)
-  	values(#{orderNo.orderNo},#{productNo.productNo},#{amount},#{discount},#{price})
+    insert into oi_order_list(odno,pno,amount,discount,price)
+    values(#{orderNo.orderNo},#{productNo.productNo},#{amount},#{discount},#{price})
   </insert>
   
 </mapper>

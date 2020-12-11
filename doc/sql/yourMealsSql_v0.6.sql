@@ -38,14 +38,16 @@ DROP TABLE IF EXISTS oi_category RESTRICT;
 DROP TABLE IF EXISTS oi_material RESTRICT;
 -- 주문
 DROP TABLE IF EXISTS oi_order RESTRICT;
--- 레시피
-DROP TABLE IF EXISTS oi_recipe RESTRICT;
--- 난이도
-DROP TABLE IF EXISTS oi_level RESTRICT;
 -- 배송사
 DROP TABLE IF EXISTS oi_delivery_company RESTRICT;
 -- 결제방법
 DROP TABLE IF EXISTS oi_payment RESTRICT;
+-- 음식재료
+DROP TABLE IF EXISTS oi_food RESTRICT;
+-- 레시피
+DROP TABLE IF EXISTS oi_recipe RESTRICT;
+-- 난이도
+DROP TABLE IF EXISTS oi_level RESTRICT;
 -- 회원
 DROP TABLE IF EXISTS oi_user RESTRICT;
 
@@ -810,6 +812,36 @@ ALTER TABLE oi_order_list
 		REFERENCES oi_product ( -- 상품
 			pno -- 상품번호
 		);
+		
+-- 음식재료
+CREATE TABLE oi_food (
+  fno    INTEGER     NOT NULL, -- 음식재료번호
+  rno    INTEGER     NOT NULL, -- 레시피번호
+  name  VARCHAR(50) NOT NULL, -- 음식재료명
+  amount MEDIUMTEXT NOT NULL -- 계량
+);
+
+  
+-- 음식재료
+ALTER TABLE oi_food
+  ADD CONSTRAINT PK_oi_food -- 음식재료 기본키
+    PRIMARY KEY (
+      fno -- 레시피번호
+    );
+    
+-- 음식재료
+ALTER TABLE oi_food
+  ADD CONSTRAINT FK_oi_recipe_TO_oi_food-- 레시피 -> 음식재료
+    FOREIGN KEY (
+      rno -- 레시피번호
+    )
+    REFERENCES oi_recipe ( -- 레시피
+      rno -- 레시피번호
+    );
+
+--음식재료
+ALTER TABLE oi_food
+  MODIFY COLUMN fno INTEGER NOT NULL AUTO_INCREMENT;
 		
 -- 전체 테이블확인
 SHOW tables;

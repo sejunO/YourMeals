@@ -52,7 +52,7 @@ insert into oi_level(lno, lv) values (2, 2);
 insert into oi_level(lno, lv) values (3, 3);
 insert into oi_level(lno, lv) values (4, 4);
 insert into oi_level(lno, lv) values (5, 5);
--- 게시글
+-- 레시피
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (1, 1, 'notice', '오호라', 'test.gif', 0, 0, '2020-11-18', 0, 1); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (2, 1, '제육볶음만들기', '첫번째,고기를산다', 'test1.gif', 0, 0, '2020-11-18 12:40:40', 40, 2); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (3, 2, '콩나물밥만들기', '콩나물을 산다', 'test2.gif', 2, 1, '2020-11-18 16:44:44', 60, 3); 
@@ -216,6 +216,28 @@ insert into oi_order_list(olno, odno, pno, amount, discount, price) value (9, 4,
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (10, 5, 3, 4, 0, 2000);
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (11, 5, 4, 5, 0, 30000);
 insert into oi_order_list(olno, odno, pno, amount, discount, price) value (12, 5, 5, 6, 0, 8000);
+--음식재료
+insert into oi_food(fno,rno,name,amount) values (9,4,'불닭소스','1통');
+insert into oi_food(fno,rno,name,amount) values (10,5,'달걀','4개');
+insert into oi_food(fno,rno,name,amount) values (11,5,'소금','약간');
+insert into oi_food(fno,rno,name,amount) values (12,6,'라면','진라면');
+insert into oi_food(fno,rno,name,amount) values (13,7,'김치','200g');
+insert into oi_food(fno,rno,name,amount) values (14,7,'즉석밥','1개');
+insert into oi_food(fno,rno,name,amount) values (15,8,'달걀','5개');
+insert into oi_food(fno,rno,name,amount) values (16,8,'파','2개');
+insert into oi_food(fno,rno,name,amount) values (17,9,'치즈','1개');
+insert into oi_food(fno,rno,name,amount) values (18,9,'즉석밥','1개');
+insert into oi_food(fno,rno,name,amount) values (19,10,'만두','1봉지');
+insert into oi_food(fno,rno,name,amount) values (20,10,'간장','3T');
+insert into oi_food(fno,rno,name,amount) values (21,11,'떡','1봉지');
+insert into oi_food(fno,rno,name,amount) values (22,11,'오뎅','500g');
+insert into oi_food(fno,rno,name,amount) values (23,12,'식빵','3개');
+insert into oi_food(fno,rno,name,amount) values (24,12,'케첩','원하는만큼');
+insert into oi_food(fno,rno,name,amount) values (25,13,'물','2컵');
+insert into oi_food(fno,rno,name,amount) values (26,14,'찹쌀','1개');
+insert into oi_food(fno,rno,name,amount) values (27,14,'엿기름','1개');
+insert into oi_food(fno,rno,name,amount) values (28,15,'소주','2L');
+insert into oi_food(fno,rno,name,amount) values (29,15,'딸기','5팩');
 
 -- 전체조회(25)
 select * from oi_qna;
@@ -243,3 +265,5 @@ select * from oi_report_type;
 select * from oi_report;
 select * from oi_notice_type;
 select * from oi_notice;
+select * from oi_food;
+

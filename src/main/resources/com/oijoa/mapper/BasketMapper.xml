@@ -74,6 +74,11 @@
     values(#{amount},#{productNo},#{writer.userNo})
   </insert>
   
+  <delete id="delete" parameterType="int">
+    delete from oi_basket
+    where bkno=#{bkno}
+  </delete>
+  
 </mapper>
 
 

@@ -61,7 +61,7 @@ public class OrderListServlet extends HttpServlet {
             +"<td>%s</td>"
             +"</tr>\n",
             orderList.getOrderListNo(),
-            orderList.getProductNo().getContent(),
+            orderList.getOrderProduct().getContent(),
             orderList.getPrice(),
             orderList.getDiscount(),
             orderList.getOrderNo().getUserNo().getName()

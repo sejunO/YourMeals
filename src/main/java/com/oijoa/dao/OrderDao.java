@@ -11,9 +11,13 @@ public interface OrderDao {
 
   List<Order> findByUpdateListUserNo(int UserNo) throws Exception;
 
+  List<Order> findByUno(int userNo) throws Exception;
+  
   int insert(Order order) throws Exception;
 
   int insert(OrderList orderList) throws Exception;
+
+  Order findLatelyOrder(int no) throws Exception;
 }
 
 

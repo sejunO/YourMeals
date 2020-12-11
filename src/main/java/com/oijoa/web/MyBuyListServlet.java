@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.oijoa.domain.Order;
+import com.oijoa.domain.OrderList;
 import com.oijoa.domain.User;
 import com.oijoa.service.OrderService;
 
@@ -43,23 +44,63 @@ public class MyBuyListServlet extends HttpServlet {
       List<Order> list = orderService.myList(loginUser.getUserNo());
 
 
-      out.println("<table border = '1'><tr>"
-          + "<th>주문정보</th>"
-          + "<th>구매내역</th>"
-          + "<th>배송상태</th>");
-      out.println("</tr>");
+      List<Order> list = orderService.myBuyList(loginUser.getUserNo());
 
-      for(Order order : list) {
-        out.println("<tr>");
-        out.printf("<td><h4>%tY년 %tm월 %td일</h4>",
+      out.println("<table border = '1'><tr>"
+          + "<th>주문일자</th>"
+          + "<th>주문번호</th>"
+          + "<th>우편번호</th>"
+          + "<th>배송지주소</th>"
+          + "<th>주문항목</th>"
+          + "<th>주문금액</th>"
+          + "<th>상태</th></tr>");
+
+      int totalPrice;
+      String orderStatus;
+
+      for (Order order : list) {
+
+        totalPrice = 0;
+        for (OrderList orderlist : order.getOrderLists()) {
+          totalPrice += (orderlist.getPrice() - orderlist.getDiscount()) * orderlist.getAmount();
+        }
+
+        switch (order.getStatus()) {
+          case 0: orderStatus = "입금확인중"; break;
+          case 1: orderStatus = "결제완료"; break;
+          case 2: orderStatus = "배송준비"; break;
+          case 3: orderStatus = "배송중"; break;
+          case 4: orderStatus = "배송완료"; break;
+
+          default:
+            orderStatus = "상태값오류";
+        }
+
+        out.printf("<tr>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s</td>"
+            + "<td>%s %s</td>"
+            + "<td>%s 외 %d 건</td>"
+            + "<td>%d원</td>"
+            + "<td>%s</td>"
+            + "</tr>\n",
             order.getOrderDate(),
-            order.getOrderDate(),
-            order.getOrderDate());
-        out.printf("주문번호<br> %d</td>", order.getOrderNo());
+            order.getOrderNo(),
+            order.getPostNo(),
+            order.getAddress(),
+            order.getDetailAddress(),
+            order.getOrderLists().get(0).getOrderProduct().getContent(),
+            order.getOrderLists().size() - 1,
+            totalPrice,
+            orderStatus);
       }
 
       out.println("</table>");
       out.println("<hr>\n");
+
+      out.println("<a href=../index.html>뒤로가기</a><br>\n");
+      out.println("<a href=../../index.html>홈으로</a><br>\n");
 
     } catch (Exception e) {
       request.setAttribute("exception", e);

@@ -15,8 +15,9 @@ public class Recipe {
 	private int min;
 	private int levelNo;
 	private Category category;
-	private String material;	// 자바에서만 사용하는 변수
 
+
+	
 	public int getRecipeNo() {
 		return recipeNo;
 	}
@@ -111,14 +112,6 @@ public class Recipe {
 
 	public void setCategory(Category category) {
 		this.category = category;
-	}
-
-	public String getMaterial() {
-		return material;
-	}
-
-	public void setMaterial(String material) {
-		this.material = material;
 	}
 
 }

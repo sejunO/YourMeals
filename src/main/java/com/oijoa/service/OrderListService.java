@@ -12,4 +12,6 @@ public interface OrderListService {
   int add(OrderList orderList) throws Exception;
 
   List<OrderList> makeList(int no) throws Exception;
+
+  List<OrderList> getByOrderNo(int no) throws Exception;
 }

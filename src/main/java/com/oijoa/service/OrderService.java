@@ -11,8 +11,12 @@ public interface OrderService {
   List<Order> myList(int UserNo) throws Exception;
 
   List<Order> myUpdateList(int UserNo) throws Exception;
+  
+  List<Order> myBuyList(int UserNo) throws Exception;
 
   int add(Order order) throws Exception;
 
   int add(OrderList orderlist) throws Exception;
+
+  Order lately(int no) throws Exception;
 }
