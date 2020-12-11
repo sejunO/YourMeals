@@ -24,7 +24,7 @@
     <association property="basket" javaType="basket">
       <id column="basket_no"    property="basketNo"/>
       <association property="writer" javaType="user">
-        <id column="writer_no"        property="userNo"/>
+        <id column="writer_no"        property="userNo"/> 
         <result column="writer_name"  property="name"/>
       </association>
       <association property="product" javaType="product">

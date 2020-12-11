@@ -30,8 +30,6 @@ public class MyBuyListServlet extends HttpServlet {
     HttpSession session = request.getSession();
     ServletContext ctx = request.getServletContext();
     OrderService orderService = (OrderService) ctx.getAttribute("orderService");
-    OrderListService orderListService = (OrderListService) ctx.getAttribute(")
-
 
     try {
       out.println("<!DOCTYPE html>");
@@ -42,9 +40,6 @@ public class MyBuyListServlet extends HttpServlet {
 
       User loginUser = (User) session.getAttribute("loginUser");
       List<Order> list = orderService.myList(loginUser.getUserNo());
-
-
-      List<Order> list = orderService.myBuyList(loginUser.getUserNo());
 
       out.println("<table border = '1'><tr>"
           + "<th>주문일자</th>"
