@@ -6,7 +6,8 @@
 
 <!DOCTYPE html>
 <html>
-<head><title>레시피 목록</title></head>
+<head><title>레시피 목록</title>
+</head>
 <body>
 
 <jsp:include page="/header.jsp"></jsp:include>
