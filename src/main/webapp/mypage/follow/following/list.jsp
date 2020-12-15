@@ -14,13 +14,13 @@
 <th>닉네임</th></tr>
 
 
-<tr>
 <c:forEach items="${list}" var="f">
+<tr>
 	<td>${f.user.userNo}</td>
 	<td>${f.user.name}</td>
 	<td>${f.user.nick}</td>
-</c:forEach>
 </tr>
+</c:forEach>
 </table>
 <hr>
 
