@@ -21,7 +21,7 @@
 <c:forEach items="${list}" var="q">
 <tr>
   <td>${q.QnaNo}</td>
-  <td>${q.title}</td>
+  <td><a href='../qna/detail?no=${q.QnaNo}'>${q.title}</a></td>
   <td>${q.createdDate}</td>
   <td>${q.answerStatus}</td>
 </tr>
