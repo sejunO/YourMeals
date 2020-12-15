@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,29 +30,16 @@ public class QnaAddServlet extends HttpServlet {
     HttpSession session = request.getSession();
 
     response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
 
-    out.println("<!DOCTYPE html>");
-    out.println("<html>");
-    out.println("<meta http-equiv='Refresh' content='1;url=list'>");
-    out.println("<title>MyPage</title></head>");
-    out.println("<body>");
     try {
-      out.println("<h1>[QnA 게시글 등록]</h1>");
-
       User loginUser = (User) session.getAttribute("loginUser");
       qna.setWriter(loginUser);
-
       qnaService.add(qna);
-
-      out.println("<p>게시글을 등록하였습니다.</p>");
+      response.sendRedirect("list");
 
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-
-    out.println("</body>");
-    out.println("</html>");
   }
 }
