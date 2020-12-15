@@ -27,13 +27,16 @@ if (recipe == null) {
  <textarea name='recipe_content'> 
  </textarea><br>
 
-  작성자:<input type='text' name='writer' ><br> recipe.getWriter().getNick());
-  등록일:<input type='datetime' name='createdDate'><br> recipe.getCreatedDate());
+  작성자:<input type='text' name='writer' ><br> 
+  등록일:<input type='datetime' name='createdDate'><br>
+  
   if(recipe.getModifiedDate() == null) {
     out.println("수정일: 없음<br>");
   } else {
   out.printf("수정일: %s<br>\n", recipe.getModifiedDate());
   }
+
+
   out.printf("조회수: %d<br>\n", recipe.getHits());
   out.printf("추천수: %d<br>\n", recipe.getRecommendCount());
   out.printf("난이도: <br>\n");
@@ -65,10 +68,16 @@ if (recipe == null) {
   </thead>
  <tbody>
   
-  for (RecipeStep recipeStep : recipeStepService.list(no)) {
-    out.printf("<tr><td>%d</td>" + "<td>%s</td>" + "<td>%s</td></tr>", recipeStep.getStep(),
-        recipeStep.getPhoto(), recipeStep.getContent());
-  }
+
+  
+  <c:forEach items="${recipeStep}" var="recipe">
+<tr>
+  <td>${recipe.recipeStep}</td>
+  <td><a href= 'detail?recipeNo=${recipe.recipeNo}'>${recipe.content}</a></td>
+  <td><img src='../upload/%1$s_30x30.jpg'>${recipe.photo}</td>
+</tr>
+</c:forEach>
+
   </tbody>
   </table>
 
