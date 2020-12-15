@@ -1,97 +1,91 @@
-<%@page import="com.oijoa.domain.Recipe"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="/header.jsp"></jsp:include>
 
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html>
+  <html>
   <head><title>레시피 보기</title></head>
   <body>
 
 <h1>레시피 보기</h1>
-<%
-Recipe recipe = (recipe) request.getAttribute("recipe");
-if (recipe == null) {
-  response.setHeader("Refresh", "2;url=list");%>
-  <p>해당 번호의 게시글이 없습니다.</p>
-<%
-}else {
-%>
 
+<c:if test='${recipe == null}'>
+ <p>해당 번호의 게시글이 없습니다.</p>
+</c:if>
 <form action='update' method='post'>
-   <input type='hidden' name='recipeNo' readonly><br>
-
- <textarea name='recipe_content'> 
- </textarea><br>
-
-  작성자:<input type='text' name='writer' ><br> recipe.getWriter().getNick());
-  등록일:<input type='datetime' name='createdDate'><br> recipe.getCreatedDate());
-  if(recipe.getModifiedDate() == null) {
-    out.println("수정일: 없음<br>");
-  } else {
-  out.printf("수정일: %s<br>\n", recipe.getModifiedDate());
-  }
-  out.printf("조회수: %d<br>\n", recipe.getHits());
-  out.printf("추천수: %d<br>\n", recipe.getRecommendCount());
-  out.printf("난이도: <br>\n");
-  for (Level l : levels) {
-    out.printf("<input type='radio' name='level' value='%d' %s> %s ", l.getLevelNo(),
-        checkedLevel(l, recipe.getLevelNo()), l.getLevel());
-  }
-  out.printf("<br>\n");
-  out.printf("조리시간:  %s<br>\n", recipe.getMin());
-  out.printf("카테고리: <br>\n");
-  for (Category c : categorys) {
-    out.printf("<input type='radio' name='category' value='%d' %s> %s ", c.getCategoryNo(),
-        checkedCategory(c, recipe.getCategory()), c.getCategoryName());
-  }
-  out.printf("<br>\n");
-
-  out.printf("필요한 재료: ");
-//      List<Food> foodList = foodService.list(no);
-//      for (Food f : foodList) {
-//        out.printf("%s ", f.getName());
-//      }
-</ul><br>
-<h3>조리순서</h3>
-<table border='1'>
-  <thead>
-  <tr><th>순서</th>
- <th>사진</th>
- <th>내용</th></tr>
-  </thead>
- <tbody>
+  <input type='hidden' name= 'recipeNo' value='${recipe.recipeNo}' readonly><br>
+    제목: <input type='text' name='title' value='${recipe.title}'><br>
+    내용: <textarea name='recipe_content'>${recipe.content}</textarea><br>
+    작성자: ${recipe.writer.nick}<br>
+    등록일: ${recipe.createdDate}<br>
+    <c:if test='${recipe.modifiedDate == null}'>
+            수정일: 없음<br>
+    </c:if>
+    <c:if test='${recipe.modifiedDate != null}'>
+            수정일: ${recipe.modifiedDate }<br>    
+    </c:if>
+    조회수: ${recipe.hits}<br>
+    추천수: ${recipe.recommendCount}<br>
+    난이도: <c:forEach items='${levels}' var='l'>
+      <input type='radio' name='level' value='${l.levelNo}'
+        <c:if test="${recipe.levelNo == l.levelNo}">checked</c:if>
+      />  ${l.level}
+    </c:forEach><br>
+   조리시간: ${recipe.min}분<br>
+   카테고리: <c:forEach items='${categorys}' var='c'>
+    <input type='radio' name='category' value='${c.categoryNo}'
+      <c:if test="${recipe.category.categoryName == c.categoryName}">checked</c:if>
+      />  ${c.categoryName}
+    </c:forEach><br>
   
-  for (RecipeStep recipeStep : recipeStepService.list(no)) {
-    out.printf("<tr><td>%d</td>" + "<td>%s</td>" + "<td>%s</td></tr>", recipeStep.getStep(),
-        recipeStep.getPhoto(), recipeStep.getContent());
-  }
+  
+  <h3>조리순서</h3>
+    <table border='1'>
+    <thead>
+    <tr><th>순서</th>
+    <th>사진</th>
+    <th>내용</th></tr>
+    </thead>
+    
+    <tbody>
+    <c:forEach items='${recipeSteps}' var='rs'>
+        <tr><td>${rs.step}</td>
+        <td>${rs.photo}</td>
+        <td>${rs.content}</td></tr>
+    </c:forEach>
   </tbody>
   </table>
 
   <p>
   <button>변경</button>
-<button><a href='delete?recipeNo=%d'>[삭제]</a>
-   </button><br>
-   
- </p>
-<button><a href='list'>
+  <button><a href='delete?recipeNo=${recipeNo}'>삭제 </a></button><br>
+  </p>
+  <button><a href='list'>레시피 목록 보기</a></button><br>
+  
+  댓글: <input type='text' name='comment'>
+  <button>등록</button><br>
+ 
+    <p>
+    <h3>댓글</h3>
+    <table border='1'>
+    <thead>
+    <tr><th>날짜</th>
+    <th>이름</th>
+    <th>내용</th></tr>
+    </thead>
+    <tbody>
+   <c:forEach items='${comments}' var='cm'>
+        <tr><td>${cm.createdDate}</td>
+        <td>${cm.writer.nick}</td>
+        <td>${cm.content}</td></tr>
+    </c:forEach>
 
-</a>
-</button><br>");
-<input type='text' name='comment'>
-<button>등록</button><br>
-
- <p>
-<h3>댓글</h3>
-<table border='1'>
-  <thead>
-<tr><th>날짜</th>
-<th>이름</th>
-<th>내용</th></tr>
-</thead>
-
-<tbody>
+    </p>
+    </tbody>
+    </table>
+    </form>
+    </body>
+    </html>    
+</form>
