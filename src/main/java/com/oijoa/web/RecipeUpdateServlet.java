@@ -43,6 +43,7 @@ public class RecipeUpdateServlet extends HttpServlet {
       recipe.setRecipeNo(Integer.parseInt(request.getParameter("recipeNo")));
       recipe.setTitle(request.getParameter("title"));
       recipe.setContent(request.getParameter("recipe_content"));
+      
       recipe.setModifiedDate(Date.valueOf(LocalDate.now()));
 
 

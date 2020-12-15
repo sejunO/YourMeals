@@ -31,90 +31,23 @@ public class UserInfoServlet extends HttpServlet {
     String name = request.getParameter("userName");
 
     response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
-
-    out.println("<!DOCTYPE html>");
-    out.println("<html>");
-    out.println("<head><title>사용자 레시피</title></head>");
-    out.println("<body>");
     try {
-      out.printf("<h1>[%s]님의 레시피</h1>\n", name);
-
+      request.setAttribute("userName", name);
 
       List<Recipe> recipeList = recipeService.userNoList(no);
+      request.setAttribute("recipeList", recipeList);
 
-      out.println("<table border='1'><tr>"
-          + "<th>번호</th>"
-          + "<th>제목</th>"
-          + "<th>사진</th>"
-          + "<th>등록일</th></tr>");
-
-      for (Recipe recipe : recipeList) {
-        out.println("<tr>");
-        out.printf("<td>%d</td>\n",recipe.getRecipeNo());
-        out.printf("<td><a href='../recipe/detail?recipeNo=%d'>%s</a></td>",recipe.getRecipeNo(),recipe.getTitle());
-        out.printf("<td>%s</td>\n",recipe.getPhoto());
-        out.printf("<td>%s</td>\n",recipe.getCreatedDate());
-        out.println("</tr>");
-      }
-      out.println("</table>");
-      out.println("<hr>\n");
-
-      out.println("<h1>[Follower 목록]</h1>");
-
-
+      
       List<Follow> followerList = followService.FollowerList(no);
-
-      out.println("<table border='1'><tr>"
-          + "<th>번호</th>"
-          + "<th>이름</th>"
-          + "<th>닉네임</th></tr>");
-
-      for (Follow follow : followerList) {
-        User user = follow.getUser();
-        out.printf("<tr>"
-            + "<td>%d</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "</tr>\n",
-            user.getUserNo(),
-            user.getName(),
-            user.getNick());
-      }
-      out.println("</table>");
-      out.println("<hr>\n");
-
-      out.println("<h1>[Following 목록]</h1>");
-
+      request.setAttribute("followerList", followerList);
 
       List<Follow> followinglist = followService.FollowingList(no);
+      request.setAttribute("followinglist", followinglist);
 
-      out.println("<table border='1'><tr>"
-          + "<th>번호</th>"
-          + "<th>이름</th>"
-          + "<th>닉네임</th></tr>");
-
-      for (Follow follow : followinglist) {
-        User user = follow.getUser();
-        out.printf("<tr>"
-            + "<td>%d</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "</tr>\n",
-            user.getUserNo(),
-            user.getName(),
-            user.getNick());
-      }
-      out.println("</table>");
-
-      out.println("<hr>\n");
-      out.println("<a href=list>뒤로가기</a><br>\n");
-      out.println("<a href=../index.html>홈으로</a><br>\n");
+      request.getRequestDispatcher("/mypage/user/info.jsp").include(request, response);
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-    out.println("</body>");
-    out.println("</html>");
   }
 }
