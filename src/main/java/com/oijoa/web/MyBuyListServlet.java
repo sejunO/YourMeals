@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -25,52 +24,14 @@ public class MyBuyListServlet extends HttpServlet {
       throws ServletException, IOException {
 
     response.setContentType("text/html; charset = UTF-8");
-    PrintWriter out = response.getWriter();
 
     HttpSession session = request.getSession();
     ServletContext ctx = request.getServletContext();
     OrderService orderService = (OrderService) ctx.getAttribute("orderService");
 
-    try {
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head><title>나의주문내역</title></head>");
-      out.println("<body>");
-      out.println("<h1>주문내역 조회</h1>");
-
       User loginUser = (User) session.getAttribute("loginUser");
       List<Order> list = orderService.myBuyList(loginUser.getUserNo());
-
-      out.println("<table border = '1'><tr>"
-          + "<th>주문일자</th>"
-          + "<th>주문번호</th>"
-          + "<th>우편번호</th>"
-          + "<th>배송지주소</th>"
-          + "<th>주문항목</th>"
-          + "<th>주문금액</th>"
-          + "<th>상태</th></tr>");
-
-      int totalPrice;
-      String orderStatus;
-
-      for (Order order : list) {
-
-        totalPrice = 0;
-        for (OrderList orderlist : order.getOrderLists()) {
-          totalPrice += (orderlist.getPrice() - orderlist.getDiscount()) * orderlist.getAmount();
-        }
-
-        switch (order.getStatus()) {
-          case 0: orderStatus = "입금확인중"; break;
-          case 1: orderStatus = "결제완료"; break;
-          case 2: orderStatus = "배송준비"; break;
-          case 3: orderStatus = "배송중"; break;
-          case 4: orderStatus = "배송완료"; break;
-
-          default:
-            orderStatus = "상태값오류";
-        }
-
+      request.setAttribute("list", list);
         out.printf("<tr>"
             + "<td>%s</td>"
             + "<td>%s</td>"
