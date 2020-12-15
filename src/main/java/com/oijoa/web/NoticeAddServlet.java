@@ -25,9 +25,6 @@ public class NoticeAddServlet extends HttpServlet {
     NoticeService noticeService = (NoticeService) ctx.getAttribute("noticeService");
 
     request.setCharacterEncoding("UTF-8");
-
-
-
     //    HttpSession session = request.getSession();
 
     response.setContentType("text/html;charset=UTF-8");
@@ -42,7 +39,6 @@ public class NoticeAddServlet extends HttpServlet {
     try {
 
       Notice notice = new Notice();
-
 
       notice.setNoticeTypeNo(Integer.parseInt(request.getParameter("type")));
       notice.setTitle(request.getParameter("title"));
