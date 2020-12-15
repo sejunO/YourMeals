@@ -39,7 +39,7 @@ public class MyBuyListServlet extends HttpServlet {
       out.println("<h1>주문내역 조회</h1>");
 
       User loginUser = (User) session.getAttribute("loginUser");
-      List<Order> list = orderService.myList(loginUser.getUserNo());
+      List<Order> list = orderService.myBuyList(loginUser.getUserNo());
 
       out.println("<table border = '1'><tr>"
           + "<th>주문일자</th>"
