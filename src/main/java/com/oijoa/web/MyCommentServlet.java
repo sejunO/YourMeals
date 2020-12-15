@@ -1,8 +1,6 @@
 package com.oijoa.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -32,11 +30,11 @@ public class MyCommentServlet extends HttpServlet {
     try {
 
       User loginUser = (User) session.getAttribute("loginUser");
-      
+
       List<Comment> list = commentService.userNoList(loginUser.getUserNo());
       request.setAttribute("list", list);
-      
-      request.getRequestDispatcher("/mypage/mycomment/list.jsp").include(request, response);
+
+      request.getRequestDispatcher("/mypage/comment/list.jsp").include(request, response);
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
