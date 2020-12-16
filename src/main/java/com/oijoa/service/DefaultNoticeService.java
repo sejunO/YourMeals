@@ -1,9 +1,11 @@
 package com.oijoa.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import com.oijoa.dao.NoticeDao;
 import com.oijoa.domain.Notice;
 
+@Service
 public class DefaultNoticeService implements NoticeService {
 
   NoticeDao noticeDao;

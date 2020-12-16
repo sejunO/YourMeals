@@ -3,10 +3,12 @@ package com.oijoa.dao.mariadb;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 import com.oijoa.dao.ProductDao;
 import com.oijoa.domain.Product;
 
-public class ProductDaoImpl implements ProductDao{
+@Repository
+public class ProductDaoImpl implements ProductDao {
 
   SqlSessionFactory sqlSessionFactory;
 
@@ -21,11 +23,5 @@ public class ProductDaoImpl implements ProductDao{
     }
   }
 }
-
-
-
-
-
-
 
 

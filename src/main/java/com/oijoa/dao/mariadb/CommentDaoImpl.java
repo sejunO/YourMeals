@@ -3,10 +3,12 @@ package com.oijoa.dao.mariadb;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 import com.oijoa.dao.CommentDao;
 import com.oijoa.domain.Comment;
 
-public class CommentDaoImpl implements CommentDao{
+@Repository
+public class CommentDaoImpl implements CommentDao {
 
   SqlSessionFactory sqlSessionFactory;
 
@@ -30,18 +32,18 @@ public class CommentDaoImpl implements CommentDao{
 
   @Override
   public List<Comment> findByUserNo(int userNo) throws Exception {
-	  try(SqlSession sqlSession = sqlSessionFactory.openSession()) {
-		  return sqlSession.selectList("CommentDao.findByUserNo", userNo);
-	  }
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("CommentDao.findByUserNo", userNo);
+    }
   }
-  
+
   @Override
-	public List<Comment> findByRecipeNo(int recipeNo) throws Exception {
-	  try(SqlSession sqlSession = sqlSessionFactory.openSession()) {
-		  return sqlSession.selectList("CommentDao.findByRecipeNo", recipeNo);
-	  }
-	}
-  
+  public List<Comment> findByRecipeNo(int recipeNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("CommentDao.findByRecipeNo", recipeNo);
+    }
+  }
+
   @Override
   public int deleteByRecipeNo(int recipeNo) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {

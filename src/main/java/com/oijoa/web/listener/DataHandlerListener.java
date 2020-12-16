@@ -5,6 +5,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.oijoa.dao.AccountTransferDao;
 import com.oijoa.dao.BasketDao;
@@ -102,7 +103,6 @@ import com.oijoa.service.RefundService;
 import com.oijoa.service.ReportService;
 import com.oijoa.service.ReportTypeService;
 import com.oijoa.service.UserService;
-import com.oijoa.util.SqlSessionFactoryProxy;
 
 @WebListener
 public class DataHandlerListener implements ServletContextListener {
@@ -112,9 +112,8 @@ public class DataHandlerListener implements ServletContextListener {
     // 시스템에서 사용할 객체를 준비한다.
     try {
       // Mybatis 객체 준비
-      SqlSessionFactoryProxy sqlSessionFactory =
-          new SqlSessionFactoryProxy(new SqlSessionFactoryBuilder()
-              .build(Resources.getResourceAsStream("com/oijoa/conf/mybatis-config.xml")));
+      SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
+          .build(Resources.getResourceAsStream("com/oijoa/conf/mybatis-config.xml"));
 
       // DAO 구현체 생성
       BoardDao boardDao = new BoardDaoImpl(sqlSessionFactory);

@@ -3,10 +3,12 @@ package com.oijoa.dao.mariadb;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 import com.oijoa.dao.NoticeTypeDao;
 import com.oijoa.domain.NoticeType;
 
-public class NoticeTypeDaoImpl implements NoticeTypeDao{
+@Repository
+public class NoticeTypeDaoImpl implements NoticeTypeDao {
 
   SqlSessionFactory sqlSessionFactory;
 
@@ -21,11 +23,5 @@ public class NoticeTypeDaoImpl implements NoticeTypeDao{
     }
   }
 }
-
-
-
-
-
-
 
 

@@ -7,18 +7,14 @@
 <head>
 	<title>BasketService</title>
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-
 </head>
-
 <body>
-
 	<div class="container">
 		<h1>장바구니</h1>
 
 		<p>[장바구니 목록]</p>
 		<a href='form'>장바구니 등록</a><br>
-		<form action="../order/form" method="post">
+		<form action="../app/order/form" method="post">
 			<table border='1'>
 				<thead>
 					<tr>

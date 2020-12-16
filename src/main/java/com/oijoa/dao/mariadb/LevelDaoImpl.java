@@ -3,10 +3,12 @@ package com.oijoa.dao.mariadb;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 import com.oijoa.dao.LevelDao;
 import com.oijoa.domain.Level;
 
-public class LevelDaoImpl implements LevelDao{
+@Repository
+public class LevelDaoImpl implements LevelDao {
 
   SqlSessionFactory sqlSessionFactory;
 
@@ -21,11 +23,5 @@ public class LevelDaoImpl implements LevelDao{
     }
   }
 }
-
-
-
-
-
-
 
 

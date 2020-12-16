@@ -3,10 +3,12 @@ package com.oijoa.dao.mariadb;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 import com.oijoa.dao.FollowDao;
 import com.oijoa.domain.Follow;
 
-public class FollowDaoImpl implements FollowDao{
+@Repository
+public class FollowDaoImpl implements FollowDao {
 
   SqlSessionFactory sqlSessionFactory;
 
@@ -35,11 +37,5 @@ public class FollowDaoImpl implements FollowDao{
     }
   }
 }
-
-
-
-
-
-
 
 

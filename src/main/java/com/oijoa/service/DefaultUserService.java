@@ -1,9 +1,11 @@
 package com.oijoa.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import com.oijoa.dao.UserDao;
 import com.oijoa.domain.User;
 
+@Service
 public class DefaultUserService implements UserService {
 
   UserDao userDao;

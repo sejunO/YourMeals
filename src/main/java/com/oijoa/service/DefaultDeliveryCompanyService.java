@@ -1,9 +1,11 @@
 package com.oijoa.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import com.oijoa.dao.DeliveryCompanyDao;
 import com.oijoa.domain.DeliveryCompany;
 
+@Service
 public class DefaultDeliveryCompanyService implements DeliveryCompanyService {
 
   DeliveryCompanyDao deliveryCompanyDao;

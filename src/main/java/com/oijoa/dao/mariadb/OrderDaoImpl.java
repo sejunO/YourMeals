@@ -3,10 +3,12 @@ package com.oijoa.dao.mariadb;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 import com.oijoa.dao.OrderDao;
 import com.oijoa.domain.Order;
 import com.oijoa.domain.OrderList;
 
+@Repository
 public class OrderDaoImpl implements OrderDao {
 
   SqlSessionFactory sqlSessionFactory;

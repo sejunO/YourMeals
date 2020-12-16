@@ -3,9 +3,11 @@ package com.oijoa.dao.mariadb;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 import com.oijoa.dao.ReportDao;
 import com.oijoa.domain.Report;
 
+@Repository
 public class ReportDaoImpl implements ReportDao {
 
   SqlSessionFactory sqlSessionFactory;
@@ -21,11 +23,5 @@ public class ReportDaoImpl implements ReportDao {
     }
   }
 }
-
-
-
-
-
-
 
 

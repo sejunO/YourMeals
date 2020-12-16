@@ -1,9 +1,11 @@
 package com.oijoa.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import com.oijoa.dao.BasketDao;
 import com.oijoa.domain.Basket;
 
+@Service
 public class DefaultBasketService implements BasketService {
 
   BasketDao basketDao;
@@ -12,10 +14,10 @@ public class DefaultBasketService implements BasketService {
     this.basketDao = basketDao;
   }
 
-  //  @Override
-  //  public int delete(int no) throws Exception {
-  //    return boardDao.delete(no);
-  //  }
+  // @Override
+  // public int delete(int no) throws Exception {
+  // return boardDao.delete(no);
+  // }
   //
   @Override
   public int add(Basket basket) throws Exception {

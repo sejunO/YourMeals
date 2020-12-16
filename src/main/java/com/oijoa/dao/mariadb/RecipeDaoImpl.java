@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 import com.oijoa.dao.RecipeDao;
 import com.oijoa.domain.Recipe;
 
-
+@Repository
 public class RecipeDaoImpl implements RecipeDao {
 
   SqlSessionFactory sqlSessionFactory;
@@ -20,17 +21,17 @@ public class RecipeDaoImpl implements RecipeDao {
   public List<Recipe> findAll() throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("RecipeDao.findAll");
-    }	
+    }
   }
-	
-	@Override
-	public List<Recipe> findRecipeMaterial(int recipeNo) throws Exception {
-		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-            return sqlSession.selectList("RecipeDao.findRecipeMaterial", recipeNo);
-        }
-	}
-	
-	
+
+  @Override
+  public List<Recipe> findRecipeMaterial(int recipeNo) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.selectList("RecipeDao.findRecipeMaterial", recipeNo);
+    }
+  }
+
+
   @Override
   public List<Recipe> findByKeyword(String keyword) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
@@ -66,12 +67,12 @@ public class RecipeDaoImpl implements RecipeDao {
     }
   }
 
-	@Override
-	public int insert(Recipe recipe) throws Exception {
-		try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-			return sqlSession.insert("RecipeDao.insert", recipe);
-		}
-	}
+  @Override
+  public int insert(Recipe recipe) throws Exception {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      return sqlSession.insert("RecipeDao.insert", recipe);
+    }
+  }
 
 
   @Override

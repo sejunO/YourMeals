@@ -3,9 +3,11 @@ package com.oijoa.dao.mariadb;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 import com.oijoa.dao.MemberDao;
 import com.oijoa.domain.Member;
 
+@Repository
 public class MemberDaoImpl implements MemberDao {
 
   SqlSessionFactory sqlSessionFactory;
@@ -21,11 +23,5 @@ public class MemberDaoImpl implements MemberDao {
     }
   }
 }
-
-
-
-
-
-
 
 

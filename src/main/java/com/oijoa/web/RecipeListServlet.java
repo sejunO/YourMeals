@@ -4,14 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.oijoa.domain.Recipe;
 import com.oijoa.service.RecipeService;
 
@@ -39,14 +37,14 @@ public class RecipeListServlet extends HttpServlet {
       String keyword = request.getParameter("keyword");
       String keywordTitle = request.getParameter("keywordTitle");
       String keywordWriter = request.getParameter("keywordWriter");
-      String keywordCategory = request.getParameter("keywordCategory"); ;
+      String keywordCategory = request.getParameter("keywordCategory");;
 
       if (keyword != null) {
 
         list = recipeService.list(keyword);
 
-      } else if (keywordTitle != null) { 
-        HashMap<String,Object> keywordMap = new HashMap<>();
+      } else if (keywordTitle != null) {
+        HashMap<String, Object> keywordMap = new HashMap<>();
         keywordMap.put("title", keywordTitle);
         keywordMap.put("writer", keywordWriter);
         keywordMap.put("category", keywordCategory);
@@ -56,8 +54,8 @@ public class RecipeListServlet extends HttpServlet {
       } else {
         list = recipeService.list();
       }
-
-
+      request.setAttribute("list", list);
+      request.getRequestDispatcher("/recipe/list.jsp").include(request, response);
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
@@ -67,7 +65,5 @@ public class RecipeListServlet extends HttpServlet {
 
 
 }
-
-
 
 

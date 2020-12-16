@@ -149,7 +149,7 @@
   
   <insert id="insertList" parameterType="orderList">
     insert into oi_order_list(odno,pno,amount,discount,price)
-    values(#{orderNo.orderNo},#{productNo.productNo},#{amount},#{discount},#{price})
+    values(#{orderNo.orderNo},#{orderProduct.productNo},#{amount},#{discount},#{price})
   </insert>
   
 </mapper>
