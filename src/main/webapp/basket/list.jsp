@@ -14,7 +14,7 @@
 
 		<p>[장바구니 목록]</p>
 		<a href='form'>장바구니 등록</a><br>
-		<form action="../app/order/form" method="post">
+		<form action="../order/form" method="post">
 			<table border='1'>
 				<thead>
 					<tr>

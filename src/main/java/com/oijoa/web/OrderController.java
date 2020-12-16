@@ -71,7 +71,6 @@ public class OrderController {
   @RequestMapping("form")
   public ModelAndView form(HttpSession session) throws Exception {
 
-
     User user = (User) session.getAttribute("loginUser");
     List<Basket> baskets = basketService.myList(user.getUserNo());
     List<Payment> payments = paymentService.list(null);
