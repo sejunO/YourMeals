@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.util.List;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,8 +26,6 @@ public class BasketController {
   @RequestMapping("list")
   public ModelAndView list(HttpServletRequest request, HttpServletResponse response)
       throws Exception {
-    ServletContext ctx = request.getServletContext();
-    BasketService basketService = (BasketService) ctx.getAttribute("basketService");
 
     HttpSession session = request.getSession();
 

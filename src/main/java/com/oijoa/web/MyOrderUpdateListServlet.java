@@ -42,30 +42,6 @@ public class MyOrderUpdateListServlet extends HttpServlet {
         totalPrice = 0;
       }
       request.setAttribute("list", list);
-      //
-      //      switch (order.getStatus()) {    // 조건
-      //        case 11: orderStatus = "취소신청"; break;
-      //        case 12: orderStatus = "취소진행중"; break;
-      //        case 13: orderStatus = "취소(환불)완료"; break;
-      //        case 21: orderStatus = "반품신청"; break;
-      //        case 22: orderStatus = "반품진행중"; break;
-      //        case 23: orderStatus = "반품(환불)완료"; break;
-      //        case 31: orderStatus = "교환신청"; break;
-      //        case 32: orderStatus = "교환진행중"; break;
-      //        case 33: orderStatus = "교환완료"; break;
-      //        default:
-      //          orderStatus = "상태값오류";
-      //      }
-      //          order.getOrderDate(),
-      //          order.getOrderNo(),
-      //          order.getPostNo(),
-      //          order.getAddress(),
-      //          order.getDetailAddress(),
-      //          order.getOrderLists().get(0).getOrderProduct().getContent(),
-      //          order.getOrderLists().size() - 1,
-      //          totalPrice,
-      //          orderStatus);
-      //    }
       request.getRequestDispatcher("/mypage/order/updateList.jsp").include(request, response);
 
     } catch (Exception e) {

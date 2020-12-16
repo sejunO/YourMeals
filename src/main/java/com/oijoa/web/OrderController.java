@@ -81,6 +81,17 @@ public class OrderController {
     mv.addObject("user", user);
     mv.setViewName("/order/form.jsp");
     return mv;
+  }
 
+  @RequestMapping("list")
+  public ModelAndView list(HttpSession session) throws Exception {
+
+    User loginUser = (User) session.getAttribute("loginUser");
+    List<OrderList> list = orderListService.myList(loginUser.getUserNo());
+
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("list", list);
+    mv.setViewName("/order/list.jsp");
+    return mv;
   }
 }

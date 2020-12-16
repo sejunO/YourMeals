@@ -1,5 +1,6 @@
 package com.oijoa.service;
 
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.UserDao;
@@ -36,6 +37,9 @@ public class DefaultUserService implements UserService {
 
   @Override
   public User get(String email, String password) throws Exception {
-    return userDao.findByEmailPassword(email, password);
+    HashMap<String, Object> map = new HashMap<>();
+    map.put("email", email);
+    map.put("password", password);
+    return userDao.findByEmailPassword(map);
   }
 }
