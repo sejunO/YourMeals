@@ -24,7 +24,7 @@
     <association property="basket" javaType="basket">
       <id column="basket_no"    property="basketNo"/>
       <association property="writer" javaType="user">
-        <id column="writer_no"        property="userNo"/>
+        <id column="writer_no"        property="userNo"/> 
         <result column="writer_name"  property="name"/>
       </association>
       <association property="product" javaType="product">
@@ -113,6 +113,29 @@
          on ol.pno=p.pno
     where o.uno = #{userNo.userNo}
       and o.stat > 10
+  </select>
+  
+   <select id="findByUno" resultMap="OrderMap" parameterType="int">
+    select 
+      o.odno,
+      o.odt,
+      p.photo ol_product_photo,
+      p.content ol_product_content,
+      ol.amount orderLists_amnt,
+      ol.price orderLists_price,
+      ol.discount orderLists_dscnt,
+      o.stat,
+      o.postno,
+      o.addr,
+      o.det_addr
+    from
+      oi_order o
+      left outer join oi_order_list ol
+        on o.odno=ol.odno
+      inner join oi_product p 
+         on ol.pno=p.pno
+    where o.uno = #{userNo.userNo}
+      and 10 > o.stat
   </select>
   
   <select id="lately" resultMap="OrderMap" parameterType="int">

@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -28,46 +27,16 @@ public class MyRecipeServlet extends HttpServlet {
     HttpSession session = request.getSession();
 
     response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
-
-    out.println("<!DOCTYPE html>");
-    out.println("<html>");
-    out.println("<head><title>MyPage</title></head>");
-    out.println("<body>");
     try {
-      out.println("<h1>[My Recipe 목록]</h1>");
-
       User loginUser = (User) session.getAttribute("loginUser");
-
       List<Recipe> list = recipeService.userNoList(loginUser.getUserNo());
+      request.setAttribute("list", list);
 
-      out.println("<table border='1'><tr>"
-          + "<th>번호</th>"
-          + "<th>제목</th>"
-          + "<th>사진</th>"
-          + "<th>등록일</th></tr>");
-
-      for (Recipe recipe : list) {
-        out.printf("<tr>"
-            + "<td>%d</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "</tr>\n",
-            recipe.getRecipeNo(),
-            recipe.getTitle(),
-            recipe.getPhoto(),
-            recipe.getCreatedDate());
-      }
-      out.println("</table>");
-      out.println("<hr>\n");
-      out.println("<a href=../index.html>뒤로가기</a><br>\n");
-      out.println("<a href=../../index.html>홈으로</a><br>\n");
+      request.getRequestDispatcher(
+          "/mypage/recipe/list.jsp").include(request, response);
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-    out.println("</body>");
-    out.println("</html>");
   }
 }

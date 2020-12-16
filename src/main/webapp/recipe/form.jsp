@@ -17,7 +17,7 @@
 사진: <input type='file' name='recipe_photo'><br>
 제목: <input type='text' name='title'><br>
 내용: <textarea name='recipe_content' rows='10' cols='60'></textarea><br>
-작성자: <input type='text' name='writer' readonly><br>
+작성자: ${loginUser.nick}<br>
 <h3>난이도</h3>
 <input type='radio' name='level' value='1'>☆"
 <input type='radio' name='level' value='2'>☆☆"
@@ -28,12 +28,12 @@
 <br>
 <h3>카테고리 </h3><br>
 <ul>
-<c:forEach items="${list}" var="category">
+<c:forEach items="${categoryList}" var="category">
   <li><input type='radio' name='category' value=${category.categoryNo}>${category.categoryName}</li><br>
 </c:forEach>
 
 <h3>필요한 재료</h3><br>
-<c:forEach items="${list}" var="material">
+<c:forEach items="${materialList}" var="material">
   <li><input type='radio' name='materialList' value=${material.materialNo}>${material.name}</li><br>
 </c:forEach>
 </ul>

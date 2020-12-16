@@ -4,9 +4,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
 import com.oijoa.dao.AccountTransferDao;
 import com.oijoa.dao.BasketDao;
 import com.oijoa.dao.BoardDao;
@@ -15,6 +17,7 @@ import com.oijoa.dao.CategoryDao;
 import com.oijoa.dao.CommentDao;
 import com.oijoa.dao.DeliveryCompanyDao;
 import com.oijoa.dao.FollowDao;
+import com.oijoa.dao.FoodDao;
 import com.oijoa.dao.KakaoPayDao;
 import com.oijoa.dao.LevelDao;
 import com.oijoa.dao.MaterialDao;
@@ -39,6 +42,7 @@ import com.oijoa.dao.mariadb.CategoryDaoImpl;
 import com.oijoa.dao.mariadb.CommentDaoImpl;
 import com.oijoa.dao.mariadb.DeliveryCompanyDaoImpl;
 import com.oijoa.dao.mariadb.FollowDaoImpl;
+import com.oijoa.dao.mariadb.FoodDaoImpl;
 import com.oijoa.dao.mariadb.KakaoPayDaoImpl;
 import com.oijoa.dao.mariadb.LevelDaoImpl;
 import com.oijoa.dao.mariadb.MaterialDaoImpl;
@@ -69,6 +73,7 @@ import com.oijoa.service.DefaultCategoryService;
 import com.oijoa.service.DefaultCommentService;
 import com.oijoa.service.DefaultDeliveryCompanyService;
 import com.oijoa.service.DefaultFollowService;
+import com.oijoa.service.DefaultFoodService;
 import com.oijoa.service.DefaultKakaoPayService;
 import com.oijoa.service.DefaultLevelService;
 import com.oijoa.service.DefaultMaterialService;
@@ -87,6 +92,7 @@ import com.oijoa.service.DefaultReportTypeService;
 import com.oijoa.service.DefaultUserService;
 import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.FollowService;
+import com.oijoa.service.FoodService;
 import com.oijoa.service.KakaoPayService;
 import com.oijoa.service.LevelService;
 import com.oijoa.service.MaterialService;
@@ -124,6 +130,7 @@ public class DataHandlerListener implements ServletContextListener {
       CommentDao commentDao = new CommentDaoImpl(sqlSessionFactory);
       DeliveryCompanyDao deliveryCompanyDao = new DeliveryCompanyDaoImpl(sqlSessionFactory);
       FollowDao followDao = new FollowDaoImpl(sqlSessionFactory);
+      FoodDao foodDao = new FoodDaoImpl(sqlSessionFactory);
       KakaoPayDao kakaopayDao = new KakaoPayDaoImpl(sqlSessionFactory);
       LevelDao levelDao = new LevelDaoImpl(sqlSessionFactory);
       MaterialDao materialDao = new MaterialDaoImpl(sqlSessionFactory);
@@ -140,6 +147,7 @@ public class DataHandlerListener implements ServletContextListener {
       ReportDao reportDao = new ReportDaoImpl(sqlSessionFactory);
       ReportTypeDao reportTypeDao = new ReportTypeDaoImpl(sqlSessionFactory);
       UserDao userDao = new UserDaoImpl(sqlSessionFactory);
+      
 
 
       // Service 구현체 생성
@@ -153,6 +161,7 @@ public class DataHandlerListener implements ServletContextListener {
       DeliveryCompanyService deliveryCompanyService =
           new DefaultDeliveryCompanyService(deliveryCompanyDao);
       FollowService followService = new DefaultFollowService(followDao);
+      FoodService foodService = new DefaultFoodService(foodDao);
       KakaoPayService kakaoPayService = new DefaultKakaoPayService(kakaopayDao);
       LevelService levelService = new DefaultLevelService(levelDao);
       MaterialService materialService = new DefaultMaterialService(materialDao);
@@ -181,6 +190,7 @@ public class DataHandlerListener implements ServletContextListener {
       ctx.setAttribute("commentService", commentService);
       ctx.setAttribute("deliveryCompanyService", deliveryCompanyService);
       ctx.setAttribute("followService", followService);
+      ctx.setAttribute("foodService", foodService);
       ctx.setAttribute("kakaoPayService", kakaoPayService);
       ctx.setAttribute("levelService", levelService);
       ctx.setAttribute("materialService", materialService);

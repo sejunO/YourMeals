@@ -73,7 +73,9 @@ public class RecipeAddServlet extends HttpServlet {
       
       //  재료 추가 코드 필요
 
-      recipeService.add(recipe);
+      recipeService.add(recipe);   
+      response.sendRedirect("list");
+   
       
     } catch (Exception e) {
       request.setAttribute("exception", e);

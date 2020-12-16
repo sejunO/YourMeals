@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -13,13 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Comment;
-import com.oijoa.domain.Food;
 import com.oijoa.domain.Level;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.RecipeStep;
 import com.oijoa.service.CategoryService;
 import com.oijoa.service.CommentService;
-import com.oijoa.service.FoodService;
 import com.oijoa.service.LevelService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.RecipeStepService;
@@ -40,113 +37,28 @@ public class RecipeDetailServlet extends HttpServlet {
     CategoryService categoryService = (CategoryService) ctx.getAttribute("categoryService");
     CommentService commentService = (CommentService) ctx.getAttribute("commentService");
     LevelService levelService = (LevelService) ctx.getAttribute("levelService");
-    FoodService foodService = (FoodService) ctx.getAttribute("foodService");
+    //FoodService foodService = (FoodService) ctx.getAttribute("foodService");
+    
     int no = Integer.parseInt(request.getParameter("recipeNo"));
     
 
     response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
-
-    out.println("<!DOCTYPE html>");
-    out.println("<html>");
-    out.println("<head><title>레시피보기</title></head>");
-    out.println("<body>");
 
     try {
-      out.println("<h1>레시피  보기</h1>");
 
       Recipe recipe = recipeService.get(no);
       List<Category> categorys = categoryService.list();
       List<Level> levels = levelService.list();
-      if (recipe == null) {
-        out.println("해당 번호의 게시글이 없습니다.");
-        return;
-      }
-
-      out.println("<form action='update' method='post'>");
-      out.printf("번호: <input type='hidden' name='recipeNo' value='%d' readonly><br>\n",
-          recipe.getRecipeNo());
-      out.printf("제목: <input type='text' name='title' value='%s'><br>\n", recipe.getTitle());
-      out.printf("내용: <textarea name='recipe_content'>%s</textarea><br>\n", recipe.getContent());
-      out.printf("작성자: %s<br>\n", recipe.getWriter().getNick());
-      out.printf("등록일: %s<br>\n", recipe.getCreatedDate());
-      if(recipe.getModifiedDate() == null) {
-    	  out.println("수정일: 없음<br>");
-      } else {
-      out.printf("수정일: %s<br>\n", recipe.getModifiedDate());
-      }
-      out.printf("조회수: %d<br>\n", recipe.getHits());
-      out.printf("추천수: %d<br>\n", recipe.getRecommendCount());
-      out.printf("난이도: <br>\n");
-      for (Level l : levels) {
-        out.printf("<input type='radio' name='level' value='%d' %s> %s ", l.getLevelNo(),
-            checkedLevel(l, recipe.getLevelNo()), l.getLevel());
-      }
-      out.printf("<br>\n");
-      out.printf("조리시간:  %s<br>\n", recipe.getMin());
-      out.printf("카테고리: <br>\n");
-      for (Category c : categorys) {
-        out.printf("<input type='radio' name='category' value='%d' %s> %s ", c.getCategoryNo(),
-            checkedCategory(c, recipe.getCategory()), c.getCategoryName());
-      }
-      out.printf("<br>\n");
-
-      out.printf("필요한 재료: ");
-//      List<Food> foodList = foodService.list(no);
-//      for (Food f : foodList) {
-//        out.printf("%s ", f.getName());
-//      }
-      out.println("</ul><br>");
-      out.println("<h3>조리순서</h3>");
-      out.println("<table border='1'>");
-      out.println("<thead>");
-      out.println("<tr><th>순서</th>");
-      out.println("<th>사진</th>");
-      out.println("<th>내용</th></tr>");
-      out.println("</thead>");
-      out.println("<tbody>");
+      List<RecipeStep> recipeSteps = recipeStepService.list(no);
+      List<Comment> comments = commentService.list(no);
       
-      for (RecipeStep recipeStep : recipeStepService.list(no)) {
-        out.printf("<tr><td>%d</td>" + "<td>%s</td>" + "<td>%s</td></tr>", recipeStep.getStep(),
-            recipeStep.getPhoto(), recipeStep.getContent());
-      }
-      out.println("</tbody>");
-      out.println("</table>");
-
-      out.println("<p>");
-      out.println("<button>변경</button>");
-      out.printf("<button>" + "<a href='delete?recipeNo=%d'>삭제 </a>" + "</button>" + "<br>\n",
-          recipe.getRecipeNo());
-      out.println("</p>");
-      out.println("<button>" + "<a href='list'>레시피 목록 보기</a>" + "</button><br>");
-
-      // 커멘트 부분만 (페이지 넘어가지 않고 = 비동기 처리) 새로고침하기
-      // 자바스크립트 ajax로 처리함
-      // 따라서 일단 보류하고 조회만 띄움
-      // Comment comment = new Comment();
-      // out.printf("댓글: <input type='text' name='comment'>\n");
-      // out.println("<button>등록</button><br>");
-
-      out.println("<p>");
-      out.println("<h3>댓글</h3>");
-      out.println("<table border='1'>");
-      out.println("<thead>");
-      out.println("<tr><th>날짜</th>");
-      out.println("<th>이름</th>");
-      out.println("<th>내용</th></tr>");
-      out.println("</thead>");
-
-      out.println("<tbody>");
-      List<Comment> commentList = commentService.list(no);
-      for (Comment comment : commentList) {
-        out.printf("<tr><td>%s</td>", comment.getCreatedDate()); // 수정날짜는 보류
-        out.printf("<td>%s</td>", comment.getWriter().getNick());
-        out.printf("<td>%s</td></tr>", comment.getContent());
-      }
-      out.println("</p>");
-      out.println("</tbody>");
-      out.println("</table>");
-      out.println("</form>");
+      request.setAttribute("recipe", recipe);
+      request.setAttribute("categorys", categorys);
+      request.setAttribute("levels", levels);
+      request.setAttribute("recipeSteps", recipeSteps);
+      request.setAttribute("comments", comments);
+      request.getRequestDispatcher("/recipe/detail.jsp").forward(request, response);
+        
 
 
     } catch (Exception e) {
@@ -154,22 +66,6 @@ public class RecipeDetailServlet extends HttpServlet {
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
 
-    out.println("</body>");
-    out.println("</html>");
-  }
-
-  private String checkedLevel(Level l, int levelNo) {
-    if (l.getLevelNo() == levelNo) {
-      return "checked";
-    }
-    return "";
-  }
-
-  private String checkedCategory(Category c, Category category) {
-    if (c.getCategoryNo() == category.getCategoryNo()) {
-      return "checked";
-    }
-    return "";
   }
 
 }
