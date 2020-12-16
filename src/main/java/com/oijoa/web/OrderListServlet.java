@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.oijoa.domain.Order;
 import com.oijoa.domain.OrderList;
 import com.oijoa.domain.User;
 import com.oijoa.service.OrderListService;
@@ -35,7 +36,21 @@ public class OrderListServlet extends HttpServlet {
     try {
       User loginUser = (User) session.getAttribute("loginUser");
       List<OrderList> list = orderListService.myList(loginUser.getUserNo());
+      
+      int totalPrice;
+      String orderStatus;
+      totalPrice = 0;
+      
+      for (Order order : list) {
+        for (OrderList orderlist : order.getOrderLists()) {
+          totalPrice += (orderlist.getPrice() - orderlist.getDiscount()) * orderlist.getAmount();
+        }
+      
       request.setAttribute("list", list);
+      
+      
+      
+      
       request.getRequestDispatcher("/order/list.jsp").include(request, response);
     } catch (Exception e) {
       request.setAttribute("exception", e);

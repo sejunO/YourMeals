@@ -29,40 +29,24 @@ public class MyBuyListServlet extends HttpServlet {
     ServletContext ctx = request.getServletContext();
     OrderService orderService = (OrderService) ctx.getAttribute("orderService");
 
+    try {
       User loginUser = (User) session.getAttribute("loginUser");
       List<Order> list = orderService.myBuyList(loginUser.getUserNo());
-      request.setAttribute("list", list);
-        out.printf("<tr>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s %s</td>"
-            + "<td>%s 외 %d 건</td>"
-            + "<td>%d원</td>"
-            + "<td>%s</td>"
-            + "</tr>\n",
-            order.getOrderDate(),
-            order.getOrderNo(),
-            order.getPostNo(),
-            order.getAddress(),
-            order.getDetailAddress(),
-            order.getOrderLists().get(0).getOrderProduct().getContent(),
-            order.getOrderLists().size() - 1,
-            totalPrice,
-            orderStatus);
+      
+      int totalPrice = 0;
+      
+      for (Order order : list) {
+        for (OrderList orderlist : order.getOrderLists()) {
+          totalPrice += (orderlist.getPrice() - orderlist.getDiscount()) * orderlist.getAmount();
+        }
+        order.setTotalPrice(totalPrice);
+        totalPrice = 0;
       }
-
-      out.println("</table>");
-      out.println("<hr>\n");
-
-      out.println("<a href=../index.html>뒤로가기</a><br>\n");
-      out.println("<a href=../../index.html>홈으로</a><br>\n");
+      request.setAttribute("list", list);
 
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-    out.println("</body>");
-    out.println("</html>");
   }
 }
