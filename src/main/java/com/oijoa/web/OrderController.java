@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.util.List;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,11 +10,13 @@ import com.oijoa.domain.Basket;
 import com.oijoa.domain.DeliveryCompany;
 import com.oijoa.domain.Order;
 import com.oijoa.domain.OrderList;
+import com.oijoa.domain.Payment;
 import com.oijoa.domain.User;
 import com.oijoa.service.BasketService;
 import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.OrderListService;
 import com.oijoa.service.OrderService;
+import com.oijoa.service.PaymentService;
 
 @Controller
 @RequestMapping("/order")
@@ -28,10 +29,12 @@ public class OrderController {
   OrderListService orderListService;
   @Autowired
   BasketService basketService;
-
+  @Autowired
+  PaymentService paymentService;
 
   @RequestMapping("add")
   public String add(HttpSession session, Order order) throws Exception {
+
     User user = (User) session.getAttribute("loginUser");
     DeliveryCompany dc = deliveryCompanyService.get(1);
     List<Basket> baskets = basketService.myList(user.getUserNo());
@@ -54,9 +57,8 @@ public class OrderController {
 
 
   @RequestMapping("success")
-  public ModelAndView success(HttpSession session, HttpServletResponse response) throws Exception {
+  public ModelAndView success(HttpSession session) throws Exception {
 
-    response.setContentType("text/html;charset=UTF-8");
     User user = (User) session.getAttribute("loginUser");
     Order order = orderService.lately(user.getUserNo());
     ModelAndView mv = new ModelAndView();
@@ -64,5 +66,22 @@ public class OrderController {
     mv.addObject("orderList", orderListService.getByOrderNo(order.getOrderNo()));
     mv.setViewName("/order/success.jsp");
     return mv;
+  }
+
+  @RequestMapping("form")
+  public ModelAndView form(HttpSession session) throws Exception {
+
+
+    User user = (User) session.getAttribute("loginUser");
+    List<Basket> baskets = basketService.myList(user.getUserNo());
+    List<Payment> payments = paymentService.list(null);
+
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("baskets", baskets);
+    mv.addObject("payments", payments);
+    mv.addObject("user", user);
+    mv.setViewName("/order/form.jsp");
+    return mv;
+
   }
 }
