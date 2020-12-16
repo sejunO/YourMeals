@@ -44,6 +44,8 @@ public class MyBuyListServlet extends HttpServlet {
       }
       request.setAttribute("list", list);
 
+      request.getRequestDispatcher("/mypage/order/buyList.jsp").include(request, response);
+    
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
