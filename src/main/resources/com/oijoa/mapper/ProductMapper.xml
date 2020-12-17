@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="ProductDao">
+<mapper namespace="com.oijoa.dao.ProductDao">
   
   <resultMap type="product" id="ProductMap">
     <id column="pno"           property="productNo"/>

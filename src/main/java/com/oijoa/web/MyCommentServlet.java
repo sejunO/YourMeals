@@ -1,8 +1,6 @@
 package com.oijoa.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -17,11 +15,10 @@ import com.oijoa.service.CommentService;
 
 @WebServlet("/mypage/mycomment/list")
 public class MyCommentServlet extends HttpServlet {
-
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse res)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
     ServletContext ctx = request.getServletContext();
@@ -29,48 +26,18 @@ public class MyCommentServlet extends HttpServlet {
 
     HttpSession session = request.getSession();
 
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter(); 
-
+    response.setContentType("text/html;charset=UTF-8");
     try {
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head><title>내가 작성한 댓글</title></head>");
-      out.println("<body>");
-      out.println("<h1>[내가 작성한 댓글]</h1>");
 
       User loginUser = (User) session.getAttribute("loginUser");
+
       List<Comment> list = commentService.userNoList(loginUser.getUserNo());
+      request.setAttribute("list", list);
 
-      out.println("<table border = '1'><tr>"
-          + "<th>댓글</th>"
-          + "<th>작성일</th></tr>");
-
-      for (Comment comment : list) {
-        out.printf("<tr>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "</tr>\n",
-            comment.getContent(),
-            comment.getCreatedDate());
-      }
-
-      out.println("</table>");
-      out.println("<hr>\n");
-
-      out.println("<a href=../index.html>뒤로가기</a><br>\n");
-      out.println("<a href=../../index.html>홈으로</a><br>\n");
-
+      request.getRequestDispatcher("/mypage/comment/list.jsp").include(request, response);
     } catch (Exception e) {
-      out.println("<h2>작업 처리 중 오류 발생!</h2>");
-      out.printf("<pre>%s</pre>\n", e.getMessage());
-
-      StringWriter errOut = new StringWriter();
-      e.printStackTrace(new PrintWriter(errOut));
-      out.println("<h3>상세 오류 내용</h3>");
-      out.printf("<pre>%s</pre>\n", errOut.toString());
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-    out.println("</body>");
-    out.println("</html>");
   }
 }

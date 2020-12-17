@@ -1,9 +1,11 @@
 package com.oijoa.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import com.oijoa.dao.BoardDao;
 import com.oijoa.domain.Board;
 
+@Service
 public class DefaultBoardService implements BoardService {
 
   BoardDao boardDao;

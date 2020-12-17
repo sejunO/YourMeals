@@ -1,18 +1,14 @@
 package com.oijoa.web;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.UUID;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Recipe;
@@ -27,40 +23,35 @@ import net.coobird.thumbnailator.name.Rename;
 
 
 @MultipartConfig(maxFileSize = 1024 * 1024 * 10)
-@WebServlet("/recipe/add")
-public class RecipeAddServlet extends HttpServlet {
+@Controller
+public class RecipeAddController {
 
-  private static final long serialVersionUID = 1L;
+	RecipeService recipeService;
+	CategoryService categoryService;
+	
+	public RecipeAddController(RecipeService recipeService,
+			CategoryService categoryService) {
+		this.recipeService = recipeService;
+		this.categoryService = categoryService;
+	}
 
-  @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+  @RequestMapping("/recipe/add")
+  public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
     response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
-
-    ServletContext ctx = request.getServletContext();
-    RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
-    CategoryService categoryService = (CategoryService) ctx.getAttribute("categoryService");
-    HttpSession session = request.getSession();
-    User user = (User) session.getAttribute("loginUser");
+  
+    User user = (User) request.getSession().getAttribute("loginUser");
 
     //사진
     Part photoPart = request.getPart("recipe_photo");
     String filename = UUID.randomUUID().toString();
-    String saveFilePath = ctx.getRealPath("/upload/" + filename);
+    String saveFilePath = request.getServletContext().getRealPath("/upload/" + filename);
     photoPart.write(saveFilePath);
-
     generatePhotoThumbnail(saveFilePath);
 
     //카테고리
-    Category category = null;
-    try {
-      category = categoryService.get(Integer.parseInt(request.getParameter("category")));
-    } catch (Exception e) {
-      out.println("카테고리 값 받아올 때 오류");
-    }
-    try {
+    Category category = categoryService.get(Integer.parseInt(request.getParameter("category")));
+     
     
       Recipe recipe = new Recipe();
       recipe.setTitle(request.getParameter("title"));
@@ -74,13 +65,8 @@ public class RecipeAddServlet extends HttpServlet {
       //  재료 추가 코드 필요
 
       recipeService.add(recipe);   
-      request.getRequestDispatcher("/recipe/list.jsp").include(request, response);
-   
+      return "redirect:list";   
       
-    } catch (Exception e) {
-      request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
-    }
 
   }
 

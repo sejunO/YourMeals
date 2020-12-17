@@ -7,12 +7,8 @@
 <head>
 	<title>BasketService</title>
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-
 </head>
-
 <body>
-
 	<div class="container">
 		<h1>장바구니</h1>
 

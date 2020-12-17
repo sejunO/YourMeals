@@ -2,24 +2,23 @@ package com.oijoa.service;
 
 import java.util.List;
 import java.util.Map;
+import org.springframework.stereotype.Service;
 import com.oijoa.dao.BoardLikeDao;
 import com.oijoa.dao.CommentDao;
 import com.oijoa.dao.RecipeDao;
 import com.oijoa.dao.RecipeStepDao;
 import com.oijoa.domain.Recipe;
 
+@Service
 public class DefaultRecipeService implements RecipeService {
 
   RecipeDao recipeDao;
   BoardLikeDao boardLikeDao;
-  RecipeStepDao recipeStepDao; 
+  RecipeStepDao recipeStepDao;
   CommentDao commentDao;
 
-  public DefaultRecipeService(
-      RecipeDao recipeDao,
-      BoardLikeDao boardLikeDao,
-      RecipeStepDao recipeStepDao,
-      CommentDao commentDao) {
+  public DefaultRecipeService(RecipeDao recipeDao, BoardLikeDao boardLikeDao,
+      RecipeStepDao recipeStepDao, CommentDao commentDao) {
 
     this.recipeDao = recipeDao;
     this.boardLikeDao = boardLikeDao;
@@ -37,10 +36,10 @@ public class DefaultRecipeService implements RecipeService {
   // return boardDao.insert(board);
   // }
   //
-  
+
   @Override
-  public List<Recipe> list() throws Exception {	 
-	  return  recipeDao.findAll();
+  public List<Recipe> list() throws Exception {
+    return recipeDao.findAll();
   }
 
   @Override
@@ -76,12 +75,12 @@ public class DefaultRecipeService implements RecipeService {
   // return orderDao.findAll(keyword);
   // }
   //
-  
+
   @Override
-	public List<Recipe> getRecipeMaterial(int recipeNo) throws Exception {
-		return recipeDao.findRecipeMaterial(recipeNo);
-	}
-  
+  public List<Recipe> getRecipeMaterial(int recipeNo) throws Exception {
+    return recipeDao.findRecipeMaterial(recipeNo);
+  }
+
   @Override
   public Recipe get(int no) throws Exception {
     Recipe recipe = recipeDao.findByRecipeNo(no);
@@ -111,7 +110,5 @@ public class DefaultRecipeService implements RecipeService {
 	public int updateCategory(Recipe recipe) throws Exception {
 	  return recipeDao.updateCategory(recipe);
 	}
-
-
 
 }

@@ -25,6 +25,7 @@
   </c:forEach>
 </tbody>
 
+
 </table>
 <hr>
 <a href=../index.html>뒤로가기</a><br>

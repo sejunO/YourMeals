@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -26,12 +25,10 @@ public class QnaServlet extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
 
     try {
-    List<Qna> list = qnaService.list();
-    
-    request.setAttribute("list", list);
+      List<Qna> list = qnaService.list();
+      request.setAttribute("list", list);
 
-    request.getRequestDispatcher("list.jsp").include(request, response);
-
+      request.getRequestDispatcher("list.jsp").include(request, response);
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);

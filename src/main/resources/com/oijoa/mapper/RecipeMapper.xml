@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="RecipeDao">
+<mapper namespace="com.oijoa.dao.RecipeDao">
   
   <resultMap type="recipe" id="RecipeMap">
     <id column="rno"           property="recipeNo"/>
@@ -175,16 +175,7 @@
     </set>
     where rno = #{recipeNo}
   </update>
-  
-   <delete id="deleteByLike" parameterType="int">
-    delete r
-    from oi_board_like
-    where rno=#{recipeNo}
-    inner join oi_board_like bl on bl.rno = r.rno
-    inner join oi_recipe_material rm on rm.rno = bl.rno
-    where r.rno = #{recipeNo} 
-  </delete>
-  
+    
   <delete id="delete" parameterType="int">
     delete from oi_recipe
     where rno = #{recipeNo} 

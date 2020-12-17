@@ -35,7 +35,7 @@ public class MyBoardLikeServlet extends HttpServlet {
 
       request.setAttribute("list", list);
 
-      request.getRequestDispatcher("/mypage/recipe/likeRecipe.jsp").include(request, response);
+      request.getRequestDispatcher("/mypage/recipe/likeList.jsp").include(request, response);
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);

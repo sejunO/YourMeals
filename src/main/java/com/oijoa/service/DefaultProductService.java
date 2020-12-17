@@ -1,14 +1,16 @@
 package com.oijoa.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import com.oijoa.dao.ProductDao;
 import com.oijoa.domain.Product;
 
+@Service
 public class DefaultProductService implements ProductService {
 
   ProductDao productDao;
 
-  public DefaultProductService( ProductDao productDao) {
+  public DefaultProductService(ProductDao productDao) {
     this.productDao = productDao;
   }
 

@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="BasketDao">
+<mapper namespace="com.oijoa.dao.BasketDao">
   
   <resultMap type="basket" id="BasketMap">
     <id column="bkno"           property="basketNo"/>

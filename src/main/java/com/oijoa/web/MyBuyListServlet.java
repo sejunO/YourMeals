@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -25,83 +24,31 @@ public class MyBuyListServlet extends HttpServlet {
       throws ServletException, IOException {
 
     response.setContentType("text/html; charset = UTF-8");
-    PrintWriter out = response.getWriter();
 
     HttpSession session = request.getSession();
     ServletContext ctx = request.getServletContext();
     OrderService orderService = (OrderService) ctx.getAttribute("orderService");
 
     try {
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head><title>나의주문내역</title></head>");
-      out.println("<body>");
-      out.println("<h1>주문내역 조회</h1>");
-
       User loginUser = (User) session.getAttribute("loginUser");
       List<Order> list = orderService.myBuyList(loginUser.getUserNo());
-
-      out.println("<table border = '1'><tr>"
-          + "<th>주문일자</th>"
-          + "<th>주문번호</th>"
-          + "<th>우편번호</th>"
-          + "<th>배송지주소</th>"
-          + "<th>주문항목</th>"
-          + "<th>주문금액</th>"
-          + "<th>상태</th></tr>");
-
-      int totalPrice;
-      String orderStatus;
-
+      
+      int totalPrice = 0;
+      
       for (Order order : list) {
-
-        totalPrice = 0;
         for (OrderList orderlist : order.getOrderLists()) {
           totalPrice += (orderlist.getPrice() - orderlist.getDiscount()) * orderlist.getAmount();
         }
-
-        switch (order.getStatus()) {
-          case 0: orderStatus = "입금확인중"; break;
-          case 1: orderStatus = "결제완료"; break;
-          case 2: orderStatus = "배송준비"; break;
-          case 3: orderStatus = "배송중"; break;
-          case 4: orderStatus = "배송완료"; break;
-
-          default:
-            orderStatus = "상태값오류";
-        }
-
-        out.printf("<tr>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s</td>"
-            + "<td>%s %s</td>"
-            + "<td>%s 외 %d 건</td>"
-            + "<td>%d원</td>"
-            + "<td>%s</td>"
-            + "</tr>\n",
-            order.getOrderDate(),
-            order.getOrderNo(),
-            order.getPostNo(),
-            order.getAddress(),
-            order.getDetailAddress(),
-            order.getOrderLists().get(0).getOrderProduct().getContent(),
-            order.getOrderLists().size() - 1,
-            totalPrice,
-            orderStatus);
+        order.setTotalPrice(totalPrice);
+        totalPrice = 0;
       }
+      request.setAttribute("list", list);
 
-      out.println("</table>");
-      out.println("<hr>\n");
-
-      out.println("<a href=../index.html>뒤로가기</a><br>\n");
-      out.println("<a href=../../index.html>홈으로</a><br>\n");
-
+      request.getRequestDispatcher("/mypage/order/buyList.jsp").include(request, response);
+    
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-    out.println("</body>");
-    out.println("</html>");
   }
 }

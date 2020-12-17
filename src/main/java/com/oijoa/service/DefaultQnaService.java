@@ -1,9 +1,11 @@
 package com.oijoa.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import com.oijoa.dao.QnADao;
 import com.oijoa.domain.Qna;
 
+@Service
 public class DefaultQnaService implements QnaService {
 
   QnADao qnaDao;
@@ -27,19 +29,20 @@ public class DefaultQnaService implements QnaService {
     return qnaDao.findAll(null);
   }
 
-  //  @Override
-  //  public List<Order> list(String keyword) throws Exception {
-  //    return orderDao.findAll(keyword);
-  //  }
+  // @Override
+  // public List<Order> list(String keyword) throws Exception {
+  // return orderDao.findAll(keyword);
+  // }
   //
   @Override
   public Qna get(int no) throws Exception {
-    //Qna qna = qnaDao.findByNo(no);
-    //    if (qna != null) {
-    //      qnaDao.updateViewCount(no);
-    //    }
+    // Qna qna = qnaDao.findByNo(no);
+    // if (qna != null) {
+    // qnaDao.updateViewCount(no);
+    // }
     return qnaDao.findByNo(no);
   }
+
   //
   @Override
   public int update(Qna qna) throws Exception {
