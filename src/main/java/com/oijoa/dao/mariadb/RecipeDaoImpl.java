@@ -87,6 +87,13 @@ public class RecipeDaoImpl implements RecipeDao {
       return sqlSession.update("RecipeDao.update", recipe);
     }
   }
+  
+  @Override
+	public int updateCategory(Recipe recipe) throws Exception {
+	  try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+	      return sqlSession.update("RecipeDao.updateCategory", recipe);
+	  }
+	}
 
 
   @Override

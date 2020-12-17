@@ -18,35 +18,28 @@ public class RecipeDeleteServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    ServletContext ctx = request.getServletContext();
+    RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");  
+
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-
-    ServletContext ctx = request.getServletContext();
-    RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
-
-    out.println("<!DOCTYPE html>");
-    out.println("<html>");
-    out.println("<head>");
-    out.println("<meta http-equiv='Refresh' content='1;url=list'>");
-    out.println("<title>레시피삭제</title></head>");
-    out.println("<body>");
-
+    
     try {
-      out.println("<h1>레시피 삭제</h1>");
 
       int no = Integer.parseInt(request.getParameter("recipeNo"));
-
+    	
       if (recipeService.deleteByNo(no) == 0) {
         out.println("<p>해당 레시피가 없습니다.</p>");
       } else {
         out.println("<p>레시피를 삭제하였습니다.</p>");
       }
 
+      response.sendRedirect("list");
+      
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-
     out.println("</body>");
     out.println("</html>");
 

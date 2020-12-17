@@ -15,7 +15,7 @@
  <p>해당 번호의 게시글이 없습니다.</p>
 </c:if>
 <form action='update' method='post'>
-  <input type='hidden' name= 'recipeNo' value='${recipe.recipeNo}' readonly><br>
+  <input type='hidden' name='recipeNo' value='${recipe.recipeNo}' readonly><br>
     제목: <input type='text' name='title' value='${recipe.title}'><br>
     내용: <textarea name='recipe_content'>${recipe.content}</textarea><br>
     작성자: ${recipe.writer.nick}<br>
@@ -60,7 +60,7 @@
 
   <p>
   <button>변경</button>
-  <button><a href='delete?recipeNo=${recipeNo}'>삭제 </a></button><br>
+  <button><a href='delete?recipeNo=${recipe.recipeNo}'>삭제 </a></button><br> 
   </p>
   <button><a href='list'>레시피 목록 보기</a></button><br>
   

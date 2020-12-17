@@ -39,8 +39,7 @@ public class RecipeDetailServlet extends HttpServlet {
     LevelService levelService = (LevelService) ctx.getAttribute("levelService");
     //FoodService foodService = (FoodService) ctx.getAttribute("foodService");
     
-    int no = Integer.parseInt(request.getParameter("recipeNo"));
-    
+    int no = Integer.parseInt(request.getParameter("recipeNo"));    
 
     response.setContentType("text/html;charset=UTF-8");
 
@@ -57,7 +56,7 @@ public class RecipeDetailServlet extends HttpServlet {
       request.setAttribute("levels", levels);
       request.setAttribute("recipeSteps", recipeSteps);
       request.setAttribute("comments", comments);
-      request.getRequestDispatcher("/recipe/detail.jsp").forward(request, response);
+      request.getRequestDispatcher("/recipe/detail.jsp").include(request, response);
         
 
 

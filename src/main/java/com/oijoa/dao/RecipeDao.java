@@ -15,6 +15,7 @@ public interface RecipeDao {
 	int insert(Recipe recipe) throws Exception;
 	int insertCategory(Recipe recipe) throws Exception;
 	int update(Recipe recipe) throws Exception;
+	int updateCategory(Recipe recipe) throws Exception;
 	int updateViewCount(int no) throws Exception;
 	int delete(int no) throws Exception;
 	int deleteRecipeCategory(int recipeNo) throws Exception;

@@ -107,7 +107,10 @@ public class DefaultRecipeService implements RecipeService {
     return recipeDao.update(recipe);
   }
 
-
+  @Override
+	public int updateCategory(Recipe recipe) throws Exception {
+	  return recipeDao.updateCategory(recipe);
+	}
 
 
 

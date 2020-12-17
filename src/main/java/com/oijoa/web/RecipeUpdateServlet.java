@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.oijoa.domain.Category;
 import com.oijoa.domain.Recipe;
 import com.oijoa.service.RecipeService;
 
@@ -28,41 +30,39 @@ public class RecipeUpdateServlet extends HttpServlet {
 
     ServletContext ctx = request.getServletContext();
     RecipeService recipeService = (RecipeService) ctx.getAttribute("recipeService");
+   
 
-    out.println("<!DOCTYPE html>");
-    out.println("<html>");
-    out.println("<head>");
-    out.println("<meta http-equiv='Refresh' content='1;url=list'>");
-    out.println("<title>Recipe Test</title>");
-    out.println("</head>");
-    out.println("<body>");
-
-    try {
-      out.println("<h1>레시피 변경</h1>");	
-      Recipe recipe = new Recipe();
+    try {	
+      
+      int no = Integer.parseInt(request.getParameter("recipeNo"));
+      Recipe recipe = recipeService.get(no);
       recipe.setRecipeNo(Integer.parseInt(request.getParameter("recipeNo")));
       recipe.setTitle(request.getParameter("title"));
       recipe.setContent(request.getParameter("recipe_content"));
-      
+      recipe.setLevelNo(Integer.parseInt(request.getParameter("level")));
       recipe.setModifiedDate(Date.valueOf(LocalDate.now()));
+      
+      // 카테고리 객체에 번호(categoryNo)만 저장, 이름(categoryName)은 따로 저장 안 함
+      Category category = new Category();
+      category.setCategoryNo(Integer.parseInt(request.getParameter("category")));
+      recipe.setCategory(category);
+     
+   
 
-
-      int count = recipeService.update(recipe);
-
-      if (count == 0) {
+      if (recipeService.update(recipe) == 0) {
         out.println("<p>해당 번호의 레시피 게시글이 없습니다.</p>");
 
-      } else {
-        out.println("<p>레시피를 변경하였습니다.</p>");
-      }
+      } 
+       recipeService.updateCategory(recipe);
+       response.sendRedirect("list");
 
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
-
     out.println("</body>");
     out.println("</html>");
+
   }
 
 }

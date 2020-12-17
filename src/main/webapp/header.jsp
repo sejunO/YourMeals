@@ -25,10 +25,15 @@
               </button>
               <a class="navbar-brand" href="index.jsp">YOURMEALS</a>
             </div>
+            
+            <%
+            String contextPath = request.getServletContext().getContextPath();
+            %>  
+
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="../index.jsp">Home</a></li>
-                <li><a href="../recipe/list">recipe</a></li>
+                <li><a href="<%=contextPath%>/recipe/list">recipe</a></li>
                 <li><a href="../mypage/index.html">mypage</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>

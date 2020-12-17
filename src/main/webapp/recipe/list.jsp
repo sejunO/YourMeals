@@ -20,7 +20,7 @@
 String keyword = request.getParameter("keyword");
 %>
 <form action='list' method='get'>
-검색어: <input type='text' name='keyword' value='<%=keyword != null ? keyword : "" %>'>
+검색어: <input type='text' name='keyword' value='${keyword != null ? keyword : "" }'>
 <button>검색</button>
 </form>
 </p>
@@ -35,11 +35,11 @@ String keywordCategory = request.getParameter("keywordCategory"); ;
 %>
 <form action='list' method='get'>
 제목: <input type='text' name='keywordTitle' 
-value='<%=keywordTitle != null ? keywordTitle : ""%>'><br>
+value='${keywordTitle != null ? keywordTitle : ""}'><br>
 작성자: <input type='text' name='keywordWriter' 
-value='<%=keywordTitle != null ? keywordTitle : ""%>'><br>
+value='${keywordTitle != null ? keywordTitle : ""}'><br>
 카테고리:<input type='text' name='keywordCategory' 
-value='<%=keywordTitle != null ? keywordTitle : ""%>'><br>
+value='${keywordTitle != null ? keywordTitle : ""}'><br>
 <button>검색</button>
 </form>
 </p>

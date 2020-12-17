@@ -162,8 +162,16 @@
     update oi_recipe 
     <set>
       <if test="title != null">title = #{title},</if>
-      <if test="content != null">content = #{content}</if>
-      mdt=now()
+      <if test="content != null">content = #{content},</if>
+      <if test="levelNo != null">lno = #{levelNo},</if>
+    </set>
+    where rno = #{recipeNo}
+  </update>
+  
+  <update id="updateCategory" parameterType="recipe">
+    update oi_recipe_category 
+    <set>
+      <if test="category.categoryNo != null">cno = #{category.categoryNo}</if>
     </set>
     where rno = #{recipeNo}
   </update>

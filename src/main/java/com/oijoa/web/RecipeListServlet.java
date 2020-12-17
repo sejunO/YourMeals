@@ -58,7 +58,7 @@ public class RecipeListServlet extends HttpServlet {
       }
       
       request.setAttribute("list", list);
-      request.getRequestDispatcher("/recipe/list.jsp").forward(request, response);
+      request.getRequestDispatcher("/recipe/list.jsp").include(request, response);
 
 
     } catch (Exception e) {
