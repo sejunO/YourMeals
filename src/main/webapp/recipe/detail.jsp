@@ -81,10 +81,9 @@
         <td>${cm.writer.nick}</td>
         <td>${cm.content}</td></tr>
     </c:forEach>
-
     </p>
     </tbody>
-    </table>
+    </table>    
     </form>
     </body>
     </html>    
