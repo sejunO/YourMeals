@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oijoa.domain.Qna;
 import com.oijoa.service.QnaService;
 
-@WebServlet("/mypage/qna/detail")
+//@WebServlet("/mypage/qna/detail")
 public class QnaDetailServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 

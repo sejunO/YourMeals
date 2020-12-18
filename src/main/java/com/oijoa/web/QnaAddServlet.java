@@ -12,7 +12,7 @@ import com.oijoa.domain.Qna;
 import com.oijoa.domain.User;
 import com.oijoa.service.QnaService;
 
-@WebServlet("/mypage/qna/add")
+//@WebServlet("/mypage/qna/add")
 public class QnaAddServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
