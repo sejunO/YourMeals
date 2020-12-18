@@ -16,9 +16,12 @@ public class MyUserController {
 
   @RequestMapping("update")
   public String update(User user) throws Exception {
+    System.out.println(user.getUserNo()+"########");
+    System.out.println(user.getNick()+"@@@@@@@@@@");
+    System.out.println(user.getPostNo()+"$$$$$$$$$$$");
     int count = userService.update(user);
     if(count == 0) {
-      throw new Exception("나의 정보가 " + count + "개 수정되었습니다.");
+      throw new Exception("정보 수정이 실패하였습니다.");
     }
     return "redirect:detail";
   }
