@@ -31,13 +31,12 @@ public class DefaultFollowService implements FollowService {
 
   @Override
   public List<Follow> FollowerList(int UserNo) throws Exception {
-    return followDao.FollowerList(UserNo);
+    return followDao.findByFollowerUserNo(UserNo);
   }
 
   @Override
   public List<Follow> FollowingList(int UserNo) throws Exception {
-    // TODO Auto-generated method stub
-    return followDao.FollowingList(UserNo);
+    return followDao.findByFollowingUserNo(UserNo);
   }
 
   // @Override

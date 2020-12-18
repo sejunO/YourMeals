@@ -7,7 +7,7 @@
 <html>
 <head><title>사용자 레시피</title></head>
 <body>
-<h1>[${userName}]님의 레시피</h1>
+<h1>[사용자 레시피</h1>
 <table border='1'>
 <thead>
 <tr>
