@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.oijoa.service.QnaService;
 
-@WebServlet("/mypage/qna/delete")
+//@WebServlet("/mypage/qna/delete")
 public class QnaDeleteServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 

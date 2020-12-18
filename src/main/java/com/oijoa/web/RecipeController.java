@@ -27,8 +27,7 @@ import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 import net.coobird.thumbnailator.name.Rename;
 
-@Controller
-@RequestMapping("/recipe")
+@Controller("/recipe")
 public class RecipeController {
 
   @Autowired ServletContext servletContext;
@@ -43,6 +42,7 @@ public class RecipeController {
 
 
   @RequestMapping("form")
+  
   public ModelAndView form() throws Exception {
     ModelAndView mv = new ModelAndView();
     mv.addObject("categoryList", categoryService.list());
@@ -126,18 +126,50 @@ public class RecipeController {
 
   @RequestMapping("update")
   public String update(Recipe recipe, int categoryNo, int userNo)  throws Exception {
+	  
+	  // 여기 부분은 내가 로그 찍어보려고 해본거야
+	  System.out.println(categoryNo);
+	  System.out.println(userNo);
+	  for( Recipe r : recipeService.list()) {
+		  System.out.printf("%d, %s, %s, %d", r.getRecipeNo(), r.getTitle(), r.getContent(), r.getLevelNo());
+	  }
+	  
     Category category = categoryService.get(categoryNo);
     User writer = userService.get(userNo);
 
     recipe.setCategory(category);
     recipe.setWriter(writer);
+    
+    recipeService.updateCategory(recipe);
     if(recipeService.update(recipe) == 0) {
       throw new Exception ("레시피가 존재하지 않습니다.");
     }
-    recipeService.updateCategory(recipe);
     return "redirect:list";
   }
 
+ 
+  @RequestMapping("updatePhoto")
+  public String updatePhoto(int no, Part photoFile) throws Exception {
+
+    Recipe recipe = new Recipe();
+    recipe.setRecipeNo(no);
+
+    if (photoFile.getSize() > 0) {
+      String filename = UUID.randomUUID().toString();
+      String saveFilePath = servletContext.getRealPath("/upload/" + filename);
+      photoFile.write(saveFilePath);
+      recipe.setPhoto(filename);
+
+      generatePhotoThumbnail(saveFilePath);
+    }
+    
+    if (recipe.getPhoto() == null) {
+        throw new Exception("사진을 선택하지 않았습니다.");
+      }
+      recipeService.update(recipe);
+      return "redirect:detail?no=" + recipe.getRecipeNo();
+  }
+  
   @RequestMapping("delete")
   public String delete(int no) throws Exception {
 
@@ -147,6 +179,9 @@ public class RecipeController {
     return "rediret:list";
 
   }
+  
+
+  
   @InitBinder
   public void initBinder(WebDataBinder binder) {
     // String ===> Date 프로퍼티 에디터 준비
@@ -170,6 +205,8 @@ public class RecipeController {
       }
     }
   }
+  
+
 
   private void generatePhotoThumbnail(String saveFilePath) {
     try {

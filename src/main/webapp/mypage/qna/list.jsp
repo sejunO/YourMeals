@@ -20,8 +20,8 @@
 <tbody>
 <c:forEach items="${list}" var="q">
 <tr>
-  <td>${q.QnaNo}</td>
-  <td><a href='../qna/detail?no=${q.QnaNo}'>${q.title}</a></td>
+  <td>${q.qnaNo}</td>
+  <td><a href='../qna/detail?no=${q.qnaNo}'>${q.title}</a></td>
   <td>${q.createdDate}</td>
   <td>${q.answerStatus}</td>
 </tr>
