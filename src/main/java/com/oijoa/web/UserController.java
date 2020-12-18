@@ -37,6 +37,7 @@ public class UserController {
   public ModelAndView info(int userNo) throws Exception {
 
     User user = userService.get(userNo);
+
     List<Recipe> recipeList = recipeService.userNoList(userNo);
     List<Follow> followerList = followService.FollowerList(userNo);
     List<Follow> followinglist = followService.FollowingList(userNo);
@@ -50,6 +51,4 @@ public class UserController {
     mv.setViewName("/user/info.jsp");
     return mv;
   }
-
-
 }
