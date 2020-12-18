@@ -36,13 +36,14 @@ public class UserController {
   @RequestMapping("info")
   public ModelAndView info(int userNo) throws Exception {
 
+    User user = userService.get(userNo);
     List<Recipe> recipeList = recipeService.userNoList(userNo);
     List<Follow> followerList = followService.FollowerList(userNo);
     List<Follow> followinglist = followService.FollowingList(userNo);
 
     ModelAndView mv = new ModelAndView();
-    //    mv.addObject("userName", name);
 
+    mv.addObject("userNick", user.getNick());
     mv.addObject("recipeList", recipeList);
     mv.addObject("followerList", followerList);
     mv.addObject("followinglist", followinglist);
