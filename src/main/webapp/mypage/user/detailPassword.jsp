@@ -8,17 +8,11 @@
 <title>MyPage</title>
 </head>
 <body>
-	<h1>[정보수정]</h1>
+	<h1>[비밀번호변경]</h1>
 	<form action='update' method='post'>
 
     <input type='hidden' name='userNo' value='${user.userNo}'>
-		이름: <input type='text' name='name' value='${user.name}' readonly><br>
-		닉네임: <input type='text' name='nick' value='${user.nick}'><br>
-		이메일: <input type='text' name='email' value='${user.email}' readonly><br>
-		<%--비밀번호: <input type='text' name='password' value='${user.password}' readonly><br> --%>
-		우편번호: <input type='text' name='postNo' value='${user.postNo}'><br>
-		기본주소: <input type='text' name='address' value='${user.address}'><br>
-		세부주소: <input type='text' name='detailAddress' value='${user.detailAddress}'><br>
+		비밀번호: <input type='text' name='password'><br>
 		<br>
 		<p>
 		<button>변경</button>

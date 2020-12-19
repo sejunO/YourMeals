@@ -57,11 +57,13 @@
   
   <update id="update" parameterType="user">
     update oi_user 
-    set
-      nick = #{nick},
-      postno = #{postNo},
-      addr = #{address},
-      det_addr = #{detailAddress}
+    <set>
+      <if test="nick != null">nick = #{nick},</if>
+      <if test="password != null">password = password(#{password}),</if>
+      <if test="postNo != null">postno = #{postNo},</if>
+      <if test="address != null">addr = #{address},</if>
+      <if test="detailAddress != null">det_addr = #{detailAddress}</if>
+    </set>
     where
     uno = #{userNo}
   </update>

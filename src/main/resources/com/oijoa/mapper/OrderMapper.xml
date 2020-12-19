@@ -138,7 +138,7 @@
       and 10 > o.stat
   </select>
   
-  <select id="lately" resultMap="OrderMap" parameterType="int">
+  <select id="findLatelyOrder" resultMap="OrderMap" parameterType="int">
   	select
   		o.odno,
   		o.pno,
