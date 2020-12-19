@@ -27,7 +27,8 @@ import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 import net.coobird.thumbnailator.name.Rename;
 
-@Controller("/recipe")
+@Controller
+@RequestMapping("/recipe")
 public class RecipeController {
 
   @Autowired ServletContext servletContext;
@@ -127,18 +128,12 @@ public class RecipeController {
   @RequestMapping("update")
   public String update(Recipe recipe, int categoryNo, int userNo)  throws Exception {
 	  
-	  // 여기 부분은 내가 로그 찍어보려고 해본거야
-	  System.out.println(categoryNo);
-	  System.out.println(userNo);
-	  for( Recipe r : recipeService.list()) {
-		  System.out.printf("%d, %s, %s, %d", r.getRecipeNo(), r.getTitle(), r.getContent(), r.getLevelNo());
-	  }
-	  
     Category category = categoryService.get(categoryNo);
     User writer = userService.get(userNo);
 
     recipe.setCategory(category);
     recipe.setWriter(writer);
+    recipe.setHits(recipe.getHits() + 1);
     
     recipeService.updateCategory(recipe);
     if(recipeService.update(recipe) == 0) {
