@@ -5,66 +5,62 @@
 <head>
 <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="./css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
-    <link href="./css/carousel.css" rel="stylesheet">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../css/carousel.css">
 <title>Insert title here</title>
 </head>
 <body>
-     <div class="navbar-wrapper">
-      <div class="container">
 
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="index.jsp">YOURMEALS</a>
-            </div>
-            
-            <%
-            String contextPath = request.getServletContext().getContextPath();
-            %>  
-
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="../index.jsp">Home</a></li>
-                <li><a href="<%=contextPath%>/recipe/list">recipe</a></li>
-                <li><a href="../mypage/index.html">mypage</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li role="presentation"><a href="../auth/login.jsp">로그인</a></li>
-            <li role="presentation"><a href="../auth/logout">로그아웃</a></li>
-            <li role="presentation"><a href="#">회원가입</a></li>
-            
-          </ul>
-            </div>
-          </div>
-        </nav>
-
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">YourMeals</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="app/recipe/list">recipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mypage/index.html">mypage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="col-4 d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="btn btn-sm btn-outline-primary my-2" href="#">Sign up</a>
+        <a class="btn btn-sm btn-outline-secondary my-2" href="#">log in</a>
+      </div>
+        
       </div>
     </div>
+  </nav>
+</header>
+
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Album example</h1>
+        <p class="lead text-muted">Something short and leading about the collection belowâits contents, the creator, etc. Make it short and sweet, but not too short so folks donât simply skip over it entirely.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p>
+      </div>
+    </div>
+  </section>
     
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-       <script src="./js/vendor/holder.js"></script>
-    <script src="./js/ie10-viewport-bug-workaround.js"></script>
-    <script src="./js/jquery-3.1.1.min.js"></script> 
-    <script src="./js/bootstrap.min.js"></script>
+     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
 </body>
 </html>
