@@ -113,7 +113,6 @@ public class RecipeController {
 
   @RequestMapping("detail")
   public ModelAndView detail(int recipeNo) throws Exception {
-
     ModelAndView mv = new ModelAndView();
     Recipe recipe = recipeService.get(recipeNo);
     if (recipe == null) {
@@ -137,9 +136,7 @@ public class RecipeController {
 
     recipe.setCategory(category);
     recipe.setWriter(writer);
-
-    recipe.setHits(recipe.getHits() + 1);
-
+    
     recipeService.updateCategory(recipe);
     if (recipeService.update(recipe) == 0) {
       throw new Exception("레시피가 존재하지 않습니다.");
