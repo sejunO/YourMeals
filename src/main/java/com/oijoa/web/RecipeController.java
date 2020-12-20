@@ -1,6 +1,7 @@
 package com.oijoa.web;
 
 import java.beans.PropertyEditorSupport;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.UUID;
 import javax.servlet.ServletContext;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Recipe;
@@ -61,8 +63,14 @@ public class RecipeController {
   }
 
   @RequestMapping("add")
-  public String add(HttpSession session, String title, String content, String min, String levelNo,
-      Part photoPart, int categoryNo) throws Exception {
+  public String add(
+		  HttpSession session, 
+		  String title, 
+		  String content,
+		  String min, 
+		  String levelNo,
+		  Part photoPart, 
+		  int categoryNo) throws Exception {
 
     String filename = UUID.randomUUID().toString();
     String saveFilePath = servletContext.getRealPath("/upload/" + filename);
@@ -110,7 +118,8 @@ public class RecipeController {
     mv.setViewName("/recipe/list.jsp");
     return mv;
   }
-
+  
+  
   @RequestMapping("detail")
   public ModelAndView detail(int recipeNo) throws Exception {
     ModelAndView mv = new ModelAndView();
@@ -127,15 +136,23 @@ public class RecipeController {
     return mv;
 
   }
+  
+  @ResponseBody
+  @RequestMapping("updateRecommendCount")
+  public String updateRecommendCount(int recipeNo) throws Exception {
+	   recipeService.updateRecommendCount(recipeNo);
+	return  "ok";
+  }
 
   @RequestMapping("update")
-  public String update(Recipe recipe, int categoryNo, int userNo) throws Exception {
+  public String update(Recipe recipe, int categoryNo, int userNo, Date modifiedDate) throws Exception {
 
     Category category = categoryService.get(categoryNo);
     User writer = userService.get(userNo);
 
     recipe.setCategory(category);
     recipe.setWriter(writer);
+    recipe.setModifiedDate(modifiedDate);
     
     recipeService.updateCategory(recipe);
     if (recipeService.update(recipe) == 0) {
