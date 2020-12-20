@@ -87,7 +87,7 @@ public class DefaultRecipeService implements RecipeService {
     if (recipe != null) {
     	recipeDao.updateHits(no);
     }
-    return recipe;
+    return recipeDao.findByRecipeNo(no);
   }
 
   @Override

@@ -20,8 +20,13 @@
     <p>레시피가 존재하지 않습니다.</p>
   </c:if>
   <form action='update' method='post'>
+<<<<<<< HEAD
     <input type='hidden' name='recipeNo' value='${recipe.recipeNo}' readonly/><br>
     <input type='hidden' name='userNo' value='${recipe.writer.userNo}' readonly/><br>
+=======
+    <input type='hidden' name='recipeNo' id = 'recipeNo' value='${recipe.recipeNo}' readonly/><br>
+    <input type='hidden' name='userNo' id = 'userNo' value='${recipe.writer.userNo}' readonly/><br>
+>>>>>>> d7ef6d5b650bf3010e8dedf58ee318c13fac9bf7
     제목: <input type='text' name='title' value='${recipe.title}'/><br>
     내용: <textarea name='content'>${recipe.content}</textarea><br>
     작성자: ${recipe.writer.nick}<br>

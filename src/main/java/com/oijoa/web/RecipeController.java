@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.beans.PropertyEditorSupport;
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.UUID;
 import javax.servlet.ServletContext;
@@ -139,15 +138,13 @@ public class RecipeController {
   }
 
   @RequestMapping("update")
-  public String update(Recipe recipe, int categoryNo, int userNo, Date modifiedDate)
-      throws Exception {
+  public String update(Recipe recipe, int categoryNo, int userNo) throws Exception {
+
     Category category = categoryService.get(categoryNo);
     User writer = userService.get(userNo);
 
     recipe.setCategory(category);
     recipe.setWriter(writer);
-    recipe.setModifiedDate(modifiedDate);
-
     recipeService.updateCategory(recipe);
     if (recipeService.update(recipe) == 0) {
       throw new Exception("레시피가 존재하지 않습니다.");
