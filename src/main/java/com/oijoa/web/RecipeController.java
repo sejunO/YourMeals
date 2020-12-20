@@ -63,14 +63,8 @@ public class RecipeController {
   }
 
   @RequestMapping("add")
-  public String add(
-		  HttpSession session, 
-		  String title, 
-		  String content,
-		  String min, 
-		  String levelNo,
-		  Part photoPart, 
-		  int categoryNo) throws Exception {
+  public String add(HttpSession session, String title, String content, String min, String levelNo,
+      Part photoPart, int categoryNo) throws Exception {
 
     String filename = UUID.randomUUID().toString();
     String saveFilePath = servletContext.getRealPath("/upload/" + filename);
@@ -118,8 +112,8 @@ public class RecipeController {
     mv.setViewName("/recipe/list.jsp");
     return mv;
   }
-  
-  
+
+
   @RequestMapping("detail")
   public ModelAndView detail(int recipeNo) throws Exception {
     ModelAndView mv = new ModelAndView();
@@ -136,24 +130,24 @@ public class RecipeController {
     return mv;
 
   }
-  
+
   @ResponseBody
   @RequestMapping("updateRecommendCount")
   public String updateRecommendCount(int recipeNo) throws Exception {
-	   recipeService.updateRecommendCount(recipeNo);
-	return  "ok";
+    recipeService.updateRecommendCount(recipeNo);
+    return "ok";
   }
 
   @RequestMapping("update")
-  public String update(Recipe recipe, int categoryNo, int userNo, Date modifiedDate) throws Exception {
-
+  public String update(Recipe recipe, int categoryNo, int userNo, Date modifiedDate)
+      throws Exception {
     Category category = categoryService.get(categoryNo);
     User writer = userService.get(userNo);
 
     recipe.setCategory(category);
     recipe.setWriter(writer);
     recipe.setModifiedDate(modifiedDate);
-    
+
     recipeService.updateCategory(recipe);
     if (recipeService.update(recipe) == 0) {
       throw new Exception("레시피가 존재하지 않습니다.");
