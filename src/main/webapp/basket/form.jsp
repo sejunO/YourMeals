@@ -1,22 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>厘官备聪 殿废</title>
+<meta charset="UTF-8">
+<title>鞛ル皵甑媹 霌彪</title>
+	<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="../../css/carousel.css">
 </head>
 <body>
-	<h1>厘官备聪 积己</h1>
+	<h1>鞛ル皵甑媹 靸濎劚</h1>
 	<form action='add' method='post'>
-	荐樊 : <input type='int' name='amount'><br>
+	靾橂焿 : <input type='int' name='amount'><br>
 	<ul>
 		<c:forEach items="${products}" var ="p">
 		<li><input type='radio' name='productNo' value="${p.productNo}">${p.content}</li>
 		</c:forEach>
 	</ul>
-	<button>积己</button>
+	<button>靸濎劚</button>
 	</form>
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	
 </body>
 </html>

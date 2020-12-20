@@ -43,7 +43,7 @@ public class BasketController {
       throws Exception {
     ModelAndView mv = new ModelAndView();
     mv.addObject("products", productService.list());
-    mv.setViewName("/basket/form.jsp");
+    mv.setViewName("/basket/newform.jsp");
     return mv;
   }
 

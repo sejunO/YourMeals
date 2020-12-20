@@ -16,7 +16,6 @@
 <article class="my-3" id="qna">
       <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
         <h3>qna</h3>
-        <a class="d-flex align-items-center" href="/docs/5.0/content/tables/">Documentation</a>
       </div>
 
       <div>
