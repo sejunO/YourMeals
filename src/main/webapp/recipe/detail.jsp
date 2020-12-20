@@ -25,15 +25,18 @@
     제목: <input type='text' name='title' value='${recipe.title}'/><br>
     내용: <textarea name='content'>${recipe.content}</textarea><br>
     작성자: ${recipe.writer.nick}<br>
-    등록일: <input type='date' name='createdDate' value='${recipe.createdDate}' readonly/><br>
+    등록일: ${recipe.createdDate}<br>
     <c:if test='${recipe.modifiedDate == null}'>
       수정일: 없음<br>
     </c:if>
     <c:if test='${recipe.modifiedDate != null}'>
-      수정일:<input type='date' name='modifiedDate' value='${recipe.modifiedDate}' readonly/> <br>
+      수정일: ${recipe.modifiedDate}<br>
     </c:if>
-    조회수: <input type='text' name='hits' value='${recipe.hits}' readonly/><br>
-    추천수: <input type='text' name='recommendCount' value='${recipe.recommendCount}' readonly/><br>
+    조회수: ${recipe.hits}<br>
+    추천수: ${recipe.recommendCount} 
+            <c:if test = '${sessionScope.loginUser != null 
+            and sessionScope.loginUser != recipe.writer}'>
+            <button type = 'button' id = 'recommendCount'>추천</button></c:if><br>
     난이도: <c:forEach items='${levels}' var='l'>
       <input type='radio' name='levelNo' value='${l.levelNo}' 
       <c:if test="${recipe.levelNo == l.levelNo}">checked</c:if>
@@ -74,11 +77,11 @@
     </p>
     <button><a href='list'>레시피 목록 보기</a></button><br>
 
-    댓글: <input type='text' name='comment'>
-    <button>등록</button><br>
 
     <p>
     <h3>댓글</h3>
+    댓글: <input type='text' name='comment'>
+    <button>등록</button><br>
     <table border='1'>
       <thead>
         <tr>

@@ -85,11 +85,10 @@ public class DefaultRecipeService implements RecipeService {
   public Recipe get(int no) throws Exception {
     Recipe recipe = recipeDao.findByRecipeNo(no);
     if (recipe != null) {
-      // recipeDao.updateViewCount(no);
+    	recipeDao.updateHits(no);
     }
     return recipe;
   }
-
 
   @Override
   public int deleteByNo(int recipeNo) throws Exception {

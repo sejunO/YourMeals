@@ -164,7 +164,7 @@
       <if test="title != null">title = #{title},</if>
       <if test="content != null">content = #{content},</if>
       <if test="levelNo != null">lno = #{levelNo},</if>
-      <if test="min != null">min = #{min}</if>
+      <if test="min != null">min = #{min},</if>
       <if test="hits != null">hits = #{hits}</if>
     </set>
     where rno = #{recipeNo}
@@ -175,6 +175,18 @@
     <set>
       <if test="category.categoryNo != null">cno = #{category.categoryNo}</if>
     </set>
+    where rno = #{recipeNo}
+  </update>
+  
+  <update id="updateHits" parameterType="int">
+    update oi_recipe set
+      hits = hits + 1
+    where rno = #{recipeNo}
+  </update>
+  
+   <update id="updateRecommendCount" parameterType="int">
+    update oi_recipe set
+      rcmd = rcmd + 1
     where rno = #{recipeNo}
   </update>
     
