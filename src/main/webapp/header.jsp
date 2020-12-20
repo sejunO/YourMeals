@@ -25,7 +25,7 @@
             <a class="nav-link" aria-current="page" href="app/recipe/list">recipe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="mypage/index.html">mypage</a>
+            <a class="nav-link" href="./app/mypage/index">mypage</a>
           </li>
 
         </ul>

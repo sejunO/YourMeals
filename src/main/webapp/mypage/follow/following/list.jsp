@@ -16,7 +16,7 @@
 </thead>
 
 <tbody>
-  <c:forEach items="${list}" var="f">
+  <c:forEach items="${followingList}" var="f">
   <tr>
     <td>${f.user.userNo}</td>
     <td>${f.user.name}</td>

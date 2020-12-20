@@ -36,15 +36,17 @@ public class QnaController {
   }
 
   @RequestMapping("detail")
-  public ModelAndView detail(int no) throws Exception {
+  public String detail(int no, HttpSession session) throws Exception {
     Qna qna = qnaService.get(no);
     if (qna == null) {
       throw new Exception("해당 번호의 게시글이 없습니다.");
     }
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("qna", qna);
-    mv.setViewName("/mypage/qna/detail.jsp");
-    return mv;
+    // ModelAndView mv = new ModelAndView();
+    // mv.addObject("qna", qna);
+    // mv.setViewName("/mypage/qna/detail.jsp");
+    // return mv;
+    session.setAttribute("thisqna", qna);
+    return "redirect:../index";
   }
 
   @RequestMapping("update")
@@ -53,7 +55,7 @@ public class QnaController {
     if (count == 0) {
       throw new Exception("해당번호의 게시글이 없습니다.");
     }
-    return "redirect:list";
+    return "redirect:../list";
   }
 
   @RequestMapping("list")
