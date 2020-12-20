@@ -22,33 +22,42 @@
   <form action='update' method='post'>
     <input type='hidden' name='recipeNo' id = 'recipeNo' value='${recipe.recipeNo}' readonly/><br>
     <input type='hidden' name='userNo' id = 'userNo' value='${recipe.writer.userNo}' readonly/><br>
-    제목: <input type='text' name='title' value='${recipe.title}'/><br>
-    내용: <textarea name='content'>${recipe.content}</textarea><br>
-    작성자: ${recipe.writer.nick}<br>
-    등록일: ${recipe.createdDate}<br>
+  <li>제목: <input type='text' name='title' value='${recipe.title}'/></li><br>
+    
+    <form action='updatePhoto' method='post' enctype='multipart/form-data'>
+		<input type='hidden' name='recipeNo' value='${reicpeNo}'><br>
+		<a href='../../upload/${reipce.photo}'>
+		<img src='../../upload/${recipe.photo}_120x120.jpg'></a><br>
+		<li><input type='file' name='photoFile'></li>
+		</form>
+		
+    <li>내용: </li><br>
+     <textarea name='content' rows='10' cols='40'>${recipe.content}</textarea><br>
+    <li>작성자: ${recipe.writer.nick}</li><br>
+    <li>등록일: ${recipe.createdDate}</li><br>
     <c:if test='${recipe.modifiedDate == null}'>
-      수정일: 없음<br>
+      <li>수정일: 없음</li><br>
     </c:if>
     <c:if test='${recipe.modifiedDate != null}'>
-      수정일: ${recipe.modifiedDate}<br>
+      <li>수정일: ${recipe.modifiedDate}</li><br>
     </c:if>
-    조회수: ${recipe.hits}<br>
-   추천수: <p id = 'recommendCount'>${recipe.recommendCount}</p>
+    <li>조회수: ${recipe.hits}</li><br>
+    <li>추천수: <p id = 'recommendCount'>${recipe.recommendCount}</p>
             <c:if test = '${sessionScope.loginUser != null 
             and sessionScope.loginUser != recipe.writer}'>
-            <button type = 'button' id ='recommendCountBtn'>추천</button></c:if><br>
-    난이도: <c:forEach items='${levels}' var='l'>
+            <button type = 'button' id ='recommendCountBtn'>추천</button></c:if></li><br>
+    <li>난이도: <c:forEach items='${levels}' var='l'>
       <input type='radio' name='levelNo' value='${l.levelNo}' 
       <c:if test="${recipe.levelNo == l.levelNo}">checked</c:if>
       /> ${l.level}
-    </c:forEach><br>
-    조리시간: <input type='text' name='min' value='${recipe.min}'/>분<br>
-    카테고리: <c:forEach items='${categorys}' var='c'>
+    </c:forEach></li><br>
+    <li>조리시간: <input type='text' name='min' value='${recipe.min}'/>분</li><br>
+    <li>카테고리: <c:forEach items='${categorys}' var='c'>
       <input type='radio' name='categoryNo' value='${c.categoryNo}' 
       <c:if test="${recipe.category.categoryName == c.categoryName}">checked</c:if>
       /> ${c.categoryName}
-    </c:forEach><br>
-
+    </c:forEach></li><br>
+  
 
     <h3>조리순서</h3>
     <table border='1'>
@@ -69,17 +78,45 @@
           </tr>
         </c:forEach>
       </tbody>
-    </table>
+    </table><br>
+    
+    <table border='2'>
+     <thead>
+        <tr>
+          <th>순서</th>
+          <th>사진</th>
+          <th>내용</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+      <td>
+        <select name='step'>
+			  <option value='1'>STEP 1</option>
+			  <option value='2'>STEP 2</option>
+			  <option value='3'>STEP 3</option>
+			  <option value='4'>STEP 4</option>
+			  <option value='5'>STEP 5</option>
+		    </select>
+		  </td>
+		  <td><input type='file' name = 'step_photo' enctype='multipart/form-data'/></td>
+      <td><input type ='text' name = 'recipeStep'/><button>추가</button><br></td>
+    </tr>
+    </tbody>
+    </table><br>
 
     <p>
       <button>변경</button>
-      <button><a href='delete?recipeNo=${recipe.recipeNo}'>삭제 </a></button><br>
+      <button><a href='delete?recipeNo=${recipe.recipeNo}'>삭제</a></button><br>
     </p>
     <button><a href='list'>레시피 목록 보기</a></button><br>
-
+    
+    <br><hr>
+  
     <p>
     <h3>댓글</h3>
-    댓글: <input type='text' name='comment'>
+    댓글: <input type='text' name='comment'/>
     <button>등록</button><br>
     <table border='1'>
       <thead>
