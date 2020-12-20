@@ -1,12 +1,13 @@
 package com.oijoa.web;
 
 import java.beans.PropertyEditorSupport;
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.UUID;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
@@ -24,6 +26,7 @@ import com.oijoa.service.MaterialService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.RecipeStepService;
 import com.oijoa.service.UserService;
+
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -145,14 +148,16 @@ public class RecipeController {
   }
 
   @RequestMapping("update")
-  public String update(Recipe recipe, int categoryNo, int userNo, Date modifiedDate) throws Exception {
+  public String update(
+		  Recipe recipe, 
+		  int categoryNo,
+		  int userNo) throws Exception {
 
     Category category = categoryService.get(categoryNo);
     User writer = userService.get(userNo);
 
     recipe.setCategory(category);
     recipe.setWriter(writer);
-    recipe.setModifiedDate(modifiedDate);
     
     recipeService.updateCategory(recipe);
     if (recipeService.update(recipe) == 0) {
