@@ -27,7 +27,7 @@
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#7952b3">
 
-
+    
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -47,18 +47,42 @@
     
     <!-- Custom styles for this template -->
     <link href="../../css/cheatsheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/carousel.css">
   </head>
   <body class="bg-light">
     
-<header class="bd-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
-  <div class="container-fluid d-flex align-items-center">
-    <h1 class="d-flex align-items-center fs-4 text-white mb-0">
-      <img src="/docs/5.0/assets/brand/bootstrap-logo-white.svg" width="38" height="30" class="me-3" alt="Bootstrap">
-      Cheatsheet
-    </h1>
-    <a href="/docs/5.0/examples/cheatsheet-rtl/" class="ms-auto link-light" hreflang="ar">RTL cheatsheet</a>
-  </div>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">YourMeals</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="app/recipe/list">recipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./app/mypage/index">mypage</a>
+          </li>
+
+        </ul>
+        <form class="col-4 d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="btn btn-sm btn-outline-primary my-2" href="#">Sign up</a>
+        <a class="btn btn-sm btn-outline-secondary my-2" href="#">log in</a>
+      </div>
+        
+      </div>
+    </div>
+  </nav>
 </header>
+
 <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
   <h2 class="h6 pt-4 pb-3 mb-4 border-bottom">On this page</h2>
   <nav class="small" id="toc">
