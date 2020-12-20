@@ -25,7 +25,7 @@ public class DefaultOrderService implements OrderService {
 
   @Override
   public int add(OrderList orderList) throws Exception {
-    return orderDao.insert(orderList);
+    return orderDao.insertList(orderList);
   }
 
   @Override
@@ -42,7 +42,7 @@ public class DefaultOrderService implements OrderService {
   public List<Order> myUpdateList(int UserNo) throws Exception {
     return orderDao.findByUpdateListUserNo(UserNo);
   }
-  
+
   @Override
   public List<Order> myBuyList(int UserNo) throws Exception {
     return orderDao.findByUno(UserNo);
@@ -53,23 +53,5 @@ public class DefaultOrderService implements OrderService {
     return orderDao.findLatelyOrder(no);
   }
 
-  // @Override
-  // public List<Order> list(String keyword) throws Exception {
-  // return orderDao.findAll(keyword);
-  // }
-  //
-  // @Override
-  // public Board get(int no) throws Exception {
-  // Board board = boardDao.findByNo(no);
-  // if (board != null) {
-  // boardDao.updateViewCount(no);
-  // }
-  // return board;
-  // }
-  //
-  // @Override
-  // public int update(Board board) throws Exception {
-  // return boardDao.update(board);
-  // }
 
 }

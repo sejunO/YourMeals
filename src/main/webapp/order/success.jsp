@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
 </head>
 <body>
 
-¹è¼ÛÁöÁ¤º¸
+ë°°ì†¡ì§€ì •ë³´
 
 <div>${order.userNo.name} </div>
 <div>${order.address} </div>
@@ -17,7 +17,7 @@
 <div>${order.memo} </div>
 
 
- ÁÖ¹® »óÇ° Á¤º¸
+ ì£¼ë¬¸ ìƒí’ˆ ì •ë³´
 <c:forEach items="${orderList}" var="ol">
 	<div>
 		<span>${ol.orderProduct.content}</span>

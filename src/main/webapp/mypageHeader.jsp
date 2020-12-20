@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 
-		<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../../css/carousel.css">
 <title>Insert title here</title>
 </head>
@@ -25,7 +25,7 @@
             <a class="nav-link" aria-current="page" href="app/recipe/list">recipe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./app/mypage/index">mypage</a>
+            <a class="nav-link" href="mypage/index.html">mypage</a>
           </li>
 
         </ul>
@@ -48,7 +48,7 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Album example</h1>
+        <h1 class="fw-light">Mypage</h1>
         <p class="lead text-muted">Something short and leading about the collection belowâits contents, the creator, etc. Make it short and sweet, but not too short so folks donât simply skip over it entirely.</p>
         <p>
           <a href="#" class="btn btn-primary my-2">Main call to action</a>
@@ -58,7 +58,7 @@
     </div>
   </section>
     
-     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 </body>
 </html>

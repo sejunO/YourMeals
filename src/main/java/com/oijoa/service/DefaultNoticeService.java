@@ -31,7 +31,7 @@ public class DefaultNoticeService implements NoticeService {
 
   @Override
   public int add(Notice notice) throws Exception {
-    return noticeDao.add(notice);
+    return noticeDao.insert(notice);
   }
 
   // @Override

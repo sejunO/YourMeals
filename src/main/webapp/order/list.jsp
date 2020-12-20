@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head><title>OrderList</title></head>
-<body><h1>аж╧╝гв╦Я╦Я╥о</h1>
-аж╧╝гв╦Я ╦Я╥о
+<body><h1>Лё╪К╛╦М∙╜К╙╘К╙╘К║²</h1>
+Лё╪К╛╦М∙╜К╙╘ К╙╘К║²
 <table border='1'>
-<thead><tr><th>аж╧╝гв╦Я</th><th>╩Сг╟╦М</th><th>╟║╟щ</th><th>грюню╡</th><th>╩Г©Кюз</th></tr></thead>
+<thead><tr><th>Лё╪К╛╦М∙╜К╙╘</th><th>Л┐│М▓┬К╙┘</th><th>Й╟─Й╡╘</th><th>М∙═Л²╦Л°╗</th><th>Л┌╛Л ╘Л·░</th></tr></thead>
 <tbody>
 <c:forEach items="${list}" var="o">
 <tr>

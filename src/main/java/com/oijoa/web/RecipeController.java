@@ -31,19 +31,27 @@ import net.coobird.thumbnailator.name.Rename;
 @RequestMapping("/recipe")
 public class RecipeController {
 
-  @Autowired ServletContext servletContext;
-  @Autowired RecipeService recipeService;
-  @Autowired CategoryService categoryService;
-  @Autowired MaterialService materialService;
-  @Autowired RecipeStepService recipeStepService;
-  @Autowired CommentService commentService;
-  @Autowired LevelService levelService;
-  @Autowired UserService userService;
+  @Autowired
+  ServletContext servletContext;
+  @Autowired
+  RecipeService recipeService;
+  @Autowired
+  CategoryService categoryService;
+  @Autowired
+  MaterialService materialService;
+  @Autowired
+  RecipeStepService recipeStepService;
+  @Autowired
+  CommentService commentService;
+  @Autowired
+  LevelService levelService;
+  @Autowired
+  UserService userService;
 
 
 
   @RequestMapping("form")
-  
+
   public ModelAndView form() throws Exception {
     ModelAndView mv = new ModelAndView();
     mv.addObject("categoryList", categoryService.list());
@@ -53,13 +61,8 @@ public class RecipeController {
   }
 
   @RequestMapping("add")
-  public String add(HttpSession session,
-      String title,
-      String content,
-      String min,
-      String levelNo,
-      Part photoPart,
-      int categoryNo ) throws Exception {
+  public String add(HttpSession session, String title, String content, String min, String levelNo,
+      Part photoPart, int categoryNo) throws Exception {
 
     String filename = UUID.randomUUID().toString();
     String saveFilePath = servletContext.getRealPath("/upload/" + filename);
@@ -73,7 +76,7 @@ public class RecipeController {
     recipe.setWriter((User) session.getAttribute("loginUser"));
     recipe.setCategory(categoryService.get(categoryNo));
     recipe.setPhoto(filename);
-    //  재료 추가 코드 필요
+    // 재료 추가 코드 필요
     // 조리 순서 코드 필요
 
     recipeService.add(recipe);
@@ -83,7 +86,8 @@ public class RecipeController {
   }
 
   @RequestMapping("list")
-  public ModelAndView list(String keyword, String keywordTitle, String keywordWriter, String keywordCategory) throws Exception {
+  public ModelAndView list(String keyword, String keywordTitle, String keywordWriter,
+      String keywordCategory) throws Exception {
 
     ModelAndView mv = new ModelAndView();
 
@@ -114,7 +118,7 @@ public class RecipeController {
     if (recipe == null) {
       System.out.println("레시피가 존재하지 않습니다.");
     }
-    mv.addObject("recipe",recipe);
+    mv.addObject("recipe", recipe);
     mv.addObject("categorys", categoryService.list());
     mv.addObject("levels", levelService.list());
     mv.addObject("recipeSteps", recipeStepService.list(recipeNo));
@@ -125,8 +129,8 @@ public class RecipeController {
   }
 
   @RequestMapping("update")
-  public String update(Recipe recipe, int categoryNo, int userNo)  throws Exception {
-	  
+  public String update(Recipe recipe, int categoryNo, int userNo) throws Exception {
+
     Category category = categoryService.get(categoryNo);
     User writer = userService.get(userNo);
 
@@ -134,13 +138,13 @@ public class RecipeController {
     recipe.setWriter(writer);
     
     recipeService.updateCategory(recipe);
-    if(recipeService.update(recipe) == 0) {
-      throw new Exception ("레시피가 존재하지 않습니다.");
+    if (recipeService.update(recipe) == 0) {
+      throw new Exception("레시피가 존재하지 않습니다.");
     }
     return "redirect:list";
   }
 
- 
+
   @RequestMapping("updatePhoto")
   public String updatePhoto(int no, Part photoFile) throws Exception {
 
@@ -155,36 +159,35 @@ public class RecipeController {
 
       generatePhotoThumbnail(saveFilePath);
     }
-    
+
     if (recipe.getPhoto() == null) {
-        throw new Exception("사진을 선택하지 않았습니다.");
-      }
-      recipeService.update(recipe);
-      return "redirect:detail?no=" + recipe.getRecipeNo();
+      throw new Exception("사진을 선택하지 않았습니다.");
+    }
+    recipeService.update(recipe);
+    return "redirect:detail?no=" + recipe.getRecipeNo();
   }
-  
+
   @RequestMapping("delete")
   public String delete(int no) throws Exception {
 
-    if(recipeService.deleteByNo(no) == 0) {
+    if (recipeService.deleteByNo(no) == 0) {
       throw new Exception("레시피가 존재하지 않습니다.");
     }
     return "rediret:list";
 
   }
-  
 
-  
+
+
   @InitBinder
   public void initBinder(WebDataBinder binder) {
     // String ===> Date 프로퍼티 에디터 준비
     DatePropertyEditor propEditor = new DatePropertyEditor();
 
     // WebDataBinder에 프로퍼티 에디터 등록하기
-    binder.registerCustomEditor(
-        java.util.Date.class, // String을 Date 타입으로 바꾸는 에디터임을 지정한다.
+    binder.registerCustomEditor(java.util.Date.class, // String을 Date 타입으로 바꾸는 에디터임을 지정한다.
         propEditor // 바꿔주는 일을 하는 프로퍼티 에디터를 등록한다.
-        );
+    );
   }
 
   class DatePropertyEditor extends PropertyEditorSupport {
@@ -198,32 +201,26 @@ public class RecipeController {
       }
     }
   }
-  
+
 
 
   private void generatePhotoThumbnail(String saveFilePath) {
     try {
-      Thumbnails.of(saveFilePath)
-      .size(30, 30)
-      .outputFormat("jpg")
-      .crop(Positions.CENTER)
-      .toFiles(new Rename() {
-        @Override
-        public String apply(String name, ThumbnailParameter param) {
-          return name + "_30x30";
-        }
-      });
+      Thumbnails.of(saveFilePath).size(30, 30).outputFormat("jpg").crop(Positions.CENTER)
+          .toFiles(new Rename() {
+            @Override
+            public String apply(String name, ThumbnailParameter param) {
+              return name + "_30x30";
+            }
+          });
 
-      Thumbnails.of(saveFilePath)
-      .size(120, 120)
-      .outputFormat("jpg")
-      .crop(Positions.CENTER)
-      .toFiles(new Rename() {
-        @Override
-        public String apply(String name, ThumbnailParameter param) {
-          return name + "_120x120";
-        }
-      });
+      Thumbnails.of(saveFilePath).size(120, 120).outputFormat("jpg").crop(Positions.CENTER)
+          .toFiles(new Rename() {
+            @Override
+            public String apply(String name, ThumbnailParameter param) {
+              return name + "_120x120";
+            }
+          });
     } catch (Exception e) {
       e.printStackTrace();
     }

@@ -5,13 +5,8 @@ import com.oijoa.domain.Notice;
 
 public interface NoticeDao {
   List<Notice> findAll(String keyword) throws Exception;
-  int add(Notice notice) throws Exception;
+
+  int insert(Notice notice) throws Exception;
 }
-
-
-
-
-
-
 
 
