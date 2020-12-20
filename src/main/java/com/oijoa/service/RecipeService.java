@@ -15,6 +15,7 @@ public interface RecipeService {
   int add (Recipe recipe) throws Exception;
   int update(Recipe recipe) throws Exception;
   int updateCategory(Recipe recipe) throws Exception;
+  int updateRecommendCount(int no) throws Exception;
   Recipe get(int no) throws Exception;
   int deleteByNo(int recipeNo) throws Exception;
 }

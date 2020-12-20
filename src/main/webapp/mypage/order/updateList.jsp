@@ -21,7 +21,7 @@
             <th>주문금액</th>
             <th>상태</th>
         </tr>
-        <c:forEach items="${list}" var="o">
+        <c:forEach items="${updateList}" var="o">
             <tr>
                 <td>${o.orderDate}</td>
                 <td>${o.orderNo}</td>

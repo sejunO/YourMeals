@@ -165,7 +165,8 @@
       <if test="content != null">content = #{content},</if>
       <if test="levelNo != null">lno = #{levelNo},</if>
       <if test="min != null">min = #{min},</if>
-      <if test="hits != null">hits = #{hits}</if>
+      <if test="hits != null">hits = #{hits},</if>
+      <if test="modifiedDate != null">mdt = #{modifiedDate}</if>
     </set>
     where rno = #{recipeNo}
   </update>

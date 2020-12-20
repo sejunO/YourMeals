@@ -18,7 +18,7 @@
 </thead>
 
 <tbody>
-  <c:forEach items="${list}" var="r">
+  <c:forEach items="${likeList}" var="r">
   <tr>
     <td>${r.recipeNo}</td>
     <td>${r.title}</td>

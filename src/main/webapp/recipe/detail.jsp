@@ -7,8 +7,8 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
   <title>레시피 보기</title>
 </head>
 
@@ -20,8 +20,8 @@
     <p>레시피가 존재하지 않습니다.</p>
   </c:if>
   <form action='update' method='post'>
-    <input type='hidden' name='recipeNo' value='${recipe.recipeNo}' readonly/><br>
-    <input type='hidden' name='userNo' value='${recipe.writer.userNo}' readonly/><br>
+    <input type='hidden' id='recipeNo' value='${recipe.recipeNo}' readonly/><br>
+    <input type='hidden' id='userNo' value='${recipe.writer.userNo}' readonly/><br>
     제목: <input type='text' name='title' value='${recipe.title}'/><br>
     내용: <textarea name='content'>${recipe.content}</textarea><br>
     작성자: ${recipe.writer.nick}<br>
@@ -33,10 +33,10 @@
       수정일: ${recipe.modifiedDate}<br>
     </c:if>
     조회수: ${recipe.hits}<br>
-    추천수: ${recipe.recommendCount} 
+   추천수: <p id = 'recommendCount'>${recipe.recommendCount}</p>
             <c:if test = '${sessionScope.loginUser != null 
             and sessionScope.loginUser != recipe.writer}'>
-            <button type = 'button' id = 'recommendCount'>추천</button></c:if><br>
+            <button type = 'button' id ='recommendCountBtn'>추천</button></c:if><br>
     난이도: <c:forEach items='${levels}' var='l'>
       <input type='radio' name='levelNo' value='${l.levelNo}' 
       <c:if test="${recipe.levelNo == l.levelNo}">checked</c:if>
@@ -77,7 +77,6 @@
     </p>
     <button><a href='list'>레시피 목록 보기</a></button><br>
 
-
     <p>
     <h3>댓글</h3>
     댓글: <input type='text' name='comment'>
@@ -102,7 +101,34 @@
       </tbody>
     </table>
   </form>
+ 
+ <script>
+  $(function(){
+	   $("#recommendCountBtn").on("click",function(){
+		    var userNo = $("#userNo").val();
+	      var recipeNo = $("#recipeNo").val();
+	      console.log(userNo);
+	      console.log(recipeNo);
+	      $.ajax({
+	    	   url:"updateRecommendCount",
+	    	   type:"post",
+	    	   data: {recipeNo: recipeNo},
+           success: function(data) {
+	             if (data == 'ok') {
+	            	 var count = ${recipe.recommendCount};
+	            	 $("#recommendCount").text("추천수: ");
+	               $("#recommendCount").text(count + 1);
+	               
+	             }
+	             console.log("정보 가져오기 성공");
+           },
+           error: function(){
+        	    console.log("정보를 가져오기 실패");
+           }
+	      });
+	   });
+  });
+ </script> 
 </body>
-
 </html>
 </form>
