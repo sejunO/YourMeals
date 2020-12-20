@@ -12,7 +12,7 @@
 	<form action='update' method='post'>
 
     <input type='hidden' name='userNo' value='${user.userNo}'>
-		비밀번호: <input type='text' name='password'><br>
+		비밀번호: <input type='password' name='password'><br>
 		<br>
 		<p>
 		<button>변경</button>
