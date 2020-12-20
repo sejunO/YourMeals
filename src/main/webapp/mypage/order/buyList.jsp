@@ -24,7 +24,7 @@
 		 	</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${list}" var="o">
+		<c:forEach items="${buyList}" var="o">
 			<tr>
 				<td>${o.orderDate}</td>
 				<td>${o.orderNo}</td>

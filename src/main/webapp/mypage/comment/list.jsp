@@ -15,7 +15,7 @@
 </thead>
 
 <tbody>
-<c:forEach items="${list}" var="c">
+<c:forEach items="${commentList}" var="c">
 <tr>
 	<td>${c.content}</td>
 	<td>${c.createdDate}</td>
