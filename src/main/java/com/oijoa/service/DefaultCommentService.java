@@ -38,4 +38,11 @@ public class DefaultCommentService implements CommentService {
   public List<Comment> userNoList(int userNo) throws Exception {
     return commentDao.findByUserNo(userNo);
   }
+  
+  @Override
+	public Comment get(int no) throws Exception {
+	  return commentDao.findByNo(no);
+	}
+
+
 }
