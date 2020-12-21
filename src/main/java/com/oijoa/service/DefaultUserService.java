@@ -42,4 +42,9 @@ public class DefaultUserService implements UserService {
     map.put("password", password);
     return userDao.findByEmailPassword(map);
   }
+
+  @Override
+  public int add(User user) throws Exception {
+    return userDao.insert(user);
+  }
 }
