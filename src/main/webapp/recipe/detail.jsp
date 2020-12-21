@@ -137,7 +137,6 @@
         </p>
       </tbody>
     </table>
-  </form>
  
  <script>
   $(function(){
@@ -166,6 +165,6 @@
 	   });
   });
  </script> 
+  </form>
 </body>
 </html>
-</form>
