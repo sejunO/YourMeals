@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title>Login</title>
         <link rel="stylesheet" href="../node_modules/jquery-ui-dist/jquery-ui.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <!--      <link rel="stylesheet" href="../css/bootstrap.min.css"> 
     <link rel="stylesheet" href="../css/bootstrap-theme.min.css">--> 
-    <link href="../css/signin.css" rel="stylesheet">
+    <link href="../test/css/signin.css" rel="stylesheet">
 </head>
+
 <body>
 <%
 String email = "";
