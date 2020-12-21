@@ -2,6 +2,7 @@ package com.oijoa.web;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -76,5 +77,20 @@ public class UserController {
     mv.addObject("followinglist", followinglist);
     mv.setViewName("/user/info.jsp");
     return mv;
+  }
+  
+  @RequestMapping("delete")
+  public String delete(HttpSession session) throws Exception {
+    User user = userService.get(((User)session.getAttribute("loginUser")).getUserNo());
+
+    if (user == null) {
+      System.out.println("로그인 정보가 존재하지 않습니다.");
+    } else {
+      if (userService.delete(user.getUserNo()) == 0) {
+        throw new Exception("회원 탈퇴를 실패하였습니다.");
+      }
+    }
+    
+    return "redirect:list";
   }
 }
