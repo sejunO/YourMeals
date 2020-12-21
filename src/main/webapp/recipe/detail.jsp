@@ -90,10 +90,12 @@
     
     <br><hr>
     
-  <form>  
+  <form action='addComment' method='post'>  
     <h3>댓글</h3>
+    <input type='hidden' name='recipeNo'value='${recipe.recipeNo}'/>
     댓글: <input type='text' name='comment'/>
     <button>등록</button><br>
+        </form>
     <table border='1'>
       <thead>
         <tr>
@@ -113,7 +115,7 @@
       </tbody>
     </table>
     
-    </form>
+
  <script>
   $(function(){
 	   $("#recommendCountBtn").on("click",function(){
