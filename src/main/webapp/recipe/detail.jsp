@@ -20,13 +20,8 @@
     <p>레시피가 존재하지 않습니다.</p>
   </c:if>
   <form action='update' method='post'>
-<<<<<<< HEAD
-    <input type='hidden' name='recipeNo' value='${recipe.recipeNo}' readonly/><br>
-    <input type='hidden' name='userNo' value='${recipe.writer.userNo}' readonly/><br>
-=======
     <input type='hidden' name='recipeNo' id = 'recipeNo' value='${recipe.recipeNo}' readonly/><br>
     <input type='hidden' name='userNo' id = 'userNo' value='${recipe.writer.userNo}' readonly/><br>
-<<<<<<< HEAD
   <li>제목: <input type='text' name='title' value='${recipe.title}'/></li><br>
     
     <form action='updatePhoto' method='post' enctype='multipart/form-data'>
@@ -40,13 +35,7 @@
      <textarea name='content' rows='10' cols='40'>${recipe.content}</textarea><br>
     <li>작성자: ${recipe.writer.nick}</li><br>
     <li>등록일: ${recipe.createdDate}</li><br>
-=======
->>>>>>> d7ef6d5b650bf3010e8dedf58ee318c13fac9bf7
-    제목: <input type='text' name='title' value='${recipe.title}'/><br>
-    내용: <textarea name='content'>${recipe.content}</textarea><br>
-    작성자: ${recipe.writer.nick}<br>
-    등록일: ${recipe.createdDate}<br>
->>>>>>> 07fd267b06b31a00b1eda9383c766eb4573296c6
+
     <c:if test='${recipe.modifiedDate == null}'>
       <li>수정일: 없음</li><br>
     </c:if>
