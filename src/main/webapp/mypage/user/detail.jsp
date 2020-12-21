@@ -20,6 +20,7 @@
 		세부주소: <input type='text' name='detailAddress' value='${user.detailAddress}'><br>
 		<%--비밀번호: <input type='text' name='password' value='${user.password}' readonly><br> --%>
 		<button type="button" onclick="location.href='detailPassword'">비밀번호변경</button><br>
+		<button type="button" onclick="location.href='deleteMyUser'">회원탈퇴</button><br>
 		<br>
 		<p>
 		<button>변경</button>

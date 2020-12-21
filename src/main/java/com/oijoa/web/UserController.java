@@ -50,32 +50,11 @@ public class UserController {
   }
   
   @RequestMapping("list")
-  public ModelAndView list() throws Exception {
-
-    List<User> list = userService.list();
+  public ModelAndView list(String keyword) throws Exception {
 
     ModelAndView mv = new ModelAndView();
-    mv.addObject("list", list);
+    mv.addObject("list", userService.list(keyword));
     mv.setViewName("/user/list.jsp");
-    return mv;
-  }
-
-  @RequestMapping("info")
-  public ModelAndView info(int userNo) throws Exception {
-
-    User user = userService.get(userNo);
-
-    List<Recipe> recipeList = recipeService.userNoList(userNo);
-    List<Follow> followerList = followService.FollowerList(userNo);
-    List<Follow> followinglist = followService.FollowingList(userNo);
-
-    ModelAndView mv = new ModelAndView();
-
-    mv.addObject("userNick", user.getNick());
-    mv.addObject("recipeList", recipeList);
-    mv.addObject("followerList", followerList);
-    mv.addObject("followinglist", followinglist);
-    mv.setViewName("/user/info.jsp");
     return mv;
   }
   
@@ -92,5 +71,24 @@ public class UserController {
     }
     
     return "redirect:list";
+  }
+  
+  @RequestMapping("info")
+  public ModelAndView info(int userNo) throws Exception {
+    
+    User user = userService.get(userNo);
+    
+    List<Recipe> recipeList = recipeService.userNoList(userNo);
+    List<Follow> followerList = followService.FollowerList(userNo);
+    List<Follow> followinglist = followService.FollowingList(userNo);
+    
+    ModelAndView mv = new ModelAndView();
+    
+    mv.addObject("userNick", user.getNick());
+    mv.addObject("recipeList", recipeList);
+    mv.addObject("followerList", followerList);
+    mv.addObject("followinglist", followinglist);
+    mv.setViewName("/user/info.jsp");
+    return mv;
   }
 }

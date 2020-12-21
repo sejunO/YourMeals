@@ -6,6 +6,8 @@ import com.oijoa.domain.User;
 public interface UserService {
 
   List<User> list() throws Exception;
+  
+  List<User> list(String keyword) throws Exception;
 
   int update(User user) throws Exception;
 
