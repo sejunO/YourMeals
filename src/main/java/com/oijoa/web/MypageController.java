@@ -27,6 +27,7 @@ public class MypageController {
     User loginUser = (User) session.getAttribute("loginUser");
     ModelAndView mv = new ModelAndView();
 
+
     List<Follow> followerList = followService.FollowerList(loginUser.getUserNo());
     List<Follow> followingList = followService.FollowingList(loginUser.getUserNo());
     List<Qna> qnaList = qnaService.list();
