@@ -146,6 +146,7 @@ public class RecipeController {
     recipe.setCategory(category);
     recipe.setWriter(writer);
     recipeService.updateCategory(recipe);
+
     if (recipeService.update(recipe) == 0) {
       throw new Exception("레시피가 존재하지 않습니다.");
     }
@@ -195,7 +196,7 @@ public class RecipeController {
     // WebDataBinder에 프로퍼티 에디터 등록하기
     binder.registerCustomEditor(java.util.Date.class, // String을 Date 타입으로 바꾸는 에디터임을 지정한다.
         propEditor // 바꿔주는 일을 하는 프로퍼티 에디터를 등록한다.
-    );
+        );
   }
 
   class DatePropertyEditor extends PropertyEditorSupport {
@@ -215,20 +216,20 @@ public class RecipeController {
   private void generatePhotoThumbnail(String saveFilePath) {
     try {
       Thumbnails.of(saveFilePath).size(30, 30).outputFormat("jpg").crop(Positions.CENTER)
-          .toFiles(new Rename() {
-            @Override
-            public String apply(String name, ThumbnailParameter param) {
-              return name + "_30x30";
-            }
-          });
+      .toFiles(new Rename() {
+        @Override
+        public String apply(String name, ThumbnailParameter param) {
+          return name + "_30x30";
+        }
+      });
 
       Thumbnails.of(saveFilePath).size(120, 120).outputFormat("jpg").crop(Positions.CENTER)
-          .toFiles(new Rename() {
-            @Override
-            public String apply(String name, ThumbnailParameter param) {
-              return name + "_120x120";
-            }
-          });
+      .toFiles(new Rename() {
+        @Override
+        public String apply(String name, ThumbnailParameter param) {
+          return name + "_120x120";
+        }
+      });
     } catch (Exception e) {
       e.printStackTrace();
     }

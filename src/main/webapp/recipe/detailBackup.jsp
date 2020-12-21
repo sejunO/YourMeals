@@ -15,7 +15,6 @@
 
 <body>
 
-
   <h1>레시피</h1>
 
   <c:if test='${recipe == null}'>
@@ -72,44 +71,15 @@
       </tbody>
     </table>
 
-    
-    <table border='2'>
-     <thead>
-        <tr>
-          <th>순서</th>
-          <th>사진</th>
-          <th>내용</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-      <tr>
-      <td>
-        <select name='step'>
-			  <option value='1'>STEP 1</option>
-			  <option value='2'>STEP 2</option>
-			  <option value='3'>STEP 3</option>
-			  <option value='4'>STEP 4</option>
-			  <option value='5'>STEP 5</option>
-		    </select>
-		  </td>
-		  <td><input type='file' name = 'step_photo' enctype='multipart/form-data'/></td>
-    </tr>
-    </tbody>
-    </table><br>
-
     <p>
       <button>변경</button>
-      <button><a href='delete?recipeNo=${recipe.recipeNo}'>삭제</a></button><br>
+      <button><a href='delete?recipeNo=${recipe.recipeNo}'>삭제 </a></button><br>
     </p>
     <button><a href='list'>레시피 목록 보기</a></button><br>
-  </form>
-    
-    <br><hr>
-    
-  <form>  
+
+    <p>
     <h3>댓글</h3>
-    댓글: <input type='text' name='comment'/>
+    댓글: <input type='text' name='comment'>
     <button>등록</button><br>
     <table border='1'>
       <thead>
@@ -127,38 +97,40 @@
             <td>${cm.content}</td>
           </tr>
         </c:forEach>
+        </p>
       </tbody>
     </table>
-    
-    </form>
- <script>
-  $(function(){
-	   $("#recommendCountBtn").on("click",function(){
-		    var userNo = $("#userNo").val();
-	      var recipeNo = $("#recipeNo").val();
-	      console.log(userNo);
-	      console.log(recipeNo);
-	      $.ajax({
-	    	   url:"updateRecommendCount",
-	    	   type:"post",
-	    	   data: {recipeNo: recipeNo},
-           success: function(data) {
-	             if (data == 'ok') {
-	            	 var count = ${recipe.recommendCount};
-	            	 $("#recommendCount").text("추천수: ");
-	               $("#recommendCount").text(count + 1);
-	               
-	             }
-	             console.log("정보 가져오기 성공");
+  </form>
+
+  <script>
+    $(function () {
+      $("#recommendCountBtn").on("click", function () {
+        var userNo = $("#userNo").val();
+        var recipeNo = $("#recipeNo").val();
+        console.log(userNo);
+        console.log(recipeNo);
+        $.ajax({
+          url: "updateRecommendCount",
+          type: "post",
+          data: { recipeNo: recipeNo },
+          success: function (data) {
+            if (data == 'ok') {
+              var count = ${ recipe.recommendCount
+        };
+        $("#recommendCount").text("추천수: ");
+        $("#recommendCount").text(count + 1);
+
+      }
+               console.log("정보 가져오기 성공");
     },
       error: function () {
         console.log("정보를 가져오기 실패");
       }
-	      });
-	   });
+        });
+     });
   });
- </script> 
-
+  </script>
 </body>
 
 </html>
+</form>

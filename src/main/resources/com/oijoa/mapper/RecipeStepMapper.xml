@@ -36,6 +36,16 @@
     where r.rno = #{recipeNo}
   </select>
   
+  <update id="updateRecipeStep" parameterType="int">
+    update oi_recipe_step 
+    <set>
+      <if test="step != null">step = #{step}</if>
+      <if test="content != null">content = #{content}</if>
+      <if test="step_photo != null">photo = #{photo}</if>
+    </set>
+    where rno = #{recipeNo}
+  </update>
+  
   <delete id="deleteByRecipeNo" parameterType="int">
     delete from oi_recipe_step
     where rno=#{recipeNo}
