@@ -111,6 +111,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->    
+    <a href="app/user/form">회원가입</a><br>
     <a href="app/auth/login">로그인</a><br>
     <a href="app/auth/logout">로그아웃</a><br>
     <a href="recipe/list">레시피 목록</a><br>

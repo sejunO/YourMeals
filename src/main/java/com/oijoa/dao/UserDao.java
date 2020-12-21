@@ -15,6 +15,5 @@ public interface UserDao {
 
   int delete(int no) throws Exception;
 
-
-
+  int insert(User user) throws Exception;
 }

@@ -1,6 +1,7 @@
 package com.oijoa.web;
 
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,31 @@ public class UserController {
   @Autowired
   FollowService followService;
 
+  @RequestMapping("form")
+  public ModelAndView joinForm() throws Exception {
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("/user/form.jsp");
+    return mv;
+  }
+  
+  @RequestMapping("join")
+  public String join(
+      String name,
+      String nick,
+      String email,
+      String password) throws Exception {
+
+    User user = new User();
+    user.setName(name);
+    user.setNick(nick);
+    user.setEmail(email);
+    user.setPassword(password);
+
+    userService.add(user);
+    
+    return "redirect:list";
+  }
+  
   @RequestMapping("list")
   public ModelAndView list() throws Exception {
 
