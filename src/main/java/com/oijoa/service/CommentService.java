@@ -8,5 +8,7 @@ public interface CommentService {
   List<Comment> list() throws Exception;
   List<Comment> list(int recipeNo) throws Exception;
   List<Comment> userNoList(int userNo) throws Exception;
+  Comment get(int no) throws Exception;
+  //int update(int no) throws Exception;
   int deleteByRecipeNo(int recipeNo) throws Exception;
 }

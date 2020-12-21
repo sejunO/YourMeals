@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Category;
+import com.oijoa.domain.Comment;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.CategoryService;
@@ -86,6 +87,18 @@ public class RecipeController {
 
   }
 
+  @RequestMapping("addComment")
+  public String add(int crecipeNo, int userNo, String comment_content) throws Exception {
+    Recipe recipe = recipeService.get(crecipeNo);
+    User user = userService.get(userNo);
+    Comment comment = new Comment();
+    comment.setRecipeNo(recipe.getRecipeNo());
+    comment.setWriter(user);
+    comment.setContent(comment_content);
+    commentService.add(comment);
+    return "redirect:detail";
+  }
+
   @RequestMapping("list")
   public ModelAndView list(String keyword, String keywordTitle, String keywordWriter,
       String keywordCategory) throws Exception {
@@ -130,6 +143,7 @@ public class RecipeController {
 
   }
 
+
   @ResponseBody
   @RequestMapping("updateRecommendCount")
   public String updateRecommendCount(int recipeNo) throws Exception {
@@ -173,7 +187,7 @@ public class RecipeController {
       throw new Exception("사진을 선택하지 않았습니다.");
     }
     recipeService.update(recipe);
-    return "redirect:detail?no=" + recipe.getRecipeNo();
+    return "redirect:detail?recipeNo=" + recipe.getRecipeNo();
   }
 
   @RequestMapping("delete")

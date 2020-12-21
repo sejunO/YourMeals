@@ -2,6 +2,7 @@ package com.oijoa.web;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,27 +50,40 @@ public class UserController {
   }
   
   @RequestMapping("list")
-  public ModelAndView list() throws Exception {
-
-    List<User> list = userService.list();
+  public ModelAndView list(String keyword) throws Exception {
 
     ModelAndView mv = new ModelAndView();
-    mv.addObject("list", list);
+    mv.addObject("list", userService.list(keyword));
     mv.setViewName("/user/list.jsp");
     return mv;
   }
+  
+  @RequestMapping("delete")
+  public String delete(HttpSession session) throws Exception {
+    User user = userService.get(((User)session.getAttribute("loginUser")).getUserNo());
 
+    if (user == null) {
+      System.out.println("로그인 정보가 존재하지 않습니다.");
+    } else {
+      if (userService.delete(user.getUserNo()) == 0) {
+        throw new Exception("회원 탈퇴를 실패하였습니다.");
+      }
+    }
+    
+    return "redirect:list";
+  }
+  
   @RequestMapping("info")
   public ModelAndView info(int userNo) throws Exception {
-
+    
     User user = userService.get(userNo);
-
+    
     List<Recipe> recipeList = recipeService.userNoList(userNo);
     List<Follow> followerList = followService.FollowerList(userNo);
     List<Follow> followinglist = followService.FollowingList(userNo);
-
+    
     ModelAndView mv = new ModelAndView();
-
+    
     mv.addObject("userNick", user.getNick());
     mv.addObject("recipeList", recipeList);
     mv.addObject("followerList", followerList);

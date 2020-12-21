@@ -28,6 +28,12 @@
 </c:forEach>
 </tbody>
 </table>
+
+<form action='list' method='get'>
+검색어: <input type='text' name='keyword' value=''>
+<button>검색</button>
+</form>
+
 <hr>
 
 <a href=../../index.html>뒤로가기</a><br>

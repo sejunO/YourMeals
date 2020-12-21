@@ -8,5 +8,7 @@ public interface CommentDao {
   List<Comment> findAll(String keyword) throws Exception;
   List<Comment> findByUserNo(int userNo) throws Exception; // 로그인 넘버 조건으로 조회
   List<Comment> findByRecipeNo(int recipeNo) throws Exception;
+  Comment findByNo(int no) throws Exception;
+  Comment update(int no) throws Exception;
   int deleteByRecipeNo(int recipeNo) throws Exception;
 }

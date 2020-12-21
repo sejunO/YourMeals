@@ -34,6 +34,12 @@
       photo
     from 
       oi_user
+    <if test="keyword != null">
+    <bind name="pattern" value="'%' + _parameter + '%'" />
+    where 
+      name like #{pattern}
+      or nick like #{pattern}
+    </if>
     order by
       uno desc
   </select>
@@ -42,13 +48,16 @@
   <select id = "findByNo" resultMap ="UserMap" parameterType="int">
     select
       uno,
+      utype, 
+      point, 
       name,
-      nick,
+      nick, 
       email,
       password,
       postno,
       addr,
-      det_addr
+      det_addr,
+      photo
     from
       oi_user
     where

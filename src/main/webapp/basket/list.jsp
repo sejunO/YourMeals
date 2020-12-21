@@ -31,6 +31,7 @@
 
 					<c:forEach items="${basketList}" var="b">
 						<tr>
+						<td>${b.product.title}</td>
 							<td>${b.product.content}</td>
 							<td>${b.amount}</td>
 							<td>${b.product.price}</td>

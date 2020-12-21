@@ -21,6 +21,7 @@
     
     <association property="orderProduct" javaType="product">
       <id column="product_no"          property="productNo"/>
+      <result column="product_title"    property="title"/>
       <result column="product_content"    property="content"/>
       <result column="product_photo"	property="photo"/>
       
@@ -43,6 +44,7 @@
   		ol.olno,
   		ol.pno,
   		p.pno product_no,
+      p.title product_title,
   		p.content product_content,
   		ol.amount,
   		ol.discount,
@@ -62,7 +64,8 @@
     select 
       ol.olno,
       ol.pno,
-      p.pno product_no, 
+      p.pno product_no,
+      p.title product_title,
       p.content product_content,
       o.odno order_no,
       o.uno user_no,
@@ -88,6 +91,7 @@
   		u.uno user_no,
   		u.name user_name,
   		p.pno product_no,
+      p.title product_title,
   		p.content product_content,
   		b.amount,
   		p.discount,

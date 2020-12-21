@@ -28,7 +28,9 @@
         <result column="writer_name"  property="name"/>
       </association>
       <association property="product" javaType="product">
-        <id column="product_content"   property ="content"/>
+      <id column="ol_product_no"            property="productNo"/>
+      <result column="product_title"   property ="title"/>
+        <result column="product_content"   property ="content"/>
       </association>
     </association>
     
@@ -36,7 +38,8 @@
       <id column="baskets_no"          property="basketNo"/>
       <result column="baskets_prno"    property="productNo"/>
       <association property="product" javaType="product">
-      <id column="p_no"     property="productNo"/>
+      <id column="pno"     property="productNo"/>
+      <result column="product_title"   property="title"/>
       <result column="product_content"    property="content"/>
       </association>
     </collection>
@@ -48,6 +51,7 @@
       <result column="orderLists_price"     property="price"/>
       <association property="orderProduct"  javaType="product">
         <id column="ol_product_no"            property="productNo"/>
+        <result column="ol_product_title"   property="title"/>
         <result column="ol_product_content"   property="content"/>
         <result column="ol_product_photo"	property="photo"/>
       </association>
@@ -97,6 +101,7 @@
       o.odt,
       o.odno,
       p.photo ol_product_photo,
+      p.title ol_product_title,
       p.content ol_product_content,
       ol.amount orderLists_amnt,
       ol.price orderLists_price,
@@ -120,6 +125,7 @@
       o.odno,
       o.odt,
       p.photo ol_product_photo,
+      p.title ol_product_title,
       p.content ol_product_content,
       ol.amount orderLists_amnt,
       ol.price orderLists_price,
