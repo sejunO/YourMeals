@@ -21,7 +21,16 @@
   <c:if test='${recipe == null}'>
     <p>레시피가 존재하지 않습니다.</p>
   </c:if>
+  
   <form action='update' method='post'>
+
+    <form action='updatePhoto' method='post' enctype='multipart/form-data'>
+		<input type='hidden' name='recipeNo' value='${reicpeNo}'><br>
+		<a href='../../upload/${reipce.photo}'>
+		<img src='../../upload/${recipe.photo}_120x120.jpg'></a><br>
+		<li><input type='file' name='photoFile'></li>
+		</form>
+
     <input type='hidden' name='recipeNo' id='recipeNo' value='${recipe.recipeNo}' readonly /><br>
     <input type='hidden' name='userNo' id='userNo' value='${recipe.writer.userNo}' readonly /><br>
     제목: <input type='text' name='title' value='${recipe.title}' /><br>
@@ -52,7 +61,7 @@
 
 
     <h3>조리순서</h3>
-    <table border='1'>
+    <table border='2'>
       <thead>
         <tr>
           <th>순서</th>
@@ -71,33 +80,7 @@
         </c:forEach>
       </tbody>
     </table>
-
     
-    <table border='2'>
-     <thead>
-        <tr>
-          <th>순서</th>
-          <th>사진</th>
-          <th>내용</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-      <tr>
-      <td>
-        <select name='step'>
-			  <option value='1'>STEP 1</option>
-			  <option value='2'>STEP 2</option>
-			  <option value='3'>STEP 3</option>
-			  <option value='4'>STEP 4</option>
-			  <option value='5'>STEP 5</option>
-		    </select>
-		  </td>
-		  <td><input type='file' name = 'step_photo' enctype='multipart/form-data'/></td>
-    </tr>
-    </tbody>
-    </table><br>
-
     <p>
       <button>변경</button>
       <button><a href='delete?recipeNo=${recipe.recipeNo}'>삭제</a></button><br>
