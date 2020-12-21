@@ -47,6 +47,21 @@
       c.cdt desc  
   </select>
   
+   <select id="findByNo" resultMap="CommentMap" parameterType="int">
+    select
+      u.nick writer_nick,
+      c.content,
+      c.cdt,
+      c.mdt
+    from 
+      oi_comment c
+      inner join oi_user u on c.uno = u.uno
+    where 
+      c.rno = #{recipeNo}
+    order by
+      c.cdt desc  
+  </select>
+  
   <select id="findByUserNo" resultMap="CommentMap" parameterType="int">
 	select
 	  content,
@@ -56,11 +71,22 @@
    	where
    	  uno = #{writer.userNo}
   </select>
+ 
   
   <insert id="insert" parameterType="comment">
     insert into oi_comment(uno,rno,content) 
     values(#{writer.userNo}, #{recipeNo}, #{content})
   </insert>
+  
+  <update id="update" parameterType="comment">
+    update oi_comment 
+    <set>
+      <if test="comment_content != null">content = #{content},</if>
+       <if test="user.nick != null">writer_nick = #{user.nick},</if>
+       mdt=now()
+    </set>
+    where rno = #{recipeNo}
+  </update>
   
    <delete id="deleteByRecipeNo" parameterType="int">
     delete from oi_comment
