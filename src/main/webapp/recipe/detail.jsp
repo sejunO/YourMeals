@@ -22,15 +22,15 @@
     <p>레시피가 존재하지 않습니다.</p>
   </c:if>
   
-  <form action='update' method='post'>
-
+<!-- 
     <form action='updatePhoto' method='post' enctype='multipart/form-data'>
-		<input type='hidden' name='recipeNo' value='${reicpeNo}'><br>
+		<input type='hidden' name='recipeNo' value='${reicpe.reicpeNo}'><br>
 		<a href='../../upload/${reipce.photo}'>
 		<img src='../../upload/${recipe.photo}_120x120.jpg'></a><br>
 		<li><input type='file' name='photoFile'></li>
 		</form>
-
+ -->
+  <form action='update' method='post'>
     <input type='hidden' name='recipeNo' id='recipeNo' value='${recipe.recipeNo}' readonly /><br>
     <input type='hidden' name='userNo' id='userNo' value='${recipe.writer.userNo}' readonly /><br>
     제목: <input type='text' name='title' value='${recipe.title}' /><br>
@@ -83,20 +83,24 @@
     
     <p>
       <button>변경</button>
-      <button><a href='delete?recipeNo=${recipe.recipeNo}'>삭제</a></button><br>
+      <a href='delete?recipeNo=${recipe.recipeNo}'>삭제</a><br>
     </p>
-    <button><a href='list'>레시피 목록 보기</a></button><br>
+    <a href='list'>레시피 목록 보기</a><br>
   </form>
     
     <br><hr>
     
+
   <form action='addComment' method='post'>  
     <h3>댓글</h3>
-    <input type='hidden' name='recipeNo'value='${recipe.recipeNo}'/>
-    댓글: <input type='text' name='comment'/>
+    <input type='hidden' name='crecipeNo' value='${recipe.recipeNo}'><br>
+    <input type='hidden' name='userNo' value='${loginUser.userNo}'><br>
+    댓글: <input type='text' name='comment_content'>
     <button>등록</button><br>
-        </form>
-    <table border='1'>
+     </form><br>
+     
+     
+    <table border='2'>
       <thead>
         <tr>
           <th>날짜</th>
@@ -113,9 +117,9 @@
           </tr>
         </c:forEach>
       </tbody>
-    </table>
-    
+    </table>  
 
+    
  <script>
   $(function(){
 	   $("#recommendCountBtn").on("click",function(){
