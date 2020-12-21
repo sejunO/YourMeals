@@ -106,10 +106,9 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	letter-spacing: 1px;
 }
 #menu.navbar-default .navbar-nav > li > a {
-	text-transform: uppercase;
 	color: #ddd;
-	font-weight: 500;
-	font-size: 15px;
+	font-weight: 750;
+	font-size: 16px;
 	padding: 5px 0;
 	border: 2px solid transparent;
 	letter-spacing: 0.5px;
@@ -151,6 +150,13 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 .section-title hr {
 	margin: 0 auto;
 	margin-bottom: 40px;
+}
+.btn-mine {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 800;
+	margin-top: 10px;
+	border: 0;
 }
 .btn-custom {
 	text-transform: uppercase;

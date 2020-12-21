@@ -44,7 +44,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand page-scroll" href="#page-top">TouchÃ©</a> </div>
+      <a class="navbar-brand page-scroll" href="#page-top">YourMeals</a> </div>
     
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -54,6 +54,8 @@
         <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
         <li><a href="#team" class="page-scroll">Chefs</a></li>
         <li><a href="#call-reservation" class="page-scroll">Contact</a></li>
+        <li><a href="./auth/login.jsp">Login</a></li>
+        <li><a href="./user/form.jsp">Sign up</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -67,7 +69,6 @@
         <div class="row">
           <div class="intro-text">
             <h1>YourMeals</h1>
-            <p>Restaurant / Coffee / Pub</p>
             <a href="#about" class="btn btn-custom btn-lg page-scroll">Discover Story</a> </div>
         </div>
       </div>
@@ -433,6 +434,11 @@
     </div>
   </div>
 </div>
+
+<div id="signup" class="text-center">
+
+
+
 <div id="footer">
   <div class="container text-center">
     <div class="col-md-4">
