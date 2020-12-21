@@ -7,8 +7,9 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
   <title>레시피 보기</title>
 </head>
 
@@ -20,14 +21,9 @@
     <p>레시피가 존재하지 않습니다.</p>
   </c:if>
   <form action='update' method='post'>
-<<<<<<< HEAD
-    <input type='hidden' name='recipeNo' value='${recipe.recipeNo}' readonly/><br>
-    <input type='hidden' name='userNo' value='${recipe.writer.userNo}' readonly/><br>
-=======
-    <input type='hidden' name='recipeNo' id = 'recipeNo' value='${recipe.recipeNo}' readonly/><br>
-    <input type='hidden' name='userNo' id = 'userNo' value='${recipe.writer.userNo}' readonly/><br>
->>>>>>> d7ef6d5b650bf3010e8dedf58ee318c13fac9bf7
-    제목: <input type='text' name='title' value='${recipe.title}'/><br>
+    <input type='hidden' name='recipeNo' id='recipeNo' value='${recipe.recipeNo}' readonly /><br>
+    <input type='hidden' name='userNo' id='userNo' value='${recipe.writer.userNo}' readonly /><br>
+    제목: <input type='text' name='title' value='${recipe.title}' /><br>
     내용: <textarea name='content'>${recipe.content}</textarea><br>
     작성자: ${recipe.writer.nick}<br>
     등록일: ${recipe.createdDate}<br>
@@ -38,19 +34,18 @@
       수정일: ${recipe.modifiedDate}<br>
     </c:if>
     조회수: ${recipe.hits}<br>
-   추천수: <p id = 'recommendCount'>${recipe.recommendCount}</p>
-            <c:if test = '${sessionScope.loginUser != null 
+    추천수: <p id='recommendCount'>${recipe.recommendCount}</p>
+    <c:if test='${sessionScope.loginUser != null 
             and sessionScope.loginUser != recipe.writer}'>
-            <button type = 'button' id ='recommendCountBtn'>추천</button></c:if><br>
+      <button type='button' id='recommendCountBtn'>추천</button></c:if><br>
     난이도: <c:forEach items='${levels}' var='l'>
-      <input type='radio' name='levelNo' value='${l.levelNo}' 
-      <c:if test="${recipe.levelNo == l.levelNo}">checked</c:if>
+      <input type='radio' name='levelNo' value='${l.levelNo}' <c:if test="${recipe.levelNo == l.levelNo}">checked</c:if>
       /> ${l.level}
     </c:forEach><br>
-    조리시간: <input type='text' name='min' value='${recipe.min}'/>분<br>
+    조리시간: <input type='text' name='min' value='${recipe.min}' />분<br>
     카테고리: <c:forEach items='${categorys}' var='c'>
-      <input type='radio' name='categoryNo' value='${c.categoryNo}' 
-      <c:if test="${recipe.category.categoryName == c.categoryName}">checked</c:if>
+      <input type='radio' name='categoryNo' value='${c.categoryNo}' <c:if
+        test="${recipe.category.categoryName == c.categoryName}">checked</c:if>
       /> ${c.categoryName}
     </c:forEach><br>
 
@@ -106,34 +101,36 @@
       </tbody>
     </table>
   </form>
- 
- <script>
-  $(function(){
-	   $("#recommendCountBtn").on("click",function(){
-		    var userNo = $("#userNo").val();
-	      var recipeNo = $("#recipeNo").val();
-	      console.log(userNo);
-	      console.log(recipeNo);
-	      $.ajax({
-	    	   url:"updateRecommendCount",
-	    	   type:"post",
-	    	   data: {recipeNo: recipeNo},
-           success: function(data) {
-	             if (data == 'ok') {
-	            	 var count = ${recipe.recommendCount};
-	            	 $("#recommendCount").text("추천수: ");
-	               $("#recommendCount").text(count + 1);
-	               
-	             }
+
+  <script>
+    $(function () {
+      $("#recommendCountBtn").on("click", function () {
+        var userNo = $("#userNo").val();
+        var recipeNo = $("#recipeNo").val();
+        console.log(userNo);
+        console.log(recipeNo);
+        $.ajax({
+          url: "updateRecommendCount",
+          type: "post",
+          data: { recipeNo: recipeNo },
+          success: function (data) {
+            if (data == 'ok') {
+              var count = ${ recipe.recommendCount
+        };
+        $("#recommendCount").text("추천수: ");
+        $("#recommendCount").text(count + 1);
+
+      }
 	             console.log("정보 가져오기 성공");
-           },
-           error: function(){
-        	    console.log("정보를 가져오기 실패");
-           }
+    },
+      error: function () {
+        console.log("정보를 가져오기 실패");
+      }
 	      });
 	   });
   });
- </script> 
+  </script>
 </body>
+
 </html>
 </form>
