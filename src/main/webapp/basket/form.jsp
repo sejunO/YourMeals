@@ -16,7 +16,7 @@
 	수량 : <input type='int' name='amount'><br>
 	<ul>
 		<c:forEach items="${products}" var ="p">
-		<li><input type='radio' name='productNo' value="${p.productNo}">${p.content}</li>
+		<li><input type='radio' name='productNo' value="${p.productNo}">${p.title}</li>
 		</c:forEach>
 	</ul>
 	<button>생성</button>

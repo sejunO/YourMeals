@@ -7,40 +7,23 @@
   
   <resultMap type="product" id="ProductMap">
     <id column="pno"           property="productNo"/>
+    <result column="title"  property="title"/>
     <result column="stock"  property="stock"/>
     <result column="price"      property="price"/>
     <result column="discount"   property="discount"/>
     <result column="content"   property="content"/>
-    
-    <association property="material" javaType="material">
-      <id column="material_no" property="materialNo"/>
-      <result column="material_name" property="name"/>
-    </association>
   </resultMap>
 
   <select id="findAll" resultMap="ProductMap" parameterType="string">
     select 
       p.pno,
-      m.mno material_no,
-      m.name material_name,
-      p.mno,
+      p.title,
       p.stock,
       p.price,
       p.discount,
       p.content
     from 
       oi_product p 
-      inner join oi_material m
-      on p.mno=m.mno
-   <!--  <if test="keyword != null">
-    <bind name="pattern" value="'%' + _parameter + '%'" />
-    where 
-      b.title like #{pattern}
-      or b.content like #{pattern}
-      or m.name like #{pattern} 
-    </if>
-    order by 
-      p.pno desc -->
   </select>
   
 </mapper>

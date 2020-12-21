@@ -2,7 +2,7 @@ package com.oijoa.domain;
 
 public class Product {
   private int productNo;
-  private Material material;
+  private String title;
   private int stock;
   private int price;
   private int discount;
@@ -15,11 +15,12 @@ public class Product {
   public void setProductNo(int productNo) {
     this.productNo = productNo;
   }
-  public Material getMaterial() {
-    return material;
+
+  public String getTitle() {
+    return title;
   }
-  public void setMaterial(Material material) {
-    this.material = material;
+  public void setTitle(String title) {
+    this.title = title;
   }
   public int getStock() {
     return stock;
