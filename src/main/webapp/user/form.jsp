@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>회원가입</h1>
-  <form action="update" method="post">
+  <form action="join" method="post">
     이름:<input type="text" name="name"><br>
     닉네임:<input type="text" name="nick"><br>
     이메일:<input type="email" name="email"><br>
