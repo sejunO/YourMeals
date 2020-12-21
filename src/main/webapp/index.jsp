@@ -114,7 +114,7 @@
     <a href="app/user/form">회원가입</a><br>
     <a href="app/auth/login">로그인</a><br>
     <a href="app/auth/logout">로그아웃</a><br>
-    <a href="recipe/list">레시피 목록</a><br>
+    <a href="app/recipe/list">레시피 목록</a><br>
     <a href="app/user/list">회원 목록</a><br>
     <a href="app/mypage/index">마이페이지</a>
     

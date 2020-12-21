@@ -4,16 +4,18 @@ import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.RecipeService;
 
-@WebServlet("/mypage/myrecipe/list")
+@Controller
+@RequestMapping("/mypage/myrecipe/list")
 public class MyRecipeServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 

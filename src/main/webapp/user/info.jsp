@@ -46,9 +46,9 @@ String userNick = request.getParameter("userNick");
 <tbody>
 <c:forEach items="${followerList}" var="fwer">
 <tr>
-  <td>${fwer.User.userNo}</td>
-  <td>${fwer.User.name}</td>
-  <td>${fwer.User.nick}</td>
+  <td>${fwer.user.userNo}</td>
+  <td>${fwer.user.name}</td>
+  <td>${fwer.user.nick}</td>
 </tr>
 </c:forEach>
 </tbody>
@@ -68,9 +68,9 @@ String userNick = request.getParameter("userNick");
 <tbody>
 <c:forEach items="${followinglist}" var="fwing">
 <tr>
-  <td>${fwing.User.userNo}</td>
-  <td>${fwing.User.name}</td>
-  <td>${fwing.User.nick}</td>
+  <td>${fwing.user.userNo}</td>
+  <td>${fwing.user.name}</td>
+  <td>${fwing.user.nick}</td>
 </tr>
 </c:forEach>
 </tbody>

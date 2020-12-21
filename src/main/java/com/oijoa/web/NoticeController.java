@@ -12,7 +12,7 @@ import com.oijoa.service.NoticeService;
 
 @Controller
 @RequestMapping("/notice")
-public class NoticeServlet {
+public class NoticeController {
 
   @Autowired
   NoticeService noticeService;
