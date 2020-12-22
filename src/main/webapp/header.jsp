@@ -44,7 +44,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="" class="page-scroll">About us</a></li>
+        <li><a href="index2.jsp" class="page-scroll">About</a></li>
         <li><a href="" class="page-scroll">Recipe</a></li>
         <li><a href="" class="page-scroll">My page</a></li>
         <li><a href="" class="page-scroll">My cart</a></li>
