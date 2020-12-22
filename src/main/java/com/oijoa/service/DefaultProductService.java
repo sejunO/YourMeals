@@ -24,6 +24,10 @@ public class DefaultProductService implements ProductService {
     return productDao.findAll(keyword);
   }
 
+  @Override
+  public int add(Product product) {
+    return productDao.insert(product);
+  }
 
 
 }

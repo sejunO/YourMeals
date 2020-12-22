@@ -16,7 +16,8 @@ import com.oijoa.service.UserService;
 @RequestMapping("/auth")
 public class AuthController {
 
-  @Autowired UserService userService;
+  @Autowired
+  UserService userService;
 
   @RequestMapping(value = "login", method = RequestMethod.GET)
   public ModelAndView loginForm(HttpServletRequest request) throws Exception {
@@ -35,16 +36,12 @@ public class AuthController {
 
     ModelAndView mv = new ModelAndView();
     mv.addObject("email", email);
-    mv.setViewName("/auth/form.jsp");
+    mv.setViewName("/auth/form");
     return mv;
   }
 
-  @RequestMapping(value="login", method = RequestMethod.POST)
-  public String login(
-      String email,
-      String password,
-      String saveEmail,
-      HttpServletResponse response,
+  @RequestMapping(value = "login", method = RequestMethod.POST)
+  public String login(String email, String password, String saveEmail, HttpServletResponse response,
       HttpSession session) throws Exception {
 
     Cookie emailCookie = new Cookie("email", email);

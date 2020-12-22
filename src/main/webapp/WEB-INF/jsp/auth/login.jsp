@@ -26,7 +26,7 @@ if (cookies != null) {
   }
 }
 %>
-<jsp:include page="../header.jsp"/>
+<jsp:include page="../../../header.jsp"/>
     <div class="container">
 
       <form class="form-signin" action="login" method="post">
