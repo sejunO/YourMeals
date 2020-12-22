@@ -24,7 +24,7 @@
 		 	</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${buyList}" var="o">
+		<c:forEach items="${orderList}" var="o">
 			<tr>
 				<td>${o.orderDate}</td>
 				<td>${o.orderNo}</td>
@@ -62,9 +62,6 @@
 	</c:forEach>
 	</tbody>
 </table>
-
-<a href=../index.html>뒤로가기</a><br>
-<a href=../../index.html>홈으로</a><br>
 
 </body>
 </html>

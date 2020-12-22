@@ -120,7 +120,7 @@
       and o.stat > 10
   </select>
   
-   <select id="findByUno" resultMap="OrderMap" parameterType="int">
+   <select id="findByOrderListUserNo" resultMap="OrderMap" parameterType="int">
     select 
       o.odno,
       o.odt,
