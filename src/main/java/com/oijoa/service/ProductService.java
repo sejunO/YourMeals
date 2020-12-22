@@ -10,4 +10,6 @@ public interface ProductService {
   List<Product> list() throws Exception;
 
   int add(Product product);
+
+  int get(int no);
 }

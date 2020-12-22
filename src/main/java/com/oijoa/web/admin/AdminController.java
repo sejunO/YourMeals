@@ -1,45 +1,60 @@
-package com.oijoa.web;
+package com.oijoa.web.admin;
 
 import java.io.File;
-import java.util.List;
 import java.util.UUID;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Product;
+import com.oijoa.domain.User;
 import com.oijoa.service.ProductService;
+import com.oijoa.service.UserService;
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 import net.coobird.thumbnailator.name.Rename;
 
 @Controller
-@RequestMapping("/product")
-public class ProductController {
-
+@RequestMapping("/admin")
+public class AdminController {
   @Autowired
   ProductService productService;
 
   @Autowired
   ServletContext servletContext;
+  @Autowired
+  UserService userService;
 
-  @RequestMapping("list")
-  public ModelAndView list(HttpServletRequest request, HttpServletResponse response)
-      throws Exception {
-
-    ModelAndView mv = new ModelAndView();
-    List<Product> list = productService.list(null);
-    mv.addObject("list", list);
-    mv.setViewName("/product/list.jsp");
-    return mv;
+  @GetMapping("index")
+  public void index(Model model) throws Exception {
+    model.addAttribute("userList", userService.list());
   }
 
-  @RequestMapping("add")
+  @GetMapping("userDetail")
+  public String list(int no, HttpSession session) throws Exception {
+    session.setAttribute("thisUser", userService.get(no));
+    return "redirect:index";
+  }
+
+  @PostMapping("userUpdate")
+  public String update(User user, HttpSession session) throws Exception {
+    userService.update(user);
+    session.setAttribute("thisUser", user);
+    return "redirect:index";
+  }
+
+  @RequestMapping("productList")
+  public void list(Model model) throws Exception {
+    model.addAttribute("list", productService.list(null));
+  }
+
+  @RequestMapping("productAdd")
   public String add(String title, String content, int price, int stock, int discount,
       MultipartFile photoFile) throws Exception {
     Product product = new Product();
@@ -59,15 +74,17 @@ public class ProductController {
 
 
     productService.add(product);
-    return "redirect:list";
+    return "redirect:productList";
   }
 
-  @RequestMapping("form")
-  public ModelAndView form() throws Exception {
-    ModelAndView mv = new ModelAndView();
-    mv.setViewName("/product/form.jsp");
-    return mv;
+  @GetMapping("productDetail")
+  public String productDetail(int no, HttpSession session) throws Exception {
+    session.setAttribute("thisProduct", productService.get(no));
+    return "redirect:index";
   }
+
+  @RequestMapping("productForm")
+  public void form() throws Exception {}
 
   private void generatePhotoThumbnail(String saveFilePath) {
     try {

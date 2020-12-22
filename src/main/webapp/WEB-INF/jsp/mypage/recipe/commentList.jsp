@@ -6,7 +6,7 @@
 <html>
 <head><title>MyPage</title></head>
 <body>
-<h1>[내가 작성한 댓글]</h1>
+<h1>[My Comment 목록]</h1>
 <table border='1'>
 <thead>
 <tr>
@@ -23,11 +23,5 @@
 </c:forEach>
 </tbody>
 </table>
-<hr>
-
-<a href=../index.html>뒤로가기</a><br>
-
-<a href=../../index.html>홈으로</a><br>
-
 </body>
 </html>

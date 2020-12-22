@@ -15,12 +15,6 @@
 		<button type="button" onclick="location.href='../../../mypage/index.html'">취소</button>
 	</p>
   <br>
-  
-	<hr>
-	<a href='../../../mypage/index.html'>뒤로가기</a>
-	<br>
-	<a href='../../../index.jsp'>홈으로</a>
-	<br>
 
 </body>
 </html>

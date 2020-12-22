@@ -28,6 +28,21 @@
       oi_product
   </select>
   
+  <select id="findByNo" resultMap="ProductMap" parameterType="int">
+    select 
+      pno,
+      title,
+      stock,
+      price,
+      discount,
+      content,
+      photo
+    from 
+      oi_product
+    where
+    	pno=#{pno}  
+  </select>
+  
   <insert id="insert" parameterType="product">
   insert into oi_product(title,stock,price,discount,content,photo)
   values(#{title}, #{stock}, #{price}, #{discount}, #{content}, #{photo})

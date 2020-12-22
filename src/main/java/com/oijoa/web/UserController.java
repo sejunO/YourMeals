@@ -39,12 +39,12 @@ public class UserController {
 
   @GetMapping("delete")
   public String delete(HttpSession session) throws Exception {
-    User user = userService.get(((User)session.getAttribute("loginUser")).getUserNo());
+    User loginUser = userService.get(((User)session.getAttribute("loginUser")).getUserNo());
 
-    if (user == null) {
+    if (loginUser == null) {
       throw new Exception("로그인 정보가 존재하지 않습니다.");
     }
-    if (userService.delete(user.getUserNo()) == 0) {
+    if (userService.delete(loginUser.getUserNo()) == 0) {
       throw new Exception("회원 탈퇴를 실패하였습니다.");
     }
     return "redirect:.";

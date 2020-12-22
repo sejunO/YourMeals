@@ -4,48 +4,47 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
-        <link rel="stylesheet" href="../node_modules/jquery-ui-dist/jquery-ui.css">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<!--      <link rel="stylesheet" href="../css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">--> 
-    <link rel="stylesheet" href="../css/signin.css">
+<title>로그인</title>
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/test/css/bootstrap.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/test/css/mystyle.css">
 </head>
 
 <body>
-<%
-String email = "";
 
-Cookie[] cookies = request.getCookies();
-if (cookies != null) {
-  for (Cookie cookie : cookies) {
-    if (cookie.getName().equals("email")) {
-      email = cookie.getValue();
-      break;
-    }
-  }
-}
-%>
-<jsp:include page="../../../header.jsp"/>
-    <div class="container">
-
-      <form class="form-signin" action="login" method="post">
-        <h2 class="form-signin-heading">로그인</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" value="${email}" id="inputEmail" name="email" class="form-control" placeholder="Email address"  autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password"class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="saveEmail" checked> Remember me
-          </label>
+<div id="login">
+		<div class="back">
+			<div class="main">
+			<form class="form-signin" action="login" method="post">
+				<div class="log">
+        			<span class="box"><h7>로그인</h7></span>
+        				<a class="findpassword" href="">비밀번호를 잊어버리셨나요?</a>
+        		</div>
+	        <label for="inputEmail" class="sr-only">이메일</label>
+	        <input type="email" value='${email}' id="inputEmail" name="email" class="form-control" placeholder="이메일(example@gmail.com)"  autofocus>
+	        <label for="inputPassword" class="sr-only">비밀번호</label>
+	        <input type="password" id="inputPassword" name="password"class="form-control" placeholder="비밀번호" required>
+        <div class="check">
+        	<span>
+          		<label>
+           			 <input type="checkbox" name="saveEmail" checked>
+         		</label>
+        	</span>
+        		<span class="email"> 이메일 저장 </span>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
+        <button class="btn" type="submit">로그인</button>
+   	 </form>
+   	 </div>
+   	 </div>
+</div>
 
-    </div> <!-- /container -->
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/main.js"></script>
 
-    <script src="../js/jquery-3.1.1.min.js"></script> 
-    <script src="../js/bootstrap.min.js"></script>
 </body>
-</html>
+</html> 

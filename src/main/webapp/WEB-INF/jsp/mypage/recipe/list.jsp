@@ -18,7 +18,7 @@
 </thead>
 
 <tbody>
-  <c:forEach items="${list}" var="r">
+  <c:forEach items="${recipeList}" var="r">
   <tr>
     <td>${r.recipeNo}</td>
     <td>${r.title}</td>
@@ -27,13 +27,6 @@
   </tr>
   </c:forEach>
 </tbody>
-
 </table>
-<hr>
-
-<a href=../index.html>뒤로가기</a><br>
-
-<a href=../../index.html>홈으로</a><br>
-
 </body>
 </html>
