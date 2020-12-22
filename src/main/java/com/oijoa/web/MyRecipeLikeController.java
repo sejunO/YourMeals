@@ -16,17 +16,17 @@ public class MyRecipeLikeController {
 
   @Autowired
   RecipeService recipeService;
-  
+
   @RequestMapping("likeList")
   public ModelAndView list(HttpSession session) throws Exception {
     ModelAndView mv = new ModelAndView();
-    
+
     User loginUser = (User) session.getAttribute("loginUser");
     List<Recipe> likeList = recipeService.myLikeList(loginUser.getUserNo());
-    
+
     mv.addObject("likeList", likeList);
     mv.setViewName("/mypage/recipe/likeList.jsp");
-    
+
     return mv;
   }
 }

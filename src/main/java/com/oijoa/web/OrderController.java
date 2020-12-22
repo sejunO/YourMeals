@@ -4,6 +4,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Basket;
@@ -57,41 +58,33 @@ public class OrderController {
 
 
   @RequestMapping("success")
-  public ModelAndView success(HttpSession session) throws Exception {
+  public void success(HttpSession session, Model model) throws Exception {
 
     User user = (User) session.getAttribute("loginUser");
     Order order = orderService.lately(user.getUserNo());
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("order", order);
-    mv.addObject("orderList", orderListService.getByOrderNo(order.getOrderNo()));
-    mv.setViewName("/order/success.jsp");
-    return mv;
+    model.addAttribute("order", order);
+    model.addAttribute("orderList", orderListService.getByOrderNo(order.getOrderNo()));
   }
 
   @RequestMapping("form")
-  public ModelAndView form(HttpSession session) throws Exception {
+  public void form(HttpSession session, Model model) throws Exception {
 
     User user = (User) session.getAttribute("loginUser");
     List<Basket> baskets = basketService.myList(user.getUserNo());
     List<Payment> payments = paymentService.list(null);
 
     ModelAndView mv = new ModelAndView();
-    mv.addObject("baskets", baskets);
-    mv.addObject("payments", payments);
-    mv.addObject("user", user);
-    mv.setViewName("/order/form.jsp");
-    return mv;
+    model.addAttribute("baskets", baskets);
+    model.addAttribute("payments", payments);
+    model.addAttribute("user", user);
+
   }
 
   @RequestMapping("list")
-  public ModelAndView list(HttpSession session) throws Exception {
+  public void list(HttpSession session, Model model) throws Exception {
 
     User loginUser = (User) session.getAttribute("loginUser");
     List<OrderList> list = orderListService.myList(loginUser.getUserNo());
-
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("list", list);
-    mv.setViewName("/order/list.jsp");
-    return mv;
+    model.addAttribute("list", list);
   }
 }

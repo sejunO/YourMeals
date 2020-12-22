@@ -21,9 +21,10 @@ public class MyUserController {
 
     if (user == null) {
       System.out.println("로그인 정보가 존재하지 않습니다.");
+    } else {
+      mv.addObject("user", user);
+      mv.setViewName("/mypage/user/detail.jsp");
     }
-    mv.addObject("user", user);
-    mv.setViewName("/mypage/user/detail.jsp");
     return mv;
   }
 
@@ -34,9 +35,10 @@ public class MyUserController {
 
     if (user == null) {
       System.out.println("로그인 정보가 존재하지 않습니다.");
+    } else {
+      mv.addObject("user", user);
+      mv.setViewName("/mypage/user/detailPassword.jsp");
     }
-    mv.addObject("user", user);
-    mv.setViewName("/mypage/user/detailPassword.jsp");
     return mv;
   }
 

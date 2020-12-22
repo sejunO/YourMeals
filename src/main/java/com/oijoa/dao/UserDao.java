@@ -7,7 +7,7 @@ import com.oijoa.domain.User;
 public interface UserDao {
   User findByEmailPassword(HashMap<String, Object> map);
 
-  List<User> findAll() throws Exception;
+  List<User> findAll(String keyword) throws Exception;
 
   User findByNo(int no) throws Exception;
 
