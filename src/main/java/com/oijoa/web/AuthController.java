@@ -41,10 +41,14 @@ public class AuthController {
 
     User user = userService.get(email, password);
     if (user == null) {
-      return "/auth/loginError.jsp";
+      return "redirect:loginError";
     }
     session.setAttribute("loginUser", user);
     return "redirect:../../index.jsp";
+  }
+
+  @GetMapping("loginError")
+  public void loginError() throws Exception {
   }
 
   @GetMapping("logout")
