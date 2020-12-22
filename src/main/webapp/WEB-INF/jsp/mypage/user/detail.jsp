@@ -80,11 +80,5 @@
 		</p>
 	</form>
 	
-	<hr>
-	<a href='../../../mypage/index.html'>뒤로가기</a>
-	<br>
-	<a href='../../../index.jsp'>홈으로</a>
-	<br>
-
 </body>
 </html>
