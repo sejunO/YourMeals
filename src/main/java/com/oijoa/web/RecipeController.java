@@ -90,7 +90,8 @@ public class RecipeController {
   @RequestMapping("addComment")
   public String add(int recipeNo, String comment_content) throws Exception {
 	  Recipe recipe = recipeService.get(recipeNo);
-	  Comment comment = commentService.get(recipeNo);
+	  Comment comment = new Comment();
+	  comment.setRecipeNo(recipeNo);
 	  comment.setWriter(recipe.getWriter());
 	  comment.setContent(comment_content);
 	  commentService.add(comment);

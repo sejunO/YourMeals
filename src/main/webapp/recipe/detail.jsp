@@ -80,7 +80,7 @@
         </c:forEach>
       </tbody>
     </table>
-    
+    <br>
     <p>
       <button>변경</button>
       <a href='delete?recipeNo=${recipe.recipeNo}'>삭제</a><br>
