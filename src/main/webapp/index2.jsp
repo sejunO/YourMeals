@@ -69,7 +69,7 @@
         <div class="row">
           <div class="intro-text">
             <h1>YourMeals</h1>
-            <a href="#about" class="btn btn-custom btn-lg page-scroll">Discover Story</a> </div>
+            <a href="#about" class="btn btn-custom btn-lg page-scroll">소개</a> </div>
         </div>
       </div>
     </div>

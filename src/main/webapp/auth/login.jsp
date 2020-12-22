@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <!--      <link rel="stylesheet" href="../css/bootstrap.min.css"> 
     <link rel="stylesheet" href="../css/bootstrap-theme.min.css">--> 
-    <link href="../test/css/signin.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/signin.css">
 </head>
 
 <body>
@@ -30,7 +30,7 @@ if (cookies != null) {
     <div class="container">
 
       <form class="form-signin" action="login" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">로그인</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" value="<%=email%>" id="inputEmail" name="email" class="form-control" placeholder="Email address"  autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
