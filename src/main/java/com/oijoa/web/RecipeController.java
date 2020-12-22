@@ -88,16 +88,7 @@ public class RecipeController {
   }
 
   @RequestMapping("addComment")
-<<<<<<< HEAD
-  public String add(int recipeNo, String comment_content) throws Exception {
-	  Recipe recipe = recipeService.get(recipeNo);
-	  Comment comment = new Comment();
-	  comment.setRecipeNo(recipeNo);
-	  comment.setWriter(recipe.getWriter());
-	  comment.setContent(comment_content);
-	  commentService.add(comment);
-	  return "redirect:detail";
-=======
+
   public String add(int crecipeNo, int userNo, String comment_content) throws Exception {
     Recipe recipe = recipeService.get(crecipeNo);
     User user = userService.get(userNo);
@@ -107,7 +98,6 @@ public class RecipeController {
     comment.setContent(comment_content);
     commentService.add(comment);
     return "redirect:detail";
->>>>>>> e094fcfaf643ec2b06399a685d46a4b1043b45fe
   }
 
   @RequestMapping("list")
