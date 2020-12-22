@@ -1,80 +1,60 @@
+-- 공지사항
+DROP TABLE IF EXISTS oi_notice RESTRICT;
+-- 레시피재료
+DROP TABLE IF EXISTS oi_recipe_material RESTRICT;
+-- 레시피요리유형
+DROP TABLE IF EXISTS oi_recipe_category RESTRICT;
+-- 팔로잉
+DROP TABLE IF EXISTS oi_follow RESTRICT;
+-- 댓글
+DROP TABLE IF EXISTS oi_comment RESTRICT;
+-- 레시피단계
+DROP TABLE IF EXISTS oi_recipe_step RESTRICT;
+-- 공지사항분류
+DROP TABLE IF EXISTS oi_notice_type RESTRICT;
+-- QNA
+DROP TABLE IF EXISTS oi_qna RESTRICT;
+-- 게시글좋아요
+DROP TABLE IF EXISTS oi_board_like RESTRICT;
+-- 장바구니
+DROP TABLE IF EXISTS oi_basket RESTRICT;
+-- 환불
+DROP TABLE IF EXISTS oi_refund RESTRICT;
+-- 신고
+DROP TABLE IF EXISTS oi_report RESTRICT;
+-- 계좌이체
+DROP TABLE IF EXISTS oi_account_transfer RESTRICT;
+-- 카카오페이
+DROP TABLE IF EXISTS oi_kakaopay RESTRICT;
+-- 주문항목
+DROP TABLE IF EXISTS oi_order_list RESTRICT;
+-- 신고유형
+DROP TABLE IF EXISTS oi_report_type RESTRICT;
+-- 상품
+DROP TABLE IF EXISTS oi_product RESTRICT;
+-- 요리유형
+DROP TABLE IF EXISTS oi_category RESTRICT;
+-- 재료
+DROP TABLE IF EXISTS oi_material RESTRICT;
+-- 주문
+DROP TABLE IF EXISTS oi_order RESTRICT;
+-- 배송사
+DROP TABLE IF EXISTS oi_delivery_company RESTRICT;
+-- 결제방법
+DROP TABLE IF EXISTS oi_payment RESTRICT;
+-- 음식재료
+DROP TABLE IF EXISTS oi_food RESTRICT;
+-- 레시피
+DROP TABLE IF EXISTS oi_recipe RESTRICT;
+-- 난이도
+DROP TABLE IF EXISTS oi_level RESTRICT;
 -- 회원
 DROP TABLE IF EXISTS oi_user RESTRICT;
 
--- 레시피
-DROP TABLE IF EXISTS oi_recipe RESTRICT;
+-- 전체 테이블 확인
+SHOW tables;
 
--- 주문
-DROP TABLE IF EXISTS oi_order RESTRICT;
 
--- 재료
-DROP TABLE IF EXISTS oi_material RESTRICT;
-
--- 공지사항
-DROP TABLE IF EXISTS oi_notice RESTRICT;
-
--- 요리유형
-DROP TABLE IF EXISTS oi_category RESTRICT;
-
--- 레시피재료
-DROP TABLE IF EXISTS oi_recipe_material RESTRICT;
-
--- 레시피요리유형
-DROP TABLE IF EXISTS oi_recipe_category RESTRICT;
-
--- 팔로잉
-DROP TABLE IF EXISTS oi_follow RESTRICT;
-
--- 댓글
-DROP TABLE IF EXISTS oi_comment RESTRICT;
-
--- 상품
-DROP TABLE IF EXISTS oi_product RESTRICT;
-
--- 레시피단계
-DROP TABLE IF EXISTS oi_recipe_step RESTRICT;
-
--- 공지사항분류
-DROP TABLE IF EXISTS oi_notice_type RESTRICT;
-
--- QNA
-DROP TABLE IF EXISTS oi_qna RESTRICT;
-
--- 난이도
-DROP TABLE IF EXISTS oi_level RESTRICT;
-
--- 게시글좋아요
-DROP TABLE IF EXISTS oi_board_like RESTRICT;
-
--- 장바구니
-DROP TABLE IF EXISTS oi_basket RESTRICT;
-
--- 환불
-DROP TABLE IF EXISTS oi_refund RESTRICT;
-
--- 신고
-DROP TABLE IF EXISTS oi_report RESTRICT;
-
--- 배송사
-DROP TABLE IF EXISTS oi_delivery_company RESTRICT;
-
--- 결제방법
-DROP TABLE IF EXISTS oi_payment RESTRICT;
-
--- 계좌이체
-DROP TABLE IF EXISTS oi_account_transfer RESTRICT;
-
--- 카카오페이
-DROP TABLE IF EXISTS oi_kakaopay RESTRICT;
-
--- 주문항목
-DROP TABLE IF EXISTS oi_order_list RESTRICT;
-
--- 신고유형
-DROP TABLE IF EXISTS oi_report_type RESTRICT;
-
--- 음식재료
-DROP TABLE IF EXISTS oi_food RESTRICT;
 
 -- 회원
 CREATE TABLE oi_user (
@@ -118,8 +98,7 @@ CREATE TABLE oi_recipe (
   photo   VARCHAR(255) NULL,     -- 사진
   hits    INTEGER      NOT NULL, -- 조회수
   rcmd    INTEGER      NOT NULL, -- 추천수
-  cdt     DATETIME     NOT NULL DEFAULT now()
-  , -- 작성일
+  cdt     DATETIME     NOT NULL DEFAULT now(), -- 작성일
   mdt     DATETIME     NULL     DEFAULT now(), -- 수정일
   min     INTEGER      NOT NULL  -- 조리시간
 );
@@ -542,21 +521,6 @@ ALTER TABLE oi_report_type
 ALTER TABLE oi_report_type
   MODIFY COLUMN rtno INTEGER NOT NULL AUTO_INCREMENT;
 
--- 음식재료
-CREATE TABLE oi_food (
-  fno    INTEGER     NOT NULL, -- 음식번호
-  rno    INTEGER     NOT NULL, -- 레시피번호
-  name   VARCHAR(50) NOT NULL, -- 이름
-  amount MEDIUMTEXT  NOT NULL  -- 계량
-);
-
--- 음식재료
-ALTER TABLE oi_food
-  ADD CONSTRAINT PK_oi_food -- 음식재료 기본키
-    PRIMARY KEY (
-      fno -- 음식번호
-    );
-
 -- 레시피
 ALTER TABLE oi_recipe
   ADD CONSTRAINT FK_oi_user_TO_oi_recipe -- 회원 -> 레시피
@@ -836,7 +800,23 @@ ALTER TABLE oi_order_list
     REFERENCES oi_product ( -- 상품
       pno -- 상품번호
     );
+    
+-- 음식재료
+CREATE TABLE oi_food (
+  fno    INTEGER     NOT NULL, -- 음식번호
+  rno    INTEGER     NOT NULL, -- 레시피번호
+  name   VARCHAR(50) NOT NULL, -- 이름
+  amount MEDIUMTEXT  NOT NULL  -- 계량
+);
 
+  
+-- 음식재료
+ALTER TABLE oi_food
+  ADD CONSTRAINT PK_oi_food -- 음식재료 기본키
+    PRIMARY KEY (
+      fno -- 음식번호
+    );
+    
 -- 음식재료
 ALTER TABLE oi_food
   ADD CONSTRAINT FK_oi_recipe_TO_oi_food -- 레시피 -> 음식재료
@@ -846,3 +826,6 @@ ALTER TABLE oi_food
     REFERENCES oi_recipe ( -- 레시피
       rno -- 레시피번호
     );
+    
+-- 전체 테이블확인
+SHOW tables;

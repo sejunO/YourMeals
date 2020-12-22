@@ -22,7 +22,7 @@ insert into oi_material(mno, name) value (10, '파');
 -- 상품
 insert into oi_product(pno, title, content, stock, price, discount, photo) value (1, '지리산달걀', '맛있어요', 50, 5000, 0, 'a.jpeg');
 insert into oi_product(pno, title, content, stock, price, discount, photo) value (2, '안성사과', '맛있어요', 30, 10000, 0, 'b.jpeg');
-insert into oi_product(pno, title, content, stock, price, discount, photo) value (3, '양파', '맛있어요', 2000, 0, 'c.jpeg');
+insert into oi_product(pno, title, content, stock, price, discount, photo) value (3, '양파', '맛있어요', 100, 2000, 0, 'c.jpeg');
 insert into oi_product(pno, title, content, stock, price, discount, photo) value (4, '한돈돼지고기', '맛있어요', 10, 30000, 0, 'd.jpeg');
 insert into oi_product(pno, title, content, stock, price, discount, photo) value (5, '주문진오징어', '맛있어요', 50, 8000, 0, 'e.jpeg');
 insert into oi_product(pno, title, content, stock, price, discount, photo) value (6, '고랭지배추', '맛있어요', 80, 3000, 0, 'f.jpeg');
