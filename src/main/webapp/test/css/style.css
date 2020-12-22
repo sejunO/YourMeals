@@ -19,6 +19,11 @@ h3 {
 	font-weight: 500;
 	color: #333;
 }
+.intro-text h3 {
+	font-size: 22px;
+	font-weight: 500;
+	color: #ddd;
+}
 h4 {
 	font-size: 24px;
 	text-transform: uppercase;
