@@ -2,12 +2,11 @@ package com.oijoa.web;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Basket;
 import com.oijoa.domain.User;
 import com.oijoa.service.BasketService;
@@ -24,27 +23,19 @@ public class BasketController {
   BasketService basketService;
 
   @RequestMapping("list")
-  public ModelAndView list(HttpServletRequest request, HttpServletResponse response)
-      throws Exception {
+  public void list(HttpServletRequest request, Model model) throws Exception {
 
     HttpSession session = request.getSession();
-
     User loginUser = (User) session.getAttribute("loginUser");
 
     List<Basket> basketList = basketService.myList(loginUser.getUserNo());
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("basketList", basketList);
-    mv.setViewName("/basket/list.jsp");
-    return mv;
+
+    model.addAttribute("basketList", basketList);
   }
 
   @RequestMapping("form")
-  public ModelAndView form(HttpServletRequest request, HttpServletResponse response)
-      throws Exception {
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("products", productService.list());
-    mv.setViewName("/basket/newform.jsp");
-    return mv;
+  public void form(HttpServletRequest request, Model model) throws Exception {
+    model.addAttribute("products", productService.list());
   }
 
   @RequestMapping("add")
@@ -55,6 +46,5 @@ public class BasketController {
     basketService.add(basket);
     return "redirect:list";
   }
-
 }
 

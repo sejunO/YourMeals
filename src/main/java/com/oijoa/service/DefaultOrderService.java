@@ -44,8 +44,8 @@ public class DefaultOrderService implements OrderService {
   }
 
   @Override
-  public List<Order> myBuyList(int UserNo) throws Exception {
-    return orderDao.findByUno(UserNo);
+  public List<Order> myOrderList(int UserNo) throws Exception {
+    return orderDao.findByOrderListUserNo(UserNo);
   }
 
   @Override

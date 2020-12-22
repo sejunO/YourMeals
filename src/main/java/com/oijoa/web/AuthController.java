@@ -1,14 +1,14 @@
 package com.oijoa.web;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.User;
 import com.oijoa.service.UserService;
 
@@ -18,32 +18,15 @@ public class AuthController {
 
   @Autowired UserService userService;
 
-  @RequestMapping(value = "login", method = RequestMethod.GET)
-  public ModelAndView loginForm(HttpServletRequest request) throws Exception {
-
-    String email = "";
-
-    Cookie[] cookies = request.getCookies();
-    if (cookies != null) {
-      for (Cookie cookie : cookies) {
-        if (cookie.getName().equals("email")) {
-          email = cookie.getValue();
-          break;
-        }
-      }
-    }
-
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("email", email);
-    mv.setViewName("/auth/form.jsp");
-    return mv;
+  @GetMapping("login")
+  public void loginForm() throws Exception {
   }
 
-  @RequestMapping(value="login", method = RequestMethod.POST)
+  @PostMapping("login")
   public String login(
-      String email,
-      String password,
-      String saveEmail,
+      String email, 
+      String password, 
+      String saveEmail, 
       HttpServletResponse response,
       HttpSession session) throws Exception {
 
@@ -58,23 +41,23 @@ public class AuthController {
 
     User user = userService.get(email, password);
     if (user == null) {
-      return "/auth/loginError.jsp";
+      return "redirect:loginError";
     }
     session.setAttribute("loginUser", user);
     return "redirect:../../index.jsp";
   }
 
-  @RequestMapping("logout")
-  public ModelAndView logout(HttpSession session, HttpServletResponse response) throws Exception {
+  @GetMapping("loginError")
+  public void loginError() throws Exception {
+  }
+
+  @GetMapping("logout")
+  public void logout(HttpSession session, Model model) throws Exception {
 
     User loginUser = (User) session.getAttribute("loginUser");
     if (loginUser != null) {
       session.invalidate();
     }
-
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("loginUser", loginUser);
-    mv.setViewName("/auth/logout.jsp");
-    return mv;
+    model.addAttribute("loginUser", loginUser);
   }
 }

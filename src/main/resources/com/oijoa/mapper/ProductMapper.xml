@@ -12,19 +12,26 @@
     <result column="price"      property="price"/>
     <result column="discount"   property="discount"/>
     <result column="content"   property="content"/>
+    <result column="photo"   property="photo"/>
   </resultMap>
 
   <select id="findAll" resultMap="ProductMap" parameterType="string">
     select 
-      p.pno,
-      p.title,
-      p.stock,
-      p.price,
-      p.discount,
-      p.content
+      pno,
+      title,
+      stock,
+      price,
+      discount,
+      content,
+      photo
     from 
-      oi_product p 
+      oi_product
   </select>
+  
+  <insert id="insert" parameterType="product">
+  insert into oi_product(title,stock,price,discount,content,photo)
+  values(#{title}, #{stock}, #{price}, #{discount}, #{content}, #{photo})
+  </insert>
   
 </mapper>
 
