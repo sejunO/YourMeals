@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Follow;
 import com.oijoa.domain.User;
 import com.oijoa.service.FollowService;
@@ -56,25 +55,17 @@ public class MyUserController {
     return "redirect:detail";
   }
 
-  @RequestMapping("/followerList")
-  public ModelAndView followerList(HttpSession session) throws Exception {
-
+  @GetMapping("followerList")
+  public void followerList(HttpSession session, Model model) throws Exception {
     User loginUser = (User) session.getAttribute("loginUser");
-    ModelAndView mv = new ModelAndView();
     List<Follow> list = followService.FollowerList(loginUser.getUserNo());
-    mv.addObject("list", list);
-    mv.setViewName("/mypage/follow/follower/list.jsp");
-    return mv;
+    model.addAttribute("followerList", list);
   }
 
-  @RequestMapping("/followingList")
-  public ModelAndView followingList(HttpSession session) throws Exception {
-
+  @GetMapping("followingList")
+  public void followingList(HttpSession session, Model model) throws Exception {
     User loginUser = (User) session.getAttribute("loginUser");
     List<Follow> list = followService.FollowingList(loginUser.getUserNo());
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("list", list);
-    mv.setViewName("/mypage/follow/following/list.jsp");
-    return mv;
+    model.addAttribute("followingList", list);
   }
 }

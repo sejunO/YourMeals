@@ -24,13 +24,7 @@
   </tr>
   </c:forEach>
 </tbody>
-
-
 </table>
-<hr>
-<a href=../index.html>뒤로가기</a><br>
-
-<a href=../../index.html>홈으로</a><br>
 
 </body>
 </html>
