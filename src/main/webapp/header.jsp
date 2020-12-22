@@ -44,7 +44,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="" class="page-scroll">About us</a></li>
+        <li><a href="" class="page-scroll">About</a></li>
         <li><a href="" class="page-scroll">Recipe</a></li>
         <li><a href="" class="page-scroll">My page</a></li>
         <li><a href="" class="page-scroll">My cart</a></li>
@@ -53,6 +53,20 @@
     <!-- /.navbar-collapse --> 
 </div>
 </nav>
+<!-- 헤더 뒷 배경 부분-->
+<header id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="intro-text">
+            <h3>수정해서 자기 페이지로 변경</h3>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
