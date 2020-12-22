@@ -54,8 +54,8 @@
         <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
         <li><a href="#team" class="page-scroll">Chefs</a></li>
         <li><a href="#call-reservation" class="page-scroll">Contact</a></li>
-        <li><a href="app/auth/login">Login</a></li>
-        <li><a href="app/user/form">Sign up</a></li>
+        <li><a href="auth/login.jsp">Login</a></li>
+        <li><a href="app/user/form.jsp">Sign up</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
