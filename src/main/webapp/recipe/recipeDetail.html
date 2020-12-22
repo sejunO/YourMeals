@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap 4 Website Example</title>
+  <title>Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -9,6 +9,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<!--=========== 헤더 ===============-->
  <!-- Favicons
     ================================================== -->
 <link rel="shortcut icon" href="../test/img/favicon.ico" type="image/x-icon">
@@ -29,37 +30,73 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 
+
+<!--=========== example 따온거 =============-->
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/icofont/icofont.min.css" rel="stylesheet">
+<link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="vendor/venobox/venobox.css" rel="stylesheet">
+<link href="vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="vendor/aos/aos.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="css/style.css" rel="stylesheet">
+
+
+<!-- ============= 글상자 ================-->
+<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+<!-- Bootstrap core CSS -->
+<link href="/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
   <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
+    
+  <!-- 글상자 -->
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
-  body{background-color: #f8f9fa;}  
-  .topPhoto {
-    margin: 0;
-    padding: 0;
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
   }
-  .topPhoto>img{
-    width: 100%;
-    height: 100%;
+
+  .py-5{
+      padding-bottom: 3rem!important;
+      padding-top: 3rem!important;
   }
-  .topPhoto>p{
-    color: whitesmoke;
-    font-size: 40px;
-    margin-top: -280px;
-    margin-left: -780px;
-  }
-  #subtitle{
-    color: whitesmoke;
-    font-size: 15px;
-    margin-top: 43px;
-    margin-left: -820px;  
-  }
+  .bg-light {
+    background-color: #f8f9fa!important;
+}
+
   </style>
+  
+  <link href="album.css" rel="stylesheet">
 </head>
-<body>
 
+<body>
   <!-- 헤더 -->
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- Navigation
@@ -68,7 +105,10 @@
       <div class="container"> 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
+            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+             <span class="icon-bar"></span> 
+             <span class="icon-bar"></span></button>
           <a class="navbar-brand page-scroll" href="index2.jsp">YourMeals</a> </div>
         
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -99,34 +139,49 @@
     </header>
 
 
-  <!-- 상단 사진 -->
-<div class="jumbotron text-center topPhoto" style="margin-bottom:0">
- <img src="../img/recipe/mypage.jpg">
-
-  <p>레시피 살펴보기</p>
-  <p id='subtitle'>오늘은 어떤 레시피로 요리해 볼까요?</p>
-</div>
-
-<div class="recipeBoard">
-  <h6 id='recipeNo'>레시피 00번</h6>
-</div>
-
-
-<section class="py-5 text-center container">
-  <div class="row py-lg-5">
-    <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">Mypage</h1>
-      <p class="lead text-muted">Something short and leading about the collection belowâits contents, the creator, etc. Make it short and sweet, but not too short so folks donât simply skip over it entirely.</p>
-      <p>
-        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-      </p>
+  <!-- 상단 이미지 -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container text-center position-relative aos-init aos-animate" data-aos="fade-in" data-aos-delay="200">
+      <h1>레시피 살펴보기</h1>
+      <h2>오늘은 어떤 레시피로 요리해 볼까요?</h2>
     </div>
+  </section>
+
+
+
+<!-- 레시피 소개 -->
+<section id="about" class="about">
+  <div class="container">
+
+    <div class="row content">
+      <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+        <h2>Eum ipsam laborum deleniti velitena</h2>
+        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+        <p>
+          Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </p>
+        <ul>
+          <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
+          <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+          <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</li>
+        </ul>
+        <p class="font-italic">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.
+        </p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 
 
+<!-- About Me + Some Links -->
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
@@ -152,6 +207,8 @@
       </ul>
       <hr class="d-sm-none">
     </div>
+
+<!-- Title Heading -->
     <div class="col-sm-8">
       <h2>TITLE HEADING</h2>
       <h5>Title description, Dec 7, 2017</h5>
@@ -167,6 +224,20 @@
     </div>
   </div>
 </div>
+
+<!-- 페이지 맨 밑 설명 + Back to top-->
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.5/getting-started/introduction/">getting started guide</a>.</p>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="../test/js/jquery.1.11.1.js"></script> 
 <script type="text/javascript" src="../test/js/bootstrap.js"></script> 
