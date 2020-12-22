@@ -1,14 +1,15 @@
 package com.oijoa.web;
 
+import java.io.File;
 import java.util.List;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Product;
 import com.oijoa.service.ProductService;
@@ -40,7 +41,7 @@ public class ProductController {
 
   @RequestMapping("add")
   public String add(String title, String content, int price, int stock, int discount,
-      Part photoFile) throws Exception {
+      MultipartFile photoFile) throws Exception {
     Product product = new Product();
     product.setTitle(title);
     product.setContent(content);
@@ -51,7 +52,7 @@ public class ProductController {
 
     String filename = UUID.randomUUID().toString();
     String saveFilePath = servletContext.getRealPath("/upload/" + filename);
-    photoFile.write(saveFilePath);
+    photoFile.transferTo(new File(saveFilePath));
 
     product.setPhoto(filename);
     generatePhotoThumbnail(saveFilePath);
@@ -70,11 +71,11 @@ public class ProductController {
 
   private void generatePhotoThumbnail(String saveFilePath) {
     try {
-      Thumbnails.of(saveFilePath).size(30, 30).outputFormat("jpg").crop(Positions.CENTER)
+      Thumbnails.of(saveFilePath).size(80, 80).outputFormat("jpg").crop(Positions.CENTER)
           .toFiles(new Rename() {
             @Override
             public String apply(String name, ThumbnailParameter param) {
-              return name + "_30x30";
+              return name + "_80x80";
             }
           });
 

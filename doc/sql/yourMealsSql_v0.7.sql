@@ -523,11 +523,6 @@ ALTER TABLE oi_order_list
       olno -- 주문항목번호
     );
 
--- 주문항목 유니크 인덱스
-CREATE UNIQUE INDEX UIX_oi_order_list
-  ON oi_order_list ( -- 주문항목
-  );
-
 ALTER TABLE oi_order_list
   MODIFY COLUMN olno INTEGER NOT NULL AUTO_INCREMENT;
 

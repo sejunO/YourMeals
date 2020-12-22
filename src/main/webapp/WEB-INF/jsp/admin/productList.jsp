@@ -148,68 +148,77 @@
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div
               class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="h2">회원관리</h1>
+              <h1 class="h2">상품관리</h1>
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                  <button type="button" onclick="location.href='productForm'" class="btn btn-sm btn-outline-secondary">상품추가</button>
                 </div>
-                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                  <span data-feather="calendar"></span>
-                  This week
-                </button>
               </div>
             </div>
             <c:if test="${not empty thisUser}">
-            <form action="userUpdate" method="post">
-              <div class="row">
-              <h6>회원정보</h6>
-              <input type="hidden" name="userNo" value="${thisUser.userNo}"/>
-                <div class="col input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">이름</span>
-                   <input type="text" class="form-control" name="name" aria-label="First name" value="${thisUser.name}">
+              <form action="userUpdate" method="post">
+                <div class="row">
+                  <h6>회원정보</h6>
+                  <input type="hidden" name="userNo" value="${thisUser.userNo}" />
+                  <div class="col input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">이름</span>
+                    <input type="text" class="form-control" name="name" aria-label="First name"
+                      value="${thisUser.name}">
+                  </div>
+                  <div class="col input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">닉네임</span>
+                    <input type="text" class="form-control" name="nick" aria-label="First name"
+                      value="${thisUser.nick}">
+                  </div>
+                  <div class="col input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">이메일</span>
+                    <input type="email" class="form-control" name="email" aria-label="First name"
+                      value="${thisUser.email}">
+                  </div>
+                  <div class="col input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">권한</span>
+                    <input type="text" class="form-control" name="userTypeNo" aria-label="First name"
+                      value="${thisUser.userTypeNo}">
+                  </div>
+                  <div class="col input-group mb-3">
+                    <button class="btn btn-dark indexBtn">변경</button>
+                  </div>
                 </div>
-                <div class="col input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">닉네임</span>
-                  <input type="text" class="form-control" name="nick" aria-label="First name" value="${thisUser.nick}">
-                </div>
-                <div class="col input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">이메일</span>
-                  <input type="email" class="form-control" name="email" aria-label="First name" value="${thisUser.email}">
-                </div>
-                <div class="col input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">권한</span>
-                  <input type="text" class="form-control" name="userTypeNo" aria-label="First name" value="${thisUser.userTypeNo}">
-                </div>
-                <div class="col input-group mb-3">
-                  <button class="btn btn-dark indexBtn">변경</button>
-                </div>
-              </div>
-            </form>
+              </form>
             </c:if>
-            
+
             <div class="table-responsive">
               <table class="table table-striped table-sm">
                 <thead>
                   <tr>
                     <th>번호</th>
-                    <th>이름</th>
-                    <th>닉네임</th>
-                    <th>이메일</th>
-                    <th>권한</th>
+                    <th>상품</th>
+                    <th>내용</th>
+                    <th>가격</th>
+                    <th>재고</th>
+                    <th>할인</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <c:forEach items="#{userList}" var='u'>
-                    <tr class="form-tr" onclick="location.href='userDetail?no=${u.userNo}'">
-                      <td>${u.userNo}</td>
-                      <td>${u.name}</td>
-                      <td>${u.nick}</td>
-                      <td>${u.email}</td>
-                      <td>${u.userTypeNo}</td>
+                
+                  <c:forEach items="${list}" var="p">
+                    <tr class="form-tr" onclick="location.href='productDetail?no=${p.productNo}'">
+                      <td>${p.productNo}</td>
+                      <td>
+                        <figure class="figure">
+                          <img src="../../upload/${p.photo}_80x80.jpg" class="img-thumbnail border border-secondary"
+                            alt="...">
+                          <figcaption class="figure-caption">${p.title}</figcaption>
+                        </figure>
+                      </td>
+                      <td>${p.content}</td>
+                      <td>${p.price}</td>
+                      <td>${p.stock}</td>
+                      <td>${p.discount}</td>
                     </tr>
                   </c:forEach>
                 </tbody>
+                
               </table>
             </div>
           </main>

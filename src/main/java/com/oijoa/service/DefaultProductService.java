@@ -29,5 +29,10 @@ public class DefaultProductService implements ProductService {
     return productDao.insert(product);
   }
 
+  @Override
+  public int get(int no) {
+    return productDao.findByNo(no);
+  }
+
 
 }
