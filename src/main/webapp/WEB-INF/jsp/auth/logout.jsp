@@ -8,7 +8,7 @@
   <title>로그아웃</title>
 </head>
 <body>
-<h1>로그아웃(JSP+EL+JSTL)</h1>
+<h1>로그아웃</h1>
 <c:if test="${empty loginUser}">
   <p>로그인 된 상태가 아닙니다.</p>
 </c:if>

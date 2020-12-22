@@ -88,6 +88,7 @@ public class RecipeController {
   }
 
   @RequestMapping("addComment")
+
   public String add(int crecipeNo, int userNo, String comment_content) throws Exception {
     Recipe recipe = recipeService.get(crecipeNo);
     User user = userService.get(userNo);
