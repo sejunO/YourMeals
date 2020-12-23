@@ -21,7 +21,7 @@
   <c:forEach items="${likeList}" var="r">
   <tr>
     <td>${r.recipeNo}</td>
-    <td>${r.title}</td>
+    <td><a href= '../../recipe/detail?recipeNo=${r.recipeNo}'>${r.title}</a></td>
     <td>${r.photo}</td>
     <td>${r.createdDate}</td>
   </tr>
