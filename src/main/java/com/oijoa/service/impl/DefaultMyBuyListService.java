@@ -1,4 +1,4 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import org.springframework.stereotype.Service;
 

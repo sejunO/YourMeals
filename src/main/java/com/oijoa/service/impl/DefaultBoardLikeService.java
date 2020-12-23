@@ -1,37 +1,33 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.oijoa.dao.NoticeDao;
-import com.oijoa.domain.Notice;
+import com.oijoa.dao.BoardLikeDao;
+import com.oijoa.domain.BoardLike;
+import com.oijoa.service.BoardLikeService;
 
 @Service
-public class DefaultNoticeService implements NoticeService {
+public class DefaultBoardLikeService implements BoardLikeService {
 
-  NoticeDao noticeDao;
+  BoardLikeDao boardLikeDao;
 
-  public DefaultNoticeService(NoticeDao noticeDao) {
-    this.noticeDao = noticeDao;
+  public DefaultBoardLikeService(BoardLikeDao boardLikeDao) {
+    this.boardLikeDao = boardLikeDao;
   }
 
-  // @Override
-  // public int delete(int no) throws Exception {
-  // return boardDao.delete(no);
-  // }
-  //
+  @Override
+  public int deleteByRecipeNo(int recipeNo) throws Exception {
+    return boardLikeDao.deleteByRecipeNo(recipeNo);
+  }
+
   // @Override
   // public int add(Board board) throws Exception {
   // return boardDao.insert(board);
   // }
   //
   @Override
-  public List<Notice> list() throws Exception {
-    return noticeDao.findAll(null);
-  }
-
-  @Override
-  public int add(Notice notice) throws Exception {
-    return noticeDao.insert(notice);
+  public List<BoardLike> list() throws Exception {
+    return boardLikeDao.findAll(null);
   }
 
   // @Override

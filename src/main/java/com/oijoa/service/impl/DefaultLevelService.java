@@ -1,32 +1,33 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.oijoa.dao.BoardLikeDao;
-import com.oijoa.domain.BoardLike;
+import com.oijoa.dao.LevelDao;
+import com.oijoa.domain.Level;
+import com.oijoa.service.LevelService;
 
 @Service
-public class DefaultBoardLikeService implements BoardLikeService {
+public class DefaultLevelService implements LevelService {
 
-  BoardLikeDao boardLikeDao;
+  LevelDao levelDao;
 
-  public DefaultBoardLikeService(BoardLikeDao boardLikeDao) {
-    this.boardLikeDao = boardLikeDao;
+  public DefaultLevelService(LevelDao levelDao) {
+    this.levelDao = levelDao;
   }
 
-  @Override
-  public int deleteByRecipeNo(int recipeNo) throws Exception {
-    return boardLikeDao.deleteByRecipeNo(recipeNo);
-  }
-
+  // @Override
+  // public int delete(int no) throws Exception {
+  // return boardDao.delete(no);
+  // }
+  //
   // @Override
   // public int add(Board board) throws Exception {
   // return boardDao.insert(board);
   // }
   //
   @Override
-  public List<BoardLike> list() throws Exception {
-    return boardLikeDao.findAll(null);
+  public List<Level> list() throws Exception {
+    return levelDao.findAll(null);
   }
 
   // @Override

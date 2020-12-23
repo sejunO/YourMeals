@@ -1,9 +1,10 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.RecipeStepDao;
 import com.oijoa.domain.RecipeStep;
+import com.oijoa.service.RecipeStepService;
 
 @Service
 public class DefaultRecipeStepService implements RecipeStepService {

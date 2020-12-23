@@ -1,4 +1,4 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -6,6 +6,7 @@ import com.oijoa.dao.OrderDao;
 import com.oijoa.dao.OrderListDao;
 import com.oijoa.domain.Order;
 import com.oijoa.domain.OrderList;
+import com.oijoa.service.OrderService;
 
 @Service
 public class DefaultOrderService implements OrderService {

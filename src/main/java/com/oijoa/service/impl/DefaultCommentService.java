@@ -1,9 +1,10 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.CommentDao;
 import com.oijoa.domain.Comment;
+import com.oijoa.service.CommentService;
 
 @Service
 public class DefaultCommentService implements CommentService {

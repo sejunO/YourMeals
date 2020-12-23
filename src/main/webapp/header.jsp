@@ -48,6 +48,7 @@
         <li><a href="" class="page-scroll">Recipe</a></li>
         <li><a href="" class="page-scroll">My page</a></li>
         <li><a href="" class="page-scroll">My cart</a></li>
+        
       </ul>
   </div>
     <!-- /.navbar-collapse --> 

@@ -1,17 +1,18 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.oijoa.dao.FollowDao;
-import com.oijoa.domain.Follow;
+import com.oijoa.dao.CategoryDao;
+import com.oijoa.domain.Category;
+import com.oijoa.service.CategoryService;
 
 @Service
-public class DefaultFollowService implements FollowService {
+public class DefaultCategoryService implements CategoryService {
 
-  FollowDao followDao;
+  CategoryDao categoryDao;
 
-  public DefaultFollowService(FollowDao followDao) {
-    this.followDao = followDao;
+  public DefaultCategoryService(CategoryDao categoryDao) {
+    this.categoryDao = categoryDao;
   }
 
   // @Override
@@ -25,18 +26,13 @@ public class DefaultFollowService implements FollowService {
   // }
   //
   @Override
-  public List<Follow> list() throws Exception {
-    return followDao.findAll(null);
+  public List<Category> list() throws Exception {
+    return categoryDao.findAll(null);
   }
 
   @Override
-  public List<Follow> FollowerList(int UserNo) throws Exception {
-    return followDao.findByFollowerUserNo(UserNo);
-  }
-
-  @Override
-  public List<Follow> FollowingList(int UserNo) throws Exception {
-    return followDao.findByFollowingUserNo(UserNo);
+  public Category get(int no) throws Exception {
+    return categoryDao.findByNo(no);
   }
 
   // @Override

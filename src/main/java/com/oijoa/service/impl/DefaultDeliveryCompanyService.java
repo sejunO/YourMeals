@@ -1,9 +1,10 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.DeliveryCompanyDao;
 import com.oijoa.domain.DeliveryCompany;
+import com.oijoa.service.DeliveryCompanyService;
 
 @Service
 public class DefaultDeliveryCompanyService implements DeliveryCompanyService {

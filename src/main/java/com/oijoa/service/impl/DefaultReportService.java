@@ -1,17 +1,18 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.oijoa.dao.MaterialDao;
-import com.oijoa.domain.Material;
+import com.oijoa.dao.ReportDao;
+import com.oijoa.domain.Report;
+import com.oijoa.service.ReportService;
 
 @Service
-public class DefaultMaterialService implements MaterialService {
+public class DefaultReportService implements ReportService {
 
-  MaterialDao materialDao;
+  ReportDao reportDao;
 
-  public DefaultMaterialService(MaterialDao materialDao) {
-    this.materialDao = materialDao;
+  public DefaultReportService(ReportDao reportDao) {
+    this.reportDao = reportDao;
   }
 
   // @Override
@@ -19,14 +20,14 @@ public class DefaultMaterialService implements MaterialService {
   // return boardDao.delete(no);
   // }
   //
+  // @Override
+  // public int add(Board board) throws Exception {
+  // return boardDao.insert(board);
+  // }
+  //
   @Override
-  public int add(int no) throws Exception {
-    return materialDao.insert(no);
-  }
-
-  @Override
-  public List<Material> list() throws Exception {
-    return materialDao.findAll(null);
+  public List<Report> list() throws Exception {
+    return reportDao.findAll(null);
   }
 
   // @Override
