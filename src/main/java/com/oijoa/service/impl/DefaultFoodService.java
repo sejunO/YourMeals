@@ -1,9 +1,10 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.FoodDao;
 import com.oijoa.domain.Food;
+import com.oijoa.service.FoodService;
 
 @Service
 public class DefaultFoodService implements FoodService {

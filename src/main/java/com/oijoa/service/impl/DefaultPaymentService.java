@@ -1,9 +1,10 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.PaymentDao;
 import com.oijoa.domain.Payment;
+import com.oijoa.service.PaymentService;
 
 @Service
 public class DefaultPaymentService implements PaymentService {

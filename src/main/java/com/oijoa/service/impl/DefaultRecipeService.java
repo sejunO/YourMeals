@@ -1,4 +1,4 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -8,6 +8,7 @@ import com.oijoa.dao.CommentDao;
 import com.oijoa.dao.RecipeDao;
 import com.oijoa.dao.RecipeStepDao;
 import com.oijoa.domain.Recipe;
+import com.oijoa.service.RecipeService;
 
 @Service
 public class DefaultRecipeService implements RecipeService {

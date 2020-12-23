@@ -1,9 +1,10 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.AccountTransferDao;
 import com.oijoa.domain.AccountTransfer;
+import com.oijoa.service.AccountTransferService;
 
 @Service
 public class DefaultAccountTransferService implements AccountTransferService {

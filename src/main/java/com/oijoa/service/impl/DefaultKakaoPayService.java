@@ -1,17 +1,18 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.oijoa.dao.NoticeTypeDao;
-import com.oijoa.domain.NoticeType;
+import com.oijoa.dao.KakaoPayDao;
+import com.oijoa.domain.KakaoPay;
+import com.oijoa.service.KakaoPayService;
 
 @Service
-public class DefaultNoticeTypeService implements NoticeTypeService {
+public class DefaultKakaoPayService implements KakaoPayService {
 
-  NoticeTypeDao noticeTypeDao;
+  KakaoPayDao kakaoPayDao;
 
-  public DefaultNoticeTypeService(NoticeTypeDao noticeTypeDao) {
-    this.noticeTypeDao = noticeTypeDao;
+  public DefaultKakaoPayService(KakaoPayDao kakaoPayDao) {
+    this.kakaoPayDao = kakaoPayDao;
   }
 
   // @Override
@@ -25,8 +26,8 @@ public class DefaultNoticeTypeService implements NoticeTypeService {
   // }
   //
   @Override
-  public List<NoticeType> list() throws Exception {
-    return noticeTypeDao.findAll(null);
+  public List<KakaoPay> list() throws Exception {
+    return kakaoPayDao.findAll(null);
   }
 
   // @Override

@@ -1,10 +1,11 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.UserDao;
 import com.oijoa.domain.User;
+import com.oijoa.service.UserService;
 
 @Service
 public class DefaultUserService implements UserService {

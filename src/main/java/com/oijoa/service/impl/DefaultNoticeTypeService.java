@@ -1,17 +1,18 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.oijoa.dao.CategoryDao;
-import com.oijoa.domain.Category;
+import com.oijoa.dao.NoticeTypeDao;
+import com.oijoa.domain.NoticeType;
+import com.oijoa.service.NoticeTypeService;
 
 @Service
-public class DefaultCategoryService implements CategoryService {
+public class DefaultNoticeTypeService implements NoticeTypeService {
 
-  CategoryDao categoryDao;
+  NoticeTypeDao noticeTypeDao;
 
-  public DefaultCategoryService(CategoryDao categoryDao) {
-    this.categoryDao = categoryDao;
+  public DefaultNoticeTypeService(NoticeTypeDao noticeTypeDao) {
+    this.noticeTypeDao = noticeTypeDao;
   }
 
   // @Override
@@ -25,13 +26,8 @@ public class DefaultCategoryService implements CategoryService {
   // }
   //
   @Override
-  public List<Category> list() throws Exception {
-    return categoryDao.findAll(null);
-  }
-
-  @Override
-  public Category get(int no) throws Exception {
-    return categoryDao.findByNo(no);
+  public List<NoticeType> list() throws Exception {
+    return noticeTypeDao.findAll(null);
   }
 
   // @Override

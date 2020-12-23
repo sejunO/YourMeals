@@ -1,9 +1,10 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.ProductDao;
 import com.oijoa.domain.Product;
+import com.oijoa.service.ProductService;
 
 @Service
 public class DefaultProductService implements ProductService {
@@ -30,7 +31,7 @@ public class DefaultProductService implements ProductService {
   }
 
   @Override
-  public int get(int no) {
+  public Product get(int no) {
     return productDao.findByNo(no);
   }
 

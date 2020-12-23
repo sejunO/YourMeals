@@ -1,17 +1,18 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.oijoa.dao.ReportTypeDao;
-import com.oijoa.domain.ReportType;
+import com.oijoa.dao.RefundDao;
+import com.oijoa.domain.Refund;
+import com.oijoa.service.RefundService;
 
 @Service
-public class DefaultReportTypeService implements ReportTypeService {
+public class DefaultRefundService implements RefundService {
 
-  ReportTypeDao reportTypeDao;
+  RefundDao refundDao;
 
-  public DefaultReportTypeService(ReportTypeDao reportTypeDao) {
-    this.reportTypeDao = reportTypeDao;
+  public DefaultRefundService(RefundDao refundDao) {
+    this.refundDao = refundDao;
   }
 
   // @Override
@@ -25,8 +26,8 @@ public class DefaultReportTypeService implements ReportTypeService {
   // }
   //
   @Override
-  public List<ReportType> list() throws Exception {
-    return reportTypeDao.findAll(null);
+  public List<Refund> list() throws Exception {
+    return refundDao.findAll(null);
   }
 
   // @Override

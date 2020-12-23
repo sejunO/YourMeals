@@ -4094,6 +4094,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 1000px) {
   .navbar-collapse {
+    display:none;
     width: auto;
     border-top: 0;
     -webkit-box-shadow: none;
@@ -4386,6 +4387,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left !important;
   }
   .navbar-right {
+    display:none;
     float: right !important;
     margin-right: -15px;
   }

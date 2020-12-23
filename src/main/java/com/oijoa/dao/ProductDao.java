@@ -8,7 +8,7 @@ public interface ProductDao {
 
   int insert(Product product);
 
-  int findByNo(int no);
+  Product findByNo(int no);
 }
 
 

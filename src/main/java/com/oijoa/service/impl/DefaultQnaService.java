@@ -1,9 +1,10 @@
-package com.oijoa.service;
+package com.oijoa.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.QnADao;
 import com.oijoa.domain.Qna;
+import com.oijoa.service.QnaService;
 
 @Service
 public class DefaultQnaService implements QnaService {

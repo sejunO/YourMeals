@@ -47,7 +47,7 @@
 
 
       <!-- Custom styles for this template -->
-      <link href="<%=request.getContextPath() %>/css/dashboard.css" rel="stylesheet">
+      <link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
     </head>
 
     <body>
@@ -217,7 +217,7 @@
       </div>
 
 
-      <script src="<%=request.getContextPath() %>node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      <script src="<%=request.getContextPath() %>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
 

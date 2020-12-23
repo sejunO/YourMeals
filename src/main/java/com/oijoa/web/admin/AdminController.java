@@ -80,7 +80,7 @@ public class AdminController {
   @GetMapping("productDetail")
   public String productDetail(int no, HttpSession session) throws Exception {
     session.setAttribute("thisProduct", productService.get(no));
-    return "redirect:index";
+    return "redirect:productList";
   }
 
   @RequestMapping("productForm")
@@ -89,20 +89,20 @@ public class AdminController {
   private void generatePhotoThumbnail(String saveFilePath) {
     try {
       Thumbnails.of(saveFilePath).size(80, 80).outputFormat("jpg").crop(Positions.CENTER)
-          .toFiles(new Rename() {
-            @Override
-            public String apply(String name, ThumbnailParameter param) {
-              return name + "_80x80";
-            }
-          });
+      .toFiles(new Rename() {
+        @Override
+        public String apply(String name, ThumbnailParameter param) {
+          return name + "_80x80";
+        }
+      });
 
       Thumbnails.of(saveFilePath).size(200, 200).outputFormat("jpg").crop(Positions.CENTER)
-          .toFiles(new Rename() {
-            @Override
-            public String apply(String name, ThumbnailParameter param) {
-              return name + "_200x200";
-            }
-          });
+      .toFiles(new Rename() {
+        @Override
+        public String apply(String name, ThumbnailParameter param) {
+          return name + "_200x200";
+        }
+      });
     } catch (Exception e) {
       e.printStackTrace();
     }

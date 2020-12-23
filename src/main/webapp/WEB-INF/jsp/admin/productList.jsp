@@ -155,30 +155,30 @@
                 </div>
               </div>
             </div>
-            <c:if test="${not empty thisUser}">
+            <c:if test="${not empty thisProduct}">
               <form action="userUpdate" method="post">
                 <div class="row">
                   <h6>회원정보</h6>
-                  <input type="hidden" name="userNo" value="${thisUser.userNo}" />
+                  <input type="hidden" name="userNo" value="${thisProduct.productNo}" />
                   <div class="col input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">이름</span>
                     <input type="text" class="form-control" name="name" aria-label="First name"
-                      value="${thisUser.name}">
+                      value="${thisProduct.title}">
                   </div>
                   <div class="col input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">닉네임</span>
                     <input type="text" class="form-control" name="nick" aria-label="First name"
-                      value="${thisUser.nick}">
+                      value="${thisProduct.title}">
                   </div>
                   <div class="col input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">이메일</span>
                     <input type="email" class="form-control" name="email" aria-label="First name"
-                      value="${thisUser.email}">
+                      value="${thisProduct.title}">
                   </div>
                   <div class="col input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">권한</span>
                     <input type="text" class="form-control" name="userTypeNo" aria-label="First name"
-                      value="${thisUser.userTypeNo}">
+                      value="${thisProduct.title}">
                   </div>
                   <div class="col input-group mb-3">
                     <button class="btn btn-dark indexBtn">변경</button>
