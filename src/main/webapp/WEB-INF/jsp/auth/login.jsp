@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/test/css/bootstrap.css">
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/test/css/mystyle.css">
+  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/test/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/test/css/mystyle.css">
 </head>
 
 <body>
