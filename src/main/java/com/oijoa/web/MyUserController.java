@@ -1,13 +1,14 @@
 package com.oijoa.web;
 
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import com.oijoa.domain.Follow;
 import com.oijoa.domain.User;
 import com.oijoa.service.FollowService;
@@ -15,13 +16,14 @@ import com.oijoa.service.UserService;
 
 @Controller
 @RequestMapping("/mypage/user")
+@SessionAttributes("loginUser")
 public class MyUserController {
   @Autowired UserService userService;
   @Autowired FollowService followService;
 
   @GetMapping("detail")
-  public void detail(HttpSession session, Model model) throws Exception {
-    User user = userService.get(((User)session.getAttribute("loginUser")).getUserNo());
+  public void detail(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
+    User user = userService.get(loginUser.getUserNo());
     if (user == null) {
       throw new Exception("로그인 정보가 존재하지 않습니다.");
     }
@@ -29,8 +31,8 @@ public class MyUserController {
   }
 
   @GetMapping("detailPassword")
-  public void detailPassword(HttpSession session, Model model) throws Exception {
-    User user = userService.get(((User)session.getAttribute("loginUser")).getUserNo());
+  public void detailPassword(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
+    User user = userService.get(loginUser.getUserNo());
     if (user == null) {
       throw new Exception("로그인 정보가 존재하지 않습니다.");
     } 
@@ -56,15 +58,13 @@ public class MyUserController {
   }
 
   @GetMapping("followerList")
-  public void followerList(HttpSession session, Model model) throws Exception {
-    User loginUser = (User) session.getAttribute("loginUser");
+  public void followerList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
     List<Follow> list = followService.FollowerList(loginUser.getUserNo());
     model.addAttribute("followerList", list);
   }
 
   @GetMapping("followingList")
-  public void followingList(HttpSession session, Model model) throws Exception {
-    User loginUser = (User) session.getAttribute("loginUser");
+  public void followingList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
     List<Follow> list = followService.FollowingList(loginUser.getUserNo());
     model.addAttribute("followingList", list);
   }
