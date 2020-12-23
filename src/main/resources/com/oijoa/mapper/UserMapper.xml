@@ -73,7 +73,8 @@
       <if test="password != null">password = password(#{password}),</if>
       <if test="postNo != null">postno = #{postNo},</if>
       <if test="address != null">addr = #{address},</if>
-      <if test="detailAddress != null">det_addr = #{detailAddress}</if>
+      <if test="detailAddress != null">det_addr = #{detailAddress},</if>
+      <if test="photo != null">photo = #{photo}</if>
     </set>
     where
     uno = #{userNo}
@@ -104,8 +105,8 @@
   </select>
 
   <insert id="insert" parameterType="user">
-    insert into oi_user(name,email,password,nick,point,utype) 
-    values(#{name},#{email},password(#{password}),#{nick},0,0)
+    insert into oi_user(name,email,password,photo,nick,point,utype) 
+    values(#{name},#{email},password(#{password}),#{photo},#{nick},0,0)
   </insert>
   
 </mapper>
