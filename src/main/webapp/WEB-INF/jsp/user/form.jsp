@@ -18,19 +18,19 @@
 			
 			<label for="inputEmail" class="sr-only">이메일</label>
 			<input type="email" value='${email}' id="sign-inputEmail" 
-			name="email" class="form-control" placeholder="이메일(example@gmail.com)" required><br>
+			name="email" class="form-control" placeholder="이메일(example@gmail.com)" required>
 			
 			<label for="inputPassword" class="sr-only">비밀번호</label>
 			<input type="password" id="sign-inputPassword" 
-			name="password" class="form-control" placeholder="비밀번호" style="margin:0;" required><br>
+			name="password" class="form-control" placeholder="비밀번호" style="margin:0;" required>
 			
 			<label for="inputName" class="sr-only">이름</label>
 			<input type="text" id="sign-inputName" 
-			name="name" class="form-control" placeholder="이름" required><br>
+			name="name" class="form-control" placeholder="이름" required>
 			
 			<label for="inputNick" class="sr-only">닉네임</label>
 			<input type="text" id="sign-inputNick" 
-			name="nick" class="form-control" placeholder="닉네임" required><br>
+			name="nick" class="form-control" placeholder="닉네임" required>
 		
 		<button class="btn" type="submit" style="margin-top: 10px;">계정 생성</button>
 		</form>

@@ -1,12 +1,13 @@
 package com.oijoa.web;
 
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import com.oijoa.domain.User;
 import com.oijoa.service.FollowService;
 import com.oijoa.service.RecipeService;
@@ -14,6 +15,7 @@ import com.oijoa.service.UserService;
 
 @Controller
 @RequestMapping("/user")
+@SessionAttributes("loginUser")
 public class UserController {
 
   @Autowired UserService userService;
@@ -38,9 +40,7 @@ public class UserController {
   }
 
   @GetMapping("delete")
-  public String delete(HttpSession session) throws Exception {
-    User loginUser = userService.get(((User)session.getAttribute("loginUser")).getUserNo());
-
+  public String delete(@ModelAttribute("loginUser") User loginUser) throws Exception {
     if (loginUser == null) {
       throw new Exception("로그인 정보가 존재하지 않습니다.");
     }

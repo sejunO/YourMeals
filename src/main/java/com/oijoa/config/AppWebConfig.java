@@ -31,6 +31,13 @@ public class AppWebConfig implements WebMvcConfigurer {
   }
 
   // @MatrixVariable 애노테이션 처리를 활성화시킨다.
+
+  //  @Bean
+  //  public TilesConfigurer tilesConfigurer() {
+  //    TilesConfigurer configurer = new TilesConfigurer();
+  //    configurer.setDefinitions("/WEB-INF/tilesDefs/tiles.xml");
+  //    return configurer;
+  //  }
   @Override
   public void configurePathMatch(PathMatchConfigurer configurer) {
     UrlPathHelper helper = new UrlPathHelper();

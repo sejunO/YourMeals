@@ -48,6 +48,18 @@
   values(#{title}, #{stock}, #{price}, #{discount}, #{content}, #{photo})
   </insert>
   
+    <update id="update" parameterType="product">
+    update oi_product 
+    <set>
+      <if test="title != null">title = #{title},</if>
+      <if test="content != null">content = #{content},</if>
+      <if test="stock != null">stock = #{stock},</if>
+      <if test="discount != null">discount = #{discount}</if>
+    </set>
+    where
+    pno = #{productNo}
+  </update>
+  
 </mapper>
 
 
