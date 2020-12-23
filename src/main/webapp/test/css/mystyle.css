@@ -114,12 +114,18 @@
 	letter-spacing: -1px;
 }
 
+#frame { //프레임 크기 얼마인지 정해야됨
+	width: ;
+	height: ;
+}
+
+https://studiomeal.com/archives/197 참고
+
+
+
 #mypage {
 	 width: 100%;
   height: 100%;
-}
-#mypage .navbar {
-  
 }
 
 
