@@ -126,6 +126,8 @@
         <h3>주문 상품 정보</h3>
         <c:forEach items="${baskets}" var="b">
           <div style="margin-bottom: 10px;">
+            <input type="text" class="text-center" value='${b.product.photo}'
+              style="margin-left: 10px; width: 200px">
             제품 <input type="text" class="text-center" value='${b.product.title}'
               style="margin-left: 15px; width: 180px">
             수량 <input type="text" class="text-center" value='${b.amount}' style="margin-top: 10px; margin-left: 15px; width: 20px"><br>

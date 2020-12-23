@@ -14,6 +14,7 @@
       <result column="product_title"    property="title"/>
       <result column="product_content"    property="content"/>
       <result column="product_price"    property="price"/>
+      <result column="product_photo"    property="photo"/>
     </association>
     
     <association property="writer" javaType="user">
@@ -31,6 +32,7 @@
       p.title product_title,
       p.content product_content,
       p.price product_price,
+      p.photo product_photo,
       b.amount 
     from
       oi_basket b
@@ -50,6 +52,7 @@
       p.title product_title, 
       p.content product_content,
       p.price product_price,
+      p.photo product_photo,
       b.amount 
     from
       oi_basket b
