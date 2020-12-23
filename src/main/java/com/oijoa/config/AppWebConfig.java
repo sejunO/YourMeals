@@ -21,6 +21,28 @@ public class AppWebConfig implements WebMvcConfigurer {
     return new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp");
   }
 
+
+
+  //  @Bean
+  //  public ViewResolver tilesViewResolver() {
+  //    UrlBasedViewResolver vr = new UrlBasedViewResolver();
+  //
+  //    vr.setSuffix(".app");
+  //    vr.setViewClass(TilesView.class);
+  //    vr.setOrder(1);
+  //
+  //    return vr;
+  //  }
+  //
+  //  @Bean
+  //  public TilesConfigurer tilesConfigurer() {
+  //    TilesConfigurer configurer = new TilesConfigurer();
+  //    configurer.setDefinitions("/WEB-INF/tiles/defs/tiles.xml");
+  //    return configurer;
+  //  }
+
+
+
   @Bean
   public MultipartResolver multipartResolver() {
     CommonsMultipartResolver mr = new CommonsMultipartResolver();
@@ -30,14 +52,7 @@ public class AppWebConfig implements WebMvcConfigurer {
     return mr;
   }
 
-  // @MatrixVariable 애노테이션 처리를 활성화시킨다.
 
-  //  @Bean
-  //  public TilesConfigurer tilesConfigurer() {
-  //    TilesConfigurer configurer = new TilesConfigurer();
-  //    configurer.setDefinitions("/WEB-INF/tilesDefs/tiles.xml");
-  //    return configurer;
-  //  }
   @Override
   public void configurePathMatch(PathMatchConfigurer configurer) {
     UrlPathHelper helper = new UrlPathHelper();
