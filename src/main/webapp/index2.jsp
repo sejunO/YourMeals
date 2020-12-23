@@ -55,7 +55,7 @@
         <li><a href="#team" class="page-scroll">Chefs</a></li>
         <li><a href="#call-reservation" class="page-scroll">Contact</a></li>
         <li><a href="<%=request.getContextPath() %>/app/auth/login">Login</a></li>
-        <li><a href="<%=request.getContextPath() %>/app/user/signup">Sign up</a></li>
+        <li><a href="<%=request.getContextPath() %>/app/user/form">Sign up</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 

@@ -40,7 +40,6 @@ public class AuthController {
     response.addCookie(emailCookie);
 
     User user = userService.get(email, password);
-    System.out.println(user.getUserNo()+"@#@#@#@#@#@111");
     if (user == null) {
       return "redirect:loginError";
     }

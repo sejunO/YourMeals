@@ -1,7 +1,6 @@
 package com.oijoa.web;
 
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,22 +26,19 @@ public class MyBoardController {
   @Autowired QnaService qnaService;
 
   @GetMapping("/recipe/likeList")
-  public void recipeLikeList(HttpSession session, Model model) throws Exception {
-    User loginUser = (User) session.getAttribute("loginUser");
+  public void recipeLikeList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
     List<Recipe> likeList = recipeService.myLikeList(loginUser.getUserNo());
     model.addAttribute("likeList", likeList);
   }
 
   @GetMapping("/recipe/list")
-  public void recipeList(HttpSession session, Model model) throws Exception {
-    User loginUser = (User) session.getAttribute("loginUser");
+  public void recipeList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
     List<Recipe> recipeList = recipeService.userNoList(loginUser.getUserNo());
     model.addAttribute("recipeList", recipeList);
   }
 
   @GetMapping("/recipe/commentList")
-  public void recipeCommentList(HttpSession session, Model model) throws Exception {
-    User loginUser = (User) session.getAttribute("loginUser");
+  public void recipeCommentList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
     List<Comment> commentList = commentService.userNoList(loginUser.getUserNo());
     model.addAttribute("commentList", commentList);
   }
