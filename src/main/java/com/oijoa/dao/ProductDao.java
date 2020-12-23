@@ -9,6 +9,8 @@ public interface ProductDao {
   int insert(Product product);
 
   Product findByNo(int no);
+
+  int update(Product product);
 }
 
 

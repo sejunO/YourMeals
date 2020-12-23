@@ -217,20 +217,13 @@
             </thead>
             <tbody>
 
-              <c:forEach items="${list}" var="p">
-                <tr class="form-tr" onclick="location.href='productDetail?no=${p.productNo}'">
-                  <td>${p.productNo}</td>
-                  <td>
-                    <figure class="figure">
-                      <img src="../../upload/${p.photo}_80x80.jpg" class="img-thumbnail border border-secondary"
-                        alt="...">
-                      <figcaption class="figure-caption">${p.title}</figcaption>
-                    </figure>
-                  </td>
-                  <td>${p.content}</td>
-                  <td>${p.price}</td>
-                  <td>${p.stock}</td>
-                  <td>${p.discount}</td>
+              <c:forEach items="${orderList}" var="o">
+                <tr class="form-tr" onclick="location.href='productDetail?no=${o.ordertNo}'">
+<td>${o.orderListNo}</td>
+<td>${o.orderProduct.content}</td>
+<td>${o.price}</td>
+<td>${o.discount}</td>
+<td>${o.orderNo.userNo.name}</td>
                 </tr>
               </c:forEach>
             </tbody>
