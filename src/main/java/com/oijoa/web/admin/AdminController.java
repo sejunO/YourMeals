@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import com.oijoa.domain.Product;
 import com.oijoa.domain.User;
+import com.oijoa.service.OrderService;
 import com.oijoa.service.ProductService;
 import com.oijoa.service.UserService;
 import net.coobird.thumbnailator.ThumbnailParameter;
@@ -30,8 +31,10 @@ public class AdminController {
   ServletContext servletContext;
   @Autowired
   UserService userService;
+  @Autowired
+  OrderService orderService;
 
-  @GetMapping("index")
+  @GetMapping("userList")
   public void index(Model model) throws Exception {
     model.addAttribute("userList", userService.list());
   }
@@ -45,7 +48,7 @@ public class AdminController {
   @PostMapping("userUpdate")
   public String update(User user, HttpSession session) throws Exception {
     userService.update(user);
-    session.setAttribute("thisUser", user);
+    session.setAttribute("thisUser", userService.get(user.getUserNo()));
     return "redirect:index";
   }
 
@@ -83,8 +86,21 @@ public class AdminController {
     return "redirect:productList";
   }
 
+  @PostMapping("productUpdate")
+  public String productUpdate(Product product, HttpSession session) {
+    productService.update(product);
+    session.setAttribute("thisProduct", productService.get(product.getProductNo()));
+    return "redirect:productList";
+  }
+
   @RequestMapping("productForm")
   public void form() throws Exception {}
+
+
+  @RequestMapping("orderList")
+  public void orderList(Model model) throws Exception {
+    model.addAttribute("orderList", orderService.list());
+  }
 
   private void generatePhotoThumbnail(String saveFilePath) {
     try {

@@ -34,6 +34,9 @@ public class DefaultProductService implements ProductService {
   public Product get(int no) {
     return productDao.findByNo(no);
   }
-
+  @Override
+  public int update(Product product) {
+    return productDao.update(product);
+  }
 
 }

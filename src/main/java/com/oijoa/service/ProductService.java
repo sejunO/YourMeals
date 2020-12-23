@@ -12,4 +12,6 @@ public interface ProductService {
   int add(Product product);
 
   Product get(int no);
+
+  int update(Product product);
 }

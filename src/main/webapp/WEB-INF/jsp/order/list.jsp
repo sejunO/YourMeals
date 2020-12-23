@@ -12,7 +12,7 @@
 <c:forEach items="${list}" var="o">
 <tr>
 <td>${o.orderListNo}</td>
-<td>${o.orderProduct.content}</td>
+<td>${o.orderProduct.title}</td>
 <td>${o.price}</td>
 <td>${o.discount}</td>
 <td>${o.orderNo.userNo.name}</td></tr>

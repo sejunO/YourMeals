@@ -11,7 +11,8 @@
 <thead>
 <tr>
   <th>댓글</th>
-  <th>작성일</th></tr>
+  <th>작성일</th>
+  <th>레시피</th></tr>
 </thead>
 
 <tbody>
@@ -19,6 +20,7 @@
 <tr>
 	<td>${c.content}</td>
 	<td>${c.createdDate}</td>
+	<td><a href= '../../recipe/detail?recipeNo=${c.recipeNo}'>[원본글 보기]</a></td>
 </tr>
 </c:forEach>
 </tbody>
