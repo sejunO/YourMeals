@@ -42,14 +42,14 @@ public class AdminController {
   @GetMapping("userDetail")
   public String list(int no, HttpSession session) throws Exception {
     session.setAttribute("thisUser", userService.get(no));
-    return "redirect:index";
+    return "redirect:userList";
   }
 
   @PostMapping("userUpdate")
   public String update(User user, HttpSession session) throws Exception {
     userService.update(user);
     session.setAttribute("thisUser", userService.get(user.getUserNo()));
-    return "redirect:index";
+    return "redirect:userList";
   }
 
   @RequestMapping("productList")

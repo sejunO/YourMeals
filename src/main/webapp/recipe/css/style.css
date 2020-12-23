@@ -456,7 +456,7 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 150px 100px;
   overflow: hidden;
 }
 
@@ -521,9 +521,10 @@ section {
 --------------------------------------------------------------*/
 .about .content h2 {
   font-weight: 700;
-  font-size: 48px;
-  line-height: 60px;
-  margin-bottom: 20px;
+  font-size: 40px;
+  line-height: 70px;
+  margin-top: 150px;
+  margin-bottom: 150px;
   text-transform: uppercase;
 }
 
@@ -552,7 +553,39 @@ section {
 }
 
 .about .content p:last-child {
-  margin-bottom: 0;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+.img-recipe {
+  display: block;
+  margin: 0px auto;
+  padding-bottom: 80px;
+ 
+}
+#img-recipe {
+  text-align: center;
+}
+
+.recipe-content2{
+  padding-left: 70px;
+  padding-right: 70px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+#left{
+  text-align: left;
+  padding-left: 65px;
+}
+#right{
+  text-align: right;
+  padding-right: 65px;
+}
+
+.side-and-side {
+  display: flex;
+  justify-content: space-between;
 }
 
 /*--------------------------------------------------------------
@@ -691,7 +724,7 @@ section {
 --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
-  padding: 40px 20px;
+  padding: 15px;
   transition: all ease-in-out 0.3s;
   background: #fff;
 }
@@ -884,7 +917,7 @@ section {
 .testimonials .testimonial-item .testimonial-img {
   width: 90px;
   border-radius: 50%;
-  border: 4px solid #fff;
+  border: 20px solid #fff;
   margin: 0 auto;
 }
 
