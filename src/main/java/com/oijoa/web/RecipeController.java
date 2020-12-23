@@ -1,6 +1,7 @@
 package com.oijoa.web;
 
 import java.beans.PropertyEditorSupport;
+import java.io.File;
 import java.util.HashMap;
 import java.util.UUID;
 import javax.servlet.ServletContext;
@@ -8,11 +9,12 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.multipart.MultipartFile;
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Recipe;
@@ -53,13 +55,9 @@ public class RecipeController {
 
 
   @RequestMapping("form")
-
-  public ModelAndView form() throws Exception {
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("categoryList", categoryService.list());
-    mv.addObject("materialList", materialService.list());
-    mv.setViewName("/recipe/form.jsp");
-    return mv;
+  public void form(Model model) throws Exception {
+    model.addAttribute("categoryList", categoryService.list());
+    model.addAttribute("materialList", materialService.list());
   }
 
   @RequestMapping("add")
@@ -88,7 +86,6 @@ public class RecipeController {
   }
 
   @RequestMapping("addComment")
-
   public String add(int crecipeNo, int userNo, String comment_content) throws Exception {
     Recipe recipe = recipeService.get(crecipeNo);
     User user = userService.get(userNo);
@@ -101,47 +98,36 @@ public class RecipeController {
   }
 
   @RequestMapping("list")
-  public ModelAndView list(String keyword, String keywordTitle, String keywordWriter,
+  public void list(Model model, String keyword, String keywordTitle, String keywordWriter,
       String keywordCategory) throws Exception {
-
-    ModelAndView mv = new ModelAndView();
-
     if (keyword != null) {
-
-      mv.addObject("list", recipeService.list(keyword));
-
+      model.addAttribute("list", recipeService.list(keyword));
     } else if (keywordTitle != null) {
       HashMap<String, Object> keywordMap = new HashMap<>();
       keywordMap.put("title", keywordTitle);
       keywordMap.put("writer", keywordWriter);
       keywordMap.put("category", keywordCategory);
 
-      mv.addObject("list", recipeService.list(keywordMap));
+      model.addAttribute("list", recipeService.list(keywordMap));
 
     } else {
-      mv.addObject("list", recipeService.list());
+      model.addAttribute("list", recipeService.list());
     }
 
-    mv.setViewName("/recipe/list.jsp");
-    return mv;
   }
 
 
   @RequestMapping("detail")
-  public ModelAndView detail(int recipeNo) throws Exception {
-    ModelAndView mv = new ModelAndView();
+  public void detail(Model model, int recipeNo) throws Exception {
     Recipe recipe = recipeService.get(recipeNo);
     if (recipe == null) {
       System.out.println("레시피가 존재하지 않습니다.");
     }
-    mv.addObject("recipe", recipe);
-    mv.addObject("categorys", categoryService.list());
-    mv.addObject("levels", levelService.list());
-    mv.addObject("recipeSteps", recipeStepService.list(recipeNo));
-    mv.addObject("comments", commentService.list(recipeNo));
-    mv.setViewName("/recipe/detail.jsp");
-    return mv;
-
+    model.addAttribute("recipe", recipe);
+    model.addAttribute("categorys", categoryService.list());
+    model.addAttribute("levels", levelService.list());
+    model.addAttribute("recipeSteps", recipeStepService.list(recipeNo));
+    model.addAttribute("comments", commentService.list(recipeNo));
   }
 
 
@@ -170,7 +156,7 @@ public class RecipeController {
 
 
   @RequestMapping("updatePhoto")
-  public String updatePhoto(int no, Part photoFile) throws Exception {
+  public String updatePhoto(int no, MultipartFile photoFile) throws Exception {
 
     Recipe recipe = new Recipe();
     recipe.setRecipeNo(no);
@@ -178,7 +164,7 @@ public class RecipeController {
     if (photoFile.getSize() > 0) {
       String filename = UUID.randomUUID().toString();
       String saveFilePath = servletContext.getRealPath("/upload/" + filename);
-      photoFile.write(saveFilePath);
+      photoFile.transferTo(new File(saveFilePath));
       recipe.setPhoto(filename);
 
       generatePhotoThumbnail(saveFilePath);
@@ -205,12 +191,10 @@ public class RecipeController {
 
   @InitBinder
   public void initBinder(WebDataBinder binder) {
-    // String ===> Date 프로퍼티 에디터 준비
     DatePropertyEditor propEditor = new DatePropertyEditor();
 
-    // WebDataBinder에 프로퍼티 에디터 등록하기
-    binder.registerCustomEditor(java.util.Date.class, // String을 Date 타입으로 바꾸는 에디터임을 지정한다.
-        propEditor // 바꿔주는 일을 하는 프로퍼티 에디터를 등록한다.
+    binder.registerCustomEditor(java.util.Date.class,
+        propEditor
         );
   }
 
@@ -218,7 +202,6 @@ public class RecipeController {
     @Override
     public void setAsText(String text) throws IllegalArgumentException {
       try {
-        // 클라이언트가 텍스트로 보낸 날짜 값을 java.sql.Date 객체로 만들어 보관한다.
         setValue(java.sql.Date.valueOf(text));
       } catch (Exception e) {
         throw new IllegalArgumentException(e);
