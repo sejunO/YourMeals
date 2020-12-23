@@ -65,7 +65,8 @@
   <select id="findByUserNo" resultMap="CommentMap" parameterType="int">
 	select
 	  content,
-	  cdt
+	  cdt,
+	  rno
 	from
  	  oi_comment
    	where

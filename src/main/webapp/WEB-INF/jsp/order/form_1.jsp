@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>MyPage</title>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
 </head>
+
 <body>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+  <h3>배송지 정보</h3>
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function execPostCode() {
         new daum.Postcode({
@@ -43,10 +48,10 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    <%--document.getElementById("memo").value = extraAddr;--%>
+                    document.getElementById("memo").value = extraAddr;
                 
                 } else {
-                  <%--document.getElementById("memo").value = '';--%>
+                    document.getElementById("memo").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -58,28 +63,40 @@
         }).open();
     }
 </script>
-  <h1>[정보수정]</h1>
-  <form action='update' method='post'>
-
-    <input type='hidden' name='userNo' value='${user.userNo}'>
-    이름: <input type='text' name='name' value='${user.name}' readonly><br>
-    닉네임: <input type='text' name='nick' value='${user.nick}'><br>
-    이메일: <input type='text' name='email' value='${user.email}' readonly><br>
-    우편번호: <input type='text' id="postNo" name='postNo' value='${user.postNo}'>
+  <form action="add" method="post">
+    이름 : <input type="text" readonly name="userName" value='${user.name}'><br>
+    연락처 : <input type="tel" name="tel"><br>
+    우편번호: <input type="number" id="postNo" name="postNo" value='${user.postNo}'>
     <input type="button" onclick="execPostCode()" value="우편번호 찾기"><br>
-    기본주소: <input type='text' id="address" name='address' value='${user.address}'><br>
-    세부주소: <input type='text' id="detailAddress" name='detailAddress' value='${user.detailAddress}'><br>
-    <%--메모: <input type="text" id='memo' name="memo"><br> --%>
-    <%--비밀번호: <input type='text' name='password' value='${user.password}' readonly><br> --%>
-    <button type="button" onclick="location.href='detailPhoto'">회원사진변경</button><br>
-    <button type="button" onclick="location.href='detailPassword'">비밀번호변경</button><br>
-    <button type="button" onclick="location.href='deleteMyUser'">회원탈퇴</button><br>
-    <br>
-    <p>
-    <button>변경</button>
-    <button type="button" onclick="location.href='../../../mypage/index.html'">취소</button>
-    </p>
+    기본주소: <input type="text" id="address" name="address" value="<c:if test=" ${not empty user.address}">${user.address}</c:if>"><br>
+    상세주소: <input type="text" id="detailAddress" name="detailAddress" value="<c:if test=" ${not empty user.detailAddress}">${user.detailAddress}
+    </c:if>"><br>
+    배송 메모: <input type="text" id='memo' name="memo"><br>
+
+    <h3>주문 상품 정보</h3>
+    <c:forEach items="${baskets}" var="b">
+      <table>
+        <tr>
+          <td>${b.product.content}</td>
+          <td>${b.amount}</td>
+          <td>${b.product.price}</td>
+          <td>${b.writer.name}</td>
+          <td>${b.product.price} * ${b.amount}</td>
+      </table>
+
+    </c:forEach>
+
+
+    <h3>결제 방법 선택</h3>
+    <c:forEach items="${payments}" var="p">
+      <input type="radio" name="paymentNo" value="${p.paymentNo}">${p.name}
+    </c:forEach>
+    
+
+    <button>결제하기</button>
   </form>
-  
+
+
 </body>
+
 </html>
