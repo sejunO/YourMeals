@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Qna;
 import com.oijoa.domain.Recipe;
@@ -18,6 +20,7 @@ import com.oijoa.service.RecipeService;
 
 @Controller
 @RequestMapping("/mypage")
+@SessionAttributes("loginUser")
 public class MyBoardController {
   @Autowired RecipeService recipeService;
   @Autowired CommentService commentService;
@@ -38,61 +41,51 @@ public class MyBoardController {
   }
 
   @GetMapping("/recipe/commentList")
-  public void commentList(HttpSession session, Model model) throws Exception {
+  public void recipeCommentList(HttpSession session, Model model) throws Exception {
     User loginUser = (User) session.getAttribute("loginUser");
     List<Comment> commentList = commentService.userNoList(loginUser.getUserNo());
     model.addAttribute("commentList", commentList);
   }
 
-  @RequestMapping("/qna/add")
-  public String add(HttpSession session, Qna qna) throws Exception {
-    User loginUser = (User) session.getAttribute("loginUser");
-    qna.setWriter(loginUser);
+  @GetMapping("/qna/list")
+  public void qnaList(Model model) throws Exception {
+    model.addAttribute("qnaList", qnaService.list());
+  }
 
+  @GetMapping("/qna/form")
+  public void qnaform() {
+  }
+
+  @PostMapping("/qna/add")
+  public String qnaAdd(Qna qna, @ModelAttribute("loginUser") User loginUser) throws Exception {
+    qna.setWriter(loginUser);
     qnaService.add(qna);
     return "redirect:list";
   }
 
-  @RequestMapping("/qna/delete")
-  public String delete(int no) throws Exception {
-    Qna qna = qnaService.get(no);
-    if (qnaService.delete(no) == 0) {
+  @GetMapping("/qna/delete")
+  public String qnaDelete(int qnaNo) throws Exception {
+    if (qnaService.delete(qnaNo) == 0) {
       throw new Exception("해당 번호의 게시글이 없습니다.");
     }
     return "redirect:list";
   }
 
-  @RequestMapping("/qna/detail")
-  public String detail(int no, HttpSession session) throws Exception {
-    Qna qna = qnaService.get(no);
+  @GetMapping("/qna/detail")
+  public void qnaDetail(int qnaNo, Model model) throws Exception {
+    Qna qna = qnaService.get(qnaNo);
     if (qna == null) {
       throw new Exception("해당 번호의 게시글이 없습니다.");
     }
-    // ModelAndView mv = new ModelAndView();
-    // mv.addObject("qna", qna);
-    // mv.setViewName("/mypage/qna/detail.jsp");
-    // return mv;
-    session.setAttribute("thisqna", qna);
-    return "redirect:../index";
+    model.addAttribute("qna", qna);
   }
 
-  @RequestMapping("/qna/update")
-  public String update(Qna qna) throws Exception {
+  @PostMapping("/qna/update")
+  public String qnaUpdate(Qna qna) throws Exception {
     int count = qnaService.update(qna);
     if (count == 0) {
-      throw new Exception("해당번호의 게시글이 없습니다.");
+      throw new Exception("해당 번호의 게시글이 없습니다.");
     }
-    return "redirect:../list";
-  }
-
-  @RequestMapping("/qna/list")
-  public ModelAndView list(HttpSession session) throws Exception {
-
-    List<Qna> list = qnaService.list();
-
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("list", list);
-    mv.setViewName("/mypage/qna/list.jsp");
-    return mv;
+    return "redirect:list";
   }
 }
