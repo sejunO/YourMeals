@@ -55,14 +55,27 @@ public class UserController {
     model.addAttribute("list", userService.list(keyword));
   }
 
-  @GetMapping("info")
-  public void info(int userNo, Model model) throws Exception {
+  @GetMapping("recipeList")
+  public void recipeList(int userNo, Model model) throws Exception {
     User user = userService.get(userNo);
 
     model.addAttribute("userNick", user.getNick());
     model.addAttribute("recipeList", recipeService.userNoList(userNo));
+  }
+
+  @GetMapping("followerList")
+  public void followerList(int userNo, Model model) throws Exception {
+    User user = userService.get(userNo);
+
+    model.addAttribute("userNick", user.getNick());
     model.addAttribute("followerList", followService.FollowerList(userNo));
+  }
+
+  @GetMapping("followingList")
+  public void followingList(int userNo, Model model) throws Exception {
+    User user = userService.get(userNo);
+
+    model.addAttribute("userNick", user.getNick());
     model.addAttribute("followinglist", followService.FollowingList(userNo));
-    model.addAttribute("/user/info.jsp");
   }
 }

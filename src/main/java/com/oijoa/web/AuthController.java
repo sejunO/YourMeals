@@ -44,7 +44,7 @@ public class AuthController {
       return "redirect:loginError";
     }
     session.setAttribute("loginUser", user);
-    return "redirect:../../index.jsp";
+    return "redirect:../../index2.jsp";
   }
 
   @GetMapping("loginError")
