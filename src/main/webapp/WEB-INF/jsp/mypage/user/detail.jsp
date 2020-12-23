@@ -43,10 +43,10 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("memo").value = extraAddr;
+                    <%--document.getElementById("memo").value = extraAddr;--%>
                 
                 } else {
-                    document.getElementById("memo").value = '';
+                	<%--document.getElementById("memo").value = '';--%>
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -69,7 +69,7 @@
 		<input type="button" onclick="execPostCode()" value="우편번호 찾기"><br>
 		기본주소: <input type='text' id="address" name='address' value='${user.address}'><br>
 		세부주소: <input type='text' id="detailAddress" name='detailAddress' value='${user.detailAddress}'><br>
-	  메모: <input type="text" id='memo' name="memo"><br>
+    <%--메모: <input type="text" id='memo' name="memo"><br> --%>
 		<%--비밀번호: <input type='text' name='password' value='${user.password}' readonly><br> --%>
 		<button type="button" onclick="location.href='detailPassword'">비밀번호변경</button><br>
 		<button type="button" onclick="location.href='deleteMyUser'">회원탈퇴</button><br>
