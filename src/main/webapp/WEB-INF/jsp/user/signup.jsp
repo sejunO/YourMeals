@@ -6,7 +6,7 @@
 <meta charset='UTF-8'>
 <title>회원가입</title>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/test/css/bootstrap.css">
-  	<link rel="stylesheet" href="<%=request.getContextPath() %>/test/css/mystyle.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/test/css/mystyle.css">
 </head>
 <body>
 
