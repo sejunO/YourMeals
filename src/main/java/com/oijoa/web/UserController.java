@@ -20,7 +20,7 @@ public class UserController {
   @Autowired RecipeService recipeService;
   @Autowired FollowService followService;
 
-  @GetMapping("signup")
+  @GetMapping("form")
   public void form() {
   }
 
