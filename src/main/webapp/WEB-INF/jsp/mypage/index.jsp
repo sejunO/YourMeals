@@ -10,7 +10,7 @@
 <body>
     <a href="../app/mypage/user/detail"><button>정보 수정</button></a><br>
     <a href="../app/myrecipe/list">나의 레시피</a><br>
-    <a href="../app/mypage/mycomment/list">나의 댓글</a><br>
+    <a href="../app/mypage/commentList">나의 댓글</a><br>
     <a href="../app/mypage/recipe/likeList">내가 좋아한 레시피</a><br>
     <a href="../app/mypage/following/list">나의 팔로잉</a><br>
     <a href="../app/mypage/follower/list">내 팔로워</a><br>
