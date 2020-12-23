@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,9 +27,9 @@
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 </head>
 
-<body id="mypage"
-<header class="navbar navbar-expand navbar-dark bd-navbar">
- 
+<body id="mypage">
+<header>
+ <jsp:include page="/mypageHeader.jsp"><jsp:include>
 </header>
 
 
