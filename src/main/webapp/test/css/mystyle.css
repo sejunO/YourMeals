@@ -99,14 +99,14 @@
 }
 .btn {
 	background-color: rgb(193, 212, 209);
-    color: rgb(255, 255, 255);
-    font-weight: 700;
-    letter-spacing: -0.1px;
-    text-align: center;
-    width: 100%;
-    border-radius: 40px;
-    font-size: 16px;
-    height: 48px;
+	color: rgb(255, 255, 255);
+	font-weight: 700;
+	letter-spacing: -0.1px;
+	text-align: center;
+	width: 100%;
+	border-radius: 40px;
+	font-size: 16px;
+	height: 48px;
 }
 
 #signup .sign {
@@ -114,18 +114,36 @@
 	letter-spacing: -1px;
 }
 
-#frame { //프레임 크기 얼마인지 정해야됨
-	width: ;
-	height: ;
-}
-
-
-
 
 #mypage {
-	 width: 100%;
+  width: 100%;
   height: 100%;
 }
 
+.box1 {
+	width: 100%;
+	height: 500px;
+	position: relative;
+}
 
+.box2 {
+	background: url(../img/mypage-header.jpg) center center / cover no-repeat;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+}
 
+.box2-1 {
+	box-sizing: border-box;
+}
+
+.box3 {
+	position: absolute;
+	padding-left: 150px;
+	padding-top: 300px;
+	font-family: 'Glyphicons Halflings';
+	color:  rgb(255, 255, 255);
+	font-size: 5em;
+}
