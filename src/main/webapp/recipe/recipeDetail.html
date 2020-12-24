@@ -67,7 +67,6 @@
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
 
-
 </head>
 
 <body>
@@ -156,7 +155,8 @@
           </div>
         </div>
         <i class="fa-user-friends:before"></i>
-  </div><hr>
+  </div>
+  <hr>
 
   <section id="info" class="services">
     <div id="col-icon2">
@@ -180,9 +180,7 @@
                 <h4>초급</h4>
                </div>
             </div>
-
-     </div>
-
+          </div>
     </div>
   </section>
 
@@ -265,11 +263,18 @@
         </div>
       </div>  
          <div class="row">
-           <div class="col-lg-6 mt-4">
+           <div class="php-email-form mt-4">
             <div class="info">
                 <i class="icofont-envelope"></i>
-              <h4>STEP 1</h4>
-               <p>A108 Adam Street, New York, NY 535022</p>    
+              <h4>STEP 1</h4>          
+                 <div class="container">
+                  <div class="recipe-step-con">                   
+                    <div class="form-group">
+                      <textarea class="form-control" name="content" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="조리 내용"></textarea>
+                      <div class="validate"></div>
+                    </div>
+                  </div>
+                </div>               
              </div>
             </div>
          </div> 
@@ -281,17 +286,53 @@
             <div class="col-icon d-flex align-items-stretch">
               <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4>1인분</h4>
+                <h4>좋아요</h4>
                </div>
             </div>
 
             <div class="col-icon d-flex align-items-stretch">
               <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
                 <div class="icon"><i class="bx bx-file"></i></div>
-                <h4>10분</h4>
+                <h4>추천수</h4>
                </div>
             </div>
      </div>
+    </div>
+  </section>
+
+
+  <!-- 댓글 -->
+  <section id="comment" class="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <div class="section-title">
+            <h2>댓글</h2>
+          </div>
+        </div>
+
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="nickname" placeholder="사용자 이름" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validate"></div>
+              </div>
+            
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="content" placeholder="메세지를 입력하세요." data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="validate"></div>
+            </div>
+           
+            <div class="mb-3">
+              <div class="loading">전송중</div>
+              <div class="error-message"></div>
+              <div class="sent-message">완료!</div>
+            </div>
+            <div class="text-center"><button type="submit">전송</button></div>
+          </form>
+        </div>
+      </div>
+
     </div>
   </section>
 
