@@ -724,9 +724,8 @@ section {
 --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
-  padding: 15px;
+  padding: 40px;
   transition: all ease-in-out 0.3s;
-  background: #fff;
 }
 
 .services .icon-box .icon {
@@ -776,6 +775,19 @@ section {
 .services .icon-box:hover .icon {
   color: #fff;
   background: #009970;
+}
+
+.col-icon{
+  position : relative;
+
+}
+
+#col-icon2{
+  position : relative;
+  width: 300px auto;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
 }
 
 /*--------------------------------------------------------------
@@ -1218,6 +1230,47 @@ section {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.reicpe-step-bg {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.container-material{
+  width: auto;
+  background-color: #F5F5F5;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.py-5{
+    padding-bottom: 3rem!important;
+    padding-top: 3rem!important;
+}
+.bg-light {
+  background-color: #f8f9fa!important;
+}
+
+.contact .php-email-form{
+  width: 150%;
 }
 
 /*--------------------------------------------------------------
