@@ -67,9 +67,6 @@
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
 
-  <style>
-  
-  </style>
 
 </head>
 
@@ -155,45 +152,148 @@
         </p>
       </div>
         <div id="left">
-            <h6>작성자: (사진) 방탄아미</h6>
+            <h6>작성자: (사진) 방탄아미</h6><br>
           </div>
         </div>
         <i class="fa-user-friends:before"></i>
-  </div>
+  </div><hr>
 
-  <section id="services" class="services section-bg">
-    <div class="container-recipe">
-
-        <div class="col-lg-8">
-          <div class="row">
-            <div class="col-md-6 d-flex align-items-stretch">
+  <section id="info" class="services">
+    <div id="col-icon2">
+            <div class="col-icon d-flex align-items-stretch">
               <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4><a href="">1인분</a></h4>
+                <h4>1인분</h4>
                </div>
             </div>
 
-            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="col-icon d-flex align-items-stretch">
               <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
                 <div class="icon"><i class="bx bx-file"></i></div>
-                <h4><a href="">10분</a></h4>
+                <h4>10분</h4>
                </div>
             </div>
 
-            <div class="col-md-6 d-flex align-items-stretch mt-4">
+            <div class="col-icon d-flex align-items-stretch">
               <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
                 <div class="icon"><i class="bx bx-tachometer"></i></div>
-                <h4><a href="">초급</a></h4>
+                <h4>초급</h4>
                </div>
             </div>
 
-          </div>
-        </div>
-      </div>
+     </div>
 
     </div>
   </section>
 
+
+ <!-- 재료 -->
+  <section id="recipe-material" class="contact">
+    <div class="container">
+      <div class="row">     
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="section-title">
+               <h2>재료</h2>
+            </div>
+          </div>
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4 middle">
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+               <ul><input type="text" name="name" class="form-control" id="name" placeholder="재료" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /></ul> 
+                <div class="validate"></div>
+              </div>
+              <div class="col-md-6 form-group">
+               <ul><input type="email" class="form-control" name="email" id="email" placeholder="계량" data-rule="email" data-msg="Please enter a valid email" /></ul>
+                <div class="validate"></div>
+              </div>
+            </div>
+            <!-- <div class="mb-3">
+              <div class="loading">로딩중</div>
+              <div class="error-message"></div>
+              <div class="sent-message">전송 성공</div>
+            </div> -->
+            <div class="album py-5 bg-light">
+              <div class="container">            
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: recipe-photo"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><a href="">재료사진</a></text></svg>
+                      <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: recipe-photo"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><a href="">재료사진</a></text></svg>
+                      <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                      <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: recipe-photo"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><a href="">재료사진</a></text></svg>
+                      <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="text-center"><button type="submit">부족한 재료 주문하기</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    </section>
+
+    <!-- 조리 순서 -->
+<section id="recipe-step" class="contact">
+   <div class="container-material reicpe-step-bg">
+      <div class="col-lg-4" data-aos="fade-right">
+        <div class="section-title">
+           <h2>조리 순서</h2>
+        </div>
+      </div>  
+         <div class="row">
+           <div class="col-lg-6 mt-4">
+            <div class="info">
+                <i class="icofont-envelope"></i>
+              <h4>STEP 1</h4>
+               <p>A108 Adam Street, New York, NY 535022</p>    
+             </div>
+            </div>
+         </div> 
+      </div>
+  </section>
+
+  <section id="boardlike" class="services">
+    <div id="col-icon2">
+            <div class="col-icon d-flex align-items-stretch">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <h4>1인분</h4>
+               </div>
+            </div>
+
+            <div class="col-icon d-flex align-items-stretch">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon"><i class="bx bx-file"></i></div>
+                <h4>10분</h4>
+               </div>
+            </div>
+     </div>
+    </div>
+  </section>
 
 <!-- 페이지 맨 밑 설명 + Back to top-->
 <footer class="text-muted">
