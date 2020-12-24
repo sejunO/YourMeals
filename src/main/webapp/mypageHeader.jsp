@@ -31,27 +31,26 @@
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<header id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!-- Navigation
     ==========================================-->
-<nav id="frame" class="navbar navbar-default navbar-fixed-top">
+
+<nav id="menu" class="navbar navbar-default navbar-fixed-top" >
   <div class="container"> 
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <a class="navbar-brand page-scroll" href="<%=request.getContextPath() %>/index2.jsp">YourMeals</a> </div>
     
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="" class="page-scroll">About</a></li>
-        <li><a href="" class="page-scroll">Menu</a></li>
-        <li><a href="" class="page-scroll">Gallery</a></li>
-        <li><a href="" class="page-scroll">Chefs</a></li>
-        <li><a href="" class="page-scroll">Contact</a></li>
+        <li><a href="" class="page-scroll" style="color: rgba(255,255,255,0.8)";>About</a></li>
+        <li><a href="" class="page-scroll" style="color: rgba(255,255,255,0.8)";>Menu</a></li>
+        <li><a href="" class="page-scroll" style="color: rgba(255,255,255,0.8)";>Gallery</a></li>
+        <li><a href="" class="page-scroll" style="color: rgba(255,255,255,0.8)";>Chefs</a></li>
+        <li><a href="" class="page-scroll" style="color: rgba(255,255,255,0.8)";>Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
-</body>
+</header>
 </html>
