@@ -31,7 +31,7 @@
  	<div class="box1">
  		<div class="box2">
  			<header class="box2-1"><jsp:include page="/mypageHeader.jsp"></jsp:include></header>
- 		<div class="box3">MyPage</div>
+ 			<div class="box3">MyPage</div>
  		</div>
 </div>
 

@@ -34,7 +34,6 @@
 <header id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!-- Navigation
     ==========================================-->
-
 <nav id="menu" class="navbar navbar-default navbar-fixed-top" >
   <div class="container"> 
     <div class="navbar-header">
