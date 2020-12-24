@@ -11,7 +11,7 @@
       margin:auto;
       text-align:center;
       background-color:#FFFAFA;
-      margin-top: 100px;
+      margin-top: 50px;
       margin-bottom: 50px;
     }
     .user-container {
@@ -74,7 +74,7 @@
 	  
 	  <div class="element-label">
 	    <div class="modal-table"><div class="modal-cell"><div class="box">
-	    <button>팔로우</button>
+	    <button onclick="location.href='follow'">팔로우</button>
 	    </div></div></div>
 	  </div>
 	  </div>

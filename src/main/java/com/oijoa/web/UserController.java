@@ -115,4 +115,19 @@ public class UserController {
     model.addAttribute("followerSize", followerSize);
     model.addAttribute("followingSize", followingSize);
   }
+
+  @GetMapping("follow")
+  public String follow(@ModelAttribute("loginUser") User loginUser, int userNo) throws Exception {
+    Follow followUsers = null;
+
+    followUsers.setFollower(loginUser.getUserNo());
+    followUsers.setFollowing(userNo);
+
+    followService.follow(followUsers);
+    return "redirect:.";
+  }
+
+  @GetMapping("unfollow")
+  public void unfollow(@ModelAttribute("loginUser") User loginUser, int userNo) throws Exception {
+  }
 }

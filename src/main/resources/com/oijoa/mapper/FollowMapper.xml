@@ -57,6 +57,14 @@
     where   
       f.follower = #{loginNo}
   </select>
+  
+  <insert id="insert" parameterType="follow">
+    insert into oi_follow(follower, following) 
+    values(#{follower},#{following})
+  </insert>
+  
+  <delete id="delete" parameterType="int">
+  </delete>
 </mapper>
 
 
