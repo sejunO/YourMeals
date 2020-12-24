@@ -1,5 +1,6 @@
 package com.oijoa.web;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import com.oijoa.domain.Follow;
+import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.FollowService;
 import com.oijoa.service.RecipeService;
@@ -58,24 +61,58 @@ public class UserController {
   @GetMapping("recipeList")
   public void recipeList(int userNo, Model model) throws Exception {
     User user = userService.get(userNo);
+    List<Recipe> recipeList = recipeService.userNoList(userNo);
+    List<Follow> followerList = followService.FollowerList(userNo);
+    List<Follow> followinglist = followService.FollowingList(userNo);
 
     model.addAttribute("user", user);
-    model.addAttribute("recipeList", recipeService.userNoList(userNo));
+    model.addAttribute("recipeList", recipeList);
+
+    int recipeSize = recipeList.size();
+    int followerSize = followerList.size();
+    int followingSize = followinglist.size();
+
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("followingSize", followingSize);
+
   }
 
   @GetMapping("followerList")
   public void followerList(int userNo, Model model) throws Exception {
     User user = userService.get(userNo);
+    List<Recipe> recipeList = recipeService.userNoList(userNo);
+    List<Follow> followerList = followService.FollowerList(userNo);
+    List<Follow> followinglist = followService.FollowingList(userNo);
 
     model.addAttribute("user", user);
-    model.addAttribute("followerList", followService.FollowerList(userNo));
+    model.addAttribute("followerList", followerList);
+
+    int recipeSize = recipeList.size();
+    int followerSize = followerList.size();
+    int followingSize = followinglist.size();
+
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("followingSize", followingSize);
   }
 
   @GetMapping("followingList")
   public void followingList(int userNo, Model model) throws Exception {
     User user = userService.get(userNo);
+    List<Recipe> recipeList = recipeService.userNoList(userNo);
+    List<Follow> followerList = followService.FollowerList(userNo);
+    List<Follow> followinglist = followService.FollowingList(userNo);
 
     model.addAttribute("user", user);
-    model.addAttribute("followinglist", followService.FollowingList(userNo));
+    model.addAttribute("followinglist", followinglist);
+
+    int recipeSize = recipeList.size();
+    int followerSize = followerList.size();
+    int followingSize = followinglist.size();
+
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("followingSize", followingSize);
   }
 }
