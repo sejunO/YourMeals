@@ -59,7 +59,7 @@ public class UserController {
   public void recipeList(int userNo, Model model) throws Exception {
     User user = userService.get(userNo);
 
-    model.addAttribute("userNick", user.getNick());
+    model.addAttribute("user", user);
     model.addAttribute("recipeList", recipeService.userNoList(userNo));
   }
 
@@ -67,7 +67,7 @@ public class UserController {
   public void followerList(int userNo, Model model) throws Exception {
     User user = userService.get(userNo);
 
-    model.addAttribute("userNick", user.getNick());
+    model.addAttribute("user", user);
     model.addAttribute("followerList", followService.FollowerList(userNo));
   }
 
@@ -75,7 +75,7 @@ public class UserController {
   public void followingList(int userNo, Model model) throws Exception {
     User user = userService.get(userNo);
 
-    model.addAttribute("userNick", user.getNick());
+    model.addAttribute("user", user);
     model.addAttribute("followinglist", followService.FollowingList(userNo));
   }
 }

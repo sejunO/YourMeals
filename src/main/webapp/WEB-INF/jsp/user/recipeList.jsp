@@ -8,10 +8,7 @@
 <html>
 <head><title>사용자 레시피</title></head>
 <body>
-<%
-String userNick = request.getParameter("userNick");
-%>
-<h1>[${userNick}님의 레시피]</h1>
+<h1>[${user.nick}님의 레시피]</h1>
 <table border='1'>
 <thead>
 <tr>
@@ -31,6 +28,29 @@ String userNick = request.getParameter("userNick");
 </tr>
 </c:forEach>
 </tbody>
+</table>
+
+<hr>
+
+<div class="card" style="width:60%;margin:auto;text-align:center;background-color:#FFFAFA">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+  </ul>
+</div>
+
+<table class="table table-bordered" 
+border='1' style="width:60%;margin:auto;text-align:center;">
+<tr bgcolor="#FFFAFA">
+  <td align=right><img src='../../upload/${user.photo}_120x120.jpg'></td>
+  <td><img src='../../upload/${user.photo}_120x120.jpg'></td>
+  <td><img src='../../upload/${user.photo}_120x120.jpg'></td>
+  <td><img src='../../upload/${user.photo}_120x120.jpg'></td>
+  <td><img src='../../upload/${user.photo}_120x120.jpg'></td>
+</tr>
+<tr>
+  <th>bbb</th>
+</tr>
 </table>
 </body>
 </html>

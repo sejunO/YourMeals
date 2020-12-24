@@ -8,10 +8,7 @@
 <html>
 <head><title>사용자 레시피</title></head>
 <body>
-<%
-String userNick = request.getParameter("userNick");
-%>
-<h1>[${userNick}님의 Follower 목록]</h1>
+<h1>[${user.nick}님의 Follower 목록]</h1>
 <table border='1'>
 <thead>
 <tr>
