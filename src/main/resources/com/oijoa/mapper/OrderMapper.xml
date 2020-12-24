@@ -60,14 +60,27 @@
   </resultMap>
 
   <select id="findAll" resultMap="OrderMap" parameterType="string">
-    select 
-      odno, 
-      uno, 
-      pno, 
-      dcno, 
-      pno,
-      stat
-      from oi_order
+  select
+      o.odno,
+      u.uno user_no,
+      u.name user_name,
+      b.bkno basket_no,
+      b.uno basket_user_no,
+      o.odt,
+      o.pno,
+      o.dcno,
+      o.transno,
+      o.memo,
+      o.postno,
+      o.addr,
+      o.det_addr,
+      o.stat
+    from
+      oi_order o
+      inner join oi_user u
+        on o.uno=u.uno
+      inner join oi_basket b 
+         on b.uno=o.uno
   </select>
   
   <select id="findByUserNo" resultMap="OrderMap" parameterType="int">
@@ -94,6 +107,32 @@
       inner join oi_basket b 
          on b.uno=o.uno
     where o.uno = #{userNo.userNo}
+  </select>
+  
+    <select id="findByNo" resultMap="OrderMap" parameterType="int">
+    select 
+      o.odno,
+      o.uno,
+      u.uno user_no,
+      u.name user_name,
+      b.bkno basket_no,
+      b.uno basket_user_no,
+      o.odt,
+      o.pno,
+      o.dcno,
+      o.transno,
+      o.memo,
+      o.postno,
+      o.addr,
+      o.det_addr,
+      o.stat
+    from
+      oi_order o
+      inner join oi_user u
+        on o.uno=u.uno
+      inner join oi_basket b 
+         on b.uno=o.uno
+    where o.odno = #{odno}
   </select>
   
   <select id="findByUpdateListUserNo" resultMap="OrderMap" parameterType="int">
@@ -167,6 +206,18 @@
   		odt desc
   	limit 0,1
   </select>
+  
+      <update id="update" parameterType="order">
+    update oi_order 
+    <set>
+      <if test="postNo != null">postno = #{postNo},</if>
+      <if test="address != null">addr = #{address},</if>
+      <if test="detailAddress != null">det_addr = #{detailAddress},</if>
+      <if test="status != null">stat = #{status}</if>
+    </set>
+    where
+    odno = #{orderNo}
+  </update>
   
 
   

@@ -20,28 +20,23 @@ public class AppWebConfig implements WebMvcConfigurer {
   public ViewResolver viewResolver() {
     return new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp");
   }
-
-
-
-  //  @Bean
-  //  public ViewResolver tilesViewResolver() {
-  //    UrlBasedViewResolver vr = new UrlBasedViewResolver();
+  // @Bean
+  // public ViewResolver tilesViewResolver() {
+  // UrlBasedViewResolver vr = new UrlBasedViewResolver();
   //
-  //    vr.setSuffix(".app");
-  //    vr.setViewClass(TilesView.class);
-  //    vr.setOrder(1);
+  // vr.setSuffix(".app");
+  // vr.setViewClass(TilesView.class);
+  // vr.setOrder(1);
   //
-  //    return vr;
-  //  }
+  // return vr;
+  // }
   //
-  //  @Bean
-  //  public TilesConfigurer tilesConfigurer() {
-  //    TilesConfigurer configurer = new TilesConfigurer();
-  //    configurer.setDefinitions("/WEB-INF/tiles/defs/tiles.xml");
-  //    return configurer;
-  //  }
-
-
+  // @Bean
+  // public TilesConfigurer tilesConfigurer() {
+  // TilesConfigurer configurer = new TilesConfigurer();
+  // configurer.setDefinitions("/WEB-INF/tiles/defs/tiles.xml");
+  // return configurer;
+  // }
 
   @Bean
   public MultipartResolver multipartResolver() {

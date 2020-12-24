@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import com.oijoa.domain.Order;
 import com.oijoa.domain.Product;
 import com.oijoa.domain.User;
 import com.oijoa.service.OrderService;
@@ -35,30 +36,30 @@ public class AdminController {
   OrderService orderService;
 
   @GetMapping("userList")
-  public void index(Model model) throws Exception {
+  public void userList(Model model) throws Exception {
     model.addAttribute("userList", userService.list());
   }
 
   @GetMapping("userDetail")
-  public String list(int no, HttpSession session) throws Exception {
+  public String userDetail(int no, HttpSession session) throws Exception {
     session.setAttribute("thisUser", userService.get(no));
     return "redirect:userList";
   }
 
   @PostMapping("userUpdate")
-  public String update(User user, HttpSession session) throws Exception {
+  public String userUpdate(User user, HttpSession session) throws Exception {
     userService.update(user);
     session.setAttribute("thisUser", userService.get(user.getUserNo()));
     return "redirect:userList";
   }
 
   @RequestMapping("productList")
-  public void list(Model model) throws Exception {
+  public void productList(Model model) throws Exception {
     model.addAttribute("list", productService.list(null));
   }
 
   @RequestMapping("productAdd")
-  public String add(String title, String content, int price, int stock, int discount,
+  public String productAdd(String title, String content, int price, int stock, int discount,
       MultipartFile photoFile) throws Exception {
     Product product = new Product();
     product.setTitle(title);
@@ -94,7 +95,7 @@ public class AdminController {
   }
 
   @RequestMapping("productForm")
-  public void form() throws Exception {}
+  public void productForm() throws Exception {}
 
 
   @RequestMapping("orderList")
@@ -102,23 +103,36 @@ public class AdminController {
     model.addAttribute("orderList", orderService.list());
   }
 
+  @GetMapping("orderDetail")
+  public String orderlist(int no, HttpSession session) throws Exception {
+    session.setAttribute("thisOrder", orderService.get(no));
+    return "redirect:orderList";
+  }
+
+  @PostMapping("orderUpdate")
+  public String orderUpdate(Order order, HttpSession session, int asdf) throws Exception {
+    orderService.update(order);
+    session.setAttribute("thisOrder", orderService.get(order.getOrderNo()));
+    return "redirect:orderList";
+  }
+
   private void generatePhotoThumbnail(String saveFilePath) {
     try {
       Thumbnails.of(saveFilePath).size(80, 80).outputFormat("jpg").crop(Positions.CENTER)
-      .toFiles(new Rename() {
-        @Override
-        public String apply(String name, ThumbnailParameter param) {
-          return name + "_80x80";
-        }
-      });
+          .toFiles(new Rename() {
+            @Override
+            public String apply(String name, ThumbnailParameter param) {
+              return name + "_80x80";
+            }
+          });
 
       Thumbnails.of(saveFilePath).size(200, 200).outputFormat("jpg").crop(Positions.CENTER)
-      .toFiles(new Rename() {
-        @Override
-        public String apply(String name, ThumbnailParameter param) {
-          return name + "_200x200";
-        }
-      });
+          .toFiles(new Rename() {
+            @Override
+            public String apply(String name, ThumbnailParameter param) {
+              return name + "_200x200";
+            }
+          });
     } catch (Exception e) {
       e.printStackTrace();
     }

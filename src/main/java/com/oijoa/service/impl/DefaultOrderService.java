@@ -54,5 +54,15 @@ public class DefaultOrderService implements OrderService {
     return orderDao.findLatelyOrder(no);
   }
 
+  @Override
+  public Order get(int no) throws Exception {
+    return orderDao.findByNo(no);
+  }
+
+  @Override
+  public int update(Order order) throws Exception {
+    return orderDao.update(order);
+  }
+
 
 }

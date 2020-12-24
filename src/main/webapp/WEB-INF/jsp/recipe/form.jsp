@@ -42,14 +42,39 @@
       </c:forEach>
     </ul>
     <br>
+    
+        <div id="inputNameContainer">
+      <div class="inputName">
+        <span class="name">step1</span>: <textarea name="name1"></textarea>
+        사진: <input type='file' name='step_photo1'>
+      </div>
+    </div>
+    <button id="btnAddName" type="button">추가</button><br>
 
     <h3>조리순서</h3>
     사진: <input type='file' name='step_photo'><br>
     내용: <textarea name='step_content' rows='10' cols='30'></textarea><br>
+    
     <p><button>등록</button></p>
 
-
   </form>
+  
+    <script>
+    var inputNameIndex = 1;
+    var btnAddName = document.getElementById("btnAddName");
+    var inputNameContainer = document.querySelector("#inputNameContainer");
+    var inputNameDiv = document.querySelector(".inputName");
+
+    btnAddName.onclick = function () {
+      inputNameIndex++;
+      var e = inputNameDiv.cloneNode(true);
+      e.querySelector(".name").innerHTML = "step" + inputNameIndex;
+      e.querySelector("input").name = "step_photo" + inputNameIndex;
+      e.querySelector("textarea").name = "name" + inputNameIndex;
+      inputNameContainer.appendChild(e);
+    };
+
+  </script>
 
 </body>
 
