@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +57,9 @@
         <li><a href="#call-reservation" class="page-scroll">Contact</a></li>
         <li><a href="<%=request.getContextPath() %>/app/auth/login">Login</a></li>
         <li><a href="<%=request.getContextPath() %>/app/user/form">Sign up</a></li>
+                <c:if test="${loginUser.userTypeNo == 5}">
+        	<li><a href="" class="page-scroll">ADMIN</a></li>
+        </c:if>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 

@@ -29,7 +29,9 @@
 
 <body id="mypage">
 <header>
+
  <jsp:include page="/mypageHeader.jsp"></jsp:include>
+ 
 </header>
 
 
