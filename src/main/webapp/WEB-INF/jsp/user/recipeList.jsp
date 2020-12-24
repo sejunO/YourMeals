@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="/WEB-INF/jsp/user/header.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/jsp/user/userHeader.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,28 +15,29 @@
   }
 </style>  
 </head>
+
 <body>
+<jsp:include page="/WEB-INF/jsp/user/userHeader.jsp"></jsp:include>
 
-<table border='1'>
-<thead>
-<tr>
-  <th>번호</th>
-  <th>제목</th>
-  <th>사진</th>
-  <th>등록일</th></tr>
-</thead>
-
-<tbody>
-<c:forEach items="${recipeList}" var="r">
-<tr>
-  <td>${r.recipeNo}</td>
-  <td><a href='../recipe/detail?recipeNo=${r.recipeNo}'>${r.title}</a></td>
-  <td>${r.photo}</td>
-  <td>${r.createdDate}</td>
-</tr>
-</c:forEach>
-</tbody>
-</table>
-
+	<table border='1'>
+	<thead>
+	<tr>
+	  <th>번호</th>
+	  <th>제목</th>
+	  <th>사진</th>
+	  <th>등록일</th></tr>
+	</thead>
+	
+	<tbody>
+	<c:forEach items="${recipeList}" var="r">
+	<tr>
+	  <td>${r.recipeNo}</td>
+	  <td><a href='../recipe/detail?recipeNo=${r.recipeNo}'>${r.title}</a></td>
+	  <td>${r.photo}</td>
+	  <td>${r.createdDate}</td>
+	</tr>
+	</c:forEach>
+	</tbody>
+	</table>
 </body>
 </html>
