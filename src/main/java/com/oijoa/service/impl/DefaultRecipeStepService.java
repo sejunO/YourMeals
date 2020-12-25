@@ -39,19 +39,10 @@ public class DefaultRecipeStepService implements RecipeStepService {
   public List<RecipeStep> list(int recipeNo) throws Exception {
     return recipeStepDao.findByRecipeNo(recipeNo);
   }
-  //
-  // @Override
-  // public Board get(int no) throws Exception {
-  // Board board = boardDao.findByNo(no);
-  // if (board != null) {
-  // boardDao.updateViewCount(no);
-  // }
-  // return board;
-  // }
-  //
-  // @Override
-  // public int update(Board board) throws Exception {
-  // return boardDao.update(board);
-  // }
+
+  @Override
+  public int add(RecipeStep step) throws Exception {
+    return recipeStepDao.insert(step);
+  }
 
 }

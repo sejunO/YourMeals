@@ -1,81 +1,85 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <!DOCTYPE html>
+    <html>
 
-<jsp:include page="/header.jsp"></jsp:include>
+    <head>
+      <title>레시피 등록</title>
+    </head>
 
-<!DOCTYPE html>
-<html>
+    <body>
+      <h1>레시피 등록</h1>
 
-<head>
-  <title>레시피 등록</title>
-</head>
+      <form action='add' method='post' enctype='multipart/form-data'>
 
-<body>
+        사진: <input type='file' name='recipe_photo'><br>
+        제목: <input type='text' name='title'><br>
+        내용: <textarea name='content' rows='10' cols='60'></textarea><br>
 
-  <h1>레시피 등록</h1>
+        <h3>난이도</h3>
 
-  <form action='add' method='post' enctype='multipart/form-data'>
+        <input type='radio' name='levelNo' value='1'>☆"
+        <input type='radio' name='levelNo' value='2'>☆☆"
+        <input type='radio' name='levelNo' value='3'>☆☆☆<br>
+        <h3>만드는 시간</h3>
+        <input type='number' name='min'>분<br>
 
-    사진: <input type='file' name='recipe_photo'><br>
-    제목: <input type='text' name='title'><br>
-    내용: <textarea name='content' rows='10' cols='60'></textarea><br>
+        <br>
+        <h3>카테고리 </h3><br>
+     
+          <c:forEach items="${categoryList}" var="category">
+            <input type='radio' name='categoryNo' value='${category.categoryNo}'/>${category.categoryName}<br>
+          </c:forEach>
 
-    <h3>난이도</h3>
-
-    <input type='radio' name='levelNo' value='1'>☆"
-    <input type='radio' name='levelNo' value='2'>☆☆"
-    <input type='radio' name='levelNo' value='3'>☆☆☆<br>
-    <h3>만드는 시간</h3>
-    <input type='number' name='min'>분<br>
-
-    <br>
-    <h3>카테고리 </h3><br>
-    <ul>
-      <c:forEach items="${categoryList}" var="category">
-        <li><input type='radio' name='categoryNo' value=${category.categoryNo}>${category.categoryName}</li><br>
-      </c:forEach>
-
-      <h3>필요한 재료</h3><br>
-      <c:forEach items="${materialList}" var="material">
-        <li><input type='radio' name='materialList' value=${material.materialNo}>${material.name}</li><br>
-      </c:forEach>
-    </ul>
-    <br>
-    
-        <div id="inputNameContainer">
-      <div class="inputName">
-        <span class="name">step1</span>: <textarea name="name1"></textarea>
-        사진: <input type='file' name='step_photo1'>
-      </div>
-    </div>
-    <button id="btnAddName" type="button">추가</button><br>
-
-    <h3>조리순서</h3>
-    사진: <input type='file' name='step_photo'><br>
-    내용: <textarea name='step_content' rows='10' cols='30'></textarea><br>
-    
-    <p><button>등록</button></p>
-
-  </form>
+          <h3>필요한 재료</h3><br>
+          <c:forEach items="${materialList}" var="material">
+            <input type='radio' name='materialList' value='${material.materialNo}'/>${material.name}<br>
+          </c:forEach>
   
-    <script>
-    var inputNameIndex = 1;
-    var btnAddName = document.getElementById("btnAddName");
-    var inputNameContainer = document.querySelector("#inputNameContainer");
-    var inputNameDiv = document.querySelector(".inputName");
+        <br>
 
-    btnAddName.onclick = function () {
-      inputNameIndex++;
-      var e = inputNameDiv.cloneNode(true);
-      e.querySelector(".name").innerHTML = "step" + inputNameIndex;
-      e.querySelector("input").name = "step_photo" + inputNameIndex;
-      e.querySelector("textarea").name = "name" + inputNameIndex;
-      inputNameContainer.appendChild(e);
-    };
+         <div id="inputNameContainer">
+          <div class="inputName">
+            <span class="name">step1</span>: <textarea name="step1"></textarea>
+            사진: <input type='file' name='step_photo1'>
+          </div>
+        </div>
 
-  </script>
+        <div id="inputNameContainer">
+          <div class="inputName">
+            <span class="name">step2</span>: <textarea name="step2"></textarea>
+            사진: <input type='file' name='step_photo2'>
+          </div>
+        </div>
 
-</body>
+        <div id="inputNameContainer">
+          <div class="inputName">
+            <span class="name">step3</span>: <textarea name="step3"></textarea>
+            사진: <input type='file' name='step_photo3'>
+          </div>
+        </div>
 
-</html>
+        <div id="inputNameContainer">
+          <div class="inputName">
+            <span class="name">step4</span>: <textarea name="step4"></textarea>
+            사진: <input type='file' name='step_photo4'>
+          </div>
+        </div>
+
+        <div id="inputNameContainer">
+          <div class="inputName">
+            <span class="name">step5</span>: <textarea name="step5"></textarea>
+            사진: <input type='file' name='step_photo5'>
+          </div>
+        </div>
+
+
+        <p><button>등록</button></p>
+
+      </form>
+
+
+
+    </body>
+
+    </html>

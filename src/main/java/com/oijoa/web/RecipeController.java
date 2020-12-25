@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Recipe;
+import com.oijoa.domain.RecipeStep;
 import com.oijoa.domain.User;
 import com.oijoa.service.CategoryService;
 import com.oijoa.service.CommentService;
@@ -62,24 +62,82 @@ public class RecipeController {
 
   @RequestMapping("add")
   public String add(HttpSession session, String title, String content, String min, String levelNo,
-      Part photoPart, int categoryNo) throws Exception {
+      MultipartFile recipe_photo, int categoryNo, String step1, String step2, String step3,
+      String step4, String step5, MultipartFile step_photo1, MultipartFile step_photo2,
+      MultipartFile step_photo3, MultipartFile step_photo4, MultipartFile step_photo5)
+      throws Exception {
 
+
+    User user = (User) session.getAttribute("loginUser");
     String filename = UUID.randomUUID().toString();
     String saveFilePath = servletContext.getRealPath("/upload/" + filename);
-    photoPart.write(saveFilePath);
+    recipe_photo.transferTo(new File(saveFilePath));
+
     generatePhotoThumbnail(saveFilePath);
     Recipe recipe = new Recipe();
     recipe.setTitle(title);
     recipe.setContent(content);
     recipe.setLevelNo(Integer.parseInt(levelNo));
     recipe.setMin(Integer.parseInt(min));
-    recipe.setWriter((User) session.getAttribute("loginUser"));
+    recipe.setWriter(user);
     recipe.setCategory(categoryService.get(categoryNo));
     recipe.setPhoto(filename);
     // 재료 추가 코드 필요
     // 조리 순서 코드 필요
 
     recipeService.add(recipe);
+    // 로그인 유저의 최근 레시피 번호를 찾아서 레시피 스텝에 추가
+    Recipe latelyRecipe = recipeService.lately(user.getUserNo());
+
+    RecipeStep step = new RecipeStep();
+    step.setRecipeNo(latelyRecipe.getRecipeNo());
+    step.setStep(1);
+    step.setContent(step1);
+    filename = UUID.randomUUID().toString();
+    saveFilePath = servletContext.getRealPath("/upload/" + filename);
+    step_photo1.transferTo(new File(saveFilePath));
+    generatePhotoThumbnail(saveFilePath);
+    step.setPhoto(filename);
+    recipeStepService.add(step);
+
+    filename = UUID.randomUUID().toString();
+    saveFilePath = servletContext.getRealPath("/upload/" + filename);
+    step_photo2.transferTo(new File(saveFilePath));
+    generatePhotoThumbnail(saveFilePath);
+    step.setStep(2);
+    step.setContent(step2);
+    step.setPhoto(filename);
+    recipeStepService.add(step);
+
+    filename = UUID.randomUUID().toString();
+    saveFilePath = servletContext.getRealPath("/upload/" + filename);
+    step_photo3.transferTo(new File(saveFilePath));
+    generatePhotoThumbnail(saveFilePath);
+
+    step.setStep(3);
+    step.setContent(step3);
+    step.setPhoto(filename);
+    recipeStepService.add(step);
+
+    filename = UUID.randomUUID().toString();
+    saveFilePath = servletContext.getRealPath("/upload/" + filename);
+    step_photo4.transferTo(new File(saveFilePath));
+    generatePhotoThumbnail(saveFilePath);
+
+    step.setStep(4);
+    step.setContent(step4);
+    step.setPhoto(filename);
+    recipeStepService.add(step);
+
+    filename = UUID.randomUUID().toString();
+    saveFilePath = servletContext.getRealPath("/upload/" + filename);
+    step_photo5.transferTo(new File(saveFilePath));
+    generatePhotoThumbnail(saveFilePath);
+    step.setStep(5);
+    step.setContent(step5);
+    step.setPhoto(filename);
+    recipeStepService.add(step);
+
 
     return "redirect:list";
 
@@ -107,15 +165,11 @@ public class RecipeController {
       keywordMap.put("title", keywordTitle);
       keywordMap.put("writer", keywordWriter);
       keywordMap.put("category", keywordCategory);
-
       model.addAttribute("list", recipeService.list(keywordMap));
-
     } else {
       model.addAttribute("list", recipeService.list());
     }
-
   }
-
 
   @RequestMapping("detail")
   public void detail(Model model, int recipeNo) throws Exception {
@@ -193,9 +247,7 @@ public class RecipeController {
   public void initBinder(WebDataBinder binder) {
     DatePropertyEditor propEditor = new DatePropertyEditor();
 
-    binder.registerCustomEditor(java.util.Date.class,
-        propEditor
-        );
+    binder.registerCustomEditor(java.util.Date.class, propEditor);
   }
 
   class DatePropertyEditor extends PropertyEditorSupport {
@@ -213,21 +265,21 @@ public class RecipeController {
 
   private void generatePhotoThumbnail(String saveFilePath) {
     try {
-      Thumbnails.of(saveFilePath).size(30, 30).outputFormat("jpg").crop(Positions.CENTER)
-      .toFiles(new Rename() {
-        @Override
-        public String apply(String name, ThumbnailParameter param) {
-          return name + "_30x30";
-        }
-      });
+      Thumbnails.of(saveFilePath).size(500, 500).outputFormat("jpg").crop(Positions.CENTER)
+          .toFiles(new Rename() {
+            @Override
+            public String apply(String name, ThumbnailParameter param) {
+              return name + "_500x500";
+            }
+          });
 
       Thumbnails.of(saveFilePath).size(120, 120).outputFormat("jpg").crop(Positions.CENTER)
-      .toFiles(new Rename() {
-        @Override
-        public String apply(String name, ThumbnailParameter param) {
-          return name + "_120x120";
-        }
-      });
+          .toFiles(new Rename() {
+            @Override
+            public String apply(String name, ThumbnailParameter param) {
+              return name + "_120x120";
+            }
+          });
     } catch (Exception e) {
       e.printStackTrace();
     }

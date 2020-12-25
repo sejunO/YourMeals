@@ -86,7 +86,7 @@ public class DefaultRecipeService implements RecipeService {
   public Recipe get(int no) throws Exception {
     Recipe recipe = recipeDao.findByRecipeNo(no);
     if (recipe != null) {
-    	recipeDao.updateHits(no);
+      recipeDao.updateHits(no);
     }
     return recipeDao.findByRecipeNo(no);
   }
@@ -107,13 +107,18 @@ public class DefaultRecipeService implements RecipeService {
   }
 
   @Override
-	public int updateCategory(Recipe recipe) throws Exception {
-	  return recipeDao.updateCategory(recipe);
-	}
-  
+  public int updateCategory(Recipe recipe) throws Exception {
+    return recipeDao.updateCategory(recipe);
+  }
+
   @Override
-	public int updateRecommendCount(int no) throws Exception {
-	  return recipeDao.updateRecommendCount(no);
-	}
+  public int updateRecommendCount(int no) throws Exception {
+    return recipeDao.updateRecommendCount(no);
+  }
+
+  @Override
+  public Recipe lately(int userNo) throws Exception {
+    return recipeDao.findLatelyRecipe(userNo);
+  }
 
 }

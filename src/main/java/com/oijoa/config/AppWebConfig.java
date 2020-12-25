@@ -20,6 +20,7 @@ public class AppWebConfig implements WebMvcConfigurer {
   public ViewResolver viewResolver() {
     return new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp");
   }
+
   // @Bean
   // public ViewResolver tilesViewResolver() {
   // UrlBasedViewResolver vr = new UrlBasedViewResolver();

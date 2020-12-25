@@ -205,6 +205,15 @@
     where rno = #{recipeNo} 
   </delete>
   
+     <select id="findLatelyRecipe" resultMap="RecipeMap" parameterType="int">
+   <include refid="sql1"/>
+  	where
+  		r.uno = #{uno}
+  	order by 
+  		cdt desc
+  	limit 0,1
+  </select>
+  
 </mapper>
 
 

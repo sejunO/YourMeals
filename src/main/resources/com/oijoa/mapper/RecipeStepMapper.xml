@@ -51,6 +51,11 @@
     where rno=#{recipeNo}
   </delete>
   
+  <insert id="insert" parameterType="recipeStep">
+    insert into oi_recipe_step(rno,step,photo,content) 
+    values(#{recipeNo}, #{step}, #{photo}, #{content})
+  </insert>
+  
 </mapper>
 
 
