@@ -82,7 +82,8 @@
 	  <div class="recipe-box">
 	  <div class="element-label">
 	    <div class="modal-table"><div class="modal-cell"><div class="box">
-	          레시피</div></div></div>
+	         <a href="recipeList?userNo=${user.userNo}">레시피</a>
+	    </div></div></div>
 	  </div>
 	  <div class="element-size">
 	    <div class="modal-table"><div class="modal-cell"><div class="box">
@@ -92,7 +93,8 @@
 	  <div class="follower-box">
 	  <div class="element-label">
 	    <div class="modal-table"><div class="modal-cell"><div class="box">
-	          팔로워</div></div></div>
+	          <a href="followerList?userNo=${user.userNo}">팔로워</a>
+	    </div></div></div>
 	  </div>
 	  <div class="element-size">
 	    <div class="modal-table"><div class="modal-cell"><div class="box">
@@ -102,7 +104,8 @@
 	  <div class="following-box">
 	  <div class="element-label">
 	    <div class="modal-table"><div class="modal-cell"><div class="box">
-	          팔로잉</div></div></div>
+            <a href="followingList?userNo=${user.userNo}">팔로잉</a>
+      </div></div></div>
 	  </div>
 	  <div class="element-size">
 	    <div class="modal-table"><div class="modal-cell"><div class="box">
