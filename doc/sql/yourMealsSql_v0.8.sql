@@ -101,7 +101,7 @@ CREATE TABLE oi_recipe (
   cdt     DATETIME     NOT NULL DEFAULT now(), -- 작성일
   mdt     DATETIME     NULL     DEFAULT now(), -- 수정일
   min     INTEGER      NOT NULL,  -- 조리시간
-  portion INTEGER      NOT NULL DEFAULT 0 -- 몇인분
+  serving INTEGER      NOT NULL DEFAULT 0 -- 몇인분
 );
 
 -- 레시피
