@@ -15,6 +15,7 @@
     <result column="cdt"  property="createdDate"/>
     <result column="mdt"  property="modifiedDate"/>
     <result column="min"  property="min"/>
+   /* <result column="portion" property="portion"/> */
     <result column="lno"  property="levelNo"/>
     <result column="loginno" property="loginUserNo"/>
     

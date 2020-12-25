@@ -117,7 +117,7 @@ public class RecipeController {
   }
 
 
-  @RequestMapping("recipeDetail")
+  @RequestMapping("detail")
   public void detail(Model model, int recipeNo) throws Exception {
     Recipe recipe = recipeService.get(recipeNo);
     if (recipe == null) {
