@@ -3,6 +3,7 @@ package com.oijoa.domain;
 import java.sql.Date;
 
 public class Recipe {
+
   private int recipeNo;
   private User writer;
   private String title;
@@ -18,14 +19,6 @@ public class Recipe {
   private int serving;
 
 
-
-  public int getServing() {
-    return serving;
-  }
-
-  public void setServing(int serving) {
-    this.serving = serving;
-  }
 
   public int getRecipeNo() {
     return recipeNo;
@@ -123,5 +116,12 @@ public class Recipe {
     this.category = category;
   }
 
+  public int getServing() {
+    return serving;
+  }
+
+  public void setServing(int serving) {
+    this.serving = serving;
+  }
 
 }
