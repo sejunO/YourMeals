@@ -1,6 +1,7 @@
 package com.oijoa.web;
 
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -117,17 +118,32 @@ public class UserController {
   }
 
   @GetMapping("follow")
-  public String follow(@ModelAttribute("loginUser") User loginUser, int userNo) throws Exception {
-    Follow followUsers = null;
+  public String follow(@ModelAttribute("loginUser") User loginUser, 
+      int followUserNo, 
+      HttpServletRequest request) throws Exception {
+    String referer = request.getHeader("Referer"); // 이전페이지
+    Follow followUsers = new Follow();
 
     followUsers.setFollower(loginUser.getUserNo());
-    followUsers.setFollowing(userNo);
+    followUsers.setFollowing(followUserNo);
 
     followService.follow(followUsers);
-    return "redirect:.";
+    return "redirect:"+ referer;
   }
 
   @GetMapping("unfollow")
-  public void unfollow(@ModelAttribute("loginUser") User loginUser, int userNo) throws Exception {
+  public String unfollow(@ModelAttribute("loginUser") User loginUser, 
+      int unfollowUserNo, 
+      HttpServletRequest request) throws Exception {
+    String referer = request.getHeader("Referer");
+    Follow unfollowUsers = new Follow();
+
+    unfollowUsers.setFollower(loginUser.getUserNo());
+    unfollowUsers.setFollowing(unfollowUserNo);
+
+    if (followService.unfollow(unfollowUsers) == 0) {
+      throw new Exception("언팔로우를 실패하였습니다.");
+    }
+    return "redirect:"+ referer;
   }
 }

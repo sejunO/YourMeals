@@ -64,6 +64,10 @@
   </insert>
   
   <delete id="delete" parameterType="int">
+    delete from oi_follow
+    where 
+      follower = #{follower}
+      and following = #{following}
   </delete>
 </mapper>
 
