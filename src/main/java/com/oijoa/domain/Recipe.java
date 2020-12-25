@@ -15,7 +15,7 @@ public class Recipe {
 	private int min;
 	private int levelNo;
 	private Category category;
-	private int portion;
+	private int serving;
 
 
 	
@@ -115,12 +115,12 @@ public class Recipe {
 		this.category = category;
 	}
 
-	public int getPortion() {
-		return portion;
+	public int getServing() {
+		return serving;
 	}
 
-	public void setPortion(int portion) {
-		this.portion = portion;
+	public void setServing(int serving) {
+		this.serving = serving;
 	}
 
 }
