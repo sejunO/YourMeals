@@ -592,8 +592,12 @@ hr{
   margin-top: 7rem;
     margin-bottom: -4rem;
     border: 0;
-    border-top: 2px solid rgba(0,0,0,.1);
-}
+    height: 2px;
+    width: 82%;
+    position: absolute;
+    background: #d8ddd1;
+    margin: 110px;
+  }
 
 
 /*--------------------------------------------------------------
@@ -1100,7 +1104,7 @@ hr{
 --------------------------------------------------------------*/
 .contact .info {
   padding: 30px;
-  width: 100%;
+  margin-inline: 20px;
   background: #fff;
 }
 
@@ -1134,10 +1138,8 @@ hr{
 }
 
 .contact .php-email-form {
-  width: 100%;
+  width: 120%;
   padding: 30px;
-  background: #fff;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
 
 .contact .php-email-form .form-group {
@@ -1221,6 +1223,35 @@ hr{
   background: #00805d;
 }
 
+.contact .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.table {
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.greenbtn {
+  background: #009970;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+#commentContent{
+  text-align:"left"
+}
+#content{
+  display:"inline-block";
+  width:
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -1251,6 +1282,8 @@ hr{
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .bd-placeholder-img {
@@ -1260,6 +1293,7 @@ hr{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: auto;
 }
 
 @media (min-width: 768px) {
@@ -1274,10 +1308,6 @@ hr{
 }
 .bg-light {
   background-color: #f8f9fa!important;
-}
-
-.contact .php-email-form{
-  width: 150%;
 }
 
 .reicpe-step-con {
