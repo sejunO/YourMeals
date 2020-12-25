@@ -28,16 +28,16 @@
 </head>
 
 <body id="mypage">
+	<div class="flexcontainer">
  	<div class="box1">
  		<div class="box2">
- 			<header class="box2-1"><jsp:include page="/mypageHeader.jsp"></jsp:include></header>
- 		<div class="box3">MyPage</div>
+ 			<header><jsp:include page="/mypageHeader.jsp"></jsp:include></header>
+ 			<div class="box3"></div>
+ 			<div class="box4">MyPage</div>
  		</div>
-</div>
-
-
-
-
+	</div>
+<div class="container">
+	<div class="vertical">
     <a href="../app/mypage/user/detail"><button>정보 수정</button></a><br>
     <a href="../app/myrecipe/list">나의 레시피</a><br>
     <a href="../app/mypage/commentList">나의 댓글</a><br>
@@ -50,6 +50,17 @@
     <a href="../app/mypage/order/updateList">나의 취소/교환/환불내역</a><br>
     <hr>
     <a href="../index.html">[처음으로]</a><br>
+    </div>
     
+    <div class="main-content">
+    
+    
+    
+    </div>
+  </div>
+    <div class="footbox1">
+    <p>Copyright ©YourMeals Inc. All Rights Reserved</p>
+    </div>
+    </div>
 </body>
 </html>
