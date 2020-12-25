@@ -21,6 +21,7 @@ public class AutoLoginListener implements ServletRequestListener {
         loginUser.setUserNo(1);
         loginUser.setEmail("sj@test.com");
         loginUser.setName("sejun0854");
+        loginUser.setUserTypeNo(5);
         session.setAttribute("loginUser", loginUser);
       }
     } catch (Exception e) {

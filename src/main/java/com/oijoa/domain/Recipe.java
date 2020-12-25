@@ -15,6 +15,7 @@ public class Recipe {
 	private int min;
 	private int levelNo;
 	private Category category;
+	private int serving;
 
 
 	
@@ -112,6 +113,14 @@ public class Recipe {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public int getServing() {
+		return serving;
+	}
+
+	public void setServing(int serving) {
+		this.serving = serving;
 	}
 
 }

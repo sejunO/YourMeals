@@ -40,23 +40,13 @@ public class DefaultFollowService implements FollowService {
     return followDao.findByFollowingUserNo(UserNo);
   }
 
-  // @Override
-  // public List<Order> list(String keyword) throws Exception {
-  // return orderDao.findAll(keyword);
-  // }
-  //
-  // @Override
-  // public Board get(int no) throws Exception {
-  // Board board = boardDao.findByNo(no);
-  // if (board != null) {
-  // boardDao.updateViewCount(no);
-  // }
-  // return board;
-  // }
-  //
-  // @Override
-  // public int update(Board board) throws Exception {
-  // return boardDao.update(board);
-  // }
+  @Override
+  public int follow(Follow Users) throws Exception {
+    return followDao.insert(Users);
+  }
 
+  @Override
+  public int unfollow(Follow Users) throws Exception {
+    return followDao.delete(Users);
+  }
 }

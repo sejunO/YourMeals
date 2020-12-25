@@ -8,5 +8,6 @@ public interface FollowService {
   List<Follow> list() throws Exception;
   List<Follow> FollowerList(int UserNo) throws Exception;
   List<Follow> FollowingList(int UserNo) throws Exception;
-
+  int follow(Follow Users) throws Exception;
+  int unfollow(Follow Users) throws Exception;
 }

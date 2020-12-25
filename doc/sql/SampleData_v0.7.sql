@@ -58,7 +58,7 @@ insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (3, 2, '콩나물밥만들기', '콩나물을 산다', 'test2.gif', 2, 1, '2020-11-18 16:44:44', 60, 3); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (4, 3, '불닭만들기', '무조건 맵게 만든다', 'test3.gif', 3, 2, '2020-11-18 18:05:59', 40, 4); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (5, 4, '계란찜만들기', '계란을 산다', 'test4.gif', 4, 3, '2020-11-18 20:24:32', 20, 5); 
-insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (6, 3, '라면끓이기', '라면을 산다', 'test5.gif', 0, 0, '2020-11-18 20:24:32', 10, 1); 
+insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (6, 3, '라면끓이기', '라면을 산다', 'test5.gif', 0, 0, '2020-11-18 20:24:32', 10, 1, 1); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (7, 3, '김치볶음밥만들기', '김치볶음밥은 김치가 맛있어야 한다', 'test6.gif', 0, 0, '2020-11-18 20:24:32', 20, 2); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (8, 3, '계란말이만들기', '계란을산다', 'test7.gif', 0, 0, '2020-11-18 20:24:32', 20, 2); 
 insert into oi_recipe(rno, uno, title, content, photo, hits, rcmd, mdt, min, lno) values (9, 3, '치즈밥만들기', '치즈를 아주 많이 구매한다', 'test8.gif', 0, 0, '2020-11-18 20:24:32', 20, 1); 
