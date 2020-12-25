@@ -34,7 +34,12 @@
 <header id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!-- Navigation
     ==========================================-->
+<<<<<<< HEAD
+
+<nav id="menu" class="navbar navbar-default navbar-fixed-top on">
+=======
 <nav id="menu" class="navbar navbar-default navbar-fixed-top" >
+>>>>>>> branch 'main' of https://github.com/sejunO/YourMeals.git
   <div class="container"> 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
