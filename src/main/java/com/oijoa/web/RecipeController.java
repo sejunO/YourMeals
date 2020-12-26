@@ -197,6 +197,7 @@ public class RecipeController {
     model.addAttribute("levels", levelService.list());
     model.addAttribute("recipeSteps", recipeStepService.list(recipeNo));
     model.addAttribute("comments", commentService.list(recipeNo));
+    model.addAttribute("foods",foodService.list(recipeNo));   
   }
 
 

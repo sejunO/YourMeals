@@ -382,7 +382,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .container {
-  padding-top: 80px;
+  padding: 200px;
 }
 
 #hero:before {
@@ -605,6 +605,13 @@ hr{
     margin: 100px 0;
   }
 
+commnet-hr {
+  border: 0;
+  height: 2px;
+  width: 100%;
+  background: #c2c2c2;
+  margin: 50px 0;
+}
 
 /*--------------------------------------------------------------
 # Counts
@@ -1109,7 +1116,8 @@ hr{
 # Contact
 --------------------------------------------------------------*/
 .contact .info {
-  padding: 30px;
+  padding: 170px;
+  padding-left: 0px;
   margin-inline: 20px;
   background: #fff;
 }
@@ -1146,10 +1154,12 @@ hr{
 .contact .php-email-form {
   width: 120%;
   padding: 30px;
+  padding-bottom: 100px;
 }
 
 .contact .php-email-form .form-group {
   padding-bottom: 8px;
+  margin-right: 250px;
 }
 
 .contact .php-email-form .validate {
@@ -1237,7 +1247,7 @@ hr{
 }
 
 .table {
-  width: auto;
+  width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
 }
@@ -1258,7 +1268,7 @@ hr{
   display:"inline-block";
   width:
 
-@-webkit-keyframes animate-loading {
+@webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
   }
@@ -1318,8 +1328,12 @@ hr{
 .reicpe-step-con {
   display: inline-block;
   flex-wrap: nowrap;
-  justify-content: space-around; 
+  justify-content: space-around
+  
+  ; 
 }
+
+
 
 /*--------------------------------------------------------------
 # Breadcrumbs

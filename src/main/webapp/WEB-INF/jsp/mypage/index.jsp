@@ -28,7 +28,7 @@
 </head>
 
 <body id="mypage">
-	<div class="flexcontainer">
+	<div class="main-container">
  	<div class="box1">
  		<div class="box2">
  			<header><jsp:include page="/mypageHeader.jsp"></jsp:include></header>
@@ -36,29 +36,49 @@
  			<div class="box4">MyPage</div>
  		</div>
 	</div>
-<div class="container">
+<div class="sub-container">
 	<div class="vertical">
-    <a href="../app/mypage/user/detail"><button>정보 수정</button></a><br>
-    <a href="../app/myrecipe/list">나의 레시피</a><br>
-    <a href="../app/mypage/commentList">나의 댓글</a><br>
-    <a href="../app/mypage/recipe/likeList">내가 좋아한 레시피</a><br>
-    <a href="../app/mypage/following/list">나의 팔로잉</a><br>
-    <a href="../app/mypage/follower/list">내 팔로워</a><br>
-    <a href="../app/qna/list">QnA 게시판</a><br>
-    <a href="../app/mypage/order/buyList">나의 주문내역</a><br>
-    <a href="../app/basket/list">장바구니</a><br>
-    <a href="../app/mypage/order/updateList">나의 취소/교환/환불내역</a><br>
-    <hr>
-    <a href="../index.html">[처음으로]</a><br>
+		<div class="sidebox">
+			<div class="categoryname">
+			마이페이지
+			</div>
+			<div class="profilebox">
+				<div class="profilephoto">
+				<a href="../app/mypage/user/detail"><button>사진</button></a></div>
+    		<div class="profileupdate">
+    		<a href="../app/mypage/user/detail"><button>정보 수정</button></a></div>
+   		</div>
+   		<div class="category">
+   	<ul>
+   			<li><a href="../app/basket/list">장바구니</a></li>
+    		<li><a href="../app/mypage/order/buyList">나의 주문내역</a></li>
+    		<li><a href="../app/mypage/order/updateList">나의 취소/교환/환불내역</a></li>
+   	</ul>
+   	 <ul>
+   			<li><a href="../app/myrecipe/list">나의 레시피</a></li>
+    		<li><a href="../app/mypage/recipe/likeList">내가 좋아한 레시피</a></li>
+    </ul>
+    <ul>
+    		<li><a href="../app/qna/list">QnA 게시판</a></li>
+   			<li><a href="../app/mypage/commentList">나의 댓글</a></li>
+    </ul>	
+    <ul>
+    		<li><a href="../app/mypage/following/list">나의 팔로잉</a></li>
+    		<li><a href="../app/mypage/follower/list">내 팔로워</a></li>
+   	</ul>
     </div>
-    
+    </div>
     <div class="main-content">
+    
+    
+    
+  </div>
     
     
     
     </div>
   </div>
-    <div class="footbox1">
+    <div class="footbox">
     <p>Copyright ©YourMeals Inc. All Rights Reserved</p>
     </div>
     </div>
