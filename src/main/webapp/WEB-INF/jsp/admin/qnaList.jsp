@@ -78,80 +78,50 @@
       
 
  
-  <div class="container-fluid">
-    <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-        <div class="position-sticky pt-3">
-          <ul class="nav flex-column">
-                      <li class="nav-item">
-              <a class="nav-link" href="userList">
-                <span data-feather="users"></span>
-                user
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="productList">
-                <span data-feather="shopping-cart"></span>
-                Products
-              </a>
-            </li>            
-            
-            <li class="nav-item">
-              <a class="nav-link" href="orderList">
-                <span data-feather="file"></span>
-                Orders
-              </a>
-            </li>
 
+      <div class="container-fluid">
+        <div class="row">
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="userList">
+                    <span data-feather="users"></span>
+                    user
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="productList">
+                    <span data-feather="shopping-cart"></span>
+                    Product
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="orderList">
+                    <span data-feather="file"></span>
+                    Order
+                  </a>
+                </li>
 
                 <li class="nav-item">
                   <a class="nav-link" href="qnaList">
                     <span data-feather="bar-chart-2"></span>
-                    Qnas
+                    Qna
                   </a>
                 </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Integrations
-              </a>
-            </li>
-          </ul>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="noticeList">
+                    <span data-feather="file-text"></span>
+                    Notice
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+          </nav>
 
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Saved reports</span>
-            <a class="link-secondary" href="#" aria-label="Add a new report">
-              <span data-feather="plus-circle"></span>
-            </a>
-          </h6>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Current month
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Last quarter
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Social engagement
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Year-end sale
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
 
 
 
@@ -160,6 +130,7 @@
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div
               class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">QNA</h1>
               <div class="btn-toolbar mb-2 mb-md-0">
               </div>
             </div>

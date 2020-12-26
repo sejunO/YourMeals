@@ -8,12 +8,7 @@
   <resultMap type="noticetype" id="NoticeTypeMap">
     <id column="ntno"           property="noticeTypeNo"/>
     <result column="name"    property="name"/>
-    
-    <!-- 
-    <association property="writer" javaType="member">
-      <id column="writer_no"    property="no"/>
-      <result column="name"     property="name"/>
-    </association> -->
+
   </resultMap>
 
   <select id="findAll" resultMap="NoticeTypeMap" parameterType="string">
@@ -21,6 +16,15 @@
       ntno,
       name
       from oi_notice_type
+  </select>
+  
+    <select id="findByNo" resultMap="NoticeTypeMap" parameterType="int">
+    select 
+      ntno,
+      name
+      from oi_notice_type
+      where
+      ntno = #{ntno}
   </select>
   
 </mapper>

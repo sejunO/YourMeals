@@ -7,4 +7,6 @@ public interface NoticeTypeService {
 
   List<NoticeType> list() throws Exception;
 
+  NoticeType get(int noticeTypeNo) throws Exception;
+
 }

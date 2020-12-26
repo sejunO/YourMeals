@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!doctype html>
@@ -13,8 +12,6 @@
       <title>Dashboard Template · Bootstrap v5.0</title>
 
       <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-
 
       <!-- Bootstrap core CSS -->
       <link href="<%=request.getContextPath() %>/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -31,6 +28,15 @@
 
 
       <style>
+        .qnaHeader {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .qnaDiv {
+          padding-left: 15px;
+        }
+
         .bd-placeholder-img {
           font-size: 1.125rem;
           text-anchor: middle;
@@ -48,7 +54,7 @@
 
 
       <!-- Custom styles for this template -->
-      <link href="<%=request.getContextPath() %>/css/dashboard.css" rel="stylesheet">
+      <link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
     </head>
 
     <body>
@@ -69,10 +75,6 @@
       </header>
 
 
-
-
-
-     
       <div class="container-fluid">
         <div class="row">
           <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -104,14 +106,14 @@
                     Qna
                   </a>
                 </li>
-                
+
                 <li class="nav-item">
                   <a class="nav-link" href="noticeList">
                     <span data-feather="file-text"></span>
                     Notice
                   </a>
                 </li>
-                
+
               </ul>
             </div>
           </nav>
@@ -121,35 +123,89 @@
 
 
 
-
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div
               class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="h2">상품추가</h1>
+              <h1 class="h2">공지사항</h1>
               <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group me-2">
-                </div>
+                          <div class="btn-group me-2">
+              <button type="button" onclick="location.href='noticeForm'"
+                class="btn btn-sm btn-outline-secondary">글 쓰기</button>
+            </div>
               </div>
             </div>
             
-<form action="productAdd" method="post" enctype="multipart/form-data">
-이름: <input type="text" name="title"><br>
-내용: <input type="text" name="content"><br>
-가격: <input type="number" name="price"><br>
-재고: <input type="text" name="stock"><br>
-할인: <input type="number" name="discount"><br>
-사진: <input type="file" name="photoFile"><br>
-<button>등록</button>
-</form>
-            
+            <div class="container">
+
+              <c:if test="${not empty thisNotice}">
+                <form action="noticeUpdate" method="post">
+                  <div class="row">
+                    <h6>공지사항</h6>
+                    <input type="hidden" name="noticeNo" value="${thisNotice.noticeNo}" />
+
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">공지사항 분류</span>
+                      <div class="col-auto">
+                        <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                        <select class="form-select" id="autoSizingSelect" name="noticeTypeNo">
+                          <option selected>선택</option>
+                          <option value="1">필독</option>
+                          <option value="2">공지</option>
+                        </select>
+                      </div>
+                      <span class="input-group-text" id="basic-addon1">제목</span>
+                      <input type="text" class="form-control" name="title" value="${thisNotice.title}"
+                        aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">내용</span>
+                      <input type="text" class="form-control" placeholder="Username" name="content"
+                        value="${thisNotice.content}" aria-label="Username">
+                    </div>
+
+                    <div class="col input-group">
+                      <button class="btn btn-dark indexBtn float-right">등록 및 변경</button>
+                    </div>
+                  </div>
+                </form>
+              </c:if>
+
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-striped table-sm">
+
+                <thead>
+                  <tr>
+                    <th>번호</th>
+                    <th>구분</th>
+                    <th>제목</th>
+                    <th>내용</th>
+                    <th>날짜</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <c:forEach items="#{noticeList}" var='n'>
+                    <tr class="form-tr" onclick="location.href='noticeDetail?no=${n.noticeNo}'">
+                      <td>${n.noticeNo}</td>
+                      <td>${n.noticeType.name}</td>
+                      <td>${n.title}</td>
+                      <td>${n.content}</td>
+                      <td>${n.registeredDate}</td>
+                    </tr>
+                  </c:forEach>
+                </tbody>
+
+              </table>
+            </div>
           </main>
         </div>
       </div>
-      
-      
 
 
-      <script src="<%=request.getContextPath() %>node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      <script src="<%=request.getContextPath() %>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
 
