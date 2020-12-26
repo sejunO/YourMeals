@@ -125,7 +125,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
    height: 100%;
 }
 
-.flexcontainer {
+.main-container {
 	display: flex;
 	flex-direction: column
 }
@@ -161,7 +161,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font-weight: 600;
 }
 
-.container {
+.sub-container {
 	color: #494949;
   font-family: dotum, arial, sans-serif;
   font-size: 12px;
@@ -175,12 +175,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	
 }
 
-.footbox1 {
+.footbox {
 		display: flex;
     justify-content: space-between;
     justify-content: center;
     position: relative;
-    margin-top: 40rem;
+    margin-top: auto;
     padding: 1em 0;
     border-top: 1px solid #e2e2e2;
     font-size: 1rem;
@@ -189,7 +189,63 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
    	background-color: rgb(159, 163, 155);
 }
 
+.vertical {
+	display: flex;
+	flex-direction: row;
+}
+.sidebox {
+  border-right: 1px solid #f0f0f0;
+  width: 155px;
+  flex-direction: column;
+}
 
+.categoryname {
+	  border-bottom: 1px solid #f0f0f0;
+	  text-align: center;
+	  font-size: 25px;
+	  font-weight: 600;
+	  font-family: sans-serif;
+	  color: brown;
+	  margin: 70px 0 0;
+	  padding: 0 0 30px;
+}
+.profilebox {
+	  display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    height: 180px;
+}
 
+.profilephoto {
+	padding: 20px 0 0;
+}
 
+.profileupdate {
+	padding: 70px 0 0;
+}
 
+.category {
+  display: flex;
+  flex-direction: column;
+}
+
+.category ul {
+  padding: 30px 0 30px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: end;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.category li {
+	line-height: 20px;
+}
+
+.category li a {
+	color: brown;
+}
+
+.main-content {
+	
+}
