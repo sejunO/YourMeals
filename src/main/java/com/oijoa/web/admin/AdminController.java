@@ -107,7 +107,7 @@ public class AdminController {
   }
 
   @GetMapping("orderDetail")
-  public String orderlist(int no, HttpSession session) throws Exception {
+  public String orderDetail(int no, HttpSession session) throws Exception {
     session.setAttribute("thisOrder", orderService.get(no));
     return "redirect:orderList";
   }
@@ -122,6 +122,12 @@ public class AdminController {
   @RequestMapping("qnaList")
   public void qnaList(Model model) throws Exception {
     model.addAttribute("qnaList", qnaService.list());
+  }
+
+  @GetMapping("qnaDetail")
+  public String qnaDetail(int no, HttpSession session) throws Exception {
+    session.setAttribute("thisQna", qnaService.get(no));
+    return "redirect:qnaList";
   }
 
   private void generatePhotoThumbnail(String saveFilePath) {

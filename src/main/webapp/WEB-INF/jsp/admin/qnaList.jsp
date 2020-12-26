@@ -30,6 +30,12 @@
 
 
       <style>
+      .qnaHeader{
+      display:flex;
+      justify-content: space-between;
+      }
+      .qnaDiv{
+      padding-left: 15px;}
         .bd-placeholder-img {
           font-size: 1.125rem;
           text-anchor: middle;
@@ -154,57 +160,66 @@
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div
               class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="h2">회원관리</h1>
               <div class="btn-toolbar mb-2 mb-md-0">
               </div>
             </div>
-            <c:if test="${not empty thisUser}">
-            <form action="userUpdate" method="post">
+            <div class="container">
+            <c:if test="${not empty thisQna}">
+            <form action="qnaUpdate" method="post">
               <div class="row">
-              <h6>회원정보</h6>
-              <input type="hidden" name="userNo" value="${thisUser.userNo}"/>
+              <h6>QNA ${thisQna.qnaNo}</h6>
+              <div><h3>${thisQna.title}</h3></div>
+	              <div ><small class="text-muted">${thisQna.writer.name}</small> <small class="text-muted">${thisQna.createdDate}</small></div>
+	              <hr>
+              <input type="hidden" name="qnaNo" value="${thisQna.qnaNo}"/>
+							<div style="padding-bottom:15px;">${thisQna.content}</div>
+							<hr>
+							
+							<c:if test="${empty thisQna.answer}">
                 <div class="col input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">이름</span>
-                   <input type="text" class="form-control" name="name" aria-label="First name" value="${thisUser.name}">
+                <span class="input-group-text" id="basic-addon1">답변</span>
+                  <input type="text" class="form-control" name="answer" aria-label="First name">
                 </div>
-                <div class="col input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">닉네임</span>
-                  <input type="text" class="form-control" name="nick" aria-label="First name" value="${thisUser.nick}">
+<div class="col input-group mb-3">
+                  <button class="btn btn-dark indexBtn">답변하기</button>
                 </div>
-                <div class="col input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">이메일</span>
-                  <input type="email" class="form-control" name="email" aria-label="First name" value="${thisUser.email}">
+                </c:if>
+                
+                <c:if test="${not empty thisQna.answer}">
+                                <div class="col input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">답변</span>
+                  <input type="text" class="form-control" name="answer" aria-label="First name" value="${thisQna.answer}">
                 </div>
-                <div class="col input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">권한</span>
-                  <input type="text" class="form-control" name="userTypeNo" aria-label="First name" value="${thisUser.userTypeNo}">
+<div class="col input-group mb-3">
+                  <button class="btn btn-dark indexBtn">답변하기</button>
                 </div>
-                <div class="col input-group mb-3">
-                  <button class="btn btn-dark indexBtn">변경</button>
-                </div>
+                </c:if>
+
               </div>
             </form>
+            
             </c:if>
+            </div>
             
             <div class="table-responsive">
               <table class="table table-striped table-sm">
                 <thead>
                   <tr>
                     <th>번호</th>
-                    <th>이름</th>
-                    <th>닉네임</th>
-                    <th>이메일</th>
-                    <th>권한</th>
+                    <th>작성자</th>
+                    <th>질문</th>
+                    <th>날짜</th>
+                    <th>답변상태</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <c:forEach items="#{userList}" var='u'>
-                    <tr class="form-tr" onclick="location.href='userDetail?no=${u.userNo}'">
-                      <td>${u.userNo}</td>
-                      <td>${u.name}</td>
-                      <td>${u.nick}</td>
-                      <td>${u.email}</td>
-                      <td>${u.userTypeNo}</td>
+                  <c:forEach items="#{qnaList}" var='q'>
+                    <tr class="form-tr" onclick="location.href='qnaDetail?no=${q.qnaNo}'">
+                    <td>${q.qnaNo}</td>
+                      <td>${q.writer.name}</td>
+                      <td>${q.title}</td>
+                      <td>${q.createdDate}</td>
+                      <td>${q.answerStatus}</td>
                     </tr>
                   </c:forEach>
                 </tbody>

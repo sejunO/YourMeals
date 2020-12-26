@@ -17,27 +17,41 @@
     
     <association property="writer" javaType="user">
       <id column="writer_uno"    property="userNo"/>
+    <result column="writer_name"  property="name"/>  
     </association>
   </resultMap>
 
   <select id="findAll" resultMap="QnAMap" parameterType="string">
     select 
-      qnano, 
-      title, 
-      cdt, 
+      q.qnano, 
+      q.title, 
+      q.cdt,
+      q.content,
+      u.uno writer_uno,
+      u.name writer_name,
+      answer,
     if(isnull(answer), "답변대기중", "답변완료") 
     as ansStat 
-    from oi_qna;
+    from oi_qna q
+    inner join oi_user u
+    on q.writer = u.uno
+    
   </select>
   
   <select id="findByNo" parameterType="int" resultMap="QnAMap">
-    select
-      qnano,
-      title,
-      content,
-      cdt
-    from 
-      oi_qna
+    select 
+      q.qnano, 
+      q.title, 
+      q.cdt,
+      q.content,
+      u.uno writer_uno,
+      u.name writer_name,
+      answer,
+    if(isnull(answer), "답변대기중", "답변완료") 
+    as ansStat 
+    from oi_qna q
+    inner join oi_user u
+    on q.writer = u.uno
     where qnano = #{no}
   </select>
   

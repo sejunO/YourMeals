@@ -98,9 +98,9 @@
 
 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="qnaList">
                     <span data-feather="bar-chart-2"></span>
-                    Reports
+                    Qnas
                   </a>
                 </li>
                 <li class="nav-item">
@@ -214,12 +214,17 @@
                 <thead>
                   <tr>
                     <th>번호</th>
+                    <th>주문자</th>
+                    <th>주문일시</th>
+                    <th>가격</th>
+                    <th>주문상태</th>
                   </tr>
                 </thead>
                 <tbody>
 
                   <c:forEach items="${orderList}" var="o">
                     <tr class="form-tr" onclick="location.href='orderDetail?no=${o.orderNo}'">
+                    <td>${o.orderNo}</td>
                       <td>${o.userNo.name}</td>
                       <td>${o.orderDate}</td>
                       <td>${o.totalPrice}</td>
