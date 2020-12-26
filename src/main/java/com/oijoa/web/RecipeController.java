@@ -66,10 +66,8 @@ public class RecipeController {
 
   @RequestMapping("add")
   public String add(HttpSession session, String title, String content, String min, String levelNo,
-      MultipartFile recipe_photo, int categoryNo, int serving, String step1, String step2,
-      String step3, String step4, String step5, MultipartFile step_photo1,
-      MultipartFile step_photo2, MultipartFile step_photo3, MultipartFile step_photo4,
-      MultipartFile step_photo5, String[] metaname, String[] metaamount) throws Exception {
+      MultipartFile recipe_photo, int categoryNo, int serving, String[] step,
+      MultipartFile[] step_photo, String[] metaname, String[] metaamount) throws Exception {
 
 
     User user = (User) session.getAttribute("loginUser");
@@ -103,56 +101,18 @@ public class RecipeController {
     }
 
 
-
-    RecipeStep step = new RecipeStep();
-    step.setRecipeNo(latelyRecipe.getRecipeNo());
-    step.setStep(1);
-    step.setContent(step1);
-    filename = UUID.randomUUID().toString();
-    saveFilePath = servletContext.getRealPath("/upload/" + filename);
-    step_photo1.transferTo(new File(saveFilePath));
-    generatePhotoThumbnail(saveFilePath);
-    step.setPhoto(filename);
-    recipeStepService.add(step);
-
-    filename = UUID.randomUUID().toString();
-    saveFilePath = servletContext.getRealPath("/upload/" + filename);
-    step_photo2.transferTo(new File(saveFilePath));
-    generatePhotoThumbnail(saveFilePath);
-    step.setStep(2);
-    step.setContent(step2);
-    step.setPhoto(filename);
-    recipeStepService.add(step);
-
-    filename = UUID.randomUUID().toString();
-    saveFilePath = servletContext.getRealPath("/upload/" + filename);
-    step_photo3.transferTo(new File(saveFilePath));
-    generatePhotoThumbnail(saveFilePath);
-
-    step.setStep(3);
-    step.setContent(step3);
-    step.setPhoto(filename);
-    recipeStepService.add(step);
-
-    filename = UUID.randomUUID().toString();
-    saveFilePath = servletContext.getRealPath("/upload/" + filename);
-    step_photo4.transferTo(new File(saveFilePath));
-    generatePhotoThumbnail(saveFilePath);
-
-    step.setStep(4);
-    step.setContent(step4);
-    step.setPhoto(filename);
-    recipeStepService.add(step);
-
-    filename = UUID.randomUUID().toString();
-    saveFilePath = servletContext.getRealPath("/upload/" + filename);
-    step_photo5.transferTo(new File(saveFilePath));
-    generatePhotoThumbnail(saveFilePath);
-    step.setStep(5);
-    step.setContent(step5);
-    step.setPhoto(filename);
-    recipeStepService.add(step);
-
+    for (int i = 0; i < step.length; i++) {
+      RecipeStep recipestep = new RecipeStep();
+      recipestep.setRecipeNo(latelyRecipe.getRecipeNo());
+      recipestep.setStep(i + 1);
+      recipestep.setContent(step[i]);
+      filename = UUID.randomUUID().toString();
+      saveFilePath = servletContext.getRealPath("/upload/" + filename);
+      step_photo[i].transferTo(new File(saveFilePath));
+      generatePhotoThumbnail(saveFilePath);
+      recipestep.setPhoto(filename);
+      recipeStepService.add(recipestep);
+    }
 
     return "redirect:list";
 
@@ -197,7 +157,7 @@ public class RecipeController {
     model.addAttribute("levels", levelService.list());
     model.addAttribute("recipeSteps", recipeStepService.list(recipeNo));
     model.addAttribute("comments", commentService.list(recipeNo));
-    model.addAttribute("foods",foodService.list(recipeNo));   
+    model.addAttribute("foods", foodService.list(recipeNo));
   }
 
 

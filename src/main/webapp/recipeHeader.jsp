@@ -32,7 +32,8 @@
 
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!--  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">-->
+<body>
 <!-- Navigation
     ==========================================-->
 <nav id="menu" class="navbar navbar-default navbar-fixed-top">
