@@ -214,15 +214,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     flex-direction: column;
     align-items: center;
     border-bottom: 1px solid #f0f0f0;
-    height: 180px;
 }
 
 .profilephoto {
-	padding: 20px 0 0;
+	padding: 20px 10px 0;
 }
 
 .profileupdate {
-	padding: 70px 0 0;
+	padding: 20px 0;
 }
 
 .category {
@@ -246,6 +245,22 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	color: brown;
 }
 
+.btn {
+	background: rgb(133, 199, 197);
+	border: 2px solid #737B7D;
+	box-sizing: border-box;
+	color: white;
+	height: 35px;
+}
+
+.profile {
+	vertical-align: middle;
+	border-style: none;
+	width: 15rem;
+	height: 15rem;
+	border: 0.3rem solid #737B7D;
+	border-radius: 50% !important;
+}
 .main-content {
 	
 }

@@ -36,6 +36,8 @@
  			<div class="box4">MyPage</div>
  		</div>
 	</div>
+	<!--  본문 -->
+	<!--  사이드 바 -->
 <div class="sub-container">
 	<div class="vertical">
 		<div class="sidebox">
@@ -43,10 +45,10 @@
 			마이페이지
 			</div>
 			<div class="profilebox">
-				<div class="profilephoto">
-				<a href="../app/mypage/user/detail"><button>사진</button></a></div>
+				<span class="profilephoto">
+				<a href=""><img class="profile" src="<%=request.getContextPath()%>/test/img/test.png"></a></span>
     		<div class="profileupdate">
-    		<a href="../app/mypage/user/detail"><button>정보 수정</button></a></div>
+    		<a href="../app/mypage/user/update"><button class="btn">정보 수정</button></a></div>
    		</div>
    		<div class="category">
    	<ul>
@@ -68,13 +70,15 @@
    	</ul>
     </div>
     </div>
-    <div class="main-content">
+    <!-- 사이드 바 종료-->
+    <!--  내용 -->
+  <div class="main-content">
     
     
     
   </div>
     
-    
+    <!--  내용 종료 -->
     
     </div>
   </div>
