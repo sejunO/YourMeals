@@ -47,6 +47,9 @@
 			<div class="profilebox">
 				<span class="profilephoto">
 				<a href=""><img class="profile" src='../../upload/${user.photo}_120x120.jpg'></a></span>
+				<div class="profileinfo">
+				<h4>${user.nick} 님</h4>
+				<p>${user.email}</p></div>
     		<div class="profileupdate">
     		<a href="../app/mypage/user/update"><button class="btn">정보 수정</button></a></div>
    		</div>
