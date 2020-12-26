@@ -85,9 +85,7 @@
     
     </div>
   </div>
-    <div class="footbox">
-    <p>Copyright ©YourMeals Inc. All Rights Reserved</p>
-    </div>
+    <jsp:include page="/mypageFooter.jsp"></jsp:include>
     </div>
 </body>
 </html>
