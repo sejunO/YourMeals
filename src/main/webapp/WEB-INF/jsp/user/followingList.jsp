@@ -22,7 +22,7 @@
 
 <!-- Stylesheet
     ================================================== -->
-<link rel="stylesheet" type="text/css"  href="<%=request.getContextPath() %>/test/css/mystyle.css">
+<link rel="stylesheet" type="text/css"  href="<%=request.getContextPath() %>/test/css/userstyle.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/test/css/nivo-lightbox/nivo-lightbox.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/test/css/nivo-lightbox/default.css">
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 </head>
 
-<body id="mypage">
+<body id="userpage">
   <div class="main-container">
   <div class="box1">
     <div class="box2">
@@ -39,8 +39,9 @@
       <div class="box4">UserPage</div>
     </div>
   </div>
+  </div>
 <jsp:include page="/WEB-INF/jsp/user/header.jsp"></jsp:include>
-
+  
   <table border='1'>
   <thead>
   <tr>
@@ -61,9 +62,17 @@
   </tbody>
   </table>
   <hr>
-  <div class="user-main">
+  <div class="main-content">
    
   </div>
-  
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/main.js"></script>
+    
 </body>
 </html>
