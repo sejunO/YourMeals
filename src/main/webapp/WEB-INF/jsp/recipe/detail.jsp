@@ -168,14 +168,14 @@
 
 						<table class="table table-borderless">
 							<thead>
-								<tr>
+								  <tr class="table-secondary">
 									<th><h5>이름</h5></th>
 									<th><h5>계량</h5></th>
 								</tr>
 							</thead>
 							<tbody>
 							<c:forEach items='${foods}' var='f'>
-								<tr>
+							  <tr>
 									<td><h5>${f.name}</h5></td>
 									<td><h5>${f.amount}</h5></td>
 								</tr>
@@ -262,7 +262,7 @@
 						</div>
 					</div>
 					<div class="php-email-form mt-4">
-						<div class="form-group">
+						<div class="form-group" style="padding-bottom: 8px; margin-right: 250px">
 							<textarea class="form-control" name="content" rows="5"
 								placeholder="댓글을 입력하세요."></textarea>
 						</div>
