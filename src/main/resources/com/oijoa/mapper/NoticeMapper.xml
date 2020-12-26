@@ -29,6 +29,18 @@
       from oi_notice
   </select>
   
+  <select id="findbyNoticeNo" resultMap="NoticeMap" parameterType="int">
+    select 
+      nono,
+      ntno,
+      title,
+      content,
+      rdt
+      from oi_notice
+      where nono=#{noticeNo}
+      order by nono asc
+  </select>
+  
   <insert id="insert" parameterType="notice">
     insert into oi_notice(ntno,title,content)
     values(#{noticeTypeNo},#{title},#{content})

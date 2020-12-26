@@ -34,20 +34,16 @@ public class DefaultNoticeService implements NoticeService {
   public int add(Notice notice) throws Exception {
     return noticeDao.insert(notice);
   }
-
+  
   // @Override
   // public List<Order> list(String keyword) throws Exception {
   // return orderDao.findAll(keyword);
   // }
   //
-  // @Override
-  // public Board get(int no) throws Exception {
-  // Board board = boardDao.findByNo(no);
-  // if (board != null) {
-  // boardDao.updateViewCount(no);
-  // }
-  // return board;
-  // }
+ @Override
+	public Notice get(int noticeNo) throws Exception {
+	 return noticeDao.findByNoticeNo(noticeNo);
+	}
   //
   // @Override
   // public int update(Board board) throws Exception {
