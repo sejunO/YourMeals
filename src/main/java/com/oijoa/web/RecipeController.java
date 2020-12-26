@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Comment;
+import com.oijoa.domain.Food;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.RecipeStep;
 import com.oijoa.domain.User;
 import com.oijoa.service.CategoryService;
 import com.oijoa.service.CommentService;
+import com.oijoa.service.FoodService;
 import com.oijoa.service.LevelService;
 import com.oijoa.service.MaterialService;
 import com.oijoa.service.RecipeService;
@@ -51,6 +53,8 @@ public class RecipeController {
   LevelService levelService;
   @Autowired
   UserService userService;
+  @Autowired
+  FoodService foodService;
 
 
 
@@ -62,18 +66,19 @@ public class RecipeController {
 
   @RequestMapping("add")
   public String add(HttpSession session, String title, String content, String min, String levelNo,
-      MultipartFile recipe_photo, int categoryNo, String step1, String step2, String step3,
-      String step4, String step5, MultipartFile step_photo1, MultipartFile step_photo2,
-      MultipartFile step_photo3, MultipartFile step_photo4, MultipartFile step_photo5)
-      throws Exception {
+      MultipartFile recipe_photo, int categoryNo, int serving, String step1, String step2,
+      String step3, String step4, String step5, MultipartFile step_photo1,
+      MultipartFile step_photo2, MultipartFile step_photo3, MultipartFile step_photo4,
+      MultipartFile step_photo5, String[] metaname, String[] metaamount) throws Exception {
 
 
     User user = (User) session.getAttribute("loginUser");
     String filename = UUID.randomUUID().toString();
     String saveFilePath = servletContext.getRealPath("/upload/" + filename);
     recipe_photo.transferTo(new File(saveFilePath));
-
     generatePhotoThumbnail(saveFilePath);
+
+
     Recipe recipe = new Recipe();
     recipe.setTitle(title);
     recipe.setContent(content);
@@ -82,12 +87,22 @@ public class RecipeController {
     recipe.setWriter(user);
     recipe.setCategory(categoryService.get(categoryNo));
     recipe.setPhoto(filename);
+    recipe.setServing(serving);
     // 재료 추가 코드 필요
     // 조리 순서 코드 필요
 
     recipeService.add(recipe);
     // 로그인 유저의 최근 레시피 번호를 찾아서 레시피 스텝에 추가
     Recipe latelyRecipe = recipeService.lately(user.getUserNo());
+    for (int i = 0; i < metaname.length; i++) {
+      Food food = new Food();
+      food.setRecipeNo(latelyRecipe.getRecipeNo());
+      food.setName(metaname[i]);
+      food.setAmount(metaamount[i]);
+      foodService.add(food);
+    }
+
+
 
     RecipeStep step = new RecipeStep();
     step.setRecipeNo(latelyRecipe.getRecipeNo());

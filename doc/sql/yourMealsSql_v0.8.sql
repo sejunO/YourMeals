@@ -827,6 +827,8 @@ ALTER TABLE oi_food
     REFERENCES oi_recipe ( -- 레시피
       rno -- 레시피번호
     );
+ALTER TABLE oi_food
+  MODIFY COLUMN fno INTEGER NOT NULL AUTO_INCREMENT;
     
 -- 전체 테이블확인
 SHOW tables;

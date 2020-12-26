@@ -23,7 +23,8 @@
         <input type='radio' name='levelNo' value='3'>☆☆☆<br>
         <h3>만드는 시간</h3>
         <input type='number' name='min'>분<br>
-
+<h3>양</h3>
+        <input type='number' name='serving'>분<br>
         <br>
         <h3>카테고리 </h3><br>
      
@@ -31,44 +32,49 @@
             <input type='radio' name='categoryNo' value='${category.categoryNo}'/>${category.categoryName}<br>
           </c:forEach>
 
-          <h3>필요한 재료</h3><br>
-          <c:forEach items="${materialList}" var="material">
-            <input type='radio' name='materialList' value='${material.materialNo}'/>${material.name}<br>
-          </c:forEach>
+          <h3>재료</h3><br>
+    <div id="inputNameContainer">
+      <div class="inputName">
+        <span class="name">재료</span>: <input type="text" name="metaname"><br>
+        <span class="name">양</span>: <input type="text" name="metaamount"><br>
+      </div>
+    </div>
+    <button id="btnAddName" type="button">추가</button><br>
+    
   
         <br>
 
-         <div id="inputNameContainer">
-          <div class="inputName">
-            <span class="name">step1</span>: <textarea name="step1"></textarea>
+         <div>
+          <div>
+            <span>step1</span>: <textarea name="step1"></textarea>
             사진: <input type='file' name='step_photo1'>
           </div>
         </div>
 
-        <div id="inputNameContainer">
-          <div class="inputName">
-            <span class="name">step2</span>: <textarea name="step2"></textarea>
+        <div>
+          <div>
+            <span>step2</span>: <textarea name="step2"></textarea>
             사진: <input type='file' name='step_photo2'>
           </div>
         </div>
 
-        <div id="inputNameContainer">
-          <div class="inputName">
+        <div>
+          <div>
             <span class="name">step3</span>: <textarea name="step3"></textarea>
             사진: <input type='file' name='step_photo3'>
           </div>
         </div>
 
-        <div id="inputNameContainer">
-          <div class="inputName">
-            <span class="name">step4</span>: <textarea name="step4"></textarea>
+        <div>
+          <div>
+            <span>step4</span>: <textarea name="step4"></textarea>
             사진: <input type='file' name='step_photo4'>
           </div>
         </div>
 
-        <div id="inputNameContainer">
-          <div class="inputName">
-            <span class="name">step5</span>: <textarea name="step5"></textarea>
+        <div>
+          <div>
+            <span>step5</span>: <textarea name="step5"></textarea>
             사진: <input type='file' name='step_photo5'>
           </div>
         </div>
@@ -78,7 +84,15 @@
 
       </form>
 
+  <script>
+    var inputNameDiv = document.querySelector(".inputName");
 
+    btnAddName.onclick = function () {
+      var e = inputNameDiv.cloneNode(true);
+      inputNameContainer.appendChild(e);
+    };
+
+  </script>
 
     </body>
 

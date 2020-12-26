@@ -201,6 +201,8 @@
                     </tr>
                   </tbody>
                 </table>
+                
+                
                 <div class="album py-5">
                
                 <div class="php-email-form">
@@ -220,12 +222,14 @@
           <div class="row">
             <div class="info">
             <c:forEach items="${recipeSteps}" var="rs">
+            <div style="padding-top:10px;">
               <i class="icofont-envelope"></i>
-              <h4>STEP${rs.step}</h4>
+              <h4 >STEP${rs.step}</h4>
               <div class="recipe-step-con">
               <div><img src="../../upload/${rs.photo}_500x500.jpg" class="img-thumbnail" alt="..."></div>
 										<div>${rs.content}</div>
 										<div></div>
+              </div>
               </div>
               </c:forEach>
             </div>

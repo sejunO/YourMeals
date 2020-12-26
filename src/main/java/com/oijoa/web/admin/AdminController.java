@@ -16,6 +16,7 @@ import com.oijoa.domain.Product;
 import com.oijoa.domain.User;
 import com.oijoa.service.OrderService;
 import com.oijoa.service.ProductService;
+import com.oijoa.service.QnaService;
 import com.oijoa.service.UserService;
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
@@ -34,6 +35,8 @@ public class AdminController {
   UserService userService;
   @Autowired
   OrderService orderService;
+  @Autowired
+  QnaService qnaService;
 
   @GetMapping("userList")
   public void userList(Model model) throws Exception {
@@ -110,10 +113,15 @@ public class AdminController {
   }
 
   @PostMapping("orderUpdate")
-  public String orderUpdate(Order order, HttpSession session, int asdf) throws Exception {
+  public String orderUpdate(Order order, HttpSession session) throws Exception {
     orderService.update(order);
     session.setAttribute("thisOrder", orderService.get(order.getOrderNo()));
     return "redirect:orderList";
+  }
+
+  @RequestMapping("qnaList")
+  public void qnaList(Model model) throws Exception {
+    model.addAttribute("qnaList", qnaService.list());
   }
 
   private void generatePhotoThumbnail(String saveFilePath) {

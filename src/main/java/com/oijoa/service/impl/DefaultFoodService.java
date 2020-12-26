@@ -30,4 +30,9 @@ public class DefaultFoodService implements FoodService {
     return foodDao.findByRecipeNo(recipeNo);
   }
 
+  @Override
+  public int add(Food food) throws Exception {
+    return foodDao.insert(food);
+  }
+
 }
