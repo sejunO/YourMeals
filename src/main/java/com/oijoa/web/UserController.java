@@ -106,7 +106,7 @@ public class UserController {
     List<Follow> followinglist = followService.FollowingList(userNo);
 
     model.addAttribute("user", user);
-    model.addAttribute("followinglist", followinglist);
+    model.addAttribute("followingList", followinglist);
 
     int recipeSize = recipeList.size();
     int followerSize = followerList.size();
