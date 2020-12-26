@@ -46,7 +46,7 @@
 			</div>
 			<div class="profilebox">
 				<span class="profilephoto">
-				<a href=""><img class="profile" src='../../upload/${user.photo}_120x120.jpg'></a></span>
+				<img class="profile" src='../../upload/${user.photo}_120x120.jpg'></span>
 				<div class="profileinfo">
 				<h4>${user.nick} 님</h4>
 				<p>${user.email}</p></div>
@@ -87,5 +87,15 @@
   </div>
     <jsp:include page="/mypageFooter.jsp"></jsp:include>
     </div>
+    
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/main.js"></script>
+    
 </body>
 </html>
