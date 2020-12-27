@@ -7,11 +7,14 @@
     <head>
       <meta charset="UTF-8">
       <title>Insert title here</title>
+      <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="../../css/carousel.css">
     </head>
 
     <body>
 
-      <h2>배송지 정보</h2>
+      <h2 style="text-align:center">배송지 정보</h2>
       <form action="add" method="post">
         <div class="container mt-5">
           <div class="row">
@@ -123,29 +126,57 @@
         </div>
         </div>
 
-        <h3>주문 상품 정보</h3>
-        <c:forEach items="${baskets}" var="b">
-          <div style="margin-bottom: 10px;">
-            <input type="text" class="text-center" value='${b.product.photo}'
-              style="margin-left: 10px; width: 200px">
+        <h3 style="text-align:center">주문 상품 정보</h3>
+        
+          <div class="container mt-5" style="min-height: calc(100vh - 132px); max-height: auto">
+            <div class="container-fluid">
+              <div class="row">
+                <c:forEach items="${baskets}" var="b">
+                  <div class="col-4">
+                    <div class="card mb-4">
+                      <!-- <img src="../../upload/${product.photo}_200x200.jpg"/> -->
+                      <img class="card-img-top" src=img src="../../upload/${b.product.photo}_30x30.jpg"
+                        alt="Card image cap" height="50">${b.product.title}
+                      <div class="card-body">
+                        <h5 class="card-title" style="max-height: 50px; margin-top: 11px; font-size: 16px;">${p.content}
+                        </h5>
+                        <p class="card-text"
+                          style="text-align: right; padding-top: 4px; font-weight: 500; font-size: 14px; line-height: 20px;">
+                          가격 : ${b.product.price}</p>
+                        <p class="card-text" 
+                          style="text-align: right; padding-top: 4px; font-weight: 400; font-size: 12px; line-height: 20px;">
+                          수량 : ${b.amount}</p>
+                      </div>
+                    </div>
+                  </div>
+                  </c:forEach>
+                </div>
+              </div>
+            </div>
+          <%-- <div style="margin-bottom: 10px;">
+            <input type="text" class="text-center" value='' style="margin-left: 10px; width: 200px">
             제품 <input type="text" class="text-center" value='${b.product.title}'
               style="margin-left: 15px; width: 180px">
-            수량 <input type="text" class="text-center" value='${b.amount}' style="margin-top: 10px; margin-left: 15px; width: 20px"><br>
-            가격 <input type="text" class="text-center" value='${b.product.price}원' style="margin-left: 5px; margin-top: 10px; width: 80px">
-            주문금액 <input type="text" class="text-center" value='${b.product.price}*${b.amount}' style="margin-top: 10px; width: 120px">
+            수량 <input type="text" class="text-center" id='amount' value=''
+              style="margin-top: 10px; margin-left: 15px; width: 20px"><br>
+            가격 <input type="text" class="text-center" id='price' value='원'
+              style="margin-left: 5px; margin-top: 10px; width: 80px">
+            주문금액 <input type="text" class="text-center" id='total' value='total()'
+              style="margin-top: 10px; width: 120px">
             <input type="text" class="text-center" value='${b.writer.name}' style="width: 150px">
-          </div>
 
-          <table>
+          </div> --%>
+
+          <%-- <table>
             <tr>
               <td>${b.product.title}</td>
               <td>${b.amount}</td>
               <td>${b.product.price}</td>
               <td>${b.writer.name}</td>
-              <td>${b.product.price}*${b.amount}</td>
-          </table>
+              <td><input type="button" onclick="totalp()" value="금액"></td>
+              <div id="total"></div>
+          </table> --%>
 
-        </c:forEach>
 
 
         <h3>결제 방법 선택</h3>
@@ -154,7 +185,16 @@
         </c:forEach>
         <button>결제하기</button>
       </form>
-
+      
+      <script>
+        function totalp(){
+          var price = document.getElementById('price').value;
+          var amount = document.getElementById('amount').value;
+          var totalPrice;
+          totalPrice = price * amount;
+          console.log(totalPrice);
+        }
+      </script>
       <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     </body>
 

@@ -2,12 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:include page="/recipeHeader.jsp"></jsp:include>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>exampke</title>
+<title>recipe detail</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,7 +45,7 @@
 	rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="<%=request.getContextPath()%>/css/style.css"
+<link href="<%=request.getContextPath()%>/css/recipe.css"
 	rel="stylesheet">
 
 <!-- Font Awesome Icons-->
@@ -69,9 +69,9 @@
 </head>
 
 <body>
+<jsp:include page="/recipeHeader.jsp"></jsp:include>
 
-
-	<section id="hero" class="d-flex align-items-center">
+	<section id="hero" class="d-flex align-items-center img-detail">
 		<div
 			class="container text-center position-relative aos-init aos-animate"
 			data-aos="fade-in" data-aos-delay="200">
@@ -287,10 +287,10 @@
             </div>
             <div style="text-align: left; padding-top: 15px">
               <p style="margin: 0px 15px 10px;">${c.content}</p>
-              </div>
+              </div>   
               <div id="right">
                 <h5><a href="">수정</a>&nbsp;&nbsp;<a href="">삭제</a></h5>
-              </div>
+                </div>
               <hr style="border: 0; height: 2px; width: 100%; background: #d8ddd1; margin: 50px 0;">
 					   </c:forEach>					   
 					 </div>

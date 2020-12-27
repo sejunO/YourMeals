@@ -12,4 +12,5 @@ public interface NoticeService {
   Notice get(int no) throws Exception;
 
   int update(Notice notice) throws Exception;
+
 }

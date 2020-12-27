@@ -29,7 +29,7 @@
       inner join oi_notice_type nt
       on n.ntno = nt.ntno
   </select>
-  
+
     <select id="findByNo" resultMap="NoticeMap" parameterType="int">
     select 
       nono,
@@ -43,6 +43,7 @@
       on n.ntno = nt.ntno
       where
       n.nono=#{nono}
+      order by nono asc
   </select>
   
         <update id="update" parameterType="notice">
@@ -56,6 +57,7 @@
     ntno = #{noticeNo}
   </update>
   
+
   <insert id="insert" parameterType="notice">
     insert into oi_notice(ntno,title,content)
     values(#{noticeType.noticeTypeNo},#{title},#{content})

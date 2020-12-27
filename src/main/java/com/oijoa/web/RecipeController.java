@@ -2,10 +2,13 @@ package com.oijoa.web;
 
 import java.beans.PropertyEditorSupport;
 import java.io.File;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.UUID;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.oijoa.domain.Category;
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Food;
@@ -25,9 +29,11 @@ import com.oijoa.service.CommentService;
 import com.oijoa.service.FoodService;
 import com.oijoa.service.LevelService;
 import com.oijoa.service.MaterialService;
+import com.oijoa.service.NoticeService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.RecipeStepService;
 import com.oijoa.service.UserService;
+
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -55,6 +61,8 @@ public class RecipeController {
   UserService userService;
   @Autowired
   FoodService foodService;
+  @Autowired
+  NoticeService noticeService;
 
 
 
@@ -119,7 +127,7 @@ public class RecipeController {
   }
 
   @RequestMapping("addComment")
-  public String add(int crecipeNo, int userNo, String comment_content) throws Exception {
+  public String addComment(int crecipeNo, int userNo, String comment_content) throws Exception {
     Recipe recipe = recipeService.get(crecipeNo);
     User user = userService.get(userNo);
     Comment comment = new Comment();
@@ -131,8 +139,12 @@ public class RecipeController {
   }
 
   @RequestMapping("list")
-  public void list(Model model, String keyword, String keywordTitle, String keywordWriter,
-      String keywordCategory) throws Exception {
+  public void list(
+		  Model model,
+		  String keyword, 
+		  String keywordTitle, 
+		  String keywordWriter,
+		  String keywordCategory) throws Exception {
     if (keyword != null) {
       model.addAttribute("list", recipeService.list(keyword));
     } else if (keywordTitle != null) {
@@ -144,6 +156,8 @@ public class RecipeController {
     } else {
       model.addAttribute("list", recipeService.list());
     }
+    model.addAttribute("notices", noticeService.list());
+    
   }
 
   @RequestMapping("detail")
@@ -159,8 +173,8 @@ public class RecipeController {
     model.addAttribute("comments", commentService.list(recipeNo));
     model.addAttribute("foods", foodService.list(recipeNo));
   }
-
-
+  
+ 
   @ResponseBody
   @RequestMapping("updateRecommendCount")
   public String updateRecommendCount(int recipeNo) throws Exception {
@@ -183,7 +197,25 @@ public class RecipeController {
     }
     return "redirect:list";
   }
-
+  
+  @RequestMapping("updateComment")
+  public String updateComment(
+		  int recipeNo,
+		  Comment comment,
+		  String content,
+		  Date modifiedDate,
+		  Model model,
+		  HttpSession session) throws Exception {
+	  Recipe recipe = recipeService.get(recipeNo);
+	  User user = (User) session.getAttribute("loginUser");
+	  if (user != recipe.getWriter()) {
+		  System.out.println("수정할 수 있는 권한이 없습니다.");
+	  }
+	  comment.setContent(content);
+	  comment.setModifiedDate(modifiedDate);
+	  model.addAttribute("comment", comment);
+	  return "redirect:detail?recipeNo=" + recipeNo;
+  }
 
   @RequestMapping("updatePhoto")
   public String updatePhoto(int no, MultipartFile photoFile) throws Exception {
@@ -215,6 +247,17 @@ public class RecipeController {
     }
     return "rediret:list";
 
+  }
+  
+  @RequestMapping("deleteComment")
+  public String deleteComment(HttpSession session, int recipeNo) throws Exception {
+	  Recipe recipe = recipeService.get(recipeNo);
+	  User user = (User) session.getAttribute("loginUser");
+	  if (user != recipe.getWriter()) {
+		  System.out.println("삭제할 수 있는 권한이 없습니다.");
+	  }
+	  commentService.deleteByRecipeNo(recipeNo);
+	  return "redirect:detail?recipeNo=" + recipeNo;
   }
 
 
