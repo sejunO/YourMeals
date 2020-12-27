@@ -65,20 +65,14 @@
         <table class="content-table" style="text-align: center">
           <thead>
             <tr class="content-table-tr">
-              <th class="content-table-th">번호</th>
-              <th class="content-table-th">제목</th>
-              <th class="content-table-th">사진</th>
-              <th class="content-table-th">등록일</th>
             </tr>
           </thead>
 
           <tbody>
-            <c:forEach items="${recipeList}" var="r">
+            <c:forEach items="${recipeList}" var="r" varStatus="vs">
               <tr>
-                <td>${r.recipeNo}</td>
-                <td><a href='../recipe/detail?recipeNo=${r.recipeNo}'>${r.title}</a></td>
-                <td>${r.photo}</td>
-                <td>${r.createdDate}</td>
+                <td>${vs.index}</td>
+                <td>${vs.count}</td>
               </tr>
             </c:forEach>
           </tbody>
