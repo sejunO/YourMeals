@@ -193,3 +193,8 @@ table {
     color: black;
     background-color: rgb(159, 163, 155);
 }
+
+.content-main-container {
+  display: flex;
+  padding: 10px 0px 10px 0px;
+}

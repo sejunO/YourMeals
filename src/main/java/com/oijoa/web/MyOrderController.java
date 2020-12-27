@@ -12,6 +12,7 @@ import com.oijoa.domain.Order;
 import com.oijoa.domain.OrderList;
 import com.oijoa.domain.User;
 import com.oijoa.service.OrderService;
+import com.oijoa.service.UserService;
 
 @Controller
 @RequestMapping("/mypage/order")
@@ -19,10 +20,15 @@ import com.oijoa.service.OrderService;
 public class MyOrderController {
 
   @Autowired OrderService orderService;
+  @Autowired UserService userService;
 
   @GetMapping("orderList")
   public void orderList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
-    List<Order> orderList = orderService.myOrderList(loginUser.getUserNo());
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
+    List<Order> orderList = orderService.myOrderList(user.getUserNo());
     int totalPrice = 0;
     for (Order order : orderList) {
       for (OrderList orderlist : order.getOrderLists()) {
@@ -33,6 +39,7 @@ public class MyOrderController {
     }
 
     model.addAttribute("orderList", orderList);
+    model.addAttribute("user", user);
   }
 
   @GetMapping("updateList")
