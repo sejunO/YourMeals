@@ -152,6 +152,16 @@ table {
 	vertical-align: middle;
 }
 
+.modal-cell-btn {
+	font-size: 10px;
+	font-weight: bold;
+	padding: 5px 15px;
+	background: #f2dede;
+	color: #000;
+	border-radius: 10px;
+	box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
 .box {
 	display: block;
 	margin: 0 auto;
