@@ -31,15 +31,15 @@ String keyword = request.getParameter("keyword");
 <%
 String keywordTitle = request.getParameter("keywordTitle");
 String keywordWriter = request.getParameter("keywordWriter");
-String keywordCategory = request.getParameter("keywordCategory"); ;
+String keywordCategory = request.getParameter("keywordCategory"); 
 %>
 <form action='list' method='get'>
 제목: <input type='text' name='keywordTitle' 
 value='${keywordTitle != null ? keywordTitle : ""}'><br>
 작성자: <input type='text' name='keywordWriter' 
-value='${keywordTitle != null ? keywordTitle : ""}'><br>
+value='${keywordWriter != null ? keywordWriter : ""}'><br>
 카테고리:<input type='text' name='keywordCategory' 
-value='${keywordTitle != null ? keywordTitle : ""}'><br>
+value='${keywordCategory != null ? keywordCategory : ""}'><br>
 <button>검색</button>
 </form>
 </p>

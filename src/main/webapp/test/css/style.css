@@ -643,10 +643,44 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 */
 
 #show {
-  color: #444444;
-  font-size: 14px;
-  background: #f1f0f2;
-  margin-bottom: 100px;
+	color: #444444;
+    font-size: 15px;
+    background: #ebebeb;
+    margin-bottom: 80px;
+	margin-top: 80px;
+	padding-top: 40px;
+    padding-bottom: 80px;
+	width: 100%;	
+    box-shadow: 0px 5px 10px rgba(127, 137, 161, 0.25);
+}
+
+#show .form-control {
+	margin-left: 20px;	
+}
+
+#show input {
+	width: 500px;
+	height: 35px;
+	font-size: 15px;
+	border: 1px solid rgb(182, 182, 182); 
+	line-height: 40px; 
+	border-radius: 20px
+}
+
+#show button {
+position: absolute;
+  top: 0;
+  right: -2px;
+  bottom: 0;
+  border: 0;
+  background: none;
+  font-size: 15px;
+  padding: 0 20px;
+  background: #009970;
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 50px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 #show .show-top {
@@ -852,17 +886,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	padding-left: 5px;
   }
   
-  .selectbox {
+  #show #selectbox {
 	position: relative;
-	width: 200px; 
-	height: 40px; 
+	font-size: 15px;
+	width: 130px; 
+	height: 35px; 
 	line-height: 40px; 
-	background: no-repeat 95% 50%; 
-	border: 1px solid #999; 
+	border: 1px solid rgb(182, 182, 182); 
+	padding-left: 10px;
 	z-index: 1; 
+	border-radius: 20px
 } 
 
-.selectbox:before { 
+#show #selectbox:before { 
 	content: ""; 
 	position: absolute; 
 	top: 50%; right: 15px; 
@@ -871,10 +907,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	margin-top: -1px; 
 	border-left: 5px solid transparent; 
 	border-right: 5px solid transparent; 
-	border-top: 5px solid rgb#333; 
+	border-top: 5px solid rgbrgb(160, 160, 160); 
 }
 
- .selectbox label {
+ #show #selectbox label {
 	position: absolute; 
 	top: 0px; 
 	left: 5px; 
@@ -884,7 +920,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	z-index: -1; 
 } 
 
- .selectbox select { 
+#show #selectbox select { 
 	 width: 100%; 
 	 height: 40px; 
 	 line-height: 40px; 

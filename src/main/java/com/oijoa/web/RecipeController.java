@@ -139,8 +139,12 @@ public class RecipeController {
   }
 
   @RequestMapping("list")
-  public void list(Model model, String keyword, String keywordTitle, String keywordWriter,
-      String keywordCategory) throws Exception {
+  public void list(
+		  Model model,
+		  String keyword, 
+		  String keywordTitle, 
+		  String keywordWriter,
+		  String keywordCategory) throws Exception {
     if (keyword != null) {
       model.addAttribute("list", recipeService.list(keyword));
     } else if (keywordTitle != null) {

@@ -81,72 +81,78 @@
 		</div>
 	</section>
 
-	<section name="search" id="show">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 col-md-6 show-newsletter">
-					<h3>레시피 검색</h3>
-					<div class="dropdown">
-						  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-						    전체
-						    <span class="caret"></span>
-						  </button>
-						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-						    <li><a href="#">최신순</a></li>
-						    <li><a href="#">추천순</a></li>
-						    <li><a href="#">방법별</a></li>
-						  </ul>
+
+	<section name="search" >
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 show-newsletter" id="show">
+					<h3 style="margin-top: 30px; margin-bottom: 50px; padding-left: 20px; font-size: 32px;
+    font-weight: bold; text-transform: uppercase; font-family: ingerit;">레시피 검색</h3>
+					<div class="row">
+						<div class="col-md-11" style="padding-left: 36px;">
+							<div class="form-inline" style="padding-left: 20px;">
+							
+								<select id="selectbox" name="selectbox">
+									<option value="">전체</option>
+									<option value="title">제목</option>
+									<option value="writer">작성자</option>
+									<option value="category">카테고리</option>
+								</select> 
+								
+								<input class="form-control" type="text" id="keyword"
+									name="keyword" value=""
+									placeholder="검색어를 입력하세요" />
+								<button id="searchBtn" class="searchBtn">검색</button>
+							</div>
 						</div>
-						<form action method="post">
-							<input type="search-content" name=""> 
-							<input type="submit" value="검색">
-						</form>
 					</div>
+				</div>
 			</div>
-		</div>
+			</div>
 	</section>
-	
+
 	<section name="showlist">
-	 <div class="container">
-	  <table class="table" style="text-align: center">
-	    <thead>
-				<tr style="text-align: center">
-				  <th class="notice-category">번호</th>
-				  <th class="notice-category">사진</th>
-				  <th class="notice-category">제목</th>
-				  <th class="notice-category">작성자</th>
-				  <th class="notice-category">방법</th>
-				  <th class="notice-category">작성일</th>
-				  <th class="notice-category">조회</th>
-				  </tr>
+		<div class="container">
+			<table class="table" style="text-align: center">
+				<thead>
+					<tr style="background-color: rgb(250, 247, 240);">
+						<th class="notice-category" style="text-align: center">번호</th>
+						<th class="notice-category" style="text-align: center">사진</th>
+						<th class="notice-category" style="text-align: center">제목</th>
+						<th class="notice-category" style="text-align: center">작성자</th>
+						<th class="notice-category" style="text-align: center">방법</th>
+						<th class="notice-category" style="text-align: center">작성일</th>
+						<th class="notice-category" style="text-align: center">조회</th>
+					</tr>
 				</thead>
-				
+
 				<tbody>
-				<c:forEach items="${notices}" var="n">
-        <tr>
-          <td>${n.noticeNo}</td>
-          <td>-</td>
-          <td class="notice-title"><a href= 'detail?noticeNo=${n.noticeNo}'>${n.title}</a></td>
-          <td>관리자</td>
-          <td class="notice-color">공지사항</td>
-          <td>${n.registeredDate}</td>
-          <td>-</td>
-        </tr>
-        </c:forEach>
-				<c:forEach items="${list}" var="recipe">
-				<tr>
-				  <td>${recipe.recipeNo}</td>
-				  <td><img src='../upload/%1$s_30x30.jpg'>${recipe.photo}</td>
-				  <td><a href= 'detail?recipeNo=${recipe.recipeNo}'>${recipe.title}</a></td>
-				  <td>${recipe.writer.nick}</td>
-				  <td class="list-color'">${recipe.category.categoryName}</td>
-				  <td>${recipe.createdDate}</td>
-				  <td>${recipe.hits}</td>
-				</tr>
-				</c:forEach>
-				</tbody> 
-	  </table>
-	 </div>
+					<c:forEach items="${notices}" var="n">
+						<tr>
+							<td>${n.noticeNo}</td>
+							<td>-</td>
+							<td class="notice-title"><a
+								href='detail?noticeNo=${n.noticeNo}'>${n.title}</a></td>
+							<td>관리자</td>
+							<td class="notice-color">공지사항</td>
+							<td>${n.registeredDate}</td>
+							<td>-</td>
+						</tr>
+					</c:forEach>
+					<c:forEach items="${list}" var="recipe">
+						<tr>
+							<td>${recipe.recipeNo}</td>
+							<td><img src='../upload/%1$s_30x30.jpg'>${recipe.photo}</td>
+							<td><a href='detail?recipeNo=${recipe.recipeNo}'>${recipe.title}</a></td>
+							<td>${recipe.writer.nick}</td>
+							<td class="list-color'">${recipe.category.categoryName}</td>
+							<td>${recipe.createdDate}</td>
+							<td>${recipe.hits}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</section>
 
 
