@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>recipe list</title>
+<title>레시피 목록</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -101,7 +101,7 @@
 								
 								<input class="form-control" type="text" id="keyword"
 									name="keyword" value=""
-									placeholder="검색어를 입력하세요" />
+									placeholder="검색어를 입력하세요." />
 								<button id="searchBtn" class="searchBtn">검색</button>
 							</div>
 						</div>
