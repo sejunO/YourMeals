@@ -82,35 +82,26 @@
 	</section>
 
 
-	<section name="search" >
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-6 show-newsletter" id="show">
-					<h3 style="margin: 15px; padding-left: 20px; font-size: 24px;
-    font-weight: bold; text-transform: uppercase; font-family: ingerit;">레시피 검색</h3>
-					<div class="row">
-						<div class="col-md-11" style="padding-left: 36px;">
-							<div class="form-inline" style="padding-left: 20px;">
+
+
+	<div class="container">
+	<form action="list" method="get">
+							<div class="form-inline" style="padding-left: 20px; display:flex;">
 							
-								<select id="selectbox" name="selectbox">
-									<option value="">전체</option>
+								<select id="selectbox" name="option">
+									<option value="all">전체</option>
 									<option value="title">제목</option>
 									<option value="writer">작성자</option>
 									<option value="category">카테고리</option>
 								</select> 
 								
 								<input class="form-control" type="text" id="keyword"
-									name="keyword" value=""
+									name="keyword"
 									placeholder="검색어를 입력하세요" />
-								<button id="searchBtn" class="searchBtn">검색</button>
+								<button class="btn btn-light">검색</button>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			</div>
-	</section>
-
+							</form>
+							</div>
 	<section name="showlist" style="padding-bottom: 500px;">
 		<div class="container">
 			<table class="table" style="text-align: center">
