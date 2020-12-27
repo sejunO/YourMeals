@@ -110,7 +110,7 @@
 	 <div class="container">
 	  <table class="table" style="text-align: center">
 	    <thead>
-				<tr>
+				<tr style="text-align: center">
 				  <th class="notice-category">번호</th>
 				  <th class="notice-category">사진</th>
 				  <th class="notice-category">제목</th>

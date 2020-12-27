@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import com.oijoa.domain.Notice;
 import com.oijoa.domain.Order;
 import com.oijoa.domain.Product;
+import com.oijoa.domain.Qna;
 import com.oijoa.domain.User;
+import com.oijoa.service.NoticeService;
+import com.oijoa.service.NoticeTypeService;
 import com.oijoa.service.OrderService;
 import com.oijoa.service.ProductService;
 import com.oijoa.service.QnaService;
@@ -37,6 +41,10 @@ public class AdminController {
   OrderService orderService;
   @Autowired
   QnaService qnaService;
+  @Autowired
+  NoticeService noticeService;
+  @Autowired
+  NoticeTypeService noticeTypeService;
 
   @GetMapping("userList")
   public void userList(Model model) throws Exception {
@@ -107,7 +115,7 @@ public class AdminController {
   }
 
   @GetMapping("orderDetail")
-  public String orderlist(int no, HttpSession session) throws Exception {
+  public String orderDetail(int no, HttpSession session) throws Exception {
     session.setAttribute("thisOrder", orderService.get(no));
     return "redirect:orderList";
   }
@@ -123,6 +131,56 @@ public class AdminController {
   public void qnaList(Model model) throws Exception {
     model.addAttribute("qnaList", qnaService.list());
   }
+
+  @GetMapping("qnaDetail")
+  public String qnaDetail(int no, HttpSession session) throws Exception {
+    session.setAttribute("thisQna", qnaService.get(no));
+    return "redirect:qnaList";
+  }
+
+  @PostMapping("qnaUpdate")
+  public String qnaUpdate(Qna qna, HttpSession session) throws Exception {
+    qnaService.update(qna);
+    session.setAttribute("thisQna", qnaService.get(qna.getQnaNo()));
+    return "redirect:qnaList";
+  }
+
+  @RequestMapping("noticeList")
+  public void noticeList(Model model) throws Exception {
+    model.addAttribute("noticeList", noticeService.list());
+  }
+
+  @GetMapping("noticeDetail")
+  public String noticeDetail(int no, HttpSession session) throws Exception {
+    session.setAttribute("thisNotice", noticeService.get(no));
+    return "redirect:noticeList";
+  }
+
+  @PostMapping("noticeUpdate")
+  public String noticeUpdate(Notice notice, int noticeTypeNo, HttpSession session)
+      throws Exception {
+    notice.setNoticeType(noticeTypeService.get(noticeTypeNo));
+    noticeService.update(notice);
+    session.setAttribute("thisNotice", noticeService.get(notice.getNoticeNo()));
+    return "redirect:noticeList";
+  }
+
+  @RequestMapping("noticeForm")
+  public void noticeForm(Model model) throws Exception {
+    model.addAttribute("noticeList", noticeService.list());
+  }
+
+
+  @RequestMapping("noticeAdd")
+  public String noticeAdd(String title, String content, int noticeTypeNo) throws Exception {
+    Notice notice = new Notice();
+    notice.setTitle(title);
+    notice.setNoticeType(noticeTypeService.get(noticeTypeNo));
+    notice.setContent(content);
+    noticeService.add(notice);
+    return "redirect:noticeList";
+  }
+
 
   private void generatePhotoThumbnail(String saveFilePath) {
     try {

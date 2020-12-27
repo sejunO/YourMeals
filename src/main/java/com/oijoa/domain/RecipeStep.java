@@ -1,8 +1,8 @@
 package com.oijoa.domain;
 
 public class RecipeStep {
-  private int recipeNo;
   private int stepNo;
+  private int recipeNo;
   private int step;
   private String photo;
   private String content;

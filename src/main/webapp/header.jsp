@@ -49,8 +49,8 @@
         <li><a href="" class="page-scroll">Recipe</a></li>
         <li><a href="" class="page-scroll">My page</a></li>
         <li><a href="" class="page-scroll">My cart</a></li>
-        <c:if test="${sessionScope.loginUser.userTypeNo > 0}">
-        <li><a href="" class="page-scroll">My cart</a></li>
+        <c:if test="${sessionScope.loginUser.userTypeNo == 9}">
+        <li><a href="" class="page-scroll">ADMIN</a></li>
         </c:if>
 
       </ul>

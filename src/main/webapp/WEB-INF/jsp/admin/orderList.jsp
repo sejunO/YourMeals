@@ -85,63 +85,31 @@
                 <li class="nav-item">
                   <a class="nav-link" href="productList">
                     <span data-feather="shopping-cart"></span>
-                    Products
+                    Product
                   </a>
                 </li>
 
                 <li class="nav-item">
                   <a class="nav-link" href="orderList">
                     <span data-feather="file"></span>
-                    Orders
+                    Order
                   </a>
                 </li>
 
-
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="qnaList">
                     <span data-feather="bar-chart-2"></span>
-                    Reports
+                    Qna
                   </a>
                 </li>
+                
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="layers"></span>
-                    Integrations
-                  </a>
-                </li>
-              </ul>
-
-              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>Saved reports</span>
-                <a class="link-secondary" href="#" aria-label="Add a new report">
-                  <span data-feather="plus-circle"></span>
-                </a>
-              </h6>
-              <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="noticeList">
                     <span data-feather="file-text"></span>
-                    Current month
+                    Notice
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Last quarter
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Social engagement
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Year-end sale
-                  </a>
-                </li>
+                
               </ul>
             </div>
           </nav>
@@ -214,12 +182,17 @@
                 <thead>
                   <tr>
                     <th>번호</th>
+                    <th>주문자</th>
+                    <th>주문일시</th>
+                    <th>가격</th>
+                    <th>주문상태</th>
                   </tr>
                 </thead>
                 <tbody>
 
                   <c:forEach items="${orderList}" var="o">
                     <tr class="form-tr" onclick="location.href='orderDetail?no=${o.orderNo}'">
+                    <td>${o.orderNo}</td>
                       <td>${o.userNo.name}</td>
                       <td>${o.orderDate}</td>
                       <td>${o.totalPrice}</td>
