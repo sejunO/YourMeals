@@ -13,27 +13,27 @@
 <meta name="author" content="">
 
 <link rel="shortcut icon"
-	href="<%=request.getContextPath() %>/test/img/favicon.ico"
+	href="<%=request.getContextPath()%>/test/img/favicon.ico"
 	type="image/x-icon">
 <link rel="apple-touch-icon"
-	href="<%=request.getContextPath() %>/test/img/apple-touch-icon.png">
+	href="<%=request.getContextPath()%>/test/img/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="72x72"
-	href="<%=request.getContextPath() %>/test/img/apple-touch-icon-72x72.png">
+	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114"
-	href="<%=request.getContextPath() %>/test/img/apple-touch-icon-114x114.png">
+	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-114x114.png">
 
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/test/fonts/font-awesome/css/font-awesome.css">
+	href="<%=request.getContextPath()%>/test/fonts/font-awesome/css/font-awesome.css">
 
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/test/css/userstyle.css">
+	href="<%=request.getContextPath()%>/test/css/userstyle.css">
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/test/css/nivo-lightbox/nivo-lightbox.css">
+	href="<%=request.getContextPath()%>/test/css/nivo-lightbox/nivo-lightbox.css">
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/test/css/nivo-lightbox/default.css">
+	href="<%=request.getContextPath()%>/test/css/nivo-lightbox/default.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700"
 	rel="stylesheet">
@@ -55,31 +55,44 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/jsp/user/header.jsp"></jsp:include>
 
-		<div class="container">
-			<table class="table" style="text-align: center">
-				<thead>
-					<tr style="background-color: rgb(250, 247, 240);">
-						<th class="notice-category" style="text-align: center">번호</th>
-						<th class="notice-category" style="text-align: center">사진</th>
-						<th class="notice-category" style="text-align: center">제목</th>
-					</tr>
-				</thead>
+	<div class="main-content">
+		<div class="content-container">
 
-				<tbody>
-					<c:forEach items="${followerList}" var="fwer">
-						<tr>
-							<td><img class="user-img"
-								src='../../upload/${fwer.user.photo}_120x120.jpg'></td>
-							<td>${fwer.user.name}</td>
-							<td>${fwer.user.nick}</td>
+			<jsp:include page="/WEB-INF/jsp/user/header.jsp"></jsp:include>
+
+			<div class="content-main">
+				<table class="content-table" style="text-align: center">
+					<thead>
+						<tr class="content-table-tr">
+							<th class="content-table-th">사용자사진</th>
+							<th class="content-table-th">닉네임</th>
+							<th class="content-table-th">Follow</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+					</thead>
+
+					<tbody>
+						<c:forEach items="${followerList}" var="fwer">
+							<tr>
+								<td><img class="user-img"
+									src='../../upload/${fwer.user.photo}_120x120.jpg'></td>
+								<td><a href='followerList?userNo=${fwer.user.userNo}'>${fwer.user.nick}</a></td>
+								<td>
+									<button class="content-table-btn"
+										onclick="location.href='follow?followUserNo=${fwer.user.userNo}'">Follow
+										+</button>
+									<button class="content-table-btn"
+										onclick="location.href='unfollow?unfollowUserNo=${fwer.user.userNo}'">Unfollow
+										-</button>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 		</div>
-	<hr>
-	<div class="main-content"></div>
+	</div>
+
+	<jsp:include page="/userFooter.jsp"></jsp:include>
 </body>
 </html>

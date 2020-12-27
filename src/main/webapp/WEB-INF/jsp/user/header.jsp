@@ -28,8 +28,8 @@
 	  
 	  <div class="element-label">
 	    <div class="modal-table"><div class="modal-cell"><div class="box">
-	    <button onclick="location.href='follow?followUserNo=${user.userNo}'">팔로우</button>
-	    <button onclick="location.href='unfollow?unfollowUserNo=${user.userNo}'">언팔로우</button>
+	    <button class="modal-cell-btn" onclick="location.href='follow?followUserNo=${user.userNo}'">팔로우</button>
+	    <button class="modal-cell-btn" onclick="location.href='unfollow?unfollowUserNo=${user.userNo}'">언팔로우</button>
 	    </div></div></div>
 	  </div>
 	  </div>
