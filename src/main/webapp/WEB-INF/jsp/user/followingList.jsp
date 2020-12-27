@@ -54,7 +54,7 @@
   <tbody>
   <c:forEach items="${followingList}" var="fwng">
   <tr>
-    <td><img src='../../upload/${fwng.user.photo}_120x120.jpg'></td>
+    <td><img class="user-img" src='../../upload/${fwng.user.photo}_120x120.jpg'></td>
     <td>${fwng.user.name}</td>
     <td>${fwng.user.nick}</td>
   </tr>

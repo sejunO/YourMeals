@@ -1,65 +1,135 @@
-
 table {
-  width:60%;
-  margin:auto;
-  text-align:center;
+	width: 60%;
+	margin: auto;
+	text-align: center;
 }
 
 #userpage {
-   width: 100%;
-   height: 100%;
-   text-align:center;
+	width: 100%;
+	height: 100%;
+	text-align: center;
 }
 
 .main-container {
-  display: flex;
-  flex-direction: column
+	display: flex;
+	flex-direction: column
 }
+
 .box1 {
-  width: 100%;
-  height: 500px;
-  position: relative;
-  box-sizing: border-box;
+	width: 100%;
+	height: 500px;
+	position: relative;
+	box-sizing: border-box;
 }
 
 .box2 {
-  background: url(../img/user-header.jpg) center center / cover no-repeat;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover; 
+	background: url(../img/user-header.jpg) center center/cover no-repeat;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
 }
 
 .box3 {
-  display: block;
-  position: relative;
-  padding-top: 250px;
+	display: block;
+	position: relative;
+	padding-top: 250px;
 }
 
 .box4 {
-  position: absolute;
-  font-family:'Dancing Script', cursive;
-  color:  rgb(0, 0, 0);
-  font-size: 7em;
-  width: 100%;
-  text-align: center;
-  font-weight: 600;
+	position: absolute;
+	font-family: 'Dancing Script', cursive;
+	color: rgb(0, 0, 0);
+	font-size: 7em;
+	width: 100%;
+	text-align: center;
+	font-weight: 600;
 }
 
 .btn {
-  background: rgb(133, 199, 197);
-  border: 2px solid #737B7D;
-  box-sizing: border-box;
-  color: white;
-  height: 35px;
+	background: rgb(133, 199, 197);
+	border: 2px solid #737B7D;
+	box-sizing: border-box;
+	color: white;
+	height: 35px;
 }
 
 .main-content {
-      width:100%;
-      margin:auto;
-      text-align:center;
-      background-color:#FFFAFA;
-      margin-top: 50px;
-      margin-bottom: 50px;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	background-color: #FFFAFA;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.user-header {
+	width: 60%;
+	margin: auto;
+	text-align: center;
+	background-color: #FFFAFA;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.user-container {
+	display: flex;
+	padding: 10px 0px 10px 0px;
+}
+
+.image-box {
+	width: 20%;
+	padding: 20px 0px 0px 0px;
+}
+
+.user-img {
+	border-radius: 180px;
+	max-width: 100%;
+	height: auto;
+}
+
+.info-box {
+	display: block;
+	width: 20%;
+}
+
+.recipe-box {
+	display: block;
+	width: 20%;
+	border-radius: 15px;
+	background-color: #FCDFDF;
+}
+
+.follower-box {
+	display: block;
+	width: 20%;
+	border-radius: 15px;
+	background-color: #F5F5F5;
+}
+
+.following-box {
+	display: block;
+	width: 20%;
+	border-radius: 15px;
+	background-color: #F5F5F5;
+}
+
+.modal-table {
+	display: table;
+	position: relative;
+	width: 100%;
+	height: 100px;
+}
+
+.modal-cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.box {
+	display: block;
+	margin: 0 auto;
+	padding: 10px;
+	width: 100px
 }
