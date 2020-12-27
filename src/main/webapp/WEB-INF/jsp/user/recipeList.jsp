@@ -66,14 +66,5 @@
   <div class="main-content">
    
   </div>
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/main.js"></script>
-    
 </body>
 </html>
