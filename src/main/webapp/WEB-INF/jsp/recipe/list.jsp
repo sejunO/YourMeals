@@ -75,9 +75,9 @@
 		<div
 			class="container text-center position-relative aos-init aos-animate"
 			data-aos="fade-in" data-aos-delay="200">
-			<h1>레시피 살펴보기</h1>
+			<h1>YOUR MEALS</h1>
 			<br>
-			<h2>오늘은 어떤 레시피로 요리해 볼까요?</h2>
+			<h2>여러분만의 레시피를 공유해 보세요!</h2>
 		</div>
 	</section>
 
@@ -86,7 +86,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 show-newsletter" id="show">
-					<h3 style="margin-top: 30px; margin-bottom: 50px; padding-left: 20px; font-size: 32px;
+					<h3 style="margin: 15px; padding-left: 20px; font-size: 24px;
     font-weight: bold; text-transform: uppercase; font-family: ingerit;">레시피 검색</h3>
 					<div class="row">
 						<div class="col-md-11" style="padding-left: 36px;">
@@ -111,7 +111,7 @@
 			</div>
 	</section>
 
-	<section name="showlist">
+	<section name="showlist" style="padding-bottom: 500px;">
 		<div class="container">
 			<table class="table" style="text-align: center">
 				<thead>
