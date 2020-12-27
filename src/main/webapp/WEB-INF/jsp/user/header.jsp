@@ -6,60 +6,14 @@
 <head>
     <title>user-header</title>
 <style>
-    .user-header {
-      width:60%;
-      margin:auto;
-      text-align:center;
-      background-color:#FFFAFA;
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
-    .user-container {
-      display:flex;
-      padding: 10px 0px 10px 0px;
-    }
-    .image-box {
-      width:20%;
-      padding: 20px 0px 0px 0px;
-    }
-    img {
-      border-radius: 180px;
-      max-width: 100%; 
-      height: auto;
-    }
-    .info-box {
-      display:block;
-      width:20%;
-    }
-    .recipe-box {
-      display:block;
-      width:20%;
-      border-radius: 15px;
-      background-color:#FCDFDF;
-    }
-    .follower-box {
-      display:block;
-      width:20%;
-      border-radius: 15px;
-      background-color:#F5F5F5;
-    }
-    .following-box {
-      display:block;
-      width:20%;
-      border-radius: 15px;
-      background-color:#F5F5F5;
-    }
-    <%--수평 중앙정렬 css--%>
-    .modal-table{display:table;position:relative;width:100%;height:100px;}
-    .modal-cell{display:table-cell;vertical-align:middle;}
-    .box{display:block;margin:0 auto;padding:10px;width:100px}
+    
   </style>
 </head>
 <body>
 	<div class="user-header">
 	<div class="user-container">
 	  <div class="image-box">
-	    <img src='../../upload/${user.photo}_120x120.jpg'>
+	    <img class="user-img" src='../../upload/${user.photo}_120x120.jpg'>
 	  </div>
 	  <div class="info-box">
 	  

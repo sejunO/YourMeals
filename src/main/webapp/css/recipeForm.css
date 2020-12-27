@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+.main-file-style{
+	width:500px;
+}
+
+.input-sm{
+	width:200px;
+}
+
+.level-box {
+	text-align: center;
+	padding:5px 0;
+	
+}
+
+.flex-style {
+	display: flex;
+	justify-content: space-around;
+	padding:20px 0;
+} 
+ 
+.meta-input-style {
+		display: flex;
+		justify-content: space-between;
+}
+
+
+.meta-input-size {
+	width:300px;
+}
+ 
+#inputMetaContainer {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.btn-center {
+display: flex;
+justify-content: center;  
+}
+
+.step-input {
+display:flex;
+}
+
+.step-input{
+	display: flex;
+	justify-content: center;
+	padding:10px 0;
+}
