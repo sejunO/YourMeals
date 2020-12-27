@@ -58,16 +58,16 @@
 
 	<div class="main-content">
 		<div class="content-container">
-		
+
 			<jsp:include page="/WEB-INF/jsp/user/header.jsp"></jsp:include>
-			
+
 			<div class="content-main">
 				<table class="content-table" style="text-align: center">
 					<thead>
 						<tr class="content-table-tr">
 							<th class="content-table-th">사용자사진</th>
-							<th class="content-table-th">이름</th>
 							<th class="content-table-th">닉네임</th>
+							<th class="content-table-th">Follow</th>
 						</tr>
 					</thead>
 
@@ -76,8 +76,15 @@
 							<tr>
 								<td><img class="user-img"
 									src='../../upload/${fwer.user.photo}_120x120.jpg'></td>
-								<td>${fwer.user.name}</td>
-								<td>${fwer.user.nick}</td>
+								<td><a href='followerList?userNo=${fwer.user.userNo}'>${fwer.user.nick}</a></td>
+								<td>
+									<button class="content-table-btn"
+										onclick="location.href='follow?followUserNo=${fwer.user.userNo}'">Follow
+										+</button>
+									<button class="content-table-btn"
+										onclick="location.href='unfollow?unfollowUserNo=${fwer.user.userNo}'">Unfollow
+										-</button>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -85,7 +92,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<jsp:include page="/userFooter.jsp"></jsp:include>
 </body>
 </html>
