@@ -27,23 +27,32 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 </head>
-<body>
-
+<body id="user-container">
+		
 	  <div class="recipe-box">
+	  <a href="recipeList?userNo=${user.userNo}">
+	  <div class="hrefbox">
 	  <div class="element-label">
 	    <div class="modal-table"><div class="modal-cell"><div class="modal-box">
-	         <a href="recipeList?userNo=${user.userNo}">레시피</a>
-	    </div></div></div>
+	         레시피
+		</div></div></div>
 	  </div>
+	  
 	  <div class="element-size">
 	    <div class="modal-table"><div class="modal-cell"><div class="modal-box">
-	    ${recipeSize}</div></div></div>
+	    ${recipeSize} </div></div></div>
 	  </div>
+	  	</div>
+	  	</a>
 	  </div>
+	  	
+	  
 	  <div class="follower-box">
+	  <a href="followerList?userNo=${user.userNo}">
+	  <div class="hrefbox">
 	  <div class="element-label">
 	    <div class="modal-table"><div class="modal-cell"><div class="modal-box">
-	          <a href="followerList?userNo=${user.userNo}">팔로워</a>
+	       팔로워   
 	    </div></div></div>
 	  </div>
 	  <div class="element-size">
@@ -51,16 +60,25 @@
 	    ${followerSize}</div></div></div>
 	  </div>
 	  </div>
+	  </a>
+	  </div>
+	  
+	  
+	  
 	  <div class="following-box">
+	  <a href="followingList?userNo=${user.userNo}">
+	  <div class="hrefbox">
 	  <div class="element-label">
 	    <div class="modal-table"><div class="modal-cell"><div class="modal-box">
-            <a href="followingList?userNo=${user.userNo}">팔로잉</a>
+            팔로잉
       </div></div></div>
 	  </div>
 	  <div class="element-size">
 	    <div class="modal-table"><div class="modal-cell"><div class="modal-box">
 	    ${followingSize}</div></div></div>
 	  </div>
+	  </div>
+	  </a>
 	  </div>
 </body>
 </html>

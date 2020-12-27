@@ -56,7 +56,7 @@
 				<h4>${user.nick} 님</h4>
 				<p>${user.email}</p></div>
     		<div class="profileupdate">
-    		<a href="../app/mypage/user/update"><button class="btn">정보 수정</button></a></div>
+    		<a href="/app/mypage/user/update"><button class="btn">정보 수정</button></a></div>
    		</div>
    		<div class="category">
    	<ul>
@@ -81,16 +81,14 @@
     <!-- 사이드 바 종료-->
     
     <!--  나의 구매내역 본문 -->
-  <div class="mybuylist">
+  <div class="mybuy-container">
   <!-- 유저 헤더 -->
   	<div class="userheader">
-  	<jsp:include page="/userHeader.jsp"></jsp:include>
+  	<jsp:include page="userHeader.jsp"></jsp:include>
   	</div>
-  	
+  <!-- 유저 헤더 종료 -->
   
-  
-  
-  
+  	<div class="mybuylist">
 	<h1>나의 주문내역</h1>
 	<table border='1'>
 		<thead>
@@ -143,7 +141,8 @@
 	</c:forEach>
 	</tbody>
 </table>
-    </div>    
+    </div>
+      </div>  
     <!--  내용 종료 -->
     
    </div>

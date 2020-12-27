@@ -217,7 +217,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .profilephoto {
-	padding: 20px 10px 0;
+	padding: 20px 15px 20px 10px;
 }
 
 .profileinfo {
@@ -280,19 +280,22 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   display:block;
   width:20%;
   border-radius: 15px;
-  background-color:#FCDFDF;
+	background: #FCDFDF;
+	margin: 0 5px 0 0;
 }
 .follower-box {
   display:block;
   width:20%;
   border-radius: 15px;
-  background-color:#F5F5F5;
+  background: #F5F5F5;
+	margin: 0 5px 0 0;
+  
 }
 .following-box {
   display:block;
   width:20%;
   border-radius: 15px;
-  background-color:#F5F5F5;
+  background: #F5F5F5;
 }
 .modal-table {
   display: table;
@@ -303,21 +306,34 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .modal-cell { 
 	display: table-cell;
   vertical-align: middle;
+  text-align: center;
 }
 .modal-box {
   display: block;
   margin: 0 auto;
   padding: 10px;
   width: 100px;
+  color: darkorange;
+  font-size: 14px;
+  font-family: 'Raleway';
+  font-weight: 600;
 }
-.modal-box a {
-	color: #8eb640;
+.mybuy-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 70px 30px 30px;
 }
-
-
-
-
-
-.main-content {
-	
+.userheader {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.mybuylist {
+	display: flex;
+	padding: 50px 0;
+}
+.hrefbox {
+	width: 100%;
+	height: 100%;
 }
