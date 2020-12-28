@@ -46,14 +46,29 @@
 	<div class="sub-container">
 	<div class="vertical">
 		<jsp:include page="<%=request.getContextPath() %>../mySidebar.jsp"></jsp:include>
+  <div class="main-container">
+  <div class="box1">
+    <div class="box2">
+      <header><jsp:include page="/mypageHeader.jsp"></jsp:include></header>
+      <div class="box3"></div>
+      <div class="box4">MyPage</div>
+    </div>
+  </div>
+  
+  <!--  본문 -->
+  <!--  사이드 바 -->
+  
+  <div class="sub-container">
+  <div class="vertical">
+    <jsp:include page="../mySidebar.jsp"></jsp:include>
     <!-- 사이드 바 종료-->
     
     <!--  나의 구매내역 본문 -->
   <div class="mycontainer">
   <!-- 유저 헤더 -->
-  	<div class="myheader">
-  	<jsp:include page="../myHeader.jsp"></jsp:include>
-  	</div>
+    <div class="myheader">
+    <jsp:include page="../myHeader.jsp"></jsp:include>
+    </div>
   <!-- 유저 헤더 종료 -->
   
   		
@@ -159,9 +174,101 @@
 		</tr>
 	</c:forEach>
 	</tbody>
+=======
+      
+      <div class="mybuylist">
+        <h3>나의 주문내역</h3>
+        <!-- 주문내역 리스트 시작 -->
+        <ul class="list">
+          <li class="thead">
+            <div class="td-col1">상품정보</div>
+            <div class="td-col2">배송정보</div>
+            <div class="td-col3">상태</div>
+          </li>
+        <c:forEach items="${orderList}" var="o">
+          <li class="tbox">
+          <!-- 주문일자, 번호 박스 -->
+            <div class="td-box">
+              <ul class="order-num">
+              
+                <li class="order-date">
+                <span>주문일자</span>
+                <span class="order">${o.orderDate}</span>
+                </li>
+                
+                <li class="ordernum">
+                <span>주문번호</span>
+                <span class="order">${o.orderNo}</span>
+                </li>
+                </ul>
+                </div>
+              <!-- 물품 -->
+                <div class="goods">
+                  <div class="goodsbox">
+                    <div class="in-col1"></div>
+                  </div>
+                
+                </div>
+                
+                
+                </c:forEach>
+              </ul>
+            </div>
+          </ul>
+      <!--    
+        </thead>
+      <tr>
+        <th>주문일자</th>
+        <th>주문번호</th>
+        <th>우편번호</th>
+        <th>배송지주소</th>
+        <th>주문항목</th>
+        <th>주문금액</th>
+        <th>상태</th>
+      </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${orderList}" var="o">
+      <tr>
+        <td>${o.orderDate}</td>
+        <td>${o.orderNo}</td>
+        <td>${o.postNo}</td>
+        <td>${o.address} ${o.detailAddress}</td>
+        <td>${o.orderLists.get(0).orderProduct.content}
+          <c:if test="${o.orderLists.size() -1 > 0}">외
+                ${o.orderLists.size() -1} 건</c:if>
+          </td>
+        <td>${o.totalPrice}</td>
+        <td>
+          <c:choose>
+            <c:when test="${o.status == 0}">
+          입금확인중
+            </c:when>
+            <c:when test="${o.status == 1}">
+          결제완료
+            </c:when>
+            <c:when test="${o.status == 2}">
+          배송준비
+            </c:when>
+            <c:when test="${o.status == 3}">
+          배송중
+            </c:when>
+            <c:when test="${o.status == 4}">
+          배송완료
+            </c:when>
+        
+          <c:otherwise>
+          상태값오류
+          </c:otherwise>
+        </c:choose>
+      </td>
+    </tr>
+  </c:forEach>
+  </tbody>
+>>>>>>> branch 'main' of https://github.com/sejunO/YourMeals.git
 </table>-->
     </div>
-    	</div>
+      </div>
       </div>
     
     <!--  내용 종료 -->
