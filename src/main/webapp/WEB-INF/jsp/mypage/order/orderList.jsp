@@ -91,10 +91,23 @@
   		
   		<div class="mybuylist">
 				<h3>나의 주문내역</h3>
-				<div class="list">
-				
-	<table border='1'>
-		<thead>
+				<ul class="list">
+					<li class="thead">
+						<div class="td-col1">상품정보</div>
+						<div class="td-col2">배송정보</div>
+						<div class="td-col3">상태</div>
+					</li>
+					<li class="tbox">
+						<div class="td-box">
+							<ul class="order-num">
+								<li class="order-date">
+								<span>주문일자</span>
+								<span class="orderdate">${o.orderDate}</span>
+							</ul>
+						</div>
+					</ul>
+			<!-- 		
+				</thead>
 			<tr>
 			  <th>주문일자</th>
 			  <th>주문번호</th>
@@ -143,7 +156,7 @@
 		</tr>
 	</c:forEach>
 	</tbody>
-</table>
+</table>-->
     </div>
     	</div>
       </div>

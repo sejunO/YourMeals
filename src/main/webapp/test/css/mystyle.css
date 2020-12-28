@@ -352,3 +352,49 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   border-top: 4px solid #000;
   border-bottom: 1px solid #000;
 }
+.list .thead {
+  display: table;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 50px;
+}
+.td-col1 {
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+.td-col2 {
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+.td-col3 {
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+.tbox {
+	border-top: 1px solid #d4d4d4;
+}
+.td-box {
+  position: relative;
+  width: 100%;
+  padding: 10px 0 21px;
+  border-bottom: 1px solid #d4d4d4;
+  border-top: 2px solid #303033;
+  box-sizing: border-box;
+}
+.order-num {
+	float: left;
+}
+.order-date {
+	padding: 0 20px 0 0;
+}
+.orderdate {
+  font-size: 16px;
+  font-weight: 700;
+}
