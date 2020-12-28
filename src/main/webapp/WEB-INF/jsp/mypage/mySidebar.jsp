@@ -57,22 +57,30 @@
         <a href="<%=request.getContextPath()%>/app/mypage/user/detail"><button class="btn">정보 수정</button></a></div>
       </div>
       <div class="category">
+    <div class="contenttitle"><strong>MY 주문내역</strong>
     <ul>
         <li><a href="<%=request.getContextPath()%>/app/mypage/order/orderList">나의 주문내역</a></li>
         <li><a href="<%=request.getContextPath()%>/app/mypage/order/updateList">나의 취소/교환/환불내역</a></li>
     </ul>
+    </div>
+    <div class="contenttitle"><strong>MY 레시피</strong>
      <ul>
         <li><a href="<%=request.getContextPath()%>/app/mypage/recipe/list">나의 레시피</a></li>
         <li><a href="<%=request.getContextPath()%>/app/mypage/recipe/likeList">내가 좋아한 레시피</a></li>
         <li><a href="<%=request.getContextPath()%>/app/mypage/recipe/commentList">나의 댓글</a></li>
     </ul>
+    </div>
+    <div class="contenttitle"><strong>MY Q&A</strong>
     <ul>
         <li><a href="<%=request.getContextPath()%>/app/mypage/qna/list">QnA 게시판</a></li>
     </ul> 
+    </div>
+    <div class="contenttitle"><strong>MY FOLLOWING</strong>
     <ul>
         <li><a href="<%=request.getContextPath()%>/app/mypage/user/followingList">나의 팔로잉</a></li>
         <li><a href="<%=request.getContextPath()%>/app/mypage/user/followerList">내 팔로워</a></li>
     </ul>
+    </div>
     </div>
     </div>
 </body>
