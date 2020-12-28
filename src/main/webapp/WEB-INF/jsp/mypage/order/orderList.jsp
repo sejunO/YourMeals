@@ -40,117 +40,115 @@
  		</div>
 	</div>
 	
-	<!--  본문 -->
-	<!--  사이드 바 -->
-	
-	<div class="sub-container">
-	<div class="vertical">
-		<div class="sidebox">
-			<div class="categoryname">
-			마이페이지
-			</div>
-			<div class="profilebox">
-				<span class="profilephoto">
-				<img class="profile" src='../../upload/${user.photo}_120x120.jpg'></span>
-				<div class="profileinfo">
-				<h4>${user.nick} 님</h4>
-				<p>${user.email}</p></div>
-    		<div class="profileupdate">
-    		<a href="../app/mypage/user/update"><button class="btn">정보 수정</button></a></div>
-   		</div>
-   		<div class="category">
-   	<ul>
-   			<li><a href="../app/basket/list">장바구니</a></li>
-    		<li><a href="../app/mypage/order/buyList">나의 주문내역</a></li>
-    		<li><a href="../app/mypage/order/updateList">나의 취소/교환/환불내역</a></li>
-   	</ul>
-   	 <ul>
-   			<li><a href="../app/myrecipe/list">나의 레시피</a></li>
-    		<li><a href="../app/mypage/recipe/likeList">내가 좋아한 레시피</a></li>
-    </ul>
-    <ul>
-    		<li><a href="../app/qna/list">QnA 게시판</a></li>
-   			<li><a href="../app/mypage/commentList">나의 댓글</a></li>
-    </ul>	
-    <ul>
-    		<li><a href="../app/mypage/following/list">나의 팔로잉</a></li>
-    		<li><a href="../app/mypage/follower/list">내 팔로워</a></li>
-   	</ul>
-    </div>
-    </div>
+  <!--  본문 -->
+  <div class="sub-container">
+  <div class="vertical">
+  <!--  사이드 바 -->
+    <jsp:include page="../mySidebar.jsp"></jsp:include>
     <!-- 사이드 바 종료-->
     
     <!--  나의 구매내역 본문 -->
-  <div class="mybuylist">
+  <div class="mycontainer">
   <!-- 유저 헤더 -->
-  	<div class="userheader">
-  	<jsp:include page="/userHeader.jsp"></jsp:include>
-  	</div>
-  	
-  
-  
-  
-  
-	<h1>나의 주문내역</h1>
-	<table border='1'>
-		<thead>
-			<tr>
-			  <th>주문일자</th>
-			  <th>주문번호</th>
-			  <th>우편번호</th>
-			  <th>배송지주소</th>
-			  <th>주문항목</th>
-			  <th>주문금액</th>
-			  <th>상태</th>
-		 	</tr>
-		</thead>
-		<tbody>
-		<c:forEach items="${orderList}" var="o">
-			<tr>
-				<td>${o.orderDate}</td>
-				<td>${o.orderNo}</td>
-				<td>${o.postNo}</td>
-				<td>${o.address} ${o.detailAddress}</td>
-				<td>${o.orderLists.get(0).orderProduct.content}
-					<c:if test="${o.orderLists.size() -1 > 0}">외
-								${o.orderLists.size() -1} 건</c:if>
-					</td>
-				<td>${o.totalPrice}</td>
-				<td>
-					<c:choose>
-						<c:when test="${o.status == 0}">
-					입금확인중
-						</c:when>
-						<c:when test="${o.status == 1}">
-					결제완료
-						</c:when>
-						<c:when test="${o.status == 2}">
-					배송준비
-						</c:when>
-						<c:when test="${o.status == 3}">
-					배송중
-						</c:when>
-						<c:when test="${o.status == 4}">
-					배송완료
-						</c:when>
-				
-					<c:otherwise>
-					상태값오류
-					</c:otherwise>
-				</c:choose>
-			</td>
-		</tr>
-	</c:forEach>
-	</tbody>
-</table>
-    </div>    
-    <!--  내용 종료 -->
-    
-   </div>
-  </div>
-    <jsp:include page="/mypageFooter.jsp"></jsp:include>
+    <div class="myheader">
+    <jsp:include page="../myHeader.jsp"></jsp:include>
     </div>
+  <!-- 유저 헤더 종료 -->
+  
+  		
+  		<div class="mylist">
+				<h3>나의 주문내역</h3>
+				<!-- 주문내역 리스트 시작 -->
+				<ul class="list">
+					<li class="thead">
+						<div class="td-col1">상품정보</div>
+						<div class="td-col2">배송정보</div>
+						<div class="td-col3">상태</div>
+					</li>
+				<c:forEach items="${orderList}" var="o">
+					<li class="tbox">
+					<!-- 주문일자, 번호 박스 -->
+						<div class="td-box">
+							<ul class="order-num">
+							
+								<li class="order-date">
+								<span>주문일자</span>
+								<span class="order">${o.orderDate}</span>
+								</li>
+								
+								<li class="ordernum">
+								<span>주문번호</span>
+								<span class="order">${o.orderNo}</span>
+								</li>
+								</ul>
+								</div>
+							<!-- 물품 -->
+								<div class="goods">
+									<div class="goodsbox">
+										<div class="in-col1">
+											<div class="imgbox"> 
+												<div class="imgin">
+													<img src="<%=request.getContextPath()%>/upload/${product.photo}_100x100.jpg"/>
+												</div>
+											</div>
+											<div class="goodsinfo">
+												<p class="goodstitle">
+									${o.orderLists.get(0).orderProduct.content}
+										<c:if test="${o.orderLists.size() -1 > 0}">외
+									${o.orderLists.size() -1} 건</c:if></p>
+												<div class="price">${o.totalPrice} 원</div>
+											</div>
+										</div>
+										<!-- 상품사진, 상품명, 가격 끝 -->
+										<!-- 배송정보 -->
+										<div class="in-col2">
+											<div class="delivery">
+											<p class="pfont">(${o.postNo})</p>
+											<p class="pfont">${o.address}</p>
+											<p class="pfont">${o.detailAddress}</p>			
+											</div>
+										</div>
+										<!-- 배송정보 끝 -->
+										<!--  상태  -->
+										<div class="in-col3">
+											<div class="status"><strong>
+											<c:choose>
+												<c:when test="${o.status == 0}">
+											입금확인중
+												</c:when>
+												<c:when test="${o.status == 1}">
+											결제완료
+												</c:when>
+												<c:when test="${o.status == 2}">
+											배송준비
+												</c:when>
+												<c:when test="${o.status == 3}">
+											배송중
+												</c:when>
+												<c:when test="${o.status == 4}">
+											배송완료
+												</c:when>
+										
+											<c:otherwise>
+											상태값오류
+											</c:otherwise>
+										</c:choose>
+									</strong>						
+									</div>
+								</div>
+							</div>
+						</div>
+								</c:forEach>
+							</ul>
+						</div>
+    		</div>
+      </div>
+      </div>
     
+    <!--  내용 종료 -->
+      </div>  
+    <jsp:include page="/mypageFooter.jsp"></jsp:include>
+     
  <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script> 

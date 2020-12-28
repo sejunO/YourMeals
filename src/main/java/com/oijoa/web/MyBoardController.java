@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import com.oijoa.domain.Comment;
+import com.oijoa.domain.Follow;
+import com.oijoa.domain.Order;
 import com.oijoa.domain.Qna;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.CommentService;
+import com.oijoa.service.FollowService;
+import com.oijoa.service.OrderService;
 import com.oijoa.service.QnaService;
 import com.oijoa.service.RecipeService;
+import com.oijoa.service.UserService;
 
 @Controller
 @RequestMapping("/mypage")
@@ -24,28 +29,108 @@ public class MyBoardController {
   @Autowired RecipeService recipeService;
   @Autowired CommentService commentService;
   @Autowired QnaService qnaService;
+  @Autowired UserService userService;
+  @Autowired FollowService followService;
+  @Autowired OrderService orderService;
 
   @GetMapping("/recipe/likeList")
   public void recipeLikeList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
-    List<Recipe> likeList = recipeService.myLikeList(loginUser.getUserNo());
-    model.addAttribute("likeList", likeList);
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
+    List<Recipe> recipeList = recipeService.userNoList(loginUser.getUserNo());
+    List<Follow> followList = followService.FollowerList(user.getUserNo());
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
+    
+    model.addAttribute("likeList", recipeService.myLikeList(loginUser.getUserNo()));
+    
+    int recipeSize = recipeList.size();
+    int followerSize = followList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
+    
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
+    model.addAttribute("user", user);
   }
 
   @GetMapping("/recipe/list")
   public void recipeList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
     List<Recipe> recipeList = recipeService.userNoList(loginUser.getUserNo());
+    List<Follow> followList = followService.FollowerList(user.getUserNo());
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
+    
     model.addAttribute("recipeList", recipeList);
+    
+    int recipeSize = recipeList.size();
+    int followerSize = followList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
+    
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
+    model.addAttribute("user", user);
   }
 
   @GetMapping("/recipe/commentList")
   public void recipeCommentList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
-    List<Comment> commentList = commentService.userNoList(loginUser.getUserNo());
-    model.addAttribute("commentList", commentList);
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
+    List<Recipe> recipeList = recipeService.userNoList(loginUser.getUserNo());
+    List<Follow> followList = followService.FollowerList(user.getUserNo());
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
+    
+    model.addAttribute("commentList", commentService.userNoList(loginUser.getUserNo()));
+    
+    int recipeSize = recipeList.size();
+    int followerSize = followList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
+    
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
+    model.addAttribute("user", user);
   }
 
   @GetMapping("/qna/list")
-  public void qnaList(Model model) throws Exception {
-    model.addAttribute("qnaList", qnaService.list());
+  public void qnaList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
+    List<Recipe> recipeList = recipeService.userNoList(loginUser.getUserNo());
+    List<Follow> followList = followService.FollowerList(user.getUserNo());
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
+    
+    model.addAttribute("qnaList", qnaList);
+    
+    int recipeSize = recipeList.size();
+    int followerSize = followList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
+    
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
+    model.addAttribute("user", user);
   }
 
   @GetMapping("/qna/form")

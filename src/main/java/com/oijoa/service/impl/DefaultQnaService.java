@@ -49,4 +49,9 @@ public class DefaultQnaService implements QnaService {
   public int update(Qna qna) throws Exception {
     return qnaDao.update(qna);
   }
+
+  @Override
+  public List<Qna> userNoList(int no) throws Exception {
+    return qnaDao.findByUserNo(no);
+  }
 }

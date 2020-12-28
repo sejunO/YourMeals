@@ -22,6 +22,8 @@ public interface OrderDao {
   Order findByNo(int no) throws Exception;
 
   int update(Order order) throws Exception;
+
+  List<Order> findByOrderShippingListUserNo(int userNo) throws Exception;
 }
 
 

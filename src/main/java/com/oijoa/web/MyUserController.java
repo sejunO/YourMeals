@@ -14,8 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import com.oijoa.domain.Follow;
+import com.oijoa.domain.Order;
+import com.oijoa.domain.Qna;
+import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.FollowService;
+import com.oijoa.service.OrderService;
+import com.oijoa.service.QnaService;
+import com.oijoa.service.RecipeService;
 import com.oijoa.service.UserService;
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
@@ -28,7 +34,10 @@ import net.coobird.thumbnailator.name.Rename;
 public class MyUserController {
   @Autowired ServletContext servletContext; // 메서드의 파라미터로 못 받는다.
   @Autowired UserService userService;
+  @Autowired RecipeService recipeService;
   @Autowired FollowService followService;
+  @Autowired OrderService orderService;
+  @Autowired QnaService qnaService;
 
   @GetMapping("detail")
   public void detail(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
@@ -130,13 +139,53 @@ public class MyUserController {
 
   @GetMapping("followerList")
   public void followerList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
-    List<Follow> list = followService.FollowerList(loginUser.getUserNo());
-    model.addAttribute("followerList", list);
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
+    
+    List<Recipe> recipeList = recipeService.userNoList(user.getUserNo());
+    List<Follow> followerList = followService.FollowerList(user.getUserNo());
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
+    
+    model.addAttribute("followerList", followerList);
+    
+    int recipeSize = recipeList.size();
+    int followerSize = followerList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
+    
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
+    model.addAttribute("user", user);
   }
 
   @GetMapping("followingList")
   public void followingList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
-    List<Follow> list = followService.FollowingList(loginUser.getUserNo());
-    model.addAttribute("followingList", list);
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
+    
+    List<Recipe> recipeList = recipeService.userNoList(user.getUserNo());
+    List<Follow> followerList = followService.FollowerList(user.getUserNo());
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
+    
+    model.addAttribute("followingList", followService.FollowingList(user.getUserNo()));
+    
+    int recipeSize = recipeList.size();
+    int followerSize = followerList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
+    
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
+    model.addAttribute("user", user);
   }
 }

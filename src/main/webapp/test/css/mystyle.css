@@ -40,45 +40,45 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 #login {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 #signup {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .main {
-	height: 100vh;
-	position: fixed;
+  height: 100vh;
+  position: fixed;
     width: 100%;
     height: 100%;
 }
 .back {
-	background: url(../img/login-pg.jpg) center center / cover no-repeat;
-	height: 100vh;
-	opacity: 0.9;
-	content: "";
+  background: url(../img/login-pg.jpg) center center / cover no-repeat;
+  height: 100vh;
+  opacity: 0.9;
+  content: "";
     position: fixed;
     width: 100%;
     height: 100%;
 }
 #login .main .overlay {
-	background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.4);
 }
 #login .log {
-	margin: 0px 0px 14px;
-	letter-spacing: -1px;
-	display: flex;
+  margin: 0px 0px 14px;
+  letter-spacing: -1px;
+  display: flex;
 }
 #login .log .box {
-	flex: 1 1 0%
+  flex: 1 1 0%
 }
 #login .log a {
-	text-decoration: none;
-	background-color: transparent;
+  text-decoration: none;
+  background-color: transparent;
 }
 #login .findpassword {
-	color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
     font-size: 12px;
     font-weight: 400;
     letter-spacing: -0.4px;
@@ -86,83 +86,86 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     opacity: 0.6;
 }
 .main h7 {
-	font-family: Arial, Helvetica, sans-serif;
-	color:  rgb(255, 255, 255);
-	font-size: 20px;
-	font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  color:  rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 700;
 }
 #login .email {
-	color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
     font-size: 12px;
     font-weight: 400;
-	opacity: 0.8;
-	position: relative;
+  opacity: 0.8;
+  position: relative;
     bottom: 2px;
 }
 #login .check {
-	margin: 5px;
+  margin: 5px;
 }
 .btn {
-	background-color: rgb(193, 212, 209);
-	color: rgb(255, 255, 255);
-	font-weight: 700;
-	letter-spacing: -0.1px;
-	text-align: center;
-	width: 100%;
-	border-radius: 40px;
-	font-size: 16px;
-	height: 48px;
+  background-color: rgb(193, 212, 209);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  text-align: center;
+  width: 100%;
+  border-radius: 40px;
+  font-size: 16px;
+  height: 48px;
 }
 
 #signup .sign {
-	margin: 0px 0px 14px;
-	letter-spacing: -1px;
+  margin: 0px 0px 14px;
+  letter-spacing: -1px;
 }
 
 
 #mypage {
    width: 100%;
    height: 100%;
+   font-family: "campton", "Apple SD Gothic Neo",
+	NanumBarunGothic, "나눔바른고딕", Malgun Gothic,
+	"맑은 고딕", dotum, sans-serif;
 }
 
 .main-container {
-	display: flex;
-	flex-direction: column
+  display: flex;
+  flex-direction: column
 }
 .box1 {
-	width: 100%;
-	height: 500px;
-	position: relative;
-	box-sizing: border-box;
+  width: 100%;
+  height: 500px;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .box2 {
-	background: url(../img/mypage-header.jpg) center center / cover no-repeat;
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-size: cover; 
+  background: url(../img/mypage-header.jpg) center center / cover no-repeat;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
 }
 
 .box3 {
-	display: block;
-	position: relative;
-	padding-top: 250px;
+  display: block;
+  position: relative;
+  padding-top: 250px;
 }
 
 .box4 {
-	position: absolute;
-	font-family:'Dancing Script', cursive;
-	color:  rgb(0, 0, 0);
-	font-size: 7em;
+  position: absolute;
+  font-family:'Dancing Script', cursive;
+  color:  rgb(0, 0, 0);
+  font-size: 7em;
   width: 100%;
   text-align: center;
   font-weight: 600;
 }
 
 .sub-container {
-	color: #494949;
+  color: #494949;
   font-family: dotum, arial, sans-serif;
   font-size: 12px;
   margin: 0 auto;
@@ -171,12 +174,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .main-content {
-	flex: 1;
-	
+  flex: 1;
+  
 }
 
 .footbox {
-		display: flex;
+    display: flex;
     justify-content: space-between;
     justify-content: center;
     position: relative;
@@ -187,11 +190,20 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     text-align: center;
     color: black;
    	background-color: #b6d6c6;
+    background-color: #b6d6c6;
+    font-family: "campton", "Apple SD Gothic Neo",
+  NanumBarunGothic, "나눔바른고딕", Malgun Gothic,
+  "맑은 고딕", dotum, sans-serif;
 }
 
 .vertical {
 	display: flex;
 	flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  font-family: "campton", "Apple SD Gothic Neo",
+  NanumBarunGothic, "나눔바른고딕", Malgun Gothic,
+  "맑은 고딕", dotum, sans-serif;
 }
 .sidebox {
   border-right: 1px solid #f0f0f0;
@@ -200,33 +212,32 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .categoryname {
-	  border-bottom: 1px solid #f0f0f0;
-	  text-align: center;
-	  font-size: 25px;
-	  font-weight: 600;
-	  font-family: sans-serif;
-	  color: brown;
-	  margin: 70px 0 0;
-	  padding: 0 0 30px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: brown;
+    margin: 70px 0 0;
+    padding: 0 0 30px;
 }
 .profilebox {
-	  display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     border-bottom: 1px solid #f0f0f0;
 }
 
 .profilephoto {
-	padding: 20px 10px 0;
+  padding: 20px 15px 20px 10px;
 }
 
 .profileinfo {
-	text-align: center;
-	padding: 10px 0 0;
+  text-align: center;
+  padding: 10px 0 0;
 }
 
 .profileupdate {
-	padding: 20px 0;
+  padding: 20px 0;
 }
 
 .category {
@@ -236,35 +247,35 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .category ul {
   padding: 30px 0 30px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  text-align: end;
+  text-align: center;
   border-bottom: 1px solid #f0f0f0;
 }
 
 .category li {
-	line-height: 20px;
+  line-height: 20px;
 }
 
 .category li a {
-	color: brown;
+  color: grey;
 }
 
 .btn {
-	background: rgb(133, 199, 197);
-	border: 2px solid #737B7D;
-	box-sizing: border-box;
-	color: white;
-	height: 35px;
+  background: rgb(133, 199, 197);
+  border: 2px solid #737B7D;
+  box-sizing: border-box;
+  color: white;
+  height: 35px;
 }
 
 .profile {
-	vertical-align: middle;
-	border-style: none;
-	width: 15rem;
-	height: 15rem;
-	border: 0.3rem solid #737B7D;
-	border-radius: 50% !important;
+  vertical-align: middle;
+  border-style: none;
+  width: 15rem;
+  height: 15rem;
+  border: 0.3rem solid #737B7D;
+  border-radius: 50% !important;
 }
 .user-header {
   width:60%;
@@ -280,19 +291,28 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   display:block;
   width:20%;
   border-radius: 15px;
-  background-color:#FCDFDF;
+  background: #FCDFDF;
+  margin: 0 5px 0 0;
 }
 .follower-box {
   display:block;
   width:20%;
   border-radius: 15px;
-  background-color:#F5F5F5;
+  background: #FCDFDF;
+  margin: 0 5px 0 0;
 }
-.following-box {
+.shipping-box {
   display:block;
   width:20%;
   border-radius: 15px;
-  background-color:#F5F5F5;
+  background: #FCDFDF;
+  margin: 0 5px 0 0;
+}
+.qna-box {
+  display:block;
+  width:20%;
+  border-radius: 15px;
+  background: #FCDFDF;
 }
 .modal-table {
   display: table;
@@ -301,23 +321,186 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   height: 100px;
 }
 .modal-cell { 
-	display: table-cell;
+  display: table-cell;
   vertical-align: middle;
+  text-align: center;
 }
 .modal-box {
   display: block;
   margin: 0 auto;
   padding: 10px;
   width: 100px;
+  color: darkorange;
+  font-size: 15px;
+  font-weight: 600;
 }
-.modal-box a {
-	color: #8eb640;
+.mycontainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 70px 30px 30px;
 }
-
-
-
-
-
-.main-content {
-	
+.myheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.hrefbox {
+  width: 100%;
+  height: 100%;
+}
+.mylist {
+  display: flex;
+  padding: 50px 0;
+  flex-direction: column;
+  font-family: "campton", "Apple SD Gothic Neo", NanumBarunGothic, "나눔바른고딕", Malgun Gothic, "맑은 고딕", dotum, sans-serif;
+}
+.mylist h3 {
+  margin-bottom: 15px;
+  font-size: 23px;
+  font-weight: 600;
+}
+.mylist .list {
+  border-top: 4px solid #000;
+  border-bottom: 1px solid #000;
+}
+.list .thead {
+  display: table;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 50px;
+}
+.td-col1 {
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+.td-col2 {
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+.td-col3 {
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+.tbox {
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+}
+.td-box {
+  position: relative;
+  width: 100%;
+  padding: 7px 0 7px;
+  border-bottom: 1px solid #d4d4d4;
+  border-top: 2px solid #303033;
+  box-sizing: border-box;
+  display: flex;
+}
+.order-num {
+  float: left;
+  display: inline-flex;
+}
+.order-date {
+  padding: 0 20px 0 0;
+}
+.order-num .order {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 0 0 2px;
+}
+.goods {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+.goodsbox {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.in-col1 {
+  display: flex;
+  box-sizing: border-box;	
+  min-width: 350px;
+  padding-right: 20px;
+  flex-wrap: wrap; 
+}
+.imgbox {
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+}
+.imgin {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%!important;
+}
+.goodsinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  color: #303033;
+  padding-left: 10px;
+}
+.goodstitle {
+	font-size: 16px;
+  line-height: 24px;
+  display: block;
+  font-weight: 700;
+}
+.price {
+  margin: 20px 0 4px;
+}
+.in-col2 {
+	display: flex;
+	flex-direction: column;	
+	min-width: 250px;
+	flex-wrap: wrap;
+  padding-right: 20px;
+}
+.delivery {
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+	padding: 0 0 0 20px;
+	justify-content: space-between;
+	align-items: center;
+}
+.pfont {
+	font-size: 13px;
+}
+.in-col3 {
+  display: flex;
+  box-sizing: border-box;
+  min-width: 200px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  height: 100px;
+  padding-left: 20px;
+}
+.status {
+  font-size: 20px;
+}
+.contenttitle {
+	text-align: center;
+	font-size: 20px;
+	padding: 15px 0 0;
 }
