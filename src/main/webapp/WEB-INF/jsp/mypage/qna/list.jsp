@@ -51,7 +51,7 @@
       <div class="box2">
         <header><jsp:include page="/mypageHeader.jsp"></jsp:include></header>
         <div class="box3"></div>
-        <div class="box4">나의 Q&A</div>
+        <div class="box4">MyPage</div>
       </div>
     </div>
 

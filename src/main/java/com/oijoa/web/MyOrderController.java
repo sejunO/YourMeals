@@ -62,7 +62,15 @@ public class MyOrderController {
 
   @GetMapping("updateList")
   public void updateList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
     List<Order> updateList = orderService.myUpdateList(loginUser.getUserNo());
+    List<Recipe> recipeList = recipeService.userNoList(user.getUserNo());
+    List<Follow> followList = followService.FollowerList(user.getUserNo());
+    List<Follow> followingList = followService.FollowingList(user.getUserNo());
+
     int totalPrice = 0;
     for (Order order : updateList) {
       for (OrderList orderlist : order.getOrderLists()) {
@@ -72,6 +80,15 @@ public class MyOrderController {
       totalPrice = 0;
     }
 
+    int recipeSize = recipeList.size();
+    int followerSize = followList.size();
+    int followingSize =  followingList.size();
+    
+    
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("followingSize", followingSize);
     model.addAttribute("updateList", updateList);
+    model.addAttribute("user", user);
   }
 }

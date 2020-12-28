@@ -45,7 +45,7 @@
 <body id="user-container">
 
 	<div class="recipe-box">
-		<a href="recipeList?userNo=${user.userNo}">
+		<a href="<%=request.getContextPath()%>/app/mypage/recipe/list">
 			<div class="hrefbox">
 				<div class="element-label">
 					<div class="modal-table">
@@ -68,7 +68,7 @@
 
 
 	<div class="follower-box">
-		<a href="followerList?userNo=${user.userNo}">
+		<a href="<%=request.getContextPath()%>/app/mypage/user/followerList">
 			<div class="hrefbox">
 				<div class="element-label">
 					<div class="modal-table">
@@ -91,7 +91,7 @@
 
 
 	<div class="following-box">
-		<a href="followingList?userNo=${user.userNo}">
+		<a href="<%=request.getContextPath()%>/app/mypage/user/followingList">
 			<div class="hrefbox">
 				<div class="element-label">
 					<div class="modal-table">
