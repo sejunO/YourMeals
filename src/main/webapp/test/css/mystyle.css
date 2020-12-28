@@ -322,7 +322,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font-size: 15px;
   font-weight: 600;
 }
-.mybuy-container {
+.mycontainer {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
