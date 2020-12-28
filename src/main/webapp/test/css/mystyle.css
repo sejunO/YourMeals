@@ -503,3 +503,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   border-radius: 10px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
+.updatemycontainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 70px 30px 30px;
+  align-items: center;
+}
+.updatebox p {
+	font-size: 16px;
+}

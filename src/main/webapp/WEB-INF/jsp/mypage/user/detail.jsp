@@ -5,10 +5,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyPage</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>정보수정</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link rel="shortcut icon" href="<%=request.getContextPath() %>/test/img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="<%=request.getContextPath() %>/test/img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="<%=request.getContextPath() %>/test/img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="<%=request.getContextPath() %>/test/img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/test/fonts/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/test/css/bootstrap.css">
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="<%=request.getContextPath() %>/test/css/mystyle.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/test/css/nivo-lightbox/nivo-lightbox.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/test/css/nivo-lightbox/default.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 </head>
-<body>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<body id="mypage">
+	<div class="main-container">
+ 	<div class="box1">
+ 		<div class="box2">
+ 			<header><jsp:include page="/header.jsp"></jsp:include></header>
+ 			<div class="box3"></div>
+ 			<div class="box4">MyPage</div>
+ 		</div>
+	</div>
+	<!--  본문 -->
+	<!--  사이드 바 -->
+  
+  <div class="sub-container">
+  <div class="vertical">
+    <jsp:include page="../mySidebar.jsp"></jsp:include>
+
+		<!--  사이드 바 종료 -->
+		
+		<!--  본문 시작 -->
+	 <div class="updatemycontainer">
+			<h2>정보 수정</h2>
+		<div class="updatebox">
+  <form action='update' method='post'>
+    <input type='hidden' name='userNo' value='${user.userNo}'>
+   <p>  이름: <input type='text' class="form-control" name='name' placeholder='${user.name}'  readonly></p>
+   <p>  이메일: <input type='text' class="form-control" name='email' placeholder='${user.email}' readonly></p>
+   <p>  닉네임: <input type='text' class="form-control" name='nick' value='${user.nick}'></p>
+    
+   <p>  우편번호: <input type='text'  class="form-control" id="postNo" name='postNo' value='${user.postNo}'>
+    <input type="button" onclick="execPostCode()" value="우편번호 찾기"></p>
+   <p>  기본주소: <input type='text'  class="form-control" id="address" name='address' value='${user.address}'></p>
+   <p>  세부주소: <input type='text'  class="form-control" id="detailAddress" name='detailAddress' value='${user.detailAddress}'></p>
+    <%--메모: <input type="text" id='memo' name="memo"><br> --%>
+    <%--비밀번호: <input type='text' name='password' value='${user.password}' readonly><br> --%>
+    <button type="button" onclick="location.href='detailPhoto'">회원사진변경</button><br>
+    <button type="button" onclick="location.href='detailPassword'">비밀번호변경</button><br>
+    <%--<button type="button" onclick="location.href='deleteMyUser'">회원탈퇴</button><br> --%>
+    <br>
+    <p>
+    <button>변경</button>
+    <button type="button" onclick="location.href='../../../mypage/index.html'">취소</button>
+    </p>
+  </form>
+  </div>
+  
+  
+  					</div>
+  				</div>
+  			</div>
+      </div>
+    <jsp:include page="/footer.jsp"></jsp:include>
+  
+  
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function execPostCode() {
         new daum.Postcode({
@@ -58,59 +131,15 @@
         }).open();
     }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <h1>[정보수정]</h1>
-  <form action='update' method='post'>
-
-    <input type='hidden' name='userNo' value='${user.userNo}'>
-    이름: <input type='text' name='name' value='${user.name}' readonly><br>
-    닉네임: <input type='text' name='nick' value='${user.nick}'><br>
-    이메일: <input type='text' name='email' value='${user.email}' readonly><br>
-    우편번호: <input type='text' id="postNo" name='postNo' value='${user.postNo}'>
-    <input type="button" onclick="execPostCode()" value="우편번호 찾기"><br>
-    기본주소: <input type='text' id="address" name='address' value='${user.address}'><br>
-    세부주소: <input type='text' id="detailAddress" name='detailAddress' value='${user.detailAddress}'><br>
-    <%--메모: <input type="text" id='memo' name="memo"><br> --%>
-    <%--비밀번호: <input type='text' name='password' value='${user.password}' readonly><br> --%>
-    <button type="button" onclick="location.href='detailPhoto'">회원사진변경</button><br>
-    <button type="button" onclick="location.href='detailPassword'">비밀번호변경</button><br>
-    <%--<button type="button" onclick="location.href='deleteMyUser'">회원탈퇴</button><br> --%>
-    <br>
-    <p>
-    <button>변경</button>
-    <button type="button" onclick="location.href='../../../mypage/index.html'">취소</button>
-    </p>
-  </form>
-  
+   
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script> 
+<%--<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script>--%>
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/main.js"></script>
+    
 </body>
 </html>
