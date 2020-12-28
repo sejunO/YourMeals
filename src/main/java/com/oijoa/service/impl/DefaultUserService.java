@@ -2,6 +2,7 @@ package com.oijoa.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.UserDao;
 import com.oijoa.domain.User;
@@ -27,8 +28,20 @@ public class DefaultUserService implements UserService {
   }
 
   @Override
-  public List<User> list(String keyword) throws Exception {
-    return userDao.findAll(keyword);
+  public List<User> list(String keyword, int pageNo, int pageSize) throws Exception {
+    Map<String,Object> params = new HashMap<>();
+    if (keyword != null) {
+      params.put("keyword", keyword);
+    }
+    params.put("startRowNo", (pageNo - 1) * pageSize);
+    params.put("pageSize", pageSize);
+
+    return userDao.findAll(params);
+  }
+
+  @Override
+  public int size(String keyword) throws Exception {
+    return userDao.count(keyword);
   }
 
   @Override
