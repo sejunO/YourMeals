@@ -88,7 +88,7 @@
 										<div class="in-col1">
 											<div class="imgbox"> 
 												<div class="imgin">
-													<img src="">
+													<img src=" ">
 												</div>
 											</div>
 											<div class="goodsinfo">
@@ -110,78 +110,44 @@
 										</div>
 										<!-- 배송정보 끝 -->
 										<!--  상태  -->
+										<div class="in-col3">
+											<div class="status"><strong>
+											<c:choose>
+												<c:when test="${o.status == 0}">
+											입금확인중
+												</c:when>
+												<c:when test="${o.status == 1}">
+											결제완료
+												</c:when>
+												<c:when test="${o.status == 2}">
+											배송준비
+												</c:when>
+												<c:when test="${o.status == 3}">
+											배송중
+												</c:when>
+												<c:when test="${o.status == 4}">
+											배송완료
+												</c:when>
 										
-										
-										
-										
+											<c:otherwise>
+											상태값오류
+											</c:otherwise>
+										</c:choose>
+									</strong>						
 									</div>
 								</div>
-								
-								
+							</div>
+						</div>
 								</c:forEach>
 							</ul>
 						</div>
-					</ul>
-			<!-- 		
-				</thead>
-			<tr>
-			  <th>주문일자</th>
-			  <th>주문번호</th>
-			  <th>우편번호</th>
-			  <th>배송지주소</th>
-			  <th>주문항목</th>
-			  <th>주문금액</th>
-			  <th>상태</th>
-		 	</tr>
-		</thead>
-		<tbody>
-		<c:forEach items="${orderList}" var="o">
-			<tr>
-				<td>${o.orderDate}</td>
-				<td>${o.orderNo}</td>
-				<td>${o.postNo}</td>
-				<td>${o.address} ${o.detailAddress}</td>
-				<td>${o.orderLists.get(0).orderProduct.content}
-					<c:if test="${o.orderLists.size() -1 > 0}">외
-								${o.orderLists.size() -1} 건</c:if>
-					</td>
-				<td>${o.totalPrice}</td>
-				<td>
-					<c:choose>
-						<c:when test="${o.status == 0}">
-					입금확인중
-						</c:when>
-						<c:when test="${o.status == 1}">
-					결제완료
-						</c:when>
-						<c:when test="${o.status == 2}">
-					배송준비
-						</c:when>
-						<c:when test="${o.status == 3}">
-					배송중
-						</c:when>
-						<c:when test="${o.status == 4}">
-					배송완료
-						</c:when>
-				
-					<c:otherwise>
-					상태값오류
-					</c:otherwise>
-				</c:choose>
-			</td>
-		</tr>
-	</c:forEach>
-	</tbody>
-</table>-->
-    </div>
+    		</div>
       </div>
       </div>
     
     <!--  내용 종료 -->
       </div>  
-   </div>
     <jsp:include page="/mypageFooter.jsp"></jsp:include>
-    </div>
      
  <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
