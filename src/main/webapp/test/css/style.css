@@ -656,6 +656,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
     box-shadow: 0px 5px 10px rgba(127, 137, 161, 0.25);
 }
 
+#show .section-title h3 {
+	font-size: 28px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+	position: relative;
+}
+
 
 #show input {
 	width: 450px;
@@ -947,4 +955,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 
 	.list-color {
 		color: gray;
+	}
+
+	#search .form-control {
+		padding: 5px;
+		font-size: 12px;
+		width: 400px;
+		height: 28px;
+		margin-left: 25px;
+		border-radius: 10px;
 	}
