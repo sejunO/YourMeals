@@ -40,6 +40,7 @@ public class MyOrderController {
     List<Order> orderList = orderService.myOrderList(user.getUserNo());
     List<Recipe> recipeList = recipeService.userNoList(user.getUserNo());
     List<Follow> followList = followService.FollowerList(user.getUserNo());
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
     List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
 
     int totalPrice = 0;
@@ -54,11 +55,13 @@ public class MyOrderController {
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
     int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
     
     
     model.addAttribute("recipeSize", recipeSize);
     model.addAttribute("followerSize", followerSize);
     model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
     model.addAttribute("orderList", orderList);
     model.addAttribute("user", user);
   }

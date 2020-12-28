@@ -58,7 +58,7 @@
 				<div class="element-size">
 					<div class="modal-table">
 						<div class="modal-cell">
-							<div class="modal-box">${recipeSize} 개</div>
+							<div class="modal-box">${recipeSize}</div>
 						</div>
 					</div>
 				</div>

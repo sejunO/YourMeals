@@ -107,7 +107,7 @@ public class MyBoardController {
     List<Follow> followList = followService.FollowerList(user.getUserNo());
     List<Follow> followingList = followService.FollowingList(user.getUserNo());
     
-    model.addAttribute("qnaList", qnaService.list());
+    model.addAttribute("qnaList", qnaService.userNoList(user.getUserNo()));
     
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
