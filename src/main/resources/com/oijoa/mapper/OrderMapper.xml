@@ -185,6 +185,30 @@
       and 10 > o.stat
   </select>
   
+  <select id="findByOrderShippingListUserNo" resultMap="OrderMap" parameterType="int">
+    select 
+      o.odno,
+      o.odt,
+      p.photo ol_product_photo,
+      p.title ol_product_title,
+      p.content ol_product_content,
+      ol.amount orderLists_amnt,
+      ol.price orderLists_price,
+      ol.discount orderLists_dscnt,
+      o.stat,
+      o.postno,
+      o.addr,
+      o.det_addr
+    from
+      oi_order o
+      left outer join oi_order_list ol
+        on o.odno=ol.odno
+      inner join oi_product p 
+         on ol.pno=p.pno
+    where o.uno = #{userNo.userNo}
+      and o.stat = 3
+  </select>
+  
   <select id="findLatelyOrder" resultMap="OrderMap" parameterType="int">
   	select
   		o.odno,

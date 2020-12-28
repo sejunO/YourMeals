@@ -80,7 +80,7 @@
                 <div class="td-col1">제목</div>
                 <div class="td-col1">등록일</div>
               </li>
-              <c:forEach items="${qnaList}" var="ㅂ">
+              <c:forEach items="${qnaList}" var="q">
                 <li class="tbox">
                   <div>${q.qnaNo}</div>
                   <div>

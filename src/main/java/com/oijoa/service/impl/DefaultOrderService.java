@@ -35,18 +35,18 @@ public class DefaultOrderService implements OrderService {
   }
 
   @Override
-  public List<Order> myList(int UserNo) throws Exception {
-    return orderDao.findByUserNo(UserNo);
+  public List<Order> myList(int userNo) throws Exception {
+    return orderDao.findByUserNo(userNo);
   }
 
   @Override
-  public List<Order> myUpdateList(int UserNo) throws Exception {
-    return orderDao.findByUpdateListUserNo(UserNo);
+  public List<Order> myUpdateList(int userNo) throws Exception {
+    return orderDao.findByUpdateListUserNo(userNo);
   }
 
   @Override
-  public List<Order> myOrderList(int UserNo) throws Exception {
-    return orderDao.findByOrderListUserNo(UserNo);
+  public List<Order> myOrderList(int userNo) throws Exception {
+    return orderDao.findByOrderListUserNo(userNo);
   }
 
   @Override
@@ -62,6 +62,11 @@ public class DefaultOrderService implements OrderService {
   @Override
   public int update(Order order) throws Exception {
     return orderDao.update(order);
+  }
+
+  @Override
+  public List<Order> myOrderShippingList(int userNo) throws Exception {
+    return orderDao.findByOrderShippingListUserNo(userNo);
   }
 
 

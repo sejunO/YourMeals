@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.oijoa.domain.Follow;
 import com.oijoa.domain.Order;
 import com.oijoa.domain.OrderList;
+import com.oijoa.domain.Qna;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.FollowService;
 import com.oijoa.service.OrderService;
+import com.oijoa.service.QnaService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.UserService;
 
@@ -27,6 +29,7 @@ public class MyOrderController {
   @Autowired UserService userService;
   @Autowired RecipeService recipeService;
   @Autowired FollowService followService;
+  @Autowired QnaService qnaService;
   
   @GetMapping("orderList")
   public void orderList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
@@ -37,7 +40,8 @@ public class MyOrderController {
     List<Order> orderList = orderService.myOrderList(user.getUserNo());
     List<Recipe> recipeList = recipeService.userNoList(user.getUserNo());
     List<Follow> followList = followService.FollowerList(user.getUserNo());
-    List<Follow> followingList = followService.FollowingList(user.getUserNo());
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
 
     int totalPrice = 0;
     for (Order order : orderList) {
@@ -50,12 +54,14 @@ public class MyOrderController {
     
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
-    int followingSize =  followingList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
     
     
     model.addAttribute("recipeSize", recipeSize);
     model.addAttribute("followerSize", followerSize);
-    model.addAttribute("followingSize", followingSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
     model.addAttribute("orderList", orderList);
     model.addAttribute("user", user);
   }
@@ -69,7 +75,6 @@ public class MyOrderController {
     List<Order> updateList = orderService.myUpdateList(loginUser.getUserNo());
     List<Recipe> recipeList = recipeService.userNoList(user.getUserNo());
     List<Follow> followList = followService.FollowerList(user.getUserNo());
-    List<Follow> followingList = followService.FollowingList(user.getUserNo());
 
     int totalPrice = 0;
     for (Order order : updateList) {
@@ -82,12 +87,10 @@ public class MyOrderController {
 
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
-    int followingSize =  followingList.size();
     
     
     model.addAttribute("recipeSize", recipeSize);
     model.addAttribute("followerSize", followerSize);
-    model.addAttribute("followingSize", followingSize);
     model.addAttribute("updateList", updateList);
     model.addAttribute("user", user);
   }
