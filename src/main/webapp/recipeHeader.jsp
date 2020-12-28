@@ -46,12 +46,20 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="" class="page-scroll">About</a></li>
+        <li><a href="" class="page-scroll">Shop</a></li>
         <li><a href="" class="page-scroll">Recipe</a></li>
+                
+        <c:if test="${empty sessionScope.loginUser}">
+        <li><a href="<%=request.getContextPath() %>/app/auth/login">Login</a></li>
+        <li><a href="<%=request.getContextPath() %>/app/user/form">Sign up</a></li>
+        </c:if>
+        <c:if test="${not empty sessionScope.loginUser}">
         <li><a href="" class="page-scroll">My page</a></li>
         <li><a href="" class="page-scroll">My cart</a></li>
-        <c:if test="${sessionScope.loginUser.userTypeNo > 0}">
-        <li><a href="" class="page-scroll">My cart</a></li>
+        <li><a href="<%=request.getContextPath() %>/app/auth/logout">Logout</a></li>
+        </c:if>
+        <c:if test="${sessionScope.loginUser.userTypeNo == 5}">
+          <li><a href="<%=request.getContextPath() %>/app/admin/userList" class="page-scroll">ADMIN</a></li>
         </c:if>
 
       </ul>
