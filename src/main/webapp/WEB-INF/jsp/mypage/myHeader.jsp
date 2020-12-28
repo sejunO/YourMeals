@@ -45,12 +45,12 @@
 <body id="user-container">
 
 	<div class="recipe-box">
-		<a href="recipeList?userNo=${user.userNo}">
+		<a href="<%=request.getContextPath()%>/app/mypage/recipe/list">
 			<div class="hrefbox">
 				<div class="element-label">
 					<div class="modal-table">
 						<div class="modal-cell">
-							<div class="modal-box">레시피</div>
+							<div class="modal-box">My Recipe</div>
 						</div>
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 				<div class="element-size">
 					<div class="modal-table">
 						<div class="modal-cell">
-							<div class="modal-box">${recipeSize}</div>
+							<div class="modal-box">${recipeSize} 개</div>
 						</div>
 					</div>
 				</div>
@@ -68,12 +68,12 @@
 
 
 	<div class="follower-box">
-		<a href="followerList?userNo=${user.userNo}">
+		<a href="<%=request.getContextPath()%>/app/mypage/user/followerList">
 			<div class="hrefbox">
 				<div class="element-label">
 					<div class="modal-table">
 						<div class="modal-cell">
-							<div class="modal-box">팔로워</div>
+							<div class="modal-box">Follower</div>
 						</div>
 					</div>
 				</div>
@@ -90,25 +90,46 @@
 
 
 
-	<div class="following-box">
-		<a href="followingList?userNo=${user.userNo}">
+	<div class="shipping-box">
+		<a href="<%=request.getContextPath()%>/app/mypage/order/orderList">
 			<div class="hrefbox">
 				<div class="element-label">
 					<div class="modal-table">
 						<div class="modal-cell">
-							<div class="modal-box">팔로잉</div>
+							<div class="modal-box">배송중</div>
 						</div>
 					</div>
 				</div>
 				<div class="element-size">
 					<div class="modal-table">
 						<div class="modal-cell">
-							<div class="modal-box">${followingSize}</div>
+							<div class="modal-box">${shippingSize} 건</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</a>
 	</div>
+	
+	<div class="qna-box">
+    <a href="<%=request.getContextPath()%>/app/mypage/qna/list">
+      <div class="hrefbox">
+        <div class="element-label">
+          <div class="modal-table">
+            <div class="modal-cell">
+              <div class="modal-box">My Q&A</div>
+            </div>
+          </div>
+        </div>
+        <div class="element-size">
+          <div class="modal-table">
+            <div class="modal-cell">
+              <div class="modal-box">${qnaSize} 건</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
 </body>
 </html>

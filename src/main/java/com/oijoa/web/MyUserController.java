@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import com.oijoa.domain.Follow;
+import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.FollowService;
+import com.oijoa.service.RecipeService;
 import com.oijoa.service.UserService;
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
@@ -28,6 +30,7 @@ import net.coobird.thumbnailator.name.Rename;
 public class MyUserController {
   @Autowired ServletContext servletContext; // 메서드의 파라미터로 못 받는다.
   @Autowired UserService userService;
+  @Autowired RecipeService recipeService;
   @Autowired FollowService followService;
 
   @GetMapping("detail")
@@ -130,13 +133,47 @@ public class MyUserController {
 
   @GetMapping("followerList")
   public void followerList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
-    List<Follow> list = followService.FollowerList(loginUser.getUserNo());
-    model.addAttribute("followerList", list);
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
+    model.addAttribute("followerList", followService.FollowerList(loginUser.getUserNo()));
+    
+    List<Recipe> recipeList = recipeService.userNoList(user.getUserNo());
+    List<Follow> followList = followService.FollowerList(user.getUserNo());
+    List<Follow> followingList = followService.FollowingList(user.getUserNo());
+    
+    int recipeSize = recipeList.size();
+    int followerSize = followList.size();
+    int followingSize =  followingList.size();
+    
+    
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("followingSize", followingSize);
+    model.addAttribute("user", user);
   }
 
   @GetMapping("followingList")
   public void followingList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
-    List<Follow> list = followService.FollowingList(loginUser.getUserNo());
-    model.addAttribute("followingList", list);
+    User user = userService.get(loginUser.getUserNo());
+    if (user == null) {
+      throw new Exception("로그인 정보가 존재하지 않습니다.");
+    }
+    model.addAttribute("followingList", followService.FollowingList(loginUser.getUserNo()));
+    
+    List<Recipe> recipeList = recipeService.userNoList(user.getUserNo());
+    List<Follow> followList = followService.FollowerList(user.getUserNo());
+    List<Follow> followingList = followService.FollowingList(user.getUserNo());
+    
+    int recipeSize = recipeList.size();
+    int followerSize = followList.size();
+    int followingSize =  followingList.size();
+    
+    
+    model.addAttribute("recipeSize", recipeSize);
+    model.addAttribute("followerSize", followerSize);
+    model.addAttribute("followingSize", followingSize);
+    model.addAttribute("user", user);
   }
 }

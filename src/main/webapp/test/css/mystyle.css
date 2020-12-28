@@ -298,15 +298,21 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   display:block;
   width:20%;
   border-radius: 15px;
-  background: #F5F5F5;
+  background: #FCDFDF;
   margin: 0 5px 0 0;
-  
 }
-.following-box {
+.shipping-box {
   display:block;
   width:20%;
   border-radius: 15px;
-  background: #F5F5F5;
+  background: #FCDFDF;
+  margin: 0 5px 0 0;
+}
+.qna-box {
+  display:block;
+  width:20%;
+  border-radius: 15px;
+  background: #FCDFDF;
 }
 .modal-table {
   display: table;

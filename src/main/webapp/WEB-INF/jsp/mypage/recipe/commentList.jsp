@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>나의 댓글</title>
+<title>나의댓글</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -82,9 +82,12 @@
 							</li>
 							<c:forEach items="${commentList}" var="c">
 								<li class="tbox">
-									<div class="td-col1">댓글</div>
-									<div class="td-col2">작성일</div>
-									<div class="td-col3">레시피</div>
+									<div>${c.content}</div>
+									<div>${c.createdDate}</div>
+									<div>
+										<a href='../../recipe/detail?recipeNo=${c.recipeNo}'>[원본글
+											보기]</a>
+									</div>
 								</li>
 							</c:forEach>
 						</ul>
