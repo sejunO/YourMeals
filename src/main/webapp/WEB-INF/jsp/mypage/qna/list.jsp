@@ -97,7 +97,7 @@
       <!--  내용 종료 -->
     </div>
   </div>
-  <jsp:include page="/mypageFooter.jsp"></jsp:include>
+  <jsp:include page="/footer.jsp"></jsp:include>
   </div>
 
   <script type="text/javascript"

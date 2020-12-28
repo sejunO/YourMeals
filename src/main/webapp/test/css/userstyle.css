@@ -183,20 +183,6 @@ table {
 	width: 100px;
 }
 
-.footbox {
-    display: flex;
-    justify-content: space-between;
-    justify-content: center;
-    position: relative;
-    margin-top: auto;
-    padding: 1em 0;
-    border-top: 1px solid #e2e2e2;
-    font-size: 1rem;
-    text-align: center;
-    color: black;
-    background-color: #b6d6c6;
-}
-
 .content-main-container {
   display: flex;
   padding: 10px 0px 10px 0px;

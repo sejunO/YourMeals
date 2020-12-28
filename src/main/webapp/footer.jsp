@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>footer</title>
-<link rel="stylesheet" type="text/css"  href="<%=request.getContextPath() %>/test/css/userstyle.css">
+<link rel="stylesheet" type="text/css"  href="<%=request.getContextPath() %>/test/css/style.css">
 </head>
 <body>
 	<div class="footbox">

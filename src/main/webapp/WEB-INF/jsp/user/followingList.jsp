@@ -92,6 +92,6 @@
 		</div>
 	</div>
 
-	<jsp:include page="/userFooter.jsp"></jsp:include>
+	<jsp:include page="/footer.jsp"></jsp:include>
 </body>
 </html>

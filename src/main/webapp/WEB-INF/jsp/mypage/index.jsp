@@ -54,7 +54,7 @@
     
     </div>
   </div>
-    <jsp:include page="/mypageFooter.jsp"></jsp:include>
+    <jsp:include page="/footer.jsp"></jsp:include>
     </div>
     
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
