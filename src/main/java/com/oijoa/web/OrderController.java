@@ -62,8 +62,14 @@ public class OrderController {
 
     User user = (User) session.getAttribute("loginUser");
     Order order = orderService.lately(user.getUserNo());
+    List<OrderList> orderList = orderListService.getByOrderNo(order.getOrderNo());
+    int totalPrice = 0;
+    for (int i = 0; i < orderList.size(); i++) {
+      totalPrice += orderList.get(i).getPrice() * orderList.get(i).getAmount();
+    }
+    order.setTotalPrice(totalPrice);
     model.addAttribute("order", order);
-    model.addAttribute("orderList", orderListService.getByOrderNo(order.getOrderNo()));
+    model.addAttribute("orderList", orderList);
   }
 
   @RequestMapping("form")

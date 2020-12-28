@@ -46,6 +46,7 @@
   		p.pno product_no,
       p.title product_title,
   		p.content product_content,
+  		p.photo product_photo,
   		ol.amount,
   		ol.discount,
   		ol.price
@@ -67,6 +68,7 @@
       p.pno product_no,
       p.title product_title,
       p.content product_content,
+      p.photo product_photo,
       o.odno order_no,
       o.uno user_no,
       u.uno user_no,
@@ -93,6 +95,7 @@
   		p.pno product_no,
       p.title product_title,
   		p.content product_content,
+  		p.photo product_photo,
   		b.amount,
   		p.discount,
   		p.price
