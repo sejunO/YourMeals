@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import com.oijoa.domain.Follow;
 import com.oijoa.domain.Recipe;
@@ -55,8 +56,40 @@ public class UserController {
   }
 
   @GetMapping("list")
-  public void list(String keyword, Model model) throws Exception {
-    model.addAttribute("list", userService.list(keyword));
+  public void list(
+      String keyword,
+      @RequestParam(defaultValue = "1") int pageNo,
+      @RequestParam(defaultValue = "5") int pageSize,
+      Model model) throws Exception {
+
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    if (pageSize < 3 || pageSize > 100) {
+      pageSize = 5;
+    }
+
+    model.addAttribute("list", userService.list(keyword, pageNo, pageSize));
+
+    int size = userService.size(keyword);
+    int totalPage = size / pageSize;
+    if (size % pageSize > 0) {
+      totalPage++;
+    }
+
+    int prevPageNo = pageNo > 1 ? pageNo - 1 : 1;
+    int nextPageNo = pageNo + 1;
+    if (nextPageNo > totalPage) {
+      nextPageNo = totalPage;
+    }
+
+    model.addAttribute("currPageNo", pageNo);
+    model.addAttribute("prevPageNo", prevPageNo);
+    model.addAttribute("nextPageNo", nextPageNo);
+    model.addAttribute("totalPage", nextPageNo);
+    model.addAttribute("size", size);
+    model.addAttribute("pageSize", pageSize);
+    model.addAttribute("keyword", keyword);
   }
 
   @GetMapping("recipeList")
