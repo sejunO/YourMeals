@@ -91,18 +91,40 @@
   		
   		<div class="mybuylist">
 				<h3>나의 주문내역</h3>
+				<!-- 주문내역 리스트 시작 -->
 				<ul class="list">
 					<li class="thead">
 						<div class="td-col1">상품정보</div>
 						<div class="td-col2">배송정보</div>
 						<div class="td-col3">상태</div>
 					</li>
+				<c:forEach items="${orderList}" var="o">
 					<li class="tbox">
+					<!-- 주문일자, 번호 박스 -->
 						<div class="td-box">
 							<ul class="order-num">
+							
 								<li class="order-date">
 								<span>주문일자</span>
-								<span class="orderdate">${o.orderDate}</span>
+								<span class="order">${o.orderDate}</span>
+								</li>
+								
+								<li class="ordernum">
+								<span>주문번호</span>
+								<span class="order">${o.orderNo}</span>
+								</li>
+								</ul>
+								</div>
+							<!-- 물품 -->
+								<div class="goods">
+									<div class="goodsbox">
+									
+									</div>
+								
+								</div>
+								
+								
+								</c:forEach>
 							</ul>
 						</div>
 					</ul>

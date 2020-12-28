@@ -379,22 +379,36 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 .tbox {
 	border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
 }
 .td-box {
   position: relative;
   width: 100%;
-  padding: 10px 0 21px;
+  padding: 7px 0 7px;
   border-bottom: 1px solid #d4d4d4;
   border-top: 2px solid #303033;
   box-sizing: border-box;
+  display: flex;
 }
 .order-num {
 	float: left;
+  display: inline-flex;
 }
 .order-date {
 	padding: 0 20px 0 0;
 }
-.orderdate {
-  font-size: 16px;
+.order-num .order {
+  font-size: 14px;
   font-weight: 700;
+  padding: 0 0 0 2px;
+}
+.goods {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+.goodbox {
+	display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
 }
