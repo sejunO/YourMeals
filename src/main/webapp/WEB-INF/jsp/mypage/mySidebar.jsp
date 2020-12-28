@@ -58,17 +58,16 @@
       </div>
       <div class="category">
     <ul>
-        <li><a href="<%=request.getContextPath()%>/app/basket/list">장바구니</a></li>
         <li><a href="<%=request.getContextPath()%>/app/mypage/order/orderList">나의 주문내역</a></li>
         <li><a href="<%=request.getContextPath()%>/app/mypage/order/updateList">나의 취소/교환/환불내역</a></li>
     </ul>
      <ul>
         <li><a href="<%=request.getContextPath()%>/app/mypage/recipe/list">나의 레시피</a></li>
         <li><a href="<%=request.getContextPath()%>/app/mypage/recipe/likeList">내가 좋아한 레시피</a></li>
+        <li><a href="<%=request.getContextPath()%>/app/mypage/recipe/commentList">나의 댓글</a></li>
     </ul>
     <ul>
         <li><a href="<%=request.getContextPath()%>/app/mypage/qna/list">QnA 게시판</a></li>
-        <li><a href="<%=request.getContextPath()%>/app/mypage/recipe/commentList">나의 댓글</a></li>
     </ul> 
     <ul>
         <li><a href="<%=request.getContextPath()%>/app/mypage/user/followingList">나의 팔로잉</a></li>

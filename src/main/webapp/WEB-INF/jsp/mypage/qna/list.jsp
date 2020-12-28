@@ -1,32 +1,120 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
-<html>
-<head><title>MyPage</title></head>
-<body>
-<h1>[QnA 게시글 목록]</h1>
-<a href='form'>새 글</a><br>
-<table border='1'>
-<thead>
-<tr>
-  <th>번호</th> 
-  <th>제목</th>
-  <th>등록일</th>
-</tr>
-</thead>
+<html lang="en">
 
-<tbody>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>나의 Q&A</title>
+<meta name="description" content="">
+<meta name="author" content="">
 
-<c:forEach items="${qnaList}" var="q">
-<tr>
-  <td>${q.qnaNo}</td>
-  <td><a href='detail?qnaNo=${q.qnaNo}'>${q.title}</a></td>
-  <td>${q.createdDate}</td>
-</tr>
-</c:forEach>
-</tbody>
-</table>
+<link rel="shortcut icon"
+  href="<%=request.getContextPath()%>/test/img/favicon.ico"
+  type="image/x-icon">
+<link rel="apple-touch-icon"
+  href="<%=request.getContextPath()%>/test/img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72"
+  href="<%=request.getContextPath()%>/test/img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114"
+  href="<%=request.getContextPath()%>/test/img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"
+  href="<%=request.getContextPath()%>/test/fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"
+  href="<%=request.getContextPath()%>/test/css/mystyle.css">
+<link rel="stylesheet" type="text/css"
+  href="<%=request.getContextPath()%>/test/css/nivo-lightbox/nivo-lightbox.css">
+<link rel="stylesheet" type="text/css"
+  href="<%=request.getContextPath()%>/test/css/nivo-lightbox/default.css">
+<link
+  href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700"
+  rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+  rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700"
+  rel="stylesheet">
+
+</head>
+<body id="mypage">
+  <div class="main-container">
+    <div class="box1">
+      <div class="box2">
+        <header><jsp:include page="/mypageHeader.jsp"></jsp:include></header>
+        <div class="box3"></div>
+        <div class="box4">나의 Q&A</div>
+      </div>
+    </div>
+
+    <!--  본문 -->
+    <!--  사이드 바 -->
+
+    <div class="sub-container">
+      <div class="vertical">
+        <jsp:include page="../mySidebar.jsp"></jsp:include>
+        <!-- 사이드 바 종료-->
+
+        <!--  나의 구매내역 본문 -->
+        <div class="mycontainer">
+          <!-- 유저 헤더 -->
+          <div class="myheader">
+            <jsp:include page="../myHeader.jsp"></jsp:include>
+          </div>
+          <!-- 유저 헤더 종료 -->
+
+
+          <div class="myqnalist">
+            <h3>나의 Q&A</h3>
+            <ul class="list">
+              <li class="thead">
+                <div class="td-col1">번호</div>
+                <div class="td-col1">제목</div>
+                <div class="td-col1">등록일</div>
+              </li>
+              <c:forEach items="${qnaList}" var="ㅂ">
+                <li class="tbox">
+                  <div>${q.qnaNo}</div>
+                  <div>
+                    <a href='detail?qnaNo=${q.qnaNo}'>${q.title}</a>
+                  </div>
+                  <div>${q.createdDate}</div>
+                </li>
+              </c:forEach>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!--  내용 종료 -->
+    </div>
+  </div>
+  <jsp:include page="/mypageFooter.jsp"></jsp:include>
+  </div>
+
+  <script type="text/javascript"
+    src="<%=request.getContextPath()%>/test/js/jquery.1.11.1.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath()%>/test/js/bootstrap.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath()%>/test/js/SmoothScroll.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath()%>/test/js/nivo-lightbox.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath()%>/test/js/jquery.isotope.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath()%>/test/js/jqBootstrapValidation.js"></script>
+  <%--<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script>--%>
+  <script type="text/javascript"
+    src="<%=request.getContextPath()%>/test/js/main.js"></script>
 
 </body>
 </html>
