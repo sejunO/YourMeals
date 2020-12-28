@@ -49,7 +49,7 @@
     <!-- 사이드 바 종료-->
     
     <!--  나의 구매내역 본문 -->
-  <div class="mybuy-container">
+  <div class="my-container">
   <!-- 유저 헤더 -->
   	<div class="myheader">
   	<jsp:include page="../myHeader.jsp"></jsp:include>
