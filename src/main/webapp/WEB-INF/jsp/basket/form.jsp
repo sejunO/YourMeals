@@ -25,8 +25,8 @@
               <form action='add' method='post'>
                   <input type='radio' name='productNo' value="${p.productNo}">${p.title}<br>
                    <img
-                    class="card-img-top" src=img
-                    src="../../upload/${product.photo}_200x200.jpg"
+                    class="card-img-top" 
+                    src="../../upload/${p.photo}_200x200.jpg"
                     alt="Card image cap" height="180">
                   <div class="card-body">
                     <h5 class="card-title"
@@ -41,6 +41,7 @@
              </form>
                 </div>
               </div>
+  </form>
             </c:forEach>
           </div>
         </div>

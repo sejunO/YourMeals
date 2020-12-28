@@ -291,27 +291,31 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   display:block;
   width:20%;
   border-radius: 15px;
+  border: 2px solid #A6A6A6;
   background: #FCDFDF;
-  margin: 0 5px 0 0;
+  margin-right: 5px;
 }
 .follower-box {
   display:block;
   width:20%;
   border-radius: 15px;
+  border: 2px solid #A6A6A6;
   background: #FCDFDF;
-  margin: 0 5px 0 0;
+  margin-right: 5px;
 }
 .shipping-box {
   display:block;
   width:20%;
   border-radius: 15px;
+  border: 2px solid #A6A6A6;
   background: #FCDFDF;
-  margin: 0 5px 0 0;
+  margin-right: 5px;
 }
 .qna-box {
   display:block;
   width:20%;
   border-radius: 15px;
+  border: 2px solid #A6A6A6;
   background: #FCDFDF;
 }
 .modal-table {
@@ -507,4 +511,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	text-align: center;
 	font-size: 20px;
 	padding: 15px 0 0;
+}
+.content-table-btn {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 10px;
+  background: #b8ecaa;
+  color: #2d2d2d;
+  border-radius: 10px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }

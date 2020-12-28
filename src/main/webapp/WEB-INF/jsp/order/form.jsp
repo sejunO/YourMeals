@@ -40,7 +40,7 @@
                       placeholder="연락처" style="width: 500px">
                   </p>
                   <div style="margin-bottom: 10px;">
-                    <input type="text" class="text-center" id="postNo" name="postNo" value='${user.postNo}' placeholder="우편번호"
+                    <input type="text" class="text-center" id="postNo" name="postNo" value="${user.postNo}" placeholder="우편번호"
                       style="width: 200px">
                     <input type="button" onclick="execPostCode()" value="찾기" style="width: 100px"><br>
                   </div>

@@ -64,17 +64,19 @@
 	rel="stylesheet"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
+
+
 <style>
-	body {
-		font-family: "Open Sans", sans-serif;
-  		color: #444444;
-	}
+body {
+	font-family: "Open Sans", sans-serif;
+	color: #444444;
+}
 </style>
 
 </head>
 
 <body>
-	<jsp:include page="/recipeHeader.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 
 	<section id="hero" class="d-flex align-items-center img-list">
 		<div
@@ -88,25 +90,25 @@
 
 
 
+	<section name="search" id="show">
+		<div class="container">
+			 <h3 style="font-weight: bold; padding-bottom: 30px;">레시피 검색</h3>
+				<form action="list" method="get">
+					<div class="form-inline" style="padding-left: 20px; display: flex;">
+						<select id="selectbox" name="option">
+							<option value="all">전체</option>
+							<option value="title">제목</option>
+							<option value="writer">작성자</option>
+							<option value="category">카테고리</option>
+						</select> <input class="form-control" type="text" id="keyword"
+							name="keyword" placeholder="검색어를 입력하세요" />
+						<button class="searchBtn">검색</button>
+					</div>
+				</form>
+		</div>
+	</section>
 
-	<div class="container">
-	<form action="list" method="get">
-							<div class="form-inline" style="padding-left: 20px; display:flex;">
-							
-								<select id="selectbox" name="option">
-									<option value="all">전체</option>
-									<option value="title">제목</option>
-									<option value="writer">작성자</option>
-									<option value="category">카테고리</option>
-								</select> 
-								
-								<input class="form-control" type="text" id="keyword"
-									name="keyword"
-									placeholder="검색어를 입력하세요" />
-								<button class="btn btn-light">검색</button>
-							</div>
-							</form>
-							</div>
+
 	<section name="showlist" style="padding-bottom: 500px;">
 		<div class="container">
 			<table class="table" style="text-align: center">
