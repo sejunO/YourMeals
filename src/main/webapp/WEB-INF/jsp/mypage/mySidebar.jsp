@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<jsp:include page="/userHeader.jsp"></jsp:include>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Userpage</title>
+<title>userHeader</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -29,7 +27,7 @@
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/test/css/userstyle.css">
+	href="<%=request.getContextPath()%>/test/css/mystyle.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/test/css/nivo-lightbox/nivo-lightbox.css">
 <link rel="stylesheet" type="text/css"
@@ -44,55 +42,39 @@
 	href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700"
 	rel="stylesheet">
 </head>
-
-<body id="userpage">
-	<div class="main-container">
-		<div class="box1">
-			<div class="box2">
-				<header><jsp:include page="/userHeader.jsp"></jsp:include></header>
-				<div class="box3"></div>
-				<div class="box4">UserPage</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="main-content">
-		<div class="content-container">
-
-			<jsp:include page="../user/header.jsp"></jsp:include>
-
-			<div class="content-main">
-				<table class="content-table" style="text-align: center">
-					<thead>
-						<tr class="content-table-tr">
-							<th class="content-table-th">사용자사진</th>
-							<th class="content-table-th">닉네임</th>
-							<th class="content-table-th">Follow</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<c:forEach items="${followingList}" var="fwng">
-							<tr>
-								<td><img class="user-img"
-									src='../../upload/${fwng.user.photo}_120x120.jpg'></td>
-								<td><a href='followerList?userNo=${fwng.user.userNo}'>${fwng.user.nick}</a></td>
-								<td>
-									<button class="content-table-btn"
-										onclick="location.href='follow?followUserNo=${fwng.user.userNo}'">Follow
-										+</button>
-									<button class="content-table-btn"
-										onclick="location.href='unfollow?unfollowUserNo=${fwng.user.userNo}'">Unfollow
-										-</button>
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-
-	<jsp:include page="/userFooter.jsp"></jsp:include>
+<body>
+  <div class="sidebox">
+      <div class="categoryname">
+      마이페이지
+      </div>
+      <div class="profilebox">
+        <span class="profilephoto">
+        <img class="profile" src='../../../upload/${user.photo}_120x120.jpg'></span>
+        <div class="profileinfo">
+        <h4>${user.nick} 님</h4>
+        <p>${user.email}</p></div>
+        <div class="profileupdate">
+        <a href="/app/mypage/user/update"><button class="btn">정보 수정</button></a></div>
+      </div>
+      <div class="category">
+    <ul>
+        <li><a href="../app/basket/list">장바구니</a></li>
+        <li><a href="../app/mypage/order/buyList">나의 주문내역</a></li>
+        <li><a href="../app/mypage/order/updateList">나의 취소/교환/환불내역</a></li>
+    </ul>
+     <ul>
+        <li><a href="../app/myrecipe/list">나의 레시피</a></li>
+        <li><a href="../app/mypage/recipe/likeList">내가 좋아한 레시피</a></li>
+    </ul>
+    <ul>
+        <li><a href="../app/qna/list">QnA 게시판</a></li>
+        <li><a href="../app/mypage/commentList">나의 댓글</a></li>
+    </ul> 
+    <ul>
+        <li><a href="../app/mypage/following/list">나의 팔로잉</a></li>
+        <li><a href="../app/mypage/follower/list">내 팔로워</a></li>
+    </ul>
+    </div>
+    </div>
 </body>
 </html>
