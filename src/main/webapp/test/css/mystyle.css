@@ -451,6 +451,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   left: 0;
   height: 100%!important;
 }
+.imgin img {
+	width: 100%;
+	height: 100%;
+}
 .goodsinfo {
   display: flex;
   flex-direction: column;

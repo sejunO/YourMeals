@@ -79,6 +79,14 @@ public class ProductController {
             }
           });
 
+      Thumbnails.of(saveFilePath).size(100, 100).outputFormat("jpg").crop(Positions.CENTER)
+      .toFiles(new Rename() {
+        @Override
+        public String apply(String name, ThumbnailParameter param) {
+          return name + "_100x100";
+        }
+      });
+      
       Thumbnails.of(saveFilePath).size(200, 200).outputFormat("jpg").crop(Positions.CENTER)
           .toFiles(new Rename() {
             @Override
