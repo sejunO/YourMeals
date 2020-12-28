@@ -9,7 +9,7 @@ public interface OrderDao {
 
   List<Order> findByUserNo(int UserNo) throws Exception;
   
-  List<Order> descfindByUserNo(int UserNo) throws Exception;
+  List<Order> descfindByOrderListUserNo(int UserNo) throws Exception;
   
   List<Order> findByUpdateListUserNo(int UserNo) throws Exception;
 

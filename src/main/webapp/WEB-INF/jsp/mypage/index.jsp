@@ -63,7 +63,7 @@
 						<div class="td-col2">배송정보</div>
 						<div class="td-col3">상태</div>
 					</li>
-				<c:forEach items="${descOrderList}" var="o">
+				<c:forEach items="${descOrderList}" var="o" end="2">
 					<li class="tbox">
 					<!-- 주문일자, 번호 박스 -->
 						<div class="td-box">

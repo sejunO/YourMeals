@@ -58,6 +58,37 @@
         }).open();
     }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <h1>[정보수정]</h1>
   <form action='update' method='post'>
 
