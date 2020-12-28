@@ -40,26 +40,10 @@
  		</div>
 	</div>
 	
-	<!--  본문 -->
-	<!--  사이드 바 -->
-	
-	<div class="sub-container">
-	<div class="vertical">
-		<jsp:include page="<%=request.getContextPath() %>../mySidebar.jsp"></jsp:include>
-  <div class="main-container">
-  <div class="box1">
-    <div class="box2">
-      <header><jsp:include page="/mypageHeader.jsp"></jsp:include></header>
-      <div class="box3"></div>
-      <div class="box4">MyPage</div>
-    </div>
-  </div>
-  
   <!--  본문 -->
-  <!--  사이드 바 -->
-  
   <div class="sub-container">
   <div class="vertical">
+  <!--  사이드 바 -->
     <jsp:include page="../mySidebar.jsp"></jsp:include>
     <!-- 사이드 바 종료-->
     
