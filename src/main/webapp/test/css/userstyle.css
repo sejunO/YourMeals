@@ -132,6 +132,7 @@ table {
 	width: 20%;
 	border-radius: 15px;
 	border: 2px solid #A6A6A6;
+	background-color: #daf3aa;
 	margin-right: 1em;
 }
 
@@ -140,6 +141,7 @@ table {
 	width: 20%;
 	border-radius: 15px;
 	border: 2px solid #A6A6A6;
+	background-color: #daf3aa;
 	margin-right: 1em;
 }
 
@@ -148,6 +150,7 @@ table {
 	width: 20%;
 	border-radius: 15px;
 	border: 2px solid #A6A6A6;
+	background-color: #daf3aa;
 	margin-right: 1em;
 }
 
@@ -177,7 +180,7 @@ table {
 	display: block;
 	margin: 0 auto;
 	padding: 10px;
-	width: 100px
+	width: 100px;
 }
 
 .footbox {
@@ -198,3 +201,4 @@ table {
   display: flex;
   padding: 10px 0px 10px 0px;
 }
+

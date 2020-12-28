@@ -58,9 +58,7 @@
 
   <div class="main-content">
     <div class="content-container">
-
-      <jsp:include page="/WEB-INF/jsp/user/header.jsp"></jsp:include>
-
+      <jsp:include page="../user/header.jsp"></jsp:include>
       <div class="content-main">
         <table class="content-table" style="text-align: center">
           <thead>
