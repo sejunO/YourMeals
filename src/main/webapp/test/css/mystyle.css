@@ -412,22 +412,25 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     margin-top: 30px;
     padding-bottom: 30px;
 }
-.goodbox {
+.goodsbox {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
 }
 .in-col1 {
-  display: block;
+  display: flex;
   box-sizing: border-box;	
+  min-width: 350px;
+  padding-right: 20px;
+  flex-wrap: wrap; 
 }
 .imgbox {
   overflow: hidden;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
 .imgin {
   display: flex;
@@ -443,12 +446,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   height: 100%!important;
 }
 .goodsinfo {
-	display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-size: 14px;
   color: #303033;
-  line-height: 1.57;
-  vertical-align: middle;
-  word-break: break-all;
+  padding-left: 10px;
 }
 .goodstitle {
 	font-size: 16px;
@@ -457,6 +460,22 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font-weight: 700;
 }
 .price {
-  margin: 10px 0 4px;
+  margin: 20px 0 4px;
 }
-  
+.in-col2 {
+	display: flex;
+	flex-direction: column;	
+	min-width: 250px;
+	flex-wrap: wrap;
+  padding-right: 20px;
+}
+.delivery {
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+	padding: 0 0 0 20px;
+	justify-content: space-between;
+}
+.pfont {
+	font-size: 13px;
+}

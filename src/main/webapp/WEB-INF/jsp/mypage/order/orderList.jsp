@@ -99,8 +99,22 @@
 												<div class="price">${o.totalPrice} 원</div>
 											</div>
 										</div>
+										<!-- 상품사진, 상품명, 가격 끝 -->
+										<!-- 배송정보 -->
+										<div class="in-col2">
+											<div class="delivery">
+											<p class="pfont">(${o.postNo})</p>
+											<p class="pfont">${o.address}</p>
+											<p class="pfont">${o.detailAddress}</p>			
+											</div>
+										</div>
+										<!-- 배송정보 끝 -->
+										<!--  상태  -->
+										
+										
+										
+										
 									</div>
-								
 								</div>
 								
 								
