@@ -73,7 +73,7 @@
 
 
           <div class="mylist">
-            <h3>나의 Q&A</h3>
+            <h3>QnA 게시판</h3>
             <ul class="list">
               <li class="thead">
                 <div class="td-col1">번호</div>
