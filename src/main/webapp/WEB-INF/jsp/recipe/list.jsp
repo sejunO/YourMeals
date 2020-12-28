@@ -64,7 +64,12 @@
 	rel="stylesheet"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
-
+<style>
+	body {
+		font-family: "Open Sans", sans-serif;
+  		color: #444444;
+	}
+</style>
 
 </head>
 
@@ -96,17 +101,11 @@
 								</select> 
 								
 								<input class="form-control" type="text" id="keyword"
-<<<<<<< HEAD
-									name="keyword" value=""
-									placeholder="검색어를 입력하세요." />
-								<button id="searchBtn" class="searchBtn">검색</button>
-=======
 									name="keyword"
 									placeholder="검색어를 입력하세요" />
 								<button class="btn btn-light">검색</button>
 							</div>
 							</form>
->>>>>>> 7e6aaad3148a177ebf1868b9824a2a50296d5b8c
 							</div>
 	<section name="showlist" style="padding-bottom: 500px;">
 		<div class="container">
