@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>recipe list</title>
+<title>레시피 목록</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,7 +64,12 @@
 	rel="stylesheet"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
-
+<style>
+	body {
+		font-family: "Open Sans", sans-serif;
+  		color: #444444;
+	}
+</style>
 
 </head>
 
