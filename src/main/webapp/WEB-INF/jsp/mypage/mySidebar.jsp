@@ -49,7 +49,7 @@
       </div>
       <div class="profilebox">
         <span class="profilephoto">
-        <img class="profile" src='../../../upload/${user.photo}_120x120.jpg'></span>
+        <img class="profile" src='../../upload/${user.photo}_120x120.jpg'></span>
         <div class="profileinfo">
         <h4>${user.nick} 님</h4>
         <p>${user.email}</p></div>

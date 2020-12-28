@@ -45,7 +45,7 @@
 	
 	<div class="sub-container">
 	<div class="vertical">
-		<jsp:include page="../mySidebar.jsp"></jsp:include>
+		<jsp:include page="<%=request.getContextPath() %>../mySidebar.jsp"></jsp:include>
     <!-- 사이드 바 종료-->
     
     <!--  나의 구매내역 본문 -->
@@ -86,7 +86,20 @@
 							<!-- 물품 -->
 								<div class="goods">
 									<div class="goodsbox">
-										<div class="in-col1"></div>
+										<div class="in-col1">
+											<div class="imgbox"> 
+												<div class="imgin">
+													<img src="">
+												</div>
+											</div>
+											<div class="goodsinfo">
+												<p class="goodstitle">
+									${o.orderLists.get(0).orderProduct.content}
+										<c:if test="${o.orderLists.size() -1 > 0}">외
+									${o.orderLists.size() -1} 건</c:if></p>
+												<div class="price">${o.totalPrice} 원</div>
+											</div>
+										</div>
 									</div>
 								
 								</div>
