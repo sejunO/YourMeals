@@ -54,6 +54,23 @@
     where qnano = #{no}
   </select>
   
+  <select id="findByUserNo" resultMap="QnAMap" parameterType="int">
+    select 
+      q.qnano, 
+      q.title, 
+      q.cdt,
+      q.content,
+      u.uno writer_uno,
+      u.name writer_name,
+      answer,
+    if(isnull(answer), "답변대기중", "답변완료") 
+    as ansStat 
+    from oi_qna q
+    inner join oi_user u
+    on q.writer = u.uno
+    where u.uno = #{loginNo}
+  </select>
+  
   <insert id="insert" parameterType="qna">
     insert into oi_qna(writer,title,content,secret) 
     values(#{writer.userNo}, #{title}, #{content}, 0)
