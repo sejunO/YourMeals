@@ -69,5 +69,10 @@ public class DefaultOrderService implements OrderService {
     return orderDao.findByOrderShippingListUserNo(userNo);
   }
 
+  @Override
+  public List<Order> myDescList(int userNo) throws Exception {
+    return orderDao.descfindByUserNo(userNo);
+  }
+
 
 }

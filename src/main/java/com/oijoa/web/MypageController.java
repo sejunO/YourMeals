@@ -42,6 +42,7 @@ public class MypageController {
       throw new Exception("로그인 정보가 존재하지 않습니다.");
     }
     
+    List<Order> descOrderList = orderService.myDescList(user.getUserNo());
     List<Order> orderList = orderService.myOrderList(user.getUserNo());
     List<Recipe> recipeList = recipeService.userNoList(user.getUserNo());
     List<Follow> followList = followService.FollowerList(user.getUserNo());
@@ -58,6 +59,7 @@ public class MypageController {
       totalPrice = 0;
     }
     
+    model.addAttribute("descOrderList", descOrderList);
     model.addAttribute("orderList", orderList);
     
     int recipeSize = recipeList.size();

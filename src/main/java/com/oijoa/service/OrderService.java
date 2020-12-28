@@ -9,6 +9,8 @@ public interface OrderService {
   List<Order> list() throws Exception;
 
   List<Order> myList(int userNo) throws Exception;
+  
+  List<Order> myDescList(int userNo) throws Exception;
 
   List<Order> myUpdateList(int userNo) throws Exception;
 

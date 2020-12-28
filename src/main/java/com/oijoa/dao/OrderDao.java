@@ -8,7 +8,9 @@ public interface OrderDao {
   List<Order> findAll(String keyword) throws Exception;
 
   List<Order> findByUserNo(int UserNo) throws Exception;
-
+  
+  List<Order> descfindByUserNo(int UserNo) throws Exception;
+  
   List<Order> findByUpdateListUserNo(int UserNo) throws Exception;
 
   List<Order> findByOrderListUserNo(int userNo) throws Exception;
