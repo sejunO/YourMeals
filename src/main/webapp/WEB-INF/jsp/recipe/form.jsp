@@ -32,9 +32,9 @@
 		<div class="container" style="margin-bottom: 100px; margin-top: 200px;">
 		    <h3 style="font-weight: bold; text-align: center;">레시피 소개하기</h3>
 		    <p style="text-align: center; padding-bottom: 50px; padding-top: 20px;">
-		     소개하고자 하는 레시피의 이름, 사진 그리고 간단한 설명을 
+		     소개하고자 하는 레시피의 <b>이름</b>, <b>사진</b> 그리고 <b>간단한 설명</b>을 
 		      쓸 수 있습니다:) <br>
-		      그리고 이와 알맞는 카테고리, 조리 시간, 요리의 양과 난이도를
+		      그리고 이와 알맞는 <b>카테고리</b>, <b>조리 시간</b>, <b>요리의 양</b>과 <b>난이도</b>를
 		      선택해주세요!</p>
 				<div class="input-group mb-3 " >
 					<span class="input-group-text" id="basic-addon1">제목</span> <input
@@ -116,11 +116,11 @@
 
 	<section>
 		<div class="container" style="margin-bottom: 100px; margin-top: 100px;">
+					<h3 style="font-weight: bold; text-align: center;">재료 입력하기</h3>
+					<p style="text-align: center; padding-bottom: 50px; padding-top: 20px;">
+			       레시피에 들어가는 <b>각 재료들</b>과 <b>무게 및 용량</b>을 입력해 주세요:)
+			     </p>
 			<div class="metaDiv">
-				<div class="btn-center">
-					<h3 style="padding-bottom: 25px; font-weight: bold;">재료 입력하기</h3>
-					<br>
-				</div>
 				<div id="inputMetaContainer">
 					<div class="inputmeta">
 						<div class="meta-input-style">
@@ -158,18 +158,22 @@
 			
   <section>
   <div class="container" style="margin-bottom: 100px; margin-top: 100px;">
-			<div id="inputStepContainer">
-				<div class="btn-center">
-					<h3 style="padding-bottom: 25px; font-weight: bold;">STEP 입력하기</h3>
-					<br>
-				</div>
+				<h3
+					style="font-weight: bold; text-align: center;">재료
+					순서 입력하기</h3>
+				<br>
+				<p
+					style="text-align: center; padding-bottom: 50px; padding-top: 20px;">
+					레시피를 순서대로 원하는 <b>사진</b>을 첨부하고 이와 관한 <b>설명</b>을 입력해 주세요:)
+				</p>
+				<div id="inputStepContainer" style="padding-left: 100px;">
 				<div class="inputStep">
 					<div class="step-input">
-						<div>
-							<span class="name">STEP 1</span>
+						<div class="section-title">
+							<h2><span class="name">STEP 1</span></h2>
 						</div>
 						<div>
-							<textarea name="step" rows='10' cols='80'></textarea>
+							<textarea name="step" rows='10' cols='80' style="margin-inline: 50px;"></textarea>
 						</div>
 						<div>
 							<input type='file' name='step_photo'>
