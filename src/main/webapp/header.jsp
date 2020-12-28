@@ -84,8 +84,6 @@
 								style="color: rgba(255, 255, 255, 0.8)";>My page</a></li>
 							<li><a href="<%=request.getContextPath()%>/app/basket/list" class="page-scroll"
 								style="color: rgba(255, 255, 255, 0.8)";>My cart</a></li>
-							<li><a href="<%=request.getContextPath()%>/app/user/list" class="page-scroll"
-                style="color: rgba(255, 255, 255, 0.8)";>User search</a></li>
 							<li><a href="<%=request.getContextPath()%>/app/auth/logout"
 								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)";>Logout</a></li>
 						</c:if>
