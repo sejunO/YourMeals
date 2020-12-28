@@ -45,39 +45,7 @@
 	
 	<div class="sub-container">
 	<div class="vertical">
-		<div class="sidebox">
-			<div class="categoryname">
-			마이페이지
-			</div>
-			<div class="profilebox">
-				<span class="profilephoto">
-				<img class="profile" src='../../../upload/${user.photo}_120x120.jpg'></span>
-				<div class="profileinfo">
-				<h4>${user.nick} 님</h4>
-				<p>${user.email}</p></div>
-    		<div class="profileupdate">
-    		<a href="/app/mypage/user/update"><button class="btn">정보 수정</button></a></div>
-   		</div>
-   		<div class="category">
-   	<ul>
-   			<li><a href="../app/basket/list">장바구니</a></li>
-    		<li><a href="../app/mypage/order/buyList">나의 주문내역</a></li>
-    		<li><a href="../app/mypage/order/updateList">나의 취소/교환/환불내역</a></li>
-   	</ul>
-   	 <ul>
-   			<li><a href="../app/myrecipe/list">나의 레시피</a></li>
-    		<li><a href="../app/mypage/recipe/likeList">내가 좋아한 레시피</a></li>
-    </ul>
-    <ul>
-    		<li><a href="../app/qna/list">QnA 게시판</a></li>
-   			<li><a href="../app/mypage/commentList">나의 댓글</a></li>
-    </ul>	
-    <ul>
-    		<li><a href="../app/mypage/following/list">나의 팔로잉</a></li>
-    		<li><a href="../app/mypage/follower/list">내 팔로워</a></li>
-   	</ul>
-    </div>
-    </div>
+		<jsp:include page="../mySidebar.jsp"></jsp:include>
     <!-- 사이드 바 종료-->
     
     <!--  나의 구매내역 본문 -->
