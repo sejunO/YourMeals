@@ -72,7 +72,7 @@
 					<!-- 유저 헤더 종료 -->
 
 
-					<div class="mylikerecipelist">
+					<div class="mylist">
 						<h3>내가 좋아한 레시피</h3>
 						<ul class="list">
 							<li class="thead">

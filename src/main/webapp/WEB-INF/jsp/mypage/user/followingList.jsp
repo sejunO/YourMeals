@@ -71,8 +71,8 @@
 					</div>
 					<!-- 유저 헤더 종료 -->
 
-
-					<div class="content-main">
+					<div class="mylist">
+						<h3>나의 팔로잉</h3>
 						<table class="content-table" style="text-align: center">
 							<thead>
 								<tr class="content-table-tr">

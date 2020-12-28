@@ -72,7 +72,7 @@
 					<!-- 유저 헤더 종료 -->
 
 
-					<div class="mycommentlist">
+					<div class="mylist">
 						<h3>나의 댓글</h3>
 						<ul class="list">
 							<li class="thead">

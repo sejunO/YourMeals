@@ -72,7 +72,7 @@
           <!-- 유저 헤더 종료 -->
 
 
-          <div class="myqnalist">
+          <div class="mylist">
             <h3>나의 Q&A</h3>
             <ul class="list">
               <li class="thead">

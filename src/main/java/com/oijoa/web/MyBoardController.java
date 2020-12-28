@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Follow;
+import com.oijoa.domain.Order;
 import com.oijoa.domain.Qna;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.User;
 import com.oijoa.service.CommentService;
 import com.oijoa.service.FollowService;
+import com.oijoa.service.OrderService;
 import com.oijoa.service.QnaService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.UserService;
@@ -29,6 +31,7 @@ public class MyBoardController {
   @Autowired QnaService qnaService;
   @Autowired UserService userService;
   @Autowired FollowService followService;
+  @Autowired OrderService orderService;
 
   @GetMapping("/recipe/likeList")
   public void recipeLikeList(@ModelAttribute("loginUser") User loginUser, Model model) throws Exception {
@@ -38,17 +41,20 @@ public class MyBoardController {
     }
     List<Recipe> recipeList = recipeService.userNoList(loginUser.getUserNo());
     List<Follow> followList = followService.FollowerList(user.getUserNo());
-    List<Follow> followingList = followService.FollowingList(user.getUserNo());
-
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
+    
     model.addAttribute("likeList", recipeService.myLikeList(loginUser.getUserNo()));
     
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
-    int followingSize =  followingList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
     
     model.addAttribute("recipeSize", recipeSize);
     model.addAttribute("followerSize", followerSize);
-    model.addAttribute("followingSize", followingSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
     model.addAttribute("user", user);
   }
 
@@ -60,18 +66,20 @@ public class MyBoardController {
     }
     List<Recipe> recipeList = recipeService.userNoList(loginUser.getUserNo());
     List<Follow> followList = followService.FollowerList(user.getUserNo());
-    List<Follow> followingList = followService.FollowingList(user.getUserNo());
-
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
+    
     model.addAttribute("recipeList", recipeList);
     
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
-    int followingSize =  followingList.size();
-    
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
     
     model.addAttribute("recipeSize", recipeSize);
     model.addAttribute("followerSize", followerSize);
-    model.addAttribute("followingSize", followingSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
     model.addAttribute("user", user);
   }
 
@@ -83,17 +91,20 @@ public class MyBoardController {
     }
     List<Recipe> recipeList = recipeService.userNoList(loginUser.getUserNo());
     List<Follow> followList = followService.FollowerList(user.getUserNo());
-    List<Follow> followingList = followService.FollowingList(user.getUserNo());
-
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
+    
     model.addAttribute("commentList", commentService.userNoList(loginUser.getUserNo()));
     
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
-    int followingSize =  followingList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
     
     model.addAttribute("recipeSize", recipeSize);
     model.addAttribute("followerSize", followerSize);
-    model.addAttribute("followingSize", followingSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
     model.addAttribute("user", user);
   }
 
@@ -105,17 +116,20 @@ public class MyBoardController {
     }
     List<Recipe> recipeList = recipeService.userNoList(loginUser.getUserNo());
     List<Follow> followList = followService.FollowerList(user.getUserNo());
-    List<Follow> followingList = followService.FollowingList(user.getUserNo());
+    List<Order> shippingList = orderService.myOrderShippingList(user.getUserNo());
+    List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
     
-    model.addAttribute("qnaList", qnaService.userNoList(user.getUserNo()));
+    model.addAttribute("qnaList", qnaList);
     
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
-    int followingSize =  followingList.size();
+    int qnaSize = qnaList.size();
+    int shippingSize = shippingList.size();
     
     model.addAttribute("recipeSize", recipeSize);
     model.addAttribute("followerSize", followerSize);
-    model.addAttribute("followingSize", followingSize);
+    model.addAttribute("qnaSize", qnaSize);
+    model.addAttribute("shippingSize", shippingSize);
     model.addAttribute("user", user);
   }
 
