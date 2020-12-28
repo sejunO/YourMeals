@@ -79,6 +79,7 @@
     <ul>
         <li><a href="<%=request.getContextPath()%>/app/mypage/user/followingList">나의 팔로잉</a></li>
         <li><a href="<%=request.getContextPath()%>/app/mypage/user/followerList">내 팔로워</a></li>
+        <li><a href="<%=request.getContextPath()%>/app/user/list">회원 검색</a></li>
     </ul>
     </div>
     </div>

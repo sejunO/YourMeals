@@ -15,6 +15,18 @@ table {
 	flex-direction: column
 }
 
+.search-container {
+	margin: auto;
+  text-align: center;
+}
+
+.form-outline {
+	display: flex;
+	width: 80%;
+	margin: auto;
+  text-align: center;
+}
+
 .box1 {
 	width: 100%;
 	height: 500px;
@@ -181,20 +193,6 @@ table {
 	margin: 0 auto;
 	padding: 10px;
 	width: 100px;
-}
-
-.footbox {
-    display: flex;
-    justify-content: space-between;
-    justify-content: center;
-    position: relative;
-    margin-top: auto;
-    padding: 1em 0;
-    border-top: 1px solid #e2e2e2;
-    font-size: 1rem;
-    text-align: center;
-    color: black;
-    background-color: #b6d6c6;
 }
 
 .content-main-container {
