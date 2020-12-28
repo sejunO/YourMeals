@@ -123,6 +123,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 #mypage {
    width: 100%;
    height: 100%;
+   font-family: "campton", "Apple SD Gothic Neo",
+	NanumBarunGothic, "나눔바른고딕", Malgun Gothic,
+	"맑은 고딕", dotum, sans-serif;
 }
 
 .main-container {
@@ -186,6 +189,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-size: 1rem;
     text-align: center;
     color: black;
+   	background-color: #b6d6c6;
     background-color: #b6d6c6;
     font-family: "campton", "Apple SD Gothic Neo",
   NanumBarunGothic, "나눔바른고딕", Malgun Gothic,
@@ -193,6 +197,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 .vertical {
+	display: flex;
+	flex-direction: row;
   display: flex;
   flex-direction: row;
   font-family: "campton", "Apple SD Gothic Neo",
@@ -413,5 +419,44 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 .in-col1 {
   display: block;
-  box-sizing: border-box; 
+  box-sizing: border-box;	
 }
+.imgbox {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+}
+.imgin {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%!important;
+}
+.goodsinfo {
+	display: inline-block;
+  font-size: 14px;
+  color: #303033;
+  line-height: 1.57;
+  vertical-align: middle;
+  word-break: break-all;
+}
+.goodstitle {
+	font-size: 16px;
+  line-height: 24px;
+  display: block;
+  font-weight: 700;
+}
+.price {
+  margin: 10px 0 4px;
+}
+  
