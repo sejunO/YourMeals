@@ -86,7 +86,7 @@
 							<!-- 물품 -->
 								<div class="goods">
 									<div class="goodsbox">
-									
+										<div class="in-col1"></div>
 									</div>
 								
 								</div>
