@@ -2,7 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:include page="/userHeader.jsp"></jsp:include>
+<jsp:include page="/header.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +49,7 @@
   <div class="main-container">
     <div class="box1">
       <div class="box2">
-        <header><jsp:include page="/userHeader.jsp"></jsp:include></header>
+        <header><jsp:include page="/header.jsp"></jsp:include></header>
         <div class="box3"></div>
         <div class="box4">UserPage</div>
       </div>
@@ -58,7 +58,7 @@
 
   <div class="main-content">
     <div class="content-container">
-      <jsp:include page="../user/header.jsp"></jsp:include>
+      <jsp:include page="../user/userHeader.jsp"></jsp:include>
       <div class="content-main">
         <table class="content-table" style="text-align: center">
           <thead>

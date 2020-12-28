@@ -31,7 +31,7 @@
 	<div class="main-container">
  	<div class="box1">
  		<div class="box2">
- 			<header><jsp:include page="/mypageHeader.jsp"></jsp:include></header>
+ 			<header><jsp:include page="/header.jsp"></jsp:include></header>
  			<div class="box3"></div>
  			<div class="box4">MyPage</div>
  		</div>

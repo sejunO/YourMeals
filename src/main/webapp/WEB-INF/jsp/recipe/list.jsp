@@ -76,7 +76,7 @@ body {
 </head>
 
 <body>
-	<jsp:include page="/recipeHeader.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 
 	<section id="hero" class="d-flex align-items-center img-list">
 		<div
