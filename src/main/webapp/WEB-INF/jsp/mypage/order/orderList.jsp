@@ -56,7 +56,7 @@
   <!-- 유저 헤더 종료 -->
   
   		
-  		<div class="mybuylist">
+  		<div class="mylist">
 				<h3>나의 주문내역</h3>
 				<!-- 주문내역 리스트 시작 -->
 				<ul class="list">
@@ -88,7 +88,7 @@
 										<div class="in-col1">
 											<div class="imgbox"> 
 												<div class="imgin">
-													<img src="<%=request.getContextPath()%>/upload/${product.photo}_200x200.jpg"/>
+													<img src="<%=request.getContextPath()%>/upload/${product.photo}_100x100.jpg"/>
 												</div>
 											</div>
 											<div class="goodsinfo">

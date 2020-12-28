@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>나의주문취소/교환/환불내역</title>
+<title>나의취소/교환/환불내역</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -41,10 +41,9 @@
   </div>
   
   <!--  본문 -->
-  <!--  사이드 바 -->
-  
   <div class="sub-container">
   <div class="vertical">
+  <!--  사이드 바 -->
     <jsp:include page="../mySidebar.jsp"></jsp:include>
     <!-- 사이드 바 종료-->
     
@@ -57,8 +56,8 @@
   <!-- 유저 헤더 종료 -->
   
       
-      <div class="mybuylist">
-        <h3>나의 주문취소/교환/환불내역</h3>
+      <div class="mylist">
+        <h3>나의 취소/교환/환불내역</h3>
         <!-- 주문내역 리스트 시작 -->
         <ul class="list">
           <li class="thead">
@@ -86,76 +85,81 @@
               <!-- 물품 -->
                 <div class="goods">
                   <div class="goodsbox">
-                    <div class="in-col1"></div>
+                    <div class="in-col1">
+                      <div class="imgbox"> 
+                        <div class="imgin">
+                          <img src="<%=request.getContextPath()%>/upload/${product.photo}_100x100.jpg"/>
+                        </div>
+                      </div>
+                      <div class="goodsinfo">
+                        <p class="goodstitle">
+                  ${o.orderLists.get(0).orderProduct.content}
+                    <c:if test="${o.orderLists.size() -1 > 0}">외
+                  ${o.orderLists.size() -1} 건</c:if></p>
+                        <div class="price">${o.totalPrice} 원</div>
+                      </div>
+                    </div>
+                    <!-- 상품사진, 상품명, 가격 끝 -->
+                    <!-- 배송정보 -->
+                    <div class="in-col2">
+                      <div class="delivery">
+                      <p class="pfont">(${o.postNo})</p>
+                      <p class="pfont">${o.address}</p>
+                      <p class="pfont">${o.detailAddress}</p>     
+                      </div>
+                    </div>
+                    <!-- 배송정보 끝 -->
+                    <!--  상태  -->
+                    <div class="in-col3">
+                      <div class="status"><strong>
+                      <c:choose>
+                        <c:when test="${o.status == 11}">
+                      취소신청
+                        </c:when>
+                        <c:when test="${o.status == 12}">
+                      취소진행중
+                        </c:when>
+                        <c:when test="${o.status == 13}">
+                      취소(환불)완료
+                        </c:when>
+                        <c:when test="${o.status == 21}">
+                      반품신청
+                        </c:when>
+                        <c:when test="${o.status == 22}">
+                      반품진행중
+                        </c:when>
+                        <c:when test="${o.status == 23}">
+                      반품(환불)완료
+                        </c:when>
+                        <c:when test="${o.status == 31}">
+                      교환신청
+                        </c:when>
+                        <c:when test="${o.status == 32}">
+                      교환진행중
+                        </c:when>
+                        <c:when test="${o.status == 33}">
+                      교환완료
+                        </c:when>
+                    
+                      <c:otherwise>
+                      상태값오류
+                      </c:otherwise>
+                    </c:choose>
+                  </strong>           
                   </div>
-                
                 </div>
-                
-                
+              </div>
+            </div>
                 </c:forEach>
               </ul>
             </div>
-          </ul>
-      <!--    
-        </thead>
-      <tr>
-        <th>주문일자</th>
-        <th>주문번호</th>
-        <th>우편번호</th>
-        <th>배송지주소</th>
-        <th>주문항목</th>
-        <th>주문금액</th>
-        <th>상태</th>
-      </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${orderList}" var="o">
-      <tr>
-        <td>${o.orderDate}</td>
-        <td>${o.orderNo}</td>
-        <td>${o.postNo}</td>
-        <td>${o.address} ${o.detailAddress}</td>
-        <td>${o.orderLists.get(0).orderProduct.content}
-          <c:if test="${o.orderLists.size() -1 > 0}">외
-                ${o.orderLists.size() -1} 건</c:if>
-          </td>
-        <td>${o.totalPrice}</td>
-        <td>
-          <c:choose>
-            <c:when test="${o.status == 0}">
-          입금확인중
-            </c:when>
-            <c:when test="${o.status == 1}">
-          결제완료
-            </c:when>
-            <c:when test="${o.status == 2}">
-          배송준비
-            </c:when>
-            <c:when test="${o.status == 3}">
-          배송중
-            </c:when>
-            <c:when test="${o.status == 4}">
-          배송완료
-            </c:when>
-        
-          <c:otherwise>
-          상태값오류
-          </c:otherwise>
-        </c:choose>
-      </td>
-    </tr>
-  </c:forEach>
-  </tbody>
-</table>-->
-    </div>
+        </div>
       </div>
       </div>
     
     <!--  내용 종료 -->
       </div>  
-   </div>
     <jsp:include page="/mypageFooter.jsp"></jsp:include>
-    </div>
      
  <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
