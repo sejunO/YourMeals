@@ -104,9 +104,10 @@ body {
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
 }
 
-.domain-price span {
+.domain-price  {
     color: #dfdfdf;
     margin: 0 10px;
+    text-decoration: underline;
 }
 
 .domain-price span small {
