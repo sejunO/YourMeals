@@ -83,10 +83,6 @@
     update oi_user 
     <set>
       <if test="nick != null">nick = #{nick},</if>
-<<<<<<< HEAD
-      <if test="email != null and email != ''">email = #{email},</if>
-=======
->>>>>>> 8c350b5fc1a68318d5cfca407ce69e6f239d907e
       <if test="userTypeNo != null">utype = #{userTypeNo},</if>
       <if test="password != null">password = password(#{password}),</if>
       <if test="postNo != null">postno = #{postNo},</if>
