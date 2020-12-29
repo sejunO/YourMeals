@@ -212,13 +212,45 @@ public class RecipeController {
 
 
   @RequestMapping("update")
-  public String update(int recipeNo, Food food, RecipeStep recipeStep) throws Exception {
-    Recipe recipe = recipeService.get(recipeNo);
+  public String update(HttpSession session, int recipeNo, int categoryNo, Recipe recipe,
+      String[] step, MultipartFile recipe_photo, MultipartFile[] step_photo, String[] metaname,
+      String[] metaamount) throws Exception {
+
+    User user = (User) session.getAttribute("loginUser");
+    recipe.setWriter(user);
+    String filename = UUID.randomUUID().toString();
+    String saveFilePath = servletContext.getRealPath("/upload/" + filename);
+    recipe_photo.transferTo(new File(saveFilePath));
+    generatePhotoThumbnail(saveFilePath);
+
+
     foodService.delete(recipeNo);
-    foodService.add(food);
+
+    for (int i = 0; i < metaname.length; i++) {
+      Food food = new Food();
+      food.setRecipeNo(recipeNo);
+      food.setName(metaname[i]);
+      food.setAmount(metaamount[i]);
+      foodService.add(food);
+    }
+
     recipeStepService.delete(recipeNo);
-    recipeStepService.add(recipeStep);
-    recipeService.updateCategory(recipe);
+    for (int i = 0; i < step.length; i++) {
+      RecipeStep recipestep = new RecipeStep();
+      recipestep.setRecipeNo(recipeNo);
+      recipestep.setStep(i + 1);
+      recipestep.setContent(step[i]);
+      filename = UUID.randomUUID().toString();
+      saveFilePath = servletContext.getRealPath("/upload/" + filename);
+      step_photo[i].transferTo(new File(saveFilePath));
+      generatePhotoThumbnail(saveFilePath);
+      recipestep.setPhoto(filename);
+      recipeStepService.add(recipestep);
+    }
+
+
+    recipe.setCategory(categoryService.get(categoryNo));
+
     recipeService.update(recipe);
 
     return "redirect:detail?recipeNo=" + recipeNo;
