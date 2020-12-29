@@ -79,6 +79,8 @@
   <update id="update" parameterType="qna">
     update oi_qna
 		<set>
+		<if test="title != null">title = #{title},</if>
+		<if test="content != null">content = #{content},</if>
       <if test="answer != null">answer = #{answer}</if>
     </set>
     where qnano = #{QnaNo}

@@ -31,17 +31,6 @@ public class DefaultRecipeService implements RecipeService {
 
   }
 
-  // @Override
-  // public int delete(int no) throws Exception {
-  // return boardDao.delete(no);
-  // }
-  //
-  // @Override
-  // public int add(Board board) throws Exception {
-  // return boardDao.insert(board);
-  // }
-  //
-
   @Override
   public List<Recipe> list() throws Exception {
     return recipeDao.findAll();
@@ -75,11 +64,6 @@ public class DefaultRecipeService implements RecipeService {
     return 1;
   }
 
-  // @Override
-  // public List<Order> list(String keyword) throws Exception {
-  // return orderDao.findAll(keyword);
-  // }
-  //
 
   @Override
   public List<Recipe> getRecipeMaterial(int recipeNo) throws Exception {
@@ -125,5 +109,6 @@ public class DefaultRecipeService implements RecipeService {
   public Recipe lately(int userNo) throws Exception {
     return recipeDao.findLatelyRecipe(userNo);
   }
+
 
 }

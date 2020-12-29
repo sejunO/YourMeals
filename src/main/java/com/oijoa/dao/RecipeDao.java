@@ -39,4 +39,6 @@ public interface RecipeDao {
 
   Recipe findLatelyRecipe(int userNo) throws Exception;
 
+  List<Recipe> findByHit() throws Exception;
+
 }

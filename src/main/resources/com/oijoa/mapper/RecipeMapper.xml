@@ -63,6 +63,11 @@
    <include refid="sql1"/>
     order by r.rno desc
   </select>
+  
+   <select id="findByHit" resultMap="RecipeMap">
+   <include refid="sql1"/>
+    order by hit desc
+  </select>
 
   <select id="findByKeyword" resultMap="RecipeMap" parameterType="string">
    <include refid="sql1"/>
