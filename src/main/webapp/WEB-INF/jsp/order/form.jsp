@@ -51,12 +51,11 @@
 	<form action="add" method="post">
 		<div class="goods">
 			<div class="goodsbox">
-				<c:forEach items="${baskets}" var="b">
 					<div class="in-col1">
 						<div class="imgbox">
 							<div class="imgin">
 								<img
-									src="<%=request.getContextPath()%>/upload/${product.photo}_100x100.jpg" />
+									src="../../upload/${basket.products.get(1).photo}_80x80.jpg" />
 							</div>
 						</div>
 						<div>
@@ -68,7 +67,6 @@
 							</div>
 						</div>
 					</div>
-				</c:forEach>
 			</div>
 		</div>
 		<h2 style="text-align: center">배송지 정보</h2>
@@ -193,47 +191,48 @@
 					<div class="curOrder">
 						<h3>나의 주문내역</h3>
 						<!-- 주문내역 리스트 시작 -->
+						
 						<ul class="list">
 							<li class="thead">
 								<div class="td-col1">상품정보</div>
-								<div class="td-col2">수량</div>
-								<div class="td-col3">가격</div>
-								<div class="td-col3">주문금액</div>
+								<div class="td-col4" >수량</div>
+								<div class="td-col2">가격</div>
+								<div class="td-col2">주문금액</div>
 							</li>
 							<c:forEach items="${baskets}" var="b">
 								<!-- 주문일자, 번호 박스 -->
 								<div class="td-box">
 									<ul class="orderinfo">
-										<li class="prodinfo"><span class="basket">${b.product.title}</span>
+										<li class="prodinfo"><span class="basket" style= "margin-left: 87px">${b.product.title}</span>
 										</li>
 									</ul>
 								</div>
 								<!-- 물품 -->
 								<div class="tbody">
 									<div class="goodsbox">
-										<div class="in-col1">
+										<div class="in-col1" style= "margin-left: 87px">
 											<div class="imgbox">
 												<div class="imgin">
 													<img src="../../upload/${b.product.photo}_80x80.jpg" />
 												</div>
 											</div>
 										</div>
-										<div class="in-col2">
-											<div class="goodsinfo">
+										<div class="in-col2" style= "margin-left: 7px">
+											<div class="goods">
 												<p class="amount">${b.product.content}</p>
 												<div class="amount">${b.amount}개</div>
 											</div>
 										</div>
 										<!-- 상품사진, 상품명, 가격 끝 -->
-										<div class="in-col3">
-											<div class="price">
+										<div class="in-col2" style= "margin-left: 17px">
+											<div class="goods">
 												<p class="price">${b.product.price}원</p>
 											</div>
 										</div>
 										<!-- 배송정보 끝 -->
 										<!--  상태  -->
-										<div class="in-col3">
-											<div class="주문금액">
+										<div class="in-col2" style= "margin-left: 90px">
+											<div class="goods">
 												<p>${b.product.price * b.amount}원</p>
 											</div>
 										</div>
