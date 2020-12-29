@@ -28,10 +28,12 @@
               </tr>
             </thead>
             <tbody>
-
               <c:forEach items="${basketList}" var="b">
                 <tr>
-                  <td> <img src="../../upload/${b.product.photo}_80x80.jpg" /><br> ${b.product.title}
+                  <td>
+                  <figure class="figure">
+  <img src="../../upload/${b.product.photo}_80x80.jpg" class="figure-img img-fluid rounded" alt="...">
+  <figcaption class="figure-caption text-end">${b.product.title}</figcaption>
                   </td>
                   <td>${b.product.content}</td>
                   <td>${b.amount}</td>

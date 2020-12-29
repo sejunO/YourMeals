@@ -67,7 +67,7 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="" class="page-scroll"
+						<li><a href="<%=request.getContextPath()%>/app/basket/form" class="page-scroll"
 							style="color: rgba(255, 255, 255, 0.8)";>Shop</a></li>
 						<li><a href="<%=request.getContextPath()%>/app/recipe/list" class="page-scroll"
 							style="color: rgba(255, 255, 255, 0.8)";>Recipe</a></li>
