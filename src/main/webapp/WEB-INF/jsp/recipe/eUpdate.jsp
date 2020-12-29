@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<jsp:include page="/header.jsp"></jsp:include>
 
 	<section id="hero" class="d-flex align-items-center img-add">
 		<div
