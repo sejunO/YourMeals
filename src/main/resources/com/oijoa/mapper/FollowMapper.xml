@@ -44,6 +44,7 @@
       on f.follower = u.uno
     where
       f.following = #{loginNo}
+    order by user_no asc
   </select>
   
   <select id="findByFollowingUserNo" resultMap="FollowMap"
@@ -59,6 +60,7 @@
       on f.following = u.uno
     where   
       f.follower = #{loginNo}
+    order by user_no asc
   </select>
   
   <insert id="insert" parameterType="follow">
@@ -66,12 +68,22 @@
     values(#{follower},#{following})
   </insert>
   
-  <delete id="delete" parameterType="int">
+  <delete id="delete" parameterType="follow">
     delete from oi_follow
     where 
       follower = #{follower}
       and following = #{following}
   </delete>
+  
+  <select id="findByFollowCount" resultType="int" parameterType="follow">
+    select 
+      count(*)
+    from 
+      oi_follow
+    where 
+      follower = #{follower}
+      and following = #{following};
+  </select>
 </mapper>
 
 

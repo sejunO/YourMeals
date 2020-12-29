@@ -84,7 +84,7 @@
 							<tr>
 								<td>${u.userNo}</td>
 								<td>${u.nick}</td>
-								<td><a href='recipeList?userNo=${u.userNo}'>[${u.name}님의	정보]</a></td>
+								<td><a href='recipeList?uNo=${u.userNo}'>[${u.name}님의	정보]</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
