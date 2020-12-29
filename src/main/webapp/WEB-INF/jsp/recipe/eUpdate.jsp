@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>레시피 등록</title>
+<title>레시피 수정</title>
 
 <!-- Bootstrap core CSS -->
 <link
@@ -17,31 +17,17 @@
 
 <body>
 
-
-
-	<section id="hero" class="align-items-center img-add">
-	
-	<header class="container d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3">
-  <p class="h5 my-0 me-md-auto fw-normal">Company name</p>
-  <nav class="my-2 my-md-0 me-md-3">
-    <a class="p-2 text-dark" href="#">Features</a>
-    <a class="p-2 text-dark" href="#">Enterprise</a>
-    <a class="p-2 text-dark" href="#">Support</a>
-    <a class="p-2 text-dark" href="#">Pricing</a>
-  </nav>
-  <a class="btn btn-outline-primary" href="#">Sign up</a>
-</header>
+	<section id="hero" class="d-flex align-items-center img-add">
 		<div
 			class="container text-center position-relative aos-init aos-animate"
 			data-aos="fade-in" data-aos-delay="200">
-			<h1>레시피 등록하기</h1>
+			<h1>레시피 수정하기</h1>
 			<br>
-			<h2>나만의 특별한 레시피를 공유해 볼까요?</h2>
+			<h2>좀 더 특별한 레시피를 위해 어떤 것이 필요할까요?</h2>
 		</div>
 	</section>
 
-			<form action='add' method='post' enctype='multipart/form-data'>
-			<input type="hidden" name="recipeNo" value="${recipe.recipeNo}"/>
+			<form action='update' method='post' enctype='multipart/form-data'>
 			
 		<section>
 		<div class="container" style="margin-bottom: 100px; margin-top: 200px;">
@@ -54,16 +40,15 @@
 		    <div style="margin-inline: 80px;">
 				<div class="input-group mb-3 " >
 					<span class="input-group-text" id="basic-addon1">제목</span> <input
-						type="text" class="form-control" placeholder="제목을 입력하세요."
-						aria-label="제목을 입력하세요." aria-describedby="basic-addon1"
-						name='title'>
+						type="text" class="form-control" aria-label="제목을 입력하세요." aria-describedby="basic-addon1"
+						name='title' value="${recipe.title}">
 				</div>
 
 
 				<div class="main-file-style">
 					<div class="input-group mb-3">
 						<input type="file" class="form-control" id="inputGroupFile02"
-							name='recipe_photo'> <label class="input-group-text"
+							name='recipe_photo' value="${recipe.photo}"> <label class="input-group-text"
 							for="inputGroupFile02">Upload</label>
 					</div>
 
@@ -71,10 +56,7 @@
 
 				<div class="input-group">
 					<textarea class="form-control" aria-label="With textarea"
-						name='content' rows='10' cols='10'>
-  레시피 등록 규정에 따라 입력해주세요 !
-  주제와 상관없는 글은 제제 대상입니다 !
-  </textarea>
+						name='content' rows='10' cols='10'>${recipe.content}</textarea>
 				</div>
 				</div>
 				</div>
@@ -88,41 +70,44 @@
 					<select class="form-select" aria-label="Default select example"
 						name='categoryNo'>
 						<option selected>카테고리</option>
+						
 						<c:forEach items="${categoryList}" var="category">
-							<option value="${category.categoryNo}">${category.categoryName}</option>
-						</c:forEach>
+							<option value="${category.categoryNo}" <c:if test="${recipe.category.categoryNo == category.categoryNo }">selected</c:if>
+							>${category.categoryName}</option>
+						</c:forEach>						
 					</select>
 				</div>
 				<div class="input-sm">
 					<div class="input-group mb-3">
 						<span class="input-group-text">걸리는 시간</span> <input type="text"
-							class="form-control" placeholder="15" name="min"
-							aria-label="Username"> <span class="input-group-text">분</span>
+							class="form-control name="min" aria-label="min" value="${recipe.min}">
+							 <span class="input-group-text">분</span>
 					</div>
 				</div>
 
 				<div class="input-sm">
 					<div class="input-group mb-3">
 						<span class="input-group-text">요리의 양</span> <input type="text"
-							class="form-control" placeholder="1" aria-label="Server"
-							name="serving"> <span class="input-group-text">인분</span>
+							class="form-control" aria-label="Server"
+							name="serving" value="${recipe.serving}"> 
+							<span class="input-group-text">인분</span>
 					</div>
 				</div>
 				<div class="level-box">
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name='levelNo'
-							id="inlineRadio1" value="3"> <label
-							class="form-check-label" for="inlineRadio1">상</label>
+							id="inlineRadio1" value="3"><c:if test="${recipe.levelNo == 3}">checked</c:if> 
+							<label class="form-check-label" for="inlineRadio1">상</label>
 					</div>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name='levelNo'
-							id="inlineRadio2" value="2"> <label
-							class="form-check-label" for="inlineRadio2">중</label>
+							id="inlineRadio2" value="2"> <c:if test="${recipe.levelNo == 2}">checked</c:if> 
+							<label class="form-check-label" for="inlineRadio2">중</label>
 					</div>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name='levelNo'
-							id="inlineRadio2" value="1"> <label
-							class="form-check-label" for="inlineRadio2">하</label>
+							id="inlineRadio2" value="1"> <c:if test="${recipe.levelNo == 1}">checked</c:if> 
+							<label class="form-check-label" for="inlineRadio2">하</label>
 					</div>
 				</div>
 			</div>
@@ -130,6 +115,7 @@
 	</section>
 
 	<hr>
+
 
 	<section>
 		<div class="container" style="margin-bottom: 100px; margin-top: 100px;">
@@ -145,17 +131,17 @@
 							<div class="meta-input-size">
 								<div class="input-group mb-3 ">
 									<span class="input-group-text" id="basic-addon1">재료</span> <input
-										type="text" class="form-control" placeholder="양파"
+										type="text" class="form-control"
 										aria-label="재료입력" aria-describedby="basic-addon1"
-										name='metaname'>
+										name='metaname' value="${foods.name}">
 								</div>
 							</div>
 							<div class="meta-input-size">
 								<div class="input-group mb-3 ">
 									<span class="input-group-text" id="basic-addon1">계량</span> <input
-										type="text" class="form-control" placeholder="1개"
+										type="text" class="form-control"
 										aria-label="재료입력" aria-describedby="basic-addon1"
-										name='metaamount'>
+										name='metaamount' value="${foods.amount}">
 								</div>
 							</div>
 							<div></div>
@@ -174,7 +160,6 @@
 			<hr>
 			
   <section>
-  
   <div class="container" style="margin-bottom: 100px; margin-top: 100px;">
 				<h3
 					style="font-weight: bold; text-align: center;">재료
@@ -191,10 +176,10 @@
 							<h2><span class="name">STEP 1</span></h2>
 						</div>
 						<div>
-							<textarea name="step" rows='10' cols='80' style="margin-inline: 50px;"></textarea>
+							<textarea name="step" rows='10' cols='80' style="margin-inline: 50px;" value="${recipesteps.content}"></textarea>
 						</div>
 						<div>
-							<input type='file' name='step_photo'>
+							<input type='file' name='step_photo' value="${recipeSteps.photo}">
 						</div>
 					</div>
 				</div>
@@ -208,15 +193,17 @@
 
 	<hr>
 
-	<div class="btn-center" style="margin: 50px; padding-bottom: 100px;">
+	<div class="btn-center" style="margin: 50px;">
 		<p>
-			<button id="btnAddRecipe">레시피 등록</button>
+			<button id="btnAddRecipe" type="button" >레시피 변경</button>
+			 <button id="btnDeleteRecipe" type="button" >레시피 삭제</button>
 		</p>
 	</div>
 
 	</form>
 	
 	<jsp:include page="footer.jsp"></jsp:include>
+	
 	
 	<script>
 		var inputMetaContainer = document.querySelector("#inputMetaContainer");

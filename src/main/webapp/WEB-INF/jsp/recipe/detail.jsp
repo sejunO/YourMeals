@@ -95,7 +95,7 @@
 <%-- 				<c:if test="${recipe.writer == loginUser}"> --%>
 				<div class="updateAndDelete" style="text-align: right; padding-bottom: 20px;">
 				  <a href="beforeUpdate?recipeNo=${recipe.recipeNo}"><button name="updateBtn" style="margin-right: 15px;">수정</button></a>
-          <a href='delete?recipeNo=${recipe.recipeNo}'><button name="deleteBtn">삭제</button></a>
+          <a href='delete?recipeNo=${recipe.recipeNo}'><button name="deleteBtn" onclick="delConfirm()">삭제</button></a>
 				</div>
 				</div>
 				</div> 
@@ -314,6 +314,20 @@
 
 <jsp:include page="footer.jsp"></jsp:include>
 
+ <!-- 삭제시 확인창 -->
+	<script>
+	function delConfirm(){
+	  var delConfirm = confirm('삭제하시겠습니까?');
+	  if(delConfirm) {
+		  alert('삭제되었습니다.');
+		  
+	  }
+	  else {
+		  alert('삭제가 취소되었습니다.');
+	  }
+	  }
+	</script>
+		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
