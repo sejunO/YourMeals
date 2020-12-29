@@ -150,7 +150,7 @@ body {
 							<td>${recipe.recipeNo}</td>
 							<td><img src='../upload/%1$s_30x30.jpg'>${recipe.photo}</td>
 							<td><a href='detail?recipeNo=${recipe.recipeNo}'>${recipe.title}</a></td>
-							<td>${recipe.writer.nick}</td>
+							<td><a href='../user/recipeList?uNo=${recipe.writer.userNo}'>${recipe.writer.nick}</a></td>
 							<td class="list-color'">${recipe.category.categoryName}</td>
 							<td>${recipe.createdDate}</td>
 							<td>${recipe.hits}</td>

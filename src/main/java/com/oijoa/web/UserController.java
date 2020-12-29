@@ -39,9 +39,10 @@ public class UserController {
     user.setNick(nick);
     user.setEmail(email);
     user.setPassword(password);
+    //    user.setPhoto("67852bd8-9a5a-448a-a411-6e3c46b760a8");
 
     userService.add(user);
-    return "redirect:list";
+    return "redirect:../..";
   }
 
   @GetMapping("delete")
@@ -93,12 +94,22 @@ public class UserController {
   }
 
   @GetMapping("recipeList")
-  public void recipeList(int userNo, Model model) throws Exception {
-    User user = userService.get(userNo);
-    List<Recipe> recipeList = recipeService.userNoList(userNo);
-    List<Follow> followerList = followService.FollowerList(userNo);
-    List<Follow> followinglist = followService.FollowingList(userNo);
+  public void recipeList(@ModelAttribute("loginUser") User loginUser, 
+      int uNo, Model model) throws Exception {
+    User user = userService.get(uNo);
+    List<Recipe> recipeList = recipeService.userNoList(uNo);
+    List<Follow> followerList = followService.FollowerList(uNo);
+    List<Follow> followinglist = followService.FollowingList(uNo);
 
+    int followCheck = -1;
+    if(loginUser.getUserNo() != uNo) {
+      Follow follow = new Follow();
+      follow.setFollower(loginUser.getUserNo());
+      follow.setFollowing(uNo);
+      followCheck = followService.followCheck(follow);
+    }
+
+    model.addAttribute("followCheck", followCheck);
     model.addAttribute("user", user);
     model.addAttribute("recipeList", recipeList);
 
@@ -113,12 +124,22 @@ public class UserController {
   }
 
   @GetMapping("followerList")
-  public void followerList(int userNo, Model model) throws Exception {
-    User user = userService.get(userNo);
-    List<Recipe> recipeList = recipeService.userNoList(userNo);
-    List<Follow> followerList = followService.FollowerList(userNo);
-    List<Follow> followinglist = followService.FollowingList(userNo);
+  public void followerList(@ModelAttribute("loginUser") User loginUser, 
+      int uNo, Model model) throws Exception {
+    User user = userService.get(uNo);
+    List<Recipe> recipeList = recipeService.userNoList(uNo);
+    List<Follow> followerList = followService.FollowerList(uNo);
+    List<Follow> followinglist = followService.FollowingList(uNo);
 
+    int followCheck = -1;
+    if(loginUser.getUserNo() != uNo) {
+      Follow follow = new Follow();
+      follow.setFollower(loginUser.getUserNo());
+      follow.setFollowing(uNo);
+      followCheck = followService.followCheck(follow);
+    }
+
+    model.addAttribute("followCheck", followCheck);
     model.addAttribute("user", user);
     model.addAttribute("followerList", followerList);
 
@@ -132,12 +153,22 @@ public class UserController {
   }
 
   @GetMapping("followingList")
-  public void followingList(int userNo, Model model) throws Exception {
-    User user = userService.get(userNo);
-    List<Recipe> recipeList = recipeService.userNoList(userNo);
-    List<Follow> followerList = followService.FollowerList(userNo);
-    List<Follow> followinglist = followService.FollowingList(userNo);
+  public void followingList(@ModelAttribute("loginUser") User loginUser, 
+      int uNo, Model model) throws Exception {
+    User user = userService.get(uNo);
+    List<Recipe> recipeList = recipeService.userNoList(uNo);
+    List<Follow> followerList = followService.FollowerList(uNo);
+    List<Follow> followinglist = followService.FollowingList(uNo);
 
+    int followCheck = -1;
+    if(loginUser.getUserNo() != uNo) {
+      Follow follow = new Follow();
+      follow.setFollower(loginUser.getUserNo());
+      follow.setFollowing(uNo);
+      followCheck = followService.followCheck(follow);
+    }
+
+    model.addAttribute("followCheck", followCheck);
     model.addAttribute("user", user);
     model.addAttribute("followingList", followinglist);
 
@@ -160,7 +191,9 @@ public class UserController {
     followUsers.setFollower(loginUser.getUserNo());
     followUsers.setFollowing(followUserNo);
 
-    followService.follow(followUsers);
+    if (followService.follow(followUsers) == 0) {
+      throw new Exception("팔로우를 실패하였습니다.");
+    }
     return "redirect:"+ referer;
   }
 

@@ -41,12 +41,17 @@ public class DefaultFollowService implements FollowService {
   }
 
   @Override
-  public int follow(Follow Users) throws Exception {
-    return followDao.insert(Users);
+  public int follow(Follow user) throws Exception {
+    return followDao.insert(user);
   }
 
   @Override
-  public int unfollow(Follow Users) throws Exception {
-    return followDao.delete(Users);
+  public int unfollow(Follow user) throws Exception {
+    return followDao.delete(user);
+  }
+
+  @Override
+  public int followCheck(Follow user) throws Exception {
+    return followDao.findByFollowCount(user);
   }
 }

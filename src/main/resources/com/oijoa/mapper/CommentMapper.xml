@@ -34,6 +34,7 @@
     <select id="findByRecipeNo" resultMap="CommentMap" parameterType="int">
     select
       /*c.cno, 댓글수 counting할지 고민중*/
+      u.uno writer_no,
       u.nick writer_nick,
       c.content,
       c.cdt,

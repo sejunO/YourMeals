@@ -507,9 +507,63 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 70px 30px 30px;
+	padding: 135px 30px 30px;
   align-items: center;
 }
-.updatebox p {
-	font-size: 16px;
+.updatebox {
+  font-size: 16px;
+  width: 70%;
+  height: 70%;
+  padding: 20px 0 0;
+}
+.updatebox1 {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+}
+.updatebox2 {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  position: relative;
+  padding-left: 15px;
+}
+.updatebox3 {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  position: relative;
+}
+.updatebox4 {
+  display: flex;
+	width: auto;
+  align-items: center;
+  position: relative;
+}
+.labels {
+  position: absolute;
+  padding-top: 7px;
+  padding-right: 10px;
+}
+.userbtnbox {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.userbtn {
+  background-color: rgb(193, 212, 209);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  text-align: center;
+  border-radius: 40px;
+  font-size: 16px;
+}
+.button2 {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
 }

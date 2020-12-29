@@ -17,14 +17,14 @@ table {
 
 .search-container {
 	margin: auto;
-  text-align: center;
+	text-align: center;
 }
 
 .form-outline {
 	display: flex;
 	width: 80%;
 	margin: auto;
-  text-align: center;
+	text-align: center;
 }
 
 .box1 {
@@ -76,10 +76,10 @@ table {
 }
 
 .content-container {
-  width: 60%;
-  margin: auto;
-  text-align: center;
-  border: 2px solid #C4C4C4;
+	width: 60%;
+	margin: auto;
+	text-align: center;
+	border: 2px solid #C4C4C4;
 }
 
 .user-header {
@@ -96,10 +96,11 @@ table {
 }
 
 .content-main {
-  margin-bottom: 100px;
+	margin-bottom: 100px;
 }
 
 .content-table {
+	
 }
 
 .content-table-tr {
@@ -109,17 +110,17 @@ table {
 }
 
 .content-table-th {
-  text-align: center;
+	text-align: center;
 }
 
 .content-table-btn {
-  font-size: 10px;
-  font-weight: bold;
-  padding: 2px 10px;
-  background: #b8ecaa;
-  color: #2d2d2d;
-  border-radius: 10px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+	font-size: 10px;
+	font-weight: bold;
+	padding: 2px 10px;
+	background: #b8ecaa;
+	color: #2d2d2d;
+	border-radius: 10px;
+	box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .image-box {
@@ -196,7 +197,19 @@ table {
 }
 
 .content-main-container {
-  display: flex;
-  padding: 10px 0px 10px 0px;
+	display: flex;
+	padding: 10px 0px 10px 0px;
 }
 
+#show {
+	color: #444444;
+	font-size: 15px;
+	background: #ebebeb;
+	margin: 20px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	padding-top: 40px;
+	padding-bottom: 50px;
+	width: 100%;
+	box-shadow: 0px 5px 10px rgba(127, 137, 161, 0.25);
+}
