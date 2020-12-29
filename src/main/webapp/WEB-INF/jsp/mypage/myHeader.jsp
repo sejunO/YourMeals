@@ -21,15 +21,15 @@
 <link rel="apple-touch-icon" sizes="114x114"
 	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-114x114.png">
 
-<script language="JavaScript">
+<script>
 	function change1(obj){
-		obj.style.background = '#A6A6A6';
-		obj.style.color = 'white';
+		obj.style.background = 'white';
+		obj.style.color = '#FCDFDF';
 	}
 	
 	function change2(obj){
-		obj.style.background = 'white';
-		obj.style.color = '#A6A6A6';
+		obj.style.background = '#FCDFDF';
+		obj.style.color = '#white';
 	}
 </script>
 
@@ -57,9 +57,9 @@
 </head>
 <body id="user-container">
 
-	<div class="recipe-box">
+	<div class="recipe-box" onmouseout="change2(this)" onmouseover="change1(this)">
 		<a href="<%=request.getContextPath()%>/app/mypage/recipe/list">
-			<div class="hrefbox" onmouseout="change2(this)" onmouseover="change1(this)">
+			<div class="hrefbox">
 				<div class="element-label">
 					<div class="modal-table">
 						<div class="modal-cell">
@@ -80,7 +80,8 @@
 	</div>
 
 
-	<div class="follower-box">
+	<div class="follower-box" onmouseout="change2(this)" onmouseover="change1(this)">
+	
 		<a href="<%=request.getContextPath()%>/app/mypage/user/followerList">
 			<div class="hrefbox">
 				<div class="element-label">
@@ -103,7 +104,7 @@
 
 
 
-	<div class="shipping-box">
+	<div class="shipping-box" onmouseout="change2(this)" onmouseover="change1(this)">
 		<a href="<%=request.getContextPath()%>/app/mypage/order/orderList">
 			<div class="hrefbox">
 				<div class="element-label">
@@ -124,7 +125,7 @@
 		</a>
 	</div>
 	
-	<div class="qna-box">
+	<div class="qna-box" onmouseout="change2(this)" onmouseover="change1(this)">
     <a href="<%=request.getContextPath()%>/app/mypage/qna/list">
       <div class="hrefbox">
         <div class="element-label">
