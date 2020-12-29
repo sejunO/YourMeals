@@ -52,24 +52,54 @@
 		<div class="updatebox">
   <form action='update' method='post'>
     <input type='hidden' name='userNo' value='${user.userNo}'>
-   <p>  이름: <input type='text' class="form-control" name='name' placeholder='${user.name}'  readonly></p>
-   <p>  이메일: <input type='text' class="form-control" name='email' placeholder='${user.email}' readonly></p>
-   <p>  닉네임: <input type='text' class="form-control" name='nick' value='${user.nick}'></p>
     
-   <p>  우편번호: <input type='text'  class="form-control" id="postNo" name='postNo' value='${user.postNo}'>
-    <input type="button" onclick="execPostCode()" value="우편번호 찾기"></p>
-   <p>  기본주소: <input type='text'  class="form-control" id="address" name='address' value='${user.address}'></p>
-   <p>  세부주소: <input type='text'  class="form-control" id="detailAddress" name='detailAddress' value='${user.detailAddress}'></p>
+    <div class="updatebox1">
+     <span class="labels">이름:</span> <input type='text' class="form-control"
+      style="margin-left: 40px;" name='name' placeholder='${user.name}'  readonly>
+     </div>
+     
+     <div class="updatebox2">
+    <span class="labels"> 이메일: </span> <input type='text' class="form-control"
+     style="margin:5px 0 0 55px;" name='email' placeholder='${user.email}' readonly>
+     </div>
+     
+     <div class="updatebox2">
+    <span class="labels"> 닉네임: </span> <input type='text' class="form-control"
+     style="margin:5px 0 0 55px;" name='nick' value='${user.nick}'>
+     </div>
+     
+     <div class="updatebox3">
+    <span class="labels"> 우편번호:</span> <input type='text'  class="form-control"
+      style="margin:5px 0 0 70px; position: relative; "id="postNo" name='postNo' value='${user.postNo}'>
+   	 <input type="button" onclick="execPostCode()" style="margin: 5px 0 0 5px; position: relative;"
+   	  value="우편번호 찾기">
+     </div>
+     
+     <div class="updatebox4">
+	   <span class="labels"> 기본주소: </span> <input type='text'  class="form-control"
+	     style="margin:5px 0 0 70px; position: relative; id="address" name='address' value='${user.address}'>
+	   </div>
+	   
+	   <div class="updatebox4">
+	   <span class="labels">세부주소:</span> <input type='text'  class="form-control"
+	     style="margin:5px 0 0 70px; position: relative; id="detailAddress" name='detailAddress'
+	     value='${user.detailAddress}'>
+     </div>
+    
+    <div class="userbtnbox">
     <%--메모: <input type="text" id='memo' name="memo"><br> --%>
     <%--비밀번호: <input type='text' name='password' value='${user.password}' readonly><br> --%>
-    <button type="button" onclick="location.href='detailPhoto'">회원사진변경</button><br>
-    <button type="button" onclick="location.href='detailPassword'">비밀번호변경</button><br>
+    <button type="button" class="userbtn" onclick="location.href='detailPhoto'">회원사진변경</button>
+     
+    <button type="button" class="userbtn" style="margin-top: 10px;"
+    onclick="location.href='detailPassword'">비밀번호변경</button>
+    
     <%--<button type="button" onclick="location.href='deleteMyUser'">회원탈퇴</button><br> --%>
-    <br>
-    <p>
+    </div>
+   
     <button>변경</button>
     <button type="button" onclick="location.href='../../../mypage/index.html'">취소</button>
-    </p>
+
   </form>
   </div>
   
