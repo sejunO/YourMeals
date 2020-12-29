@@ -63,7 +63,6 @@
           <div class="row">
             <div class="intro-text">
               <h1>YourMeals</h1>
-              <a href="#about" class="btn btn-custom btn-lg page-scroll">소개</a>
             </div>
           </div>
         </div>
@@ -82,7 +81,7 @@
         </div>
         <div class="col-xs-12 col-md-6">
           <div class="about-text">
-            <h2>YourMeals</h2>
+            <h2>${first.title}</h2>
             <hr>
             <p>로렘입숨</p>
             <h3>재료</h3>

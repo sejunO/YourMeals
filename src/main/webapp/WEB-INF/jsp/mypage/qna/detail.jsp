@@ -94,14 +94,14 @@
 						<div class="contentbox">
 						<textarea name='content' class="incontentbox">${qna.content}</textarea>
 						</div>	
-							
+						<input type="hidden" name="qnaNo" value="${qna.qnaNo}"/>
 						<div class="qnabtn">
-						<a href='delete?qnaNo=${qna.qnaNo}'>
-						<button class="btn" style="margin-top: 20px; background: rgb(224, 156, 119);">삭제</button></a>
+						<a href='delete?qnaNo=${qna.qnaNo}'> 
+						<button class="btn" type="button" style="margin-top: 20px; background: rgb(224, 156, 119);">삭제</button></a>
 						<button class="btn" style="margin-top: 20px;
 						 margin-right: 5px;  width: 55px; margin-left: 550px; padding-right: 20px;"> 변경</button>
-						<a href='/list'>
-						<button class="btn" style="margin-top: 20px; background: white; color: black;">취소</button></a>
+						<a href='list'>
+						<button class="btn" type="button" style="margin-top: 20px; background: white; color: black;">취소</button></a>
 						</div>
 	    			</form>
 						

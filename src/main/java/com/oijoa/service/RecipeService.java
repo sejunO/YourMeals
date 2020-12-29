@@ -31,4 +31,6 @@ public interface RecipeService {
   int deleteByNo(int recipeNo) throws Exception;
 
   Recipe lately(int userNo) throws Exception;
+
+  List<Recipe> hitsList() throws Exception;
 }
