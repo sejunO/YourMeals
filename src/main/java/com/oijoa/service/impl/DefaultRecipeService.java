@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 import com.oijoa.dao.BoardLikeDao;
 import com.oijoa.dao.CommentDao;
+import com.oijoa.dao.FoodDao;
 import com.oijoa.dao.RecipeDao;
 import com.oijoa.dao.RecipeStepDao;
 import com.oijoa.domain.Recipe;
@@ -17,14 +18,17 @@ public class DefaultRecipeService implements RecipeService {
   BoardLikeDao boardLikeDao;
   RecipeStepDao recipeStepDao;
   CommentDao commentDao;
+  FoodDao foodDao;
 
   public DefaultRecipeService(RecipeDao recipeDao, BoardLikeDao boardLikeDao,
-      RecipeStepDao recipeStepDao, CommentDao commentDao) {
+      RecipeStepDao recipeStepDao, CommentDao commentDao, FoodDao foodDao) {
 
     this.recipeDao = recipeDao;
     this.boardLikeDao = boardLikeDao;
     this.recipeStepDao = recipeStepDao;
     this.commentDao = commentDao;
+    this.foodDao = foodDao;
+
   }
 
   @Override
@@ -82,6 +86,7 @@ public class DefaultRecipeService implements RecipeService {
     boardLikeDao.deleteByRecipeNo(recipeNo);
     recipeStepDao.deleteByRecipeNo(recipeNo);
     commentDao.deleteByRecipeNo(recipeNo);
+    foodDao.delete(recipeNo);
     return recipeDao.delete(recipeNo);
   }
 
@@ -106,8 +111,9 @@ public class DefaultRecipeService implements RecipeService {
   }
 
   @Override
-  public List<Recipe> hitsList() throws Exception {
-    return recipeDao.findByHit();
-  }
+	public List<Recipe> hitsList() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
