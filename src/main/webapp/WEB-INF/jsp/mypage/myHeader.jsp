@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>userHeader</title>
@@ -19,6 +20,18 @@
 	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114"
 	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-114x114.png">
+
+<script language="JavaScript">
+	function change1(obj){
+		obj.style.background = '#A6A6A6';
+		obj.style.color = 'white';
+	}
+	
+	function change2(obj){
+		obj.style.background = 'white';
+		obj.style.color = '#A6A6A6';
+	}
+</script>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"
@@ -46,7 +59,7 @@
 
 	<div class="recipe-box">
 		<a href="<%=request.getContextPath()%>/app/mypage/recipe/list">
-			<div class="hrefbox">
+			<div class="hrefbox" onmouseout="change2(this)" onmouseover="change1(this)">
 				<div class="element-label">
 					<div class="modal-table">
 						<div class="modal-cell">

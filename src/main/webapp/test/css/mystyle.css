@@ -628,7 +628,29 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   border-top: 1px solid #d4d4d4;
   border-bottom: 1px solid #d4d4d4;
   display: flex;
-  font-size: 20px;
+  font-size: 17px;
+}
+.commenttbox {
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+  display: flex;
+  font-size: 17px;
+  padding: 5px 0;
+}
+.commenttboxblock1 {
+	display: flex;
+  min-width: 320px;
+  justify-content: center;
+}
+.commenttboxblock2 {
+	display: flex;
+  justify-content: center;
+  margin-left: 80px;
+}
+.commenttboxblock3 {
+	display: flex;
+  justify-content: center;
+  margin-left: 85px;
 }
 .qnatboxblock1 {
 	display: flex;

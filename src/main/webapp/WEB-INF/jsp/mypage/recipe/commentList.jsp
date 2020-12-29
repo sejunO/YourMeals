@@ -76,15 +76,16 @@
 						<h3>나의 댓글</h3>
 						<ul class="list">
 							<li class="thead">
-								<div class="td-col1">댓글</div>
+								<div class="td-col1" style="padding-right: 50px;
+  							  min-width: 100px;">댓글</div>
 								<div class="td-col2">작성일</div>
 								<div class="td-col3">레시피</div>
 							</li>
 							<c:forEach items="${commentList}" var="c">
-								<li class="tbox">
-									<div>${c.content}</div>
-									<div>${c.createdDate}</div>
-									<div>
+								<li class="commenttbox">
+									<div class="commenttboxblock1">${c.content}</div>
+									<div class="commenttboxblock2">${c.createdDate}</div>
+									<div class="commenttboxblock3">
 										<a href='../../recipe/detail?recipeNo=${c.recipeNo}'>[원본글
 											보기]</a>
 									</div>
