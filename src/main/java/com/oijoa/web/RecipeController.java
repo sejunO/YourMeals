@@ -366,7 +366,7 @@ public class RecipeController {
             }
           });
 
-      Thumbnails.of(saveFilePath).size(350, 240).outputFormat("jpg").crop(Positions.CENTER)
+      Thumbnails.of(saveFilePath).size(360, 240).outputFormat("jpg").crop(Positions.CENTER)
           .toFiles(new Rename() {
             @Override
             public String apply(String name, ThumbnailParameter param) {

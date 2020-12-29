@@ -27,7 +27,7 @@
             <input type="text" name="keyword" class="form-control px-4" placeholder="재료를 입력하세요 ! "> 
             <input type="submit" class="search-domain btn btn-primary px-5" value="검색"> </div>
         </form>
-        <a href="index.jsp"><p class="domain-price text-center">메인 화면으로 가기</p></a>
+        <a href="app/index"><p class="domain-price text-center">메인 화면으로 가기</p></a>
     </div>
     </div>
 </div>

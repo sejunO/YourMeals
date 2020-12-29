@@ -70,7 +70,6 @@
     </div>
   </header>
   <!-- About Section -->
-  <c:forEach items="${hits}" var="h">
   <div id="about">
     <div class="container">
       <div class="row">
@@ -82,9 +81,9 @@
         </div>
         <div class="col-xs-12 col-md-6">
           <div class="about-text">
-            <h2>${h.title}</h2>
+            <h2>${recipe.title}</h2>
             <hr>
-            <p>로렘입숨</p>
+            <p>${recipe.content}</p>
             <h3>재료</h3>
             <p>설명</p>
           </div>
@@ -92,7 +91,6 @@
       </div>
     </div>
   </div>
-  </c:forEach>
 
   <!-- Portfolio Section -->
   <div id="portfolio">
@@ -112,7 +110,7 @@
               <ol class="type">
                 <li><a href="#" data-filter="*" class="active">All</a></li>
               <c:forEach items="${categoryList}" var="c">
-                <li><a href="#" data-filter=".${c.categoryName}">${c.categoryName}</a></li>
+                <li><a href="#" data-filter=".${c.categoryNo}">${c.categoryName}</a></li>
                 </c:forEach>
               </ol>
             </li>
@@ -123,7 +121,7 @@
       <div class="row">
         <div class="portfolio-items">
         <c:forEach items="${recipeList}" var="r">
-          <div class="col-sm-6 col-md-4 col-lg-4 ${r.category.categoryName}">
+          <div class="col-sm-6 col-md-4 col-lg-4 ${r.category.categoryNo}">
             <div class="portfolio-item">
               <div class="hover-bg">
                 <a
@@ -132,7 +130,7 @@
                   <div class="hover-text">
                     <h4>${r.title}</h4>
                   </div> <img
-                  src="../upload/${r.photo}_500x500.jpg"
+                  src="../upload/${r.photo}_360x240.jpg"
                   class="img-responsive" alt="Project Title">
                 </a>
               </div>
