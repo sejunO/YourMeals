@@ -110,5 +110,10 @@ public class DefaultRecipeService implements RecipeService {
     return recipeDao.findLatelyRecipe(userNo);
   }
 
+  @Override
+	public List<Recipe> hitsList() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
