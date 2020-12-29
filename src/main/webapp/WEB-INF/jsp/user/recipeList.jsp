@@ -63,7 +63,7 @@
 					<div class="content-main-cell">
 				<c:forEach items="${recipeList}" var="r">
 						  <%-- <img class="recipe-img" src='../../upload/${r.photo}_120x120.jpg'> --%>
-						  <img class="recipe-img" src="../../../upload/test2.jpg">
+						  <img class="recipe-img" src="<%=request.getContextPath() %>/upload/test2.jpg">
 				</c:forEach>
 					</div>
       </div>
