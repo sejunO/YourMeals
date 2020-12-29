@@ -13,8 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-  <div>${order.products.photo}, ${orderList.get(0).orderProduct.title}
+  <div> ${orderList.get(0).orderProduct.title}
+  <img class="card-img-top" src="../../upload/${ol.orderProduct.photo}_80x80.jpg"
+                      alt="Card image cap" height="80">
     <c:if test="${orderList.size() -1 > 0}">외
                 ${orderList.size() -1} 건</c:if>
   </div>
@@ -65,24 +66,36 @@
   </div>
 
 
-  <div>${order.userNo.name}</div>
-  <div>${order.address}</div>
-  <div>${order.detailAddress}</div>
-  <div>${order.memo}</div>
-  <div>${order.totalPrice}</div>
 
-  <div>${orderList.get(0).orderProduct.title}
-    <c:if test="${orderList.size() -1 > 0}">외
-                ${orderList.size() -1} 건</c:if>
-  </div>
-
-
-  주문 상품 정보
-  <c:forEach items="${orderList}" var="ol">
-    <div>
-      <span>${ol.orderProduct.title}</span> <span>${ol.amount}</span> <span>${ol.price}</span>
-    </div>
-  </c:forEach>
+  <h3>주문 상품 정보</h3>
+  <div class="container mt-5" style="min-height: calc(100vh - 132px); max-height: auto">
+          <div class="container-fluid">
+            <div class="row">
+              <c:forEach items="${orderList}" var="ol">
+                <div class="col-3">
+                  <div class="card mb-3">
+                    <!-- <img src="../../upload/${product.photo}_200x200.jpg"/> -->
+                    <div class="card-body">
+                    ${ol.orderProduct.title}<img class="card-img-top" src="../../upload/${ol.orderProduct.photo}_80x80.jpg"
+                      alt="Card image cap" height="80">
+                      <p class="card-title"
+                        style="text-align: left; max-height: 50px; margin-top: 11px; font-size: 16px;">${ol.orderProduct.content}</p>
+                      <p class="card-text"
+                        style="text-align: right; padding-top: 2px; font-weight: 500; font-size: 14px; line-height: 10px;">
+                        가격 : ${ol.price}</p>
+                      <p class="card-text"
+                        style="text-align: right; padding-top: 2px; font-weight: 400; font-size: 12px; line-height: 10px;">
+                        수량 : ${ol.amount}</p>
+                    </div>
+                  </div>
+                </div>
+              </c:forEach>
+                <p style="text-align: right"> 주문금액 : ${order.totalPrice}</p>
+            </div>
+          </div>
+        </div>
+  
+  
   <a href="../../index.jsp">홈으</a>
 </body>
 

@@ -37,6 +37,7 @@ public class BasketController {
   public void form(HttpServletRequest request, Model model) throws Exception {
 
     model.addAttribute("products", productService.list());
+
   }
 
   @RequestMapping("add")

@@ -59,6 +59,15 @@ public class MypageController {
       totalPrice = 0;
     }
     
+    int totalPrice2 = 0;
+    for (Order order : descOrderList) {
+      for (OrderList orderlist : order.getOrderLists()) {
+        totalPrice2 += (orderlist.getPrice() - orderlist.getDiscount()) * orderlist.getAmount();
+      }
+      order.setTotalPrice(totalPrice2);
+      totalPrice2 = 0;
+    }
+    
     model.addAttribute("descOrderList", descOrderList);
     model.addAttribute("orderList", orderList);
     

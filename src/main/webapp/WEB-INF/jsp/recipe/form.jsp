@@ -208,7 +208,7 @@
 
 	<div class="btn-center" style="margin: 50px; padding-bottom: 100px;">
 		<p>
-			<button id="btnAddRecipe" type="button" >레시피 등록</button>
+			<button id="btnAddRecipe" >레시피 등록</button>
 		</p>
 	</div>
 
@@ -227,7 +227,7 @@
 			inputMetaContainer.appendChild(e1);
 		};
 
-		btnAddStep.onclick = function() {
+		btnAddStep.onclick = func tion() {
 			inputNameIndex++;
 			var e2 = inputStepDiv.cloneNode(true);
 			e2.querySelector(".name").innerHTML = "STEP " + inputNameIndex;

@@ -111,7 +111,7 @@ body {
 
 	<section name="showlist" style="padding-bottom: 500px;">
 		<div class="container" >
-		<div class="side-and-side" >
+		<div class="side-and-side" style="padding-bottom: 30px;" >
 		  <div id="left">
 		    <a href="list" style="text-decoration: underline;">전체 레시피 보기</a>
 		  </div>
@@ -190,7 +190,7 @@ body {
 	<script src="<%=request.getContextPath()%>/php-email-form/validate.js"></script>
 
 	<!-- Template Main JS File -->
-	<script src="assets/js/main.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
