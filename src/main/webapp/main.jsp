@@ -20,7 +20,7 @@
   
 <div id="background-photo" class="bgimage">
 <div class="container">
-  <div class="row justify-content-center padding">
+  <div class="row search-wrapper">
     <div class="col-md-8 ftco-animate fadeInUp ftco-animated">
         <form action="app/recipe/list" class="domain-form">
             <div class="form-group d-md-flex"> <input type="hidden" name="option" value="all">
