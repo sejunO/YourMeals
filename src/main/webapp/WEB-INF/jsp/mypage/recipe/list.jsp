@@ -75,22 +75,29 @@
 					<div class="mylist">
 						<h3>나의 레시피</h3>
 						<ul class="list">
-							<li class="thead">
-								<div class="td-col1">번호</div>
-								<div class="td-col1">제목</div>
-								<div class="td-col1">사진</div>
-								<div class="td-col1">등록일</div>
-							</li>
-							<c:forEach items="${recipeList}" var="r">
-								<li class="tbox">
-									<div>${r.recipeNo}</div>
-									<div>
-										<a href='../../recipe/detail?recipeNo=${r.recipeNo}'>${r.title}</a>
+							<div class="content-main">
+								<div class="content-main-container">
+									<div class="content-main-cell">
+										<c:forEach items="${recipeList}" var="r">
+											<div class="content-main-cell-col">
+												<div class="cell-container">
+													<div class="cell-container-img">
+														<a href='../../recipe/detail?recipeNo=${r.recipeNo}'>
+															<img class="recipe-img"
+															src='../../../upload/${r.photo}_500x500.jpg'>
+														</a>
+													</div>
+													<div class="cell-container-title">
+														<a href='../../recipe/detail?recipeNo=${r.recipeNo}'>
+															${r.title} </a>
+													</div>
+													<%-- <img class="recipe-img" src="<%=request.getContextPath()%>/upload/default.png"> --%>
+												</div>
+											</div>
+										</c:forEach>
 									</div>
-									<div>${r.photo}</div>
-									<div>${r.createdDate}</div>
-								</li>
-							</c:forEach>
+								</div>
+							</div>
 						</ul>
 					</div>
 				</div>

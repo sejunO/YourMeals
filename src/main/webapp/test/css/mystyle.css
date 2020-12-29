@@ -625,33 +625,52 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   display: flex;
 }
 
+.content-main {
+  width: 100%;
+  padding-right: var(- -bs-gutter-x, .75rem);
+  padding-left: var(- -bs-gutter-x, .75rem);
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
 
+.content-main-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0px 10px 0px;
+}
 
+.content-main-cell {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y)* -1);
+  margin-right: calc(var(--bs-gutter-x)/-2);
+  margin-left: calc(var(--bs-gutter-x)/-2);
+}
 
+.content-main-cell-col {
+  flex: 0 0 auto;
+  width: 33%;
+}
 
+.recipe-img {
+  max-width: 90%;
+  height: auto !important;
+  margin-bottom: 10px;
+}
 
+.cell-container {
+	/* border: 2px solid red; */
+	width:100%;
+	display:block;
+	margin-bottom: 20px;
+}
 
+.cell-container-img{
+	text-align: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.cell-container-title {
+  text-align: center;
+}
