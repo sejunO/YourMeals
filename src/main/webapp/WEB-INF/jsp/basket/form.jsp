@@ -30,13 +30,13 @@
                     alt="Card image cap" height="180">
                   <div class="card-body">
                     <h5 class="card-title"
-                      style="text-align :right; max-height: 50px; margin-top: 11px; font-size: 16px;">${p.content}
+                      style="text-align :right; max-height: 50px; margin-top: 16px; font-size: 18px;">${p.content}
                     </h5>
                     <p class="card-text"
-                      style="text-align :right; padding-top: 6px; font-weight: 700; font-size: 16px; line-height: 20px;">
+                      style="text-align :right; padding-top: 6px; font-weight: 700; font-size: 12px; line-height: 20px;">
                       가격 : ${p.price}원</p>
                       <p class="card-text"
-                      style="text-align :right; padding-top: 6px; font-weight: 700; font-size: 16px; line-height: 20px;">
+                      style="text-align :right; padding-top: 6px; font-weight: 700; font-size: 12px; line-height: 20px;">
                       수량 : <input type='number' name='amount'>
                     <button class="btn btn-outline-primary">추가</button>
                   </div>
