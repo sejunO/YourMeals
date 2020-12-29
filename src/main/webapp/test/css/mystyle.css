@@ -624,7 +624,30 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .qnabtn {
   display: flex;
 }
-
+.qnatbox {
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+  display: flex;
+  font-size: 20px;
+}
+.qnatboxblock1 {
+	display: flex;
+  min-width: 50px;
+  justify-content: center;
+  margin-left: 45px;
+}
+.qnatboxblock2 {
+	display: flex;
+  min-width: 380px;
+  justify-content: center;
+  margin-left: 40px;
+}
+.qnatboxblock3 {
+  display: flex;
+  min-width: 50px;
+  justify-content: center;
+  margin-left: 50px;
+}
 .content-main {
   width: 100%;
   padding-right: var(- -bs-gutter-x, .75rem);
@@ -673,4 +696,25 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .cell-container-title {
   text-align: center;
+}
+
+.content-table {
+  width: 90%;
+}
+
+.content-table-tr {
+  background-color: rgb(250, 247, 240);
+  height: 5em;
+  border-bottom: 2px solid #C4C4C4;
+}
+
+.content-table-th {
+  text-align: center;
+}
+
+.user-img {
+  border-radius: 180px;
+  max-width: 100%;
+  height: auto;
+  margin-left: 1em;
 }

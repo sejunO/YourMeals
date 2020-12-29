@@ -88,8 +88,7 @@
                             </a>
                           </div>
                           <div class="cell-container-title">
-                            <a href='../../recipe/detail?recipeNo=${r.recipeNo}'>
-                              ${r.title} </a>
+                            <a href='../../recipe/detail?recipeNo=${r.recipeNo}'>[${r.title}]</a>
                           </div>
                           <div class="cell-container-title">
                               ${r.createdDate}<c:if test="${not empty recipe.modifiedDate}">(최종수정일:${recipe.modifiedDate})</c:if>
