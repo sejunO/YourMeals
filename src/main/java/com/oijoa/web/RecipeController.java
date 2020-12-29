@@ -91,7 +91,7 @@ public class RecipeController {
     recipe.setCategory(categoryService.get(categoryNo));
     recipe.setPhoto(filename);
     recipe.setServing(serving);
-    
+
 
     recipeService.add(recipe);
     // 로그인 유저의 최근 레시피 번호를 찾아서 레시피 스텝에 추가
@@ -195,8 +195,8 @@ public class RecipeController {
     model.addAttribute("comments", commentService.list(recipeNo));
     model.addAttribute("foods", foodService.list(recipeNo));
   }
-  
-  @RequestMapping("beforeUpdate")
+
+  @GetMapping("beforeUpdate")
   public void beforeUpdate(Model model, int recipeNo) throws Exception {
     Recipe recipe = recipeService.get(recipeNo);
     if (recipe == null) {
@@ -227,9 +227,10 @@ public class RecipeController {
   @ResponseBody
   @RequestMapping("updateRecommendCount")
   public String updateRecommendCount(int recipeNo) throws Exception {
-	  recipeService.updateRecommendCount(recipeNo);
-	  return "ok";
+    recipeService.updateRecommendCount(recipeNo);
+    return "ok";
   }
+
   @RequestMapping("updateComment")
   public String updateComment(int recipeNo, Comment comment, String content, Date modifiedDate,
       Model model, HttpSession session) throws Exception {

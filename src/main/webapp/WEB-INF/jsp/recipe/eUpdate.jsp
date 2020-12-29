@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
 	</section>
 
 			<form action='update' method='post' enctype='multipart/form-data'>
-			 <input type="hidden" name="recipeNo" value="${recipe.recipeNo}"/>
+			
 		<section>
 		<div class="container" style="margin-bottom: 100px; margin-top: 200px;">
 		    <h3 style="font-weight: bold; text-align: center;">레시피 소개하기</h3>
@@ -71,7 +71,7 @@
 						name='categoryNo'>
 						<option selected>카테고리</option>
 						
-						<c:forEach items="${categorys}" var="category">
+						<c:forEach items="${categoryList}" var="category">
 							<option value="${category.categoryNo}" <c:if test="${recipe.category.categoryNo == category.categoryNo }">selected</c:if>
 							>${category.categoryName}</option>
 						</c:forEach>						
@@ -80,7 +80,7 @@
 				<div class="input-sm">
 					<div class="input-group mb-3">
 						<span class="input-group-text">걸리는 시간</span> <input type="text"
-							class="form-control" name="min" aria-label="min" value="${recipe.min}">
+							class="form-control name="min" aria-label="min" value="${recipe.min}">
 							 <span class="input-group-text">분</span>
 					</div>
 				</div>
@@ -96,17 +96,17 @@
 				<div class="level-box">
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name='levelNo'
-							id="inlineRadio1" value="3" <c:if test="${recipe.levelNo == 3}">checked</c:if>> 
+							id="inlineRadio1" value="3"><c:if test="${recipe.levelNo == 3}">checked</c:if> 
 							<label class="form-check-label" for="inlineRadio1">상</label>
 					</div>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name='levelNo'
-							id="inlineRadio2" value="2" <c:if test="${recipe.levelNo == 2}">checked</c:if>>  
+							id="inlineRadio2" value="2"> <c:if test="${recipe.levelNo == 2}">checked</c:if> 
 							<label class="form-check-label" for="inlineRadio2">중</label>
 					</div>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name='levelNo'
-							id="inlineRadio2" value="1" <c:if test="${recipe.levelNo == 1}">checked</c:if> > 
+							id="inlineRadio2" value="1"> <c:if test="${recipe.levelNo == 1}">checked</c:if> 
 							<label class="form-check-label" for="inlineRadio2">하</label>
 					</div>
 				</div>
@@ -125,17 +125,15 @@
 			     </p>
 			<div class="metaDiv">
 				<div id="inputMetaContainer">
-					<c:forEach items="${foods}" var="f">
 					<div class="inputmeta">
 						<div class="meta-input-style">
 							<div></div>
 							<div class="meta-input-size">
 								<div class="input-group mb-3 ">
-								
 									<span class="input-group-text" id="basic-addon1">재료</span> <input
 										type="text" class="form-control"
 										aria-label="재료입력" aria-describedby="basic-addon1"
-										name='metaname' value="${f.name}">
+										name='metaname' value="${foods.name}">
 								</div>
 							</div>
 							<div class="meta-input-size">
@@ -143,13 +141,12 @@
 									<span class="input-group-text" id="basic-addon1">계량</span> <input
 										type="text" class="form-control"
 										aria-label="재료입력" aria-describedby="basic-addon1"
-										name='metaamount' value="${f.amount}">
+										name='metaamount' value="${foods.amount}">
 								</div>
 							</div>
 							<div></div>
 						</div>
 					</div>
-						</c:forEach>
 				</div>
 				<div class="btn-center">
 					<button id="btnAddMeta" type="button">재료 추가</button>
@@ -173,24 +170,19 @@
 					레시피를 순서대로 원하는 <b>사진</b>을 첨부하고 이와 관한 <b>설명</b>을 입력해 주세요:)
 				</p>
 				<div id="inputStepContainer" style="padding-left: 100px;">
-				<c:forEach items="${recipeSteps}" var="rs">
-				
 				<div class="inputStep">
 					<div class="step-input">
 						<div class="section-title">
 							<h2><span class="name">STEP 1</span></h2>
 						</div>
-						
 						<div>
-							<textarea name="step" rows='10' cols='80' style="margin-inline: 50px;">${rs.content}</textarea>
+							<textarea name="step" rows='10' cols='80' style="margin-inline: 50px;" value="${recipesteps.content}"></textarea>
 						</div>
 						<div>
-							<input type='file' name='step_photo' value="${rs.photo}">
+							<input type='file' name='step_photo' value="${recipeSteps.photo}">
 						</div>
-						
 					</div>
 				</div>
-				</c:forEach>
 			</div>
 			<div class="btn-center">
 				<button id="btnAddStep" type="button">단계 추가</button>
@@ -203,7 +195,7 @@
 
 	<div class="btn-center" style="margin: 50px;">
 		<p>
-			<button id="btnAddRecipe" >레시피 변경</button>
+			<button id="btnAddRecipe" type="button" >레시피 변경</button>
 			 <button id="btnDeleteRecipe" type="button" >레시피 삭제</button>
 		</p>
 	</div>

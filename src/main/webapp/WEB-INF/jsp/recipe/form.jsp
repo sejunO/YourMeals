@@ -41,6 +41,7 @@
 	</section>
 
 			<form action='add' method='post' enctype='multipart/form-data'>
+			<input type="hidden" name="recipeNo" value="${recipe.recipeNo}"/>
 			
 		<section>
 		<div class="container" style="margin-bottom: 100px; margin-top: 200px;">
@@ -173,6 +174,7 @@
 			<hr>
 			
   <section>
+  
   <div class="container" style="margin-bottom: 100px; margin-top: 100px;">
 				<h3
 					style="font-weight: bold; text-align: center;">재료
@@ -227,7 +229,7 @@
 			inputMetaContainer.appendChild(e1);
 		};
 
-		btnAddStep.onclick = func tion() {
+		btnAddStep.onclick = function() {
 			inputNameIndex++;
 			var e2 = inputStepDiv.cloneNode(true);
 			e2.querySelector(".name").innerHTML = "STEP " + inputNameIndex;
