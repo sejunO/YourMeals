@@ -129,8 +129,8 @@
 
   <insert id="insert" parameterType="recipe"
   useGeneratedKeys="true" keyColumn="rno" keyProperty="recipeNo">
-    insert into oi_recipe(title,content,uno,min,lno,photo,serving)
-    values(#{title},#{content},#{writer.userNo},#{min},#{levelNo},#{photo},#{serving})
+    insert into oi_recipe(title,uno,content,min,lno,photo,serving)
+    values(#{title},#{writer.userNo},#{content},#{min},#{levelNo},#{photo},#{serving})
   </insert>
   
   <insert id="insertCategory" parameterType="recipe">
