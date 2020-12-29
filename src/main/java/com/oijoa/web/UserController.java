@@ -190,7 +190,9 @@ public class UserController {
     followUsers.setFollower(loginUser.getUserNo());
     followUsers.setFollowing(followUserNo);
 
-    followService.follow(followUsers);
+    if (followService.follow(followUsers) == 0) {
+      throw new Exception("팔로우를 실패하였습니다.");
+    }
     return "redirect:"+ referer;
   }
 
