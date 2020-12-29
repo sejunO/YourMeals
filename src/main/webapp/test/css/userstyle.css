@@ -207,6 +207,7 @@ table {
 	width: 60%;
 	margin: auto;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .recipe-img {

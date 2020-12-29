@@ -208,11 +208,7 @@
 
 	<div class="btn-center" style="margin: 50px; padding-bottom: 100px;">
 		<p>
-<<<<<<< HEAD
 			<button id="btnAddRecipe">레시피 등록</button>
-=======
-			<button id="btnAddRecipe" >레시피 등록</button>
->>>>>>> f6aa056fc6d9f36cae844d3f59c47d581f0f83d5
 		</p>
 	</div>
 
