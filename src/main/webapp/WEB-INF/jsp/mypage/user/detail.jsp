@@ -82,7 +82,7 @@
 	   
 	   <div class="updatebox4">
 	   <span class="labels">세부주소:</span> <input type='text'  class="form-control"
-	     style="margin:5px 0 0 70px; position: relative; id="detailAddress" name='detailAddress'
+	     style="margin:5px 0 0 70px; position: relative" id="detailAddress" name='detailAddress'
 	     value='${user.detailAddress}'>
      </div>
     
