@@ -66,7 +66,7 @@
   
    <select id="findByHit" resultMap="RecipeMap">
    <include refid="sql1"/>
-    order by hit desc
+    order by hits desc
   </select>
 
   <select id="findByKeyword" resultMap="RecipeMap" parameterType="string">

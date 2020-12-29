@@ -73,24 +73,26 @@
 
 					<div class="mylist">
 						<h3>나의 팔로잉</h3>
-						<table class="content-table" style="text-align: center">
-							<thead>
-								<tr class="content-table-tr">
-									<th class="content-table-th">사용자사진</th>
-									<th class="content-table-th">닉네임</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								<c:forEach items="${followingList}" var="fwng">
-									<tr>
-										<td><img class="user-img"
-											src='../../upload/${fwng.user.photo}_120x120.jpg'></td>
-										<td><a href='followerList?userNo=${fwng.user.userNo}'>${fwng.user.nick}</a></td>
+						<div class="content-main">
+							<table class="content-table" style="text-align: center">
+								<thead>
+									<tr class="content-table-tr">
+										<th class="content-table-th">사용자사진</th>
+										<th class="content-table-th">닉네임</th>
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+								</thead>
+
+								<tbody>
+									<c:forEach items="${followingList}" var="fwng">
+										<tr>
+											<td><img class="user-img"
+												src='../../upload/${fwng.user.photo}_120x120.jpg'></td>
+											<td><a href='followerList?uNo=${fwng.user.userNo}'>${fwng.user.nick}</a></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

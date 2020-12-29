@@ -719,3 +719,24 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .cell-container-title {
   text-align: center;
 }
+
+.content-table {
+  width: 90%;
+}
+
+.content-table-tr {
+  background-color: rgb(250, 247, 240);
+  height: 5em;
+  border-bottom: 2px solid #C4C4C4;
+}
+
+.content-table-th {
+  text-align: center;
+}
+
+.user-img {
+  border-radius: 180px;
+  max-width: 100%;
+  height: auto;
+  margin-left: 1em;
+}

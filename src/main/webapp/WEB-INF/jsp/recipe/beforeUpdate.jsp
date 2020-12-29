@@ -13,10 +13,17 @@
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/recipeForm.css"
 	rel="stylesheet">
+	
+	<style>
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+</style>
+
 </head>
 
 <body>
-<jsp:include page="/header.jsp"></jsp:include>
 
 	<section id="hero" class="d-flex align-items-center img-add">
 		<div
@@ -30,8 +37,9 @@
 
 			<form action='update' method='post' enctype='multipart/form-data'>
 			 <input type="hidden" name="recipeNo" value="${recipe.recipeNo}"/>
+			 
 		<section>
-		<div class="container" style="margin-bottom: 100px; margin-top: 200px;">
+		<div class="container" style="margin-bottom: 100px; margin-top: 200px;">		
 		    <h3 style="font-weight: bold; text-align: center;">레시피 소개하기</h3>
 		    <p style="text-align: center; padding-bottom: 50px; padding-top: 20px;">
 		     소개하고자 하는 레시피의 <b>이름</b>, <b>사진</b> 그리고 <b>간단한 설명</b>을 
@@ -179,7 +187,7 @@
 				<div class="inputStep">
 					<div class="step-input">
 						<div class="section-title">
-							<h2><span class="name">STEP 1</span></h2>
+							<h2><span class="name">STEP ${rs.step}</span></h2>
 						</div>
 						
 						<div>

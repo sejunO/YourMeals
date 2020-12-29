@@ -370,6 +370,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -385,6 +386,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .img-list {
   background: url("../img/meal.jpg") center center;
+}
+
+#hero .bg-text-center {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  color:honeydew;
 }
 
 #hero .container {

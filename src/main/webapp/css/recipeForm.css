@@ -14,6 +14,15 @@
   #hero .container {
 	padding: 200px;
   }
+
+  
+#hero .bg-text-center {
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	color:honeydew;
+  }
   
   #hero:before {
 	content: "";
@@ -100,6 +109,20 @@
 	background: #009970;
 	bottom: 0;
 	left: 0;
+  }
+
+  #left{
+	text-align: left;
+	padding-left: 65px;
+  }
+  #right{
+	text-align: right;
+	padding-right: 65px;
+  }
+  
+  .side-and-side {
+	display: flex;
+	justify-content: space-between;
   }
 
 
