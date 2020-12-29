@@ -93,8 +93,7 @@ public class RecipeController {
     recipe.setCategory(categoryService.get(categoryNo));
     recipe.setPhoto(filename);
     recipe.setServing(serving);
-    // 재료 추가 코드 필요
-    // 조리 순서 코드 필요
+    
 
     recipeService.add(recipe);
     // 로그인 유저의 최근 레시피 번호를 찾아서 레시피 스텝에 추가
@@ -174,14 +173,21 @@ public class RecipeController {
     model.addAttribute("comments", commentService.list(recipeNo));
     model.addAttribute("foods", foodService.list(recipeNo));
   }
-
-
-  @ResponseBody
-  @RequestMapping("updateRecommendCount")
-  public String updateRecommendCount(int recipeNo) throws Exception {
-    recipeService.updateRecommendCount(recipeNo);
-    return "ok";
+  
+  @RequestMapping("beforeUpdate")
+  public void beforeUpdate(Model model, int recipeNo) throws Exception {
+    Recipe recipe = recipeService.get(recipeNo);
+    if (recipe == null) {
+      System.out.println("레시피가 존재하지 않습니다.");
+    }
+    model.addAttribute("recipe", recipe);
+    model.addAttribute("categorys", categoryService.list());
+    model.addAttribute("levels", levelService.list());
+    model.addAttribute("recipeSteps", recipeStepService.list(recipeNo));
+    model.addAttribute("comments", commentService.list(recipeNo));
+    model.addAttribute("foods", foodService.list(recipeNo));
   }
+
 
   @RequestMapping("update")
   public String update(int recipeNo, Food food, RecipeStep recipeStep) throws Exception {
@@ -196,6 +202,12 @@ public class RecipeController {
     return "redirect:detail?recipeNo=" + recipeNo;
   }
 
+  @ResponseBody
+  @RequestMapping("updateRecommendCount")
+  public String updateRecommendCount(int recipeNo) throws Exception {
+	  recipeService.updateRecommendCount(recipeNo);
+	  return "ok";
+  }
   @RequestMapping("updateComment")
   public String updateComment(int recipeNo, Comment comment, String content, Date modifiedDate,
       Model model, HttpSession session) throws Exception {

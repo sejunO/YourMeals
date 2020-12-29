@@ -28,6 +28,7 @@
 	</section>
 
 			<form action='update' method='post' enctype='multipart/form-data'>
+			
 		<section>
 		<div class="container" style="margin-bottom: 100px; margin-top: 200px;">
 		    <h3 style="font-weight: bold; text-align: center;">레시피 소개하기</h3>

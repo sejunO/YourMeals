@@ -94,7 +94,7 @@
 				  <div id="right">
 <%-- 				<c:if test="${recipe.writer == loginUser}"> --%>
 				<div class="updateAndDelete" style="text-align: right; padding-bottom: 20px;">
-				  <a href="update?recipeNo=${recipe.recipeNo}"><button name="updateBtn" style="margin-right: 15px;">수정</button></a>
+				  <a href="beforeUpdate?recipeNo=${recipe.recipeNo}"><button name="updateBtn" style="margin-right: 15px;">수정</button></a>
           <a href='delete?recipeNo=${recipe.recipeNo}'><button name="deleteBtn">삭제</button></a>
 				</div>
 				</div>
