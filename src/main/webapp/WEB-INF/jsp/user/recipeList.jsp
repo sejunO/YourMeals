@@ -59,22 +59,15 @@
     <div class="content-container">
       <jsp:include page="../user/userHeader.jsp"></jsp:include>
       <div class="content-main">
-        <table class="content-table" style="text-align: center">
-          <thead>
-            <tr class="content-table-tr">
-            </tr>
-          </thead>
-
-          <tbody>
-            <c:forEach items="${recipeList}" var="r" varStatus="vs">
-              <tr>
-                <td>${vs.index}</td>
-                <td>${vs.count}</td>
-              </tr>
-            </c:forEach>
-          </tbody>
-        </table>
+      <div class="content-main-container">
+					<div class="content-main-cell">
+				<c:forEach items="${recipeList}" var="r">
+						  <%-- <img class="recipe-img" src='../../upload/${r.photo}_120x120.jpg'> --%>
+						  <img class="recipe-img" src="../../../upload/test2.jpg">
+				</c:forEach>
+					</div>
       </div>
+			</div>
     </div>
   </div>
 

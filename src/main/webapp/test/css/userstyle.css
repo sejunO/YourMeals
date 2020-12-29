@@ -197,8 +197,22 @@ table {
 }
 
 .content-main-container {
+	width: 100%;
 	display: flex;
+	flex-wrap: wrap;
 	padding: 10px 0px 10px 0px;
+}
+
+.content-main-cell {
+	width: 60%;
+	margin: auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.recipe-img {
+  max-width: 120px;
+  margin: 5px 5px 5px 5px;
 }
 
 #show {
