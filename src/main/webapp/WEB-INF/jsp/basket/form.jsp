@@ -16,12 +16,12 @@
 
 <body>
   <h1 style="text-align: center">장바구니 생성</h1>
-      <div class="container mt-5" style="min-height: calc(100vh - 132px); max-height: auto; ">
+      <div class="container mt-6" style="min-height: calc(100vh - 132px); max-height: auto; ">
         <div class="container">
           <div class="row"> 
             <c:forEach items="${products}" var="p">
               <div class="col-3"> 
-                <div class="card mb-4">
+                <div class="card mb-3">
               <form action='add' method='post'>
                   <input type='radio' name='productNo' value="${p.productNo}">${p.title}<br>
                    <img
@@ -30,13 +30,15 @@
                     alt="Card image cap" height="180">
                   <div class="card-body">
                     <h5 class="card-title"
-                      style="max-height: 50px; margin-top: 11px; font-size: 16px;">${p.content}
+                      style="text-align :right; max-height: 50px; margin-top: 11px; font-size: 16px;">${p.content}
                     </h5>
                     <p class="card-text"
-                      style="padding-top: 6px; font-weight: 700; font-size: 16px; line-height: 20px;">
+                      style="text-align :right; padding-top: 6px; font-weight: 700; font-size: 16px; line-height: 20px;">
                       가격 : ${p.price}원</p>
-                      수량 : <input type='number' name='amount' ><br>
-                    <button class="btn btn-outline-primary">장바구니 추가</button>
+                      <p class="card-text"
+                      style="text-align :right; padding-top: 6px; font-weight: 700; font-size: 16px; line-height: 20px;">
+                      수량 : <input type='number' name='amount'>
+                    <button class="btn btn-outline-primary">추가</button>
                   </div>
              </form>
                 </div>
