@@ -62,8 +62,12 @@
       <div class="content-main-container">
 					<div class="content-main-cell">
 				<c:forEach items="${recipeList}" var="r">
-						  <%-- <img class="recipe-img" src='../../upload/${r.photo}_120x120.jpg'> --%>
-						  <img class="recipe-img" src="<%=request.getContextPath() %>/upload/test2.jpg">
+				<div class="content-main-cell-col">
+						  <a href='../recipe/detail?recipeNo=${r.recipeNo}'>
+						  <img class="recipe-img" src='../../upload/${r.photo}_500x500.jpg'>
+						  </a>
+						  <%-- <img class="recipe-img" src="<%=request.getContextPath()%>/upload/default.png"> --%>
+				</div>
 				</c:forEach>
 					</div>
       </div>

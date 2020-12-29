@@ -67,6 +67,15 @@ table {
 	height: 35px;
 }
 
+.content-main {
+	width: 100%;
+	padding-right: var(- -bs-gutter-x, .75rem);
+	padding-left: var(- -bs-gutter-x, .75rem);
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 100px;
+}
+
 .main-content {
 	width: 100%;
 	margin: auto;
@@ -93,10 +102,6 @@ table {
 .user-container {
 	display: flex;
 	padding: 10px 0px 10px 0px;
-}
-
-.content-main {
-	margin-bottom: 100px;
 }
 
 .content-table {
@@ -204,15 +209,22 @@ table {
 }
 
 .content-main-cell {
-	width: 60%;
-	margin: auto;
-  text-align: center;
-  box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: calc(var(--bs-gutter-y)* -1);
+	margin-right: calc(var(--bs-gutter-x)/-2);
+	margin-left: calc(var(--bs-gutter-x)/-2);
+}
+
+.content-main-cell-col {
+	flex: 0 0 auto;
+	width: 33%;
 }
 
 .recipe-img {
-  max-width: 120px;
-  margin: 5px 5px 5px 5px;
+	max-width: 85%;
+  height: auto !important;
+  margin-bottom: 10px;
 }
 
 #show {
