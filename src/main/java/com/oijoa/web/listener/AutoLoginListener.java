@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import com.oijoa.domain.User;
 
-@WebListener
+//@WebListener
 public class AutoLoginListener implements ServletRequestListener {
 
 
