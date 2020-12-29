@@ -573,6 +573,85 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   height: 100px;
   align-items: center;
   border: 1px solid #d4d4d4;
+  margin-left: 100px;
 }
+.qnabox {
+  border-top: 4px solid #000;
+}
+.qnanobox {
+  display: flex;
+  border-bottom: 1px solid #d4d4d4;
+  width: 100%;
+  padding-bottom: 5px;
+}
+.qnano {
+  padding-left: 20px;
+}
+.qnalist {
+	display: flex;	
+	flex-direction: row;
+	font-size: 18px;
+	padding: 5px 0;
+} 
+.qnatitlebox {
+  padding-top: 5px;
+  font-size: 18px;
+  display: flex;
+  border-bottom: 1px solid #d4d4d4;
+  width: 100%;
+  padding-bottom: 5px;
+}
+.titlebox {
+	border-top: white;
+  border-left: white;
+  border-right: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  min-width: 200px;
+}
+.contentbox {
+  min-width: 100%;
+  min-height: 200px;
+  font-size: 15px;
+  padding-top: 20px;
+  border-bottom: 1px solid #000;
+}
+.incontentbox {
+  width: 100%;
+  min-height: 200px;
+  border-color: white;
+}
+.qnabtn {
+  display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
