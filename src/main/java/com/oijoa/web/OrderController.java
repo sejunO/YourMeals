@@ -18,6 +18,7 @@ import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.OrderListService;
 import com.oijoa.service.OrderService;
 import com.oijoa.service.PaymentService;
+import com.oijoa.service.UserService;
 
 @Controller
 @RequestMapping("/order")
@@ -32,6 +33,8 @@ public class OrderController {
   BasketService basketService;
   @Autowired
   PaymentService paymentService;
+  @Autowired
+  UserService userService;
 
   @RequestMapping("add")
   public String add(HttpSession session, Order order) throws Exception {
@@ -74,8 +77,8 @@ public class OrderController {
 
   @RequestMapping("form")
   public void form(HttpSession session, Model model) throws Exception {
-
-    User user = (User) session.getAttribute("loginUser");
+    User loginUser = (User)session.getAttribute("loginUser");
+    User user = userService.get(loginUser.getUserNo());
     List<Basket> baskets = basketService.myList(user.getUserNo());
     List<Payment> payments = paymentService.list(null);
 

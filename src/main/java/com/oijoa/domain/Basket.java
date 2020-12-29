@@ -11,7 +11,6 @@ public class Basket {
   private List<Product> products;
   private List<User> users;
 
-
   public List<Product> getProducts() {
     return products;
   }
