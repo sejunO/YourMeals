@@ -71,8 +71,8 @@
      <div class="updatebox3">
     <span class="labels"> 우편번호:</span> <input type='text'  class="form-control"
       style="margin:5px 0 0 70px; position: relative; "id="postNo" name='postNo' value='${user.postNo}'>
-   	 <input type="button" onclick="execPostCode()" style="margin: 5px 0 0 5px; position: relative;"
-   	  value="우편번호 찾기">
+   	 <input type="button" onclick="execPostCode()" class="userbtn" 
+   	 style="margin: 5px 0 0 5px; position: relative;" value="우편번호 찾기">
      </div>
      
      <div class="updatebox4">
@@ -97,13 +97,12 @@
     <%--<button type="button" onclick="location.href='deleteMyUser'">회원탈퇴</button><br> --%>
     </div>
    
-    <button>변경</button>
-    <button type="button" onclick="location.href='../../../mypage/index.html'">취소</button>
-
+   <div class="button2">
+    <button style="margin-right: 10px;">변경</button>
+    <button type="button" onclick="location.href='<%=request.getContextPath() %>/app/mypage/index'">취소</button>
+	</div>
   </form>
   </div>
-  
-  
   					</div>
   				</div>
   			</div>
