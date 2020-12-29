@@ -15,12 +15,12 @@
         <a href="#">Back to top</a>
       </p>
       <p>
-      'YOUR MEALS' is a project, which is implemented by BITCAMP INSTITUTION. 
-      It represents our capacity, what we can do as a Webdeveloper and is also our Portfolio
-      for applying Firms. 
+      'YOUR MEALS' ist eine Project, die von BITCAMP INSTITUTION ausgeführt wird. 
+      Sie zeigt sich  unsere Fähigkeiten, was wir als Webdeveloper machen können und
+      dafür ist es ein Portfolio, damit wir uns Firmen bewerben wollen.
      </p>
       <p>
-        More interest our project? <a href="https://gitgub.com/sejunO/YourMeals">
+       more interest our Project? <a href="https://gitgub.com/sejunO/YourMeals">
         Visit our GITHUB homepage</a> 
       </p>
     </div>
