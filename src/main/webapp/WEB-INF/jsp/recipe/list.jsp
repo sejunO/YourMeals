@@ -110,7 +110,15 @@ body {
 
 
 	<section name="showlist" style="padding-bottom: 500px;">
-		<div class="container">
+		<div class="container" >
+		<div class="side-and-side" >
+		  <div id="left">
+		    <a href="list" style="text-decoration: underline;">전체 레시피 보기</a>
+		  </div>
+		   <div id="right">
+		    <a href="form"><button class="addRecipeBtn">새 레시피 만들기</button></a>
+	     </div>
+		</div>
 			<table class="table" style="text-align: center">
 				<thead>
 					<tr style="background-color: rgb(250, 247, 240);">
@@ -153,24 +161,7 @@ body {
 		</div>
 	</section>
 
-
-
-	<!-- 페이지 맨 밑 설명 + Back to top-->
-	<footer class="text-muted">
-		<div class="container">
-			<p class="float-right">
-				<a href="#">Back to top</a>
-			</p>
-			<p>Album example is &copy; Bootstrap, but please download and
-				customize it for yourself!</p>
-			<p>
-				New to Bootstrap? <a href="https://getbootstrap.com/">Visit the
-					homepage</a> or read our <a
-					href="/docs/4.5/getting-started/introduction/">getting started
-					guide</a>.
-			</p>
-		</div>
-	</footer>
+	<jsp:include page="footer.jsp"></jsp:include>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

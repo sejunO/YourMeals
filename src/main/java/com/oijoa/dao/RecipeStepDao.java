@@ -11,6 +11,10 @@ public interface RecipeStepDao {
   int deleteByRecipeNo(int recipeNo) throws Exception;
 
   int insert(RecipeStep step) throws Exception;
+  
+  int delete(int recipeNo) throws Exception;
+  
+  int update(RecipeStep recipeStep) throws Exception;
 }
 
 

@@ -47,7 +47,7 @@
 				<div class="main-file-style">
 					<div class="input-group mb-3">
 						<input type="file" class="form-control" id="inputGroupFile02"
-							name='recipe_photo'> <label class="input-group-text"
+							name='recipe_photo' value="${recipe.photo}"> <label class="input-group-text"
 							for="inputGroupFile02">Upload</label>
 					</div>
 
@@ -115,7 +115,6 @@
 
 	<hr>
 
-// 여기서 부터 수정 시작 해야함
 
 	<section>
 		<div class="container" style="margin-bottom: 100px; margin-top: 100px;">
@@ -131,17 +130,17 @@
 							<div class="meta-input-size">
 								<div class="input-group mb-3 ">
 									<span class="input-group-text" id="basic-addon1">재료</span> <input
-										type="text" class="form-control" placeholder="양파"
+										type="text" class="form-control"
 										aria-label="재료입력" aria-describedby="basic-addon1"
-										name='metaname'>
+										name='metaname' value="${foods.name}">
 								</div>
 							</div>
 							<div class="meta-input-size">
 								<div class="input-group mb-3 ">
 									<span class="input-group-text" id="basic-addon1">계량</span> <input
-										type="text" class="form-control" placeholder="1개"
+										type="text" class="form-control"
 										aria-label="재료입력" aria-describedby="basic-addon1"
-										name='metaamount'>
+										name='metaamount' value="${foods.amount}">
 								</div>
 							</div>
 							<div></div>
@@ -176,10 +175,10 @@
 							<h2><span class="name">STEP 1</span></h2>
 						</div>
 						<div>
-							<textarea name="step" rows='10' cols='80' style="margin-inline: 50px;"></textarea>
+							<textarea name="step" rows='10' cols='80' style="margin-inline: 50px;" value="${recipesteps.content}"></textarea>
 						</div>
 						<div>
-							<input type='file' name='step_photo'>
+							<input type='file' name='step_photo' value="${recipeSteps.photo}">
 						</div>
 					</div>
 				</div>
@@ -195,11 +194,14 @@
 
 	<div class="btn-center" style="margin: 50px;">
 		<p>
-			<button id="btnAddRecipe" type="button" >레시피 등록</button>
+			<button id="btnAddRecipe" type="button" >레시피 변경</button>
+			 <button id="btnDeleteRecipe" type="button" >레시피 삭제</button>
 		</p>
 	</div>
 
 	</form>
+	
+	<jsp:include page="footer.jsp"></jsp:include>
 	
 	
 	<script>

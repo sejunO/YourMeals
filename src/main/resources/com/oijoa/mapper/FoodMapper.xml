@@ -36,6 +36,17 @@
   	values(#{recipeNo}, #{name}, #{amount})
   </insert>
   
+  <update id="update" parameterType="food">
+   update oi_food set
+      name = #{name},
+      amount = #{amount}
+    where rno = #{recipeNo}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+   delete from oi_food
+   where rno = #{recipeNo}
+  </delete>
 </mapper>
 
 

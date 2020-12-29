@@ -10,7 +10,10 @@ public interface FoodService {
   List<Food> list(String keyword) throws Exception;
 
   List<Food> list(int recipeNo) throws Exception;
-
+  
   int add(Food food) throws Exception;
-
+  
+  int update(Food food) throws Exception;
+  
+  int delete(int recipNo) throws Exception;
 }
