@@ -87,13 +87,13 @@ body {
 			<h2>여러분만의 레시피를 공유해 보세요!</h2>
 		</div>
 	</section>
+<
 
 
-
-	<section name="search" id="show">
-		<div class="container">
-			 <h3 style="font-weight: bold; padding-bottom: 30px;">레시피 검색</h3>
-				<form action="list" method="get">
+	<section name="search" >
+		<div class="container" id="show">
+			 <h3 style="font-weight: bold; padding-bottom: 20px; padding-left: 50px">레시피 검색</h3>
+				<form action="list" method="get" style="padding-left: 30px;">
 					<div class="form-inline" style="padding-left: 20px; display: flex;">
 						<select id="selectbox" name="option">
 							<option value="all">전체</option>
