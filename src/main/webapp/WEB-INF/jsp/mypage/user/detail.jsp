@@ -70,19 +70,19 @@
      
      <div class="updatebox3">
     <span class="labels"> 우편번호:</span> <input type='text'  class="form-control"
-      style="margin:5px 0 0 70px; position: relative; "id="postNo" name='postNo' value='${user.postNo}'>
+      style="margin:5px 0 0 70px; position: relative;" id="postNo" name='postNo' value='${user.postNo}'>
    	 <input type="button" onclick="execPostCode()" class="userbtn" 
    	 style="margin: 5px 0 0 5px; position: relative;" value="우편번호 찾기">
      </div>
      
      <div class="updatebox4">
-	   <span class="labels"> 기본주소: </span> <input type='text'  class="form-control"
-	     style="margin:5px 0 0 70px; position: relative; id="address" name='address' value='${user.address}'>
+	   <span class="labels"> 기본주소: </span> <input type='text' class="form-control"
+	     style="margin:5px 0 0 70px; position: relative;" id="address" name='address' value='${user.address}'>
 	   </div>
 	   
 	   <div class="updatebox4">
 	   <span class="labels">세부주소:</span> <input type='text'  class="form-control"
-	     style="margin:5px 0 0 70px; position: relative; id="detailAddress" name='detailAddress'
+	     style="margin:5px 0 0 70px; position: relative;" id="detailAddress" name='detailAddress'
 	     value='${user.detailAddress}'>
      </div>
     
