@@ -187,7 +187,7 @@ body {
 				<div class="inputStep">
 					<div class="step-input">
 						<div class="section-title">
-							<h2><span class="name">STEP 1</span></h2>
+							<h2><span class="name">STEP ${rs.step}</span></h2>
 						</div>
 						
 						<div>

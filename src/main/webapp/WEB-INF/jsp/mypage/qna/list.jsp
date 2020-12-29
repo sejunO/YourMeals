@@ -77,16 +77,16 @@
             <ul class="list">
               <li class="thead">
                 <div class="td-col1">번호</div>
-                <div class="td-col1">제목</div>
+                <div class="td-col1" style="padding-right: 50px;">제목</div>
                 <div class="td-col1">등록일</div>
               </li>
               <c:forEach items="${qnaList}" var="q">
-                <li class="tbox">
-                  <div>${q.qnaNo}</div>
-                  <div>
+                <li class="qnatbox">
+                  <div class="qnatboxblock1">${q.qnaNo}</div>
+                  <div class="qnatboxblock2">
                     <a href='detail?qnaNo=${q.qnaNo}'>${q.title}</a>
                   </div>
-                  <div>${q.createdDate}</div>
+                  <div class="qnatboxblock3">${q.createdDate}</div>
                 </li>
               </c:forEach>
             </ul>
