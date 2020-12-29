@@ -365,6 +365,14 @@ public class RecipeController {
               return name + "_1280x720";
             }
           });
+
+      Thumbnails.of(saveFilePath).size(350, 240).outputFormat("jpg").crop(Positions.CENTER)
+          .toFiles(new Rename() {
+            @Override
+            public String apply(String name, ThumbnailParameter param) {
+              return name + "_360x240";
+            }
+          });
     } catch (Exception e) {
       e.printStackTrace();
     }
