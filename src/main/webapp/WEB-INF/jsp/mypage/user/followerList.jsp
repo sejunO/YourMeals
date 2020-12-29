@@ -78,7 +78,6 @@
 								<tr class="content-table-tr">
 									<th class="content-table-th">사용자사진</th>
 									<th class="content-table-th">닉네임</th>
-									<th class="content-table-th">Follow</th>
 								</tr>
 							</thead>
 
@@ -88,14 +87,6 @@
 										<td><img class="user-img"
 											src='../../upload/${fwer.user.photo}_120x120.jpg'></td>
 										<td><a href='followerList?userNo=${fwer.user.userNo}'>${fwer.user.nick}</a></td>
-										<td>
-											<button class="content-table-btn"
-												onclick="location.href='follow?followUserNo=${fwer.user.userNo}'">Follow
-												+</button>
-											<button class="content-table-btn"
-												onclick="location.href='unfollow?unfollowUserNo=${fwer.user.userNo}'">Unfollow
-												-</button>
-										</td>
 									</tr>
 								</c:forEach>
 							</tbody>

@@ -115,7 +115,7 @@
 						<br>
 					</div>
 					<div id="left">
-						<h5>작성자: ${recipe.writer.nick}</h5>
+						<h5>작성자: <a href='../user/recipeList?uNo=${recipe.writer.userNo}'>${recipe.writer.nick}</a></h5>
 						<br>
 					</div>
 				</div>
@@ -274,7 +274,7 @@
 					   <c:forEach items="${comments}" var="c">
 					     <div class="side-and-side">
                 <div id="left">
-                  <h5>${c.writer.nick}</h5>
+                  <h5><a href='../user/recipeList?uNo=${c.writer.userNo}'>${c.writer.nick}</a></h5>
                 </div>
                 <div id="right">
                  <c:if test='${recipe.modifiedDate == null}'>
