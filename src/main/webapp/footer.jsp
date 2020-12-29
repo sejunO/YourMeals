@@ -4,8 +4,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.footbox {
+	display: flex;
+	justify-content: space-between;
+	justify-content: center;
+	position: relative;
+	margin-top: auto;
+	padding: 1em 0;
+	border-top: 1px solid #e2e2e2;
+	font-size: 1rem;
+	text-align: center;
+	color: black;
+	background-color: #b6d6c6;
+	background-color: #b6d6c6;
+	font-family: "campton", "Apple SD Gothic Neo", NanumBarunGothic,
+		"나눔바른고딕", Malgun Gothic, "맑은 고딕", dotum, sans-serif;
+}
+</style>
 <title>footer</title>
-<link rel="stylesheet" type="text/css"  href="<%=request.getContextPath() %>/test/css/style.css">
 </head>
 <body>
 	<div class="footbox">

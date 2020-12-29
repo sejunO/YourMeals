@@ -66,12 +66,22 @@
     values(#{follower},#{following})
   </insert>
   
-  <delete id="delete" parameterType="int">
+  <delete id="delete" parameterType="follow">
     delete from oi_follow
     where 
       follower = #{follower}
       and following = #{following}
   </delete>
+  
+  <select id="findByFollowCount" resultType="int" parameterType="follow">
+    select 
+      count(*)
+    from 
+      oi_follow
+    where 
+      follower = #{follower}
+      and following = #{following};
+  </select>
 </mapper>
 
 
