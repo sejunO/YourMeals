@@ -87,6 +87,19 @@
 		<section id="about" class="about">
 			<div class="container">
 				<div class="row content">
+				<div class="side-and-side">
+				  <div id="left">
+				   <a href="list" style="text-decoration: underline; padding-top: 50px;">전체 레시피 보기</a>
+				  </div>
+				  <div id="right">
+<%-- 				<c:if test="${recipe.writer == loginUser}"> --%>
+				<div class="updateAndDelete" style="text-align: right; padding-bottom: 20px;">
+				  <a href="update?recipeNo=${recipe.recipeNo}"><button name="updateBtn" style="margin-right: 15px;">수정</button></a>
+          <a href='delete?recipeNo=${recipe.recipeNo}'><button name="deleteBtn">삭제</button></a>
+				</div>
+				</div>
+				</div> 
+<%-- 				</c:if> --%>
 					<div class="recipe-content" id="img-recipe" data-aos="fade-right"
 						data-aos-delay="100">
 						<div class="side-and-side">
@@ -298,22 +311,8 @@
 			</div>
 		</section>
 	</div>
-	<!-- 페이지 맨 밑 설명 + Back to top-->
-	<footer class="text-muted">
-		<div class="container">
-			<p class="float-right">
-				<a href="#">Back to top</a>
-			</p>
-			<p>Album example is &copy; Bootstrap, but please download and
-				customize it for yourself!</p>
-			<p>
-				New to Bootstrap? <a href="https://getbootstrap.com/">Visit the
-					homepage</a> or read our <a
-					href="/docs/4.5/getting-started/introduction/">getting started
-					guide</a>.
-			</p>
-		</div>
-	</footer>
+
+<jsp:include page="footer.jsp"></jsp:include>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

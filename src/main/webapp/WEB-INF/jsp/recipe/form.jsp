@@ -41,6 +41,7 @@
 	</section>
 
 			<form action='add' method='post' enctype='multipart/form-data'>
+			
 		<section>
 		<div class="container" style="margin-bottom: 100px; margin-top: 200px;">
 		    <h3 style="font-weight: bold; text-align: center;">레시피 소개하기</h3>
@@ -205,7 +206,7 @@
 
 	<hr>
 
-	<div class="btn-center" style="margin: 50px;">
+	<div class="btn-center" style="margin: 50px; padding-bottom: 100px;">
 		<p>
 			<button id="btnAddRecipe" type="button" >레시피 등록</button>
 		</p>
@@ -213,6 +214,7 @@
 
 	</form>
 	
+	<jsp:include page="footer.jsp"></jsp:include>
 	
 	<script>
 		var inputMetaContainer = document.querySelector("#inputMetaContainer");
