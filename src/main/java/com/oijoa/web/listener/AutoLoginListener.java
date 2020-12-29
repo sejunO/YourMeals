@@ -2,12 +2,11 @@ package com.oijoa.web.listener;
 
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
-import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import com.oijoa.domain.User;
 
-@WebListener
+// @WebListener
 public class AutoLoginListener implements ServletRequestListener {
 
 

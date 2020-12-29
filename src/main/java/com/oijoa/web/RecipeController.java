@@ -5,19 +5,18 @@ import java.io.File;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.UUID;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Food;
 import com.oijoa.domain.Recipe;
@@ -32,7 +31,6 @@ import com.oijoa.service.NoticeService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.RecipeStepService;
 import com.oijoa.service.UserService;
-
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -137,8 +135,32 @@ public class RecipeController {
     return "redirect:detail?recipeNo=" + recipeNo;
   }
 
-  @RequestMapping("list")
-  public void list(Model model, String option, String keyword) throws Exception {
+  @GetMapping("list")
+  public void getList(Model model, String option, String keyword) throws Exception {
+    if (option == null) {
+      model.addAttribute("list", recipeService.list());
+    } else if (option.equalsIgnoreCase("all")) {
+      model.addAttribute("list", recipeService.list(keyword));
+    } else if (option.equalsIgnoreCase("title")) {
+      HashMap<String, Object> keywordMap = new HashMap<>();
+      keywordMap.put("title", keyword);
+      model.addAttribute("list", recipeService.list(keywordMap));
+    } else if (option.equalsIgnoreCase("writer")) {
+      HashMap<String, Object> keywordMap = new HashMap<>();
+      keywordMap.put("writer", keyword);
+      model.addAttribute("list", recipeService.list(keywordMap));
+    } else if (option.equalsIgnoreCase("category")) {
+      HashMap<String, Object> keywordMap = new HashMap<>();
+      keywordMap.put("category", keyword);
+      model.addAttribute("list", recipeService.list(keywordMap));
+    } else {
+      model.addAttribute("list", recipeService.list());
+    }
+    model.addAttribute("notices", noticeService.list());
+  }
+
+  @PostMapping("list")
+  public void postList(Model model, String option, String keyword) throws Exception {
     if (option == null) {
       model.addAttribute("list", recipeService.list());
     } else if (option.equalsIgnoreCase("all")) {
@@ -185,13 +207,13 @@ public class RecipeController {
 
   @RequestMapping("update")
   public String update(int recipeNo, Food food, RecipeStep recipeStep) throws Exception {
-	  Recipe recipe = recipeService.get(recipeNo);
-	  foodService.delete(recipeNo);
-	  foodService.add(food);
-	  recipeStepService.delete(recipeNo);
-	  recipeStepService.add(recipeStep);
-	  recipeService.updateCategory(recipe);
-	  recipeService.update(recipe);
+    Recipe recipe = recipeService.get(recipeNo);
+    foodService.delete(recipeNo);
+    foodService.add(food);
+    recipeStepService.delete(recipeNo);
+    recipeStepService.add(recipeStep);
+    recipeService.updateCategory(recipe);
+    recipeService.update(recipe);
 
     return "redirect:detail?recipeNo=" + recipeNo;
   }

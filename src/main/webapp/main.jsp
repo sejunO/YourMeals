@@ -21,10 +21,10 @@
 
   <div class="row justify-content-center padding">
     <div class="col-md-8 ftco-animate fadeInUp ftco-animated">
-        <form action="#" class="domain-form">
-            <div class="form-group d-md-flex"> <input type="text" class="form-control px-4" placeholder="Enter your domain name..."> <input type="submit" class="search-domain btn btn-primary px-5" value="Search Domain"> </div>
+        <form action="app/recipe/list" class="domain-form">
+            <div class="form-group d-md-flex"> <input type="hidden" name="option" value="all"></input><input type="text" name="keyword" class="form-control px-4" placeholder="재료를 입력하세요 ! "> <input type="submit" class="search-domain btn btn-primary px-5" value="검색"> </div>
         </form>
-        <p class="domain-price text-center"><span><small>.com</small>10.75</span> <span><small>.net</small>19.90</span> <span><small>.biz</small>$5.95</span> <span><small>.gov</small>$3.95</span></p>
+        <a href="index.jsp"><p class="domain-price text-center">메인 화면으로 가기</p></a>
     </div>
 </div>
     
