@@ -94,21 +94,23 @@ public class UserController {
 
   @GetMapping("recipeList")
   public void recipeList(@ModelAttribute("loginUser") User loginUser, 
-      int userNo, Model model) throws Exception {
-    User user = userService.get(userNo);
-    List<Recipe> recipeList = recipeService.userNoList(userNo);
-    List<Follow> followerList = followService.FollowerList(userNo);
-    List<Follow> followinglist = followService.FollowingList(userNo);
+      int uNo, Model model) throws Exception {
+    User user = userService.get(uNo);
+    List<Recipe> recipeList = recipeService.userNoList(uNo);
+    List<Follow> followerList = followService.FollowerList(uNo);
+    List<Follow> followinglist = followService.FollowingList(uNo);
 
-    Follow follow = new Follow();
-    follow.setFollower(loginUser.getUserNo());
-    follow.setFollowing(userNo);
-    int followCheck = followService.followCheck(follow);
-
-    model.addAttribute("user", user);
-    model.addAttribute("recipeList", recipeList);
+    int followCheck = -1;
+    if(loginUser.getUserNo() != uNo) {
+      Follow follow = new Follow();
+      follow.setFollower(loginUser.getUserNo());
+      follow.setFollowing(uNo);
+      followCheck = followService.followCheck(follow);
+    }
 
     model.addAttribute("followCheck", followCheck);
+    model.addAttribute("user", user);
+    model.addAttribute("recipeList", recipeList);
 
     int recipeSize = recipeList.size();
     int followerSize = followerList.size();
@@ -117,25 +119,28 @@ public class UserController {
     model.addAttribute("recipeSize", recipeSize);
     model.addAttribute("followerSize", followerSize);
     model.addAttribute("followingSize", followingSize);
+
   }
 
   @GetMapping("followerList")
-  public void followerList(@ModelAttribute("loginUser") User loginUser,
-      int userNo, Model model) throws Exception {
-    User user = userService.get(userNo);
-    List<Recipe> recipeList = recipeService.userNoList(userNo);
-    List<Follow> followerList = followService.FollowerList(userNo);
-    List<Follow> followinglist = followService.FollowingList(userNo);
+  public void followerList(@ModelAttribute("loginUser") User loginUser, 
+      int uNo, Model model) throws Exception {
+    User user = userService.get(uNo);
+    List<Recipe> recipeList = recipeService.userNoList(uNo);
+    List<Follow> followerList = followService.FollowerList(uNo);
+    List<Follow> followinglist = followService.FollowingList(uNo);
 
-    Follow follow = new Follow();
-    follow.setFollower(loginUser.getUserNo());
-    follow.setFollowing(userNo);
-    int followCheck = followService.followCheck(follow);
-
-    model.addAttribute("user", user);
-    model.addAttribute("followerList", followerList);
+    int followCheck = -1;
+    if(loginUser.getUserNo() != uNo) {
+      Follow follow = new Follow();
+      follow.setFollower(loginUser.getUserNo());
+      follow.setFollowing(uNo);
+      followCheck = followService.followCheck(follow);
+    }
 
     model.addAttribute("followCheck", followCheck);
+    model.addAttribute("user", user);
+    model.addAttribute("followerList", followerList);
 
     int recipeSize = recipeList.size();
     int followerSize = followerList.size();
@@ -147,22 +152,24 @@ public class UserController {
   }
 
   @GetMapping("followingList")
-  public void followingList(@ModelAttribute("loginUser") User loginUser,
-      int userNo, Model model) throws Exception {
-    User user = userService.get(userNo);
-    List<Recipe> recipeList = recipeService.userNoList(userNo);
-    List<Follow> followerList = followService.FollowerList(userNo);
-    List<Follow> followinglist = followService.FollowingList(userNo);
+  public void followingList(@ModelAttribute("loginUser") User loginUser, 
+      int uNo, Model model) throws Exception {
+    User user = userService.get(uNo);
+    List<Recipe> recipeList = recipeService.userNoList(uNo);
+    List<Follow> followerList = followService.FollowerList(uNo);
+    List<Follow> followinglist = followService.FollowingList(uNo);
 
-    Follow follow = new Follow();
-    follow.setFollower(loginUser.getUserNo());
-    follow.setFollowing(userNo);
-    int followCheck = followService.followCheck(follow);
-
-    model.addAttribute("user", user);
-    model.addAttribute("followingList", followinglist);
+    int followCheck = -1;
+    if(loginUser.getUserNo() != uNo) {
+      Follow follow = new Follow();
+      follow.setFollower(loginUser.getUserNo());
+      follow.setFollowing(uNo);
+      followCheck = followService.followCheck(follow);
+    }
 
     model.addAttribute("followCheck", followCheck);
+    model.addAttribute("user", user);
+    model.addAttribute("followingList", followinglist);
 
     int recipeSize = recipeList.size();
     int followerSize = followerList.size();

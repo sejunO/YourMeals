@@ -75,7 +75,7 @@
 							<tr>
 								<td><img class="user-img"
 									src='../../upload/${fwng.user.photo}_120x120.jpg'></td>
-								<td><a href='followerList?userNo=${fwng.user.userNo}'>${fwng.user.nick}</a></td>
+								<td><a href='followerList?uNo=${fwng.user.userNo}'>${fwng.user.nick}</a></td>
 								<td>
 									<button class="content-table-btn"
 										onclick="location.href='follow?followUserNo=${fwng.user.userNo}'">Follow
