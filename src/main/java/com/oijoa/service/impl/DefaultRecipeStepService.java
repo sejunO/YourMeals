@@ -44,5 +44,15 @@ public class DefaultRecipeStepService implements RecipeStepService {
   public int add(RecipeStep step) throws Exception {
     return recipeStepDao.insert(step);
   }
+  
+  @Override
+	public int delete(int recipeNo) throws Exception {
+	   return recipeStepDao.delete(recipeNo);
+	}
+  
+  @Override
+	public int update(RecipeStep recipeStep) throws Exception {
+	   return recipeStepDao.update(recipeStep);
+	}
 
 }

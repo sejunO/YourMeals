@@ -14,4 +14,8 @@ public interface RecipeStepService {
   int deleteByRecipeNo(int recipeNo) throws Exception;
 
   int add(RecipeStep step) throws Exception;
+  
+  int delete(int recipeNo) throws Exception;
+  
+  int update(RecipeStep recipeStep) throws Exception;
 }

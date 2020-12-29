@@ -34,5 +34,15 @@ public class DefaultFoodService implements FoodService {
   public int add(Food food) throws Exception {
     return foodDao.insert(food);
   }
+  
+  @Override
+	public int update(Food food) throws Exception {
+	  return foodDao.update(food);
+	}
+  
+  @Override
+	public int delete(int recipeNo) throws Exception {
+	  return foodDao.delete(recipeNo);
+	}
 
 }

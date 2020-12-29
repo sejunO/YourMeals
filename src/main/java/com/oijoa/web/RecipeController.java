@@ -5,8 +5,10 @@ import java.io.File;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.UUID;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import com.oijoa.domain.Category;
+
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Food;
 import com.oijoa.domain.Recipe;
@@ -30,6 +32,7 @@ import com.oijoa.service.NoticeService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.RecipeStepService;
 import com.oijoa.service.UserService;
+
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -123,15 +126,15 @@ public class RecipeController {
   }
 
   @RequestMapping("addComment")
-  public String addComment(int crecipeNo, int userNo, String comment_content) throws Exception {
-    Recipe recipe = recipeService.get(crecipeNo);
+  public String addComment(int recipeNo, int userNo, String comment_content) throws Exception {
+    Recipe recipe = recipeService.get(recipeNo);
     User user = userService.get(userNo);
     Comment comment = new Comment();
     comment.setRecipeNo(recipe.getRecipeNo());
     comment.setWriter(user);
     comment.setContent(comment_content);
     commentService.add(comment);
-    return "redirect:detail";
+    return "redirect:detail?recipeNo=" + recipeNo;
   }
 
   @RequestMapping("list")
@@ -181,19 +184,16 @@ public class RecipeController {
   }
 
   @RequestMapping("update")
-  public String update(Recipe recipe, int categoryNo, int userNo) throws Exception {
+  public String update(int recipeNo, Food food, RecipeStep recipeStep) throws Exception {
+	  Recipe recipe = recipeService.get(recipeNo);
+	  foodService.delete(recipeNo);
+	  foodService.add(food);
+	  recipeStepService.delete(recipeNo);
+	  recipeStepService.add(recipeStep);
+	  recipeService.updateCategory(recipe);
+	  recipeService.update(recipe);
 
-    Category category = categoryService.get(categoryNo);
-    User writer = userService.get(userNo);
-
-    recipe.setCategory(category);
-    recipe.setWriter(writer);
-    recipeService.updateCategory(recipe);
-
-    if (recipeService.update(recipe) == 0) {
-      throw new Exception("레시피가 존재하지 않습니다.");
-    }
-    return "redirect:list";
+    return "redirect:detail?recipeNo=" + recipeNo;
   }
 
   @RequestMapping("updateComment")
@@ -233,12 +233,10 @@ public class RecipeController {
   }
 
   @RequestMapping("delete")
-  public String delete(int no) throws Exception {
+  public String delete(int recipeNo) throws Exception {
 
-    if (recipeService.deleteByNo(no) == 0) {
-      throw new Exception("레시피가 존재하지 않습니다.");
-    }
-    return "rediret:list";
+    recipeService.deleteByNo(recipeNo);
+    return "redirect:list";
 
   }
 
