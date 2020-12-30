@@ -114,7 +114,7 @@
       inner join oi_user u on c.uno = u.uno
     where 
       c.rno = #{recipeNo}
-    order by c.cno
+    order by c.cdt
   </select>
   
 </mapper>
