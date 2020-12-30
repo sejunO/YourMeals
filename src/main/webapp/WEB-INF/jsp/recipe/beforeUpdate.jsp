@@ -190,7 +190,7 @@
 						</c:forEach>
 				</div>
 				<div class="btn-center">
-					<button id="btnAddMeta" type="button">재료 추가</button>
+					<button id="btnAddMeta">재료 추가</button>
 					<br>
 				</div>
 				<br>

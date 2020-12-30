@@ -77,15 +77,14 @@
 				   <a href="list" style="text-decoration: underline; padding-top: 50px;">레시피 목록으로 돌아가기</a>
 				  </div>
 				  <div id="right">
-<%-- 				<c:if test="${recipe.writer == loginUser}"> --%>
+        <c:if test="${recipe.writer.userNo == sessionScope.loginUser.userNo}">
 				<div class="updateAndDelete" style="text-align: right; padding-bottom: 20px;">
-				  <a href="beforeUpdate?recipeNo=${recipe.recipeNo}"><button name="updateBtn" style="margin-right: 15px;">수정</button></a>
-          <a href="delete?recipeNo=${recipe.recipeNo}" class="deleteBtn" 
-          onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</a>
+				  <button class="updateBtn" onclick="location.href='beforeUpdate?recipeNo=${recipe.recipeNo}'" style="margin-right: 15px;">수정</button>
+				  <button class="deleteBtn" href="delete?recipeNo=${recipe.recipeNo}" onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</button>
 				</div>
+        </c:if>
 				</div>
 				</div> 
-<%-- 				</c:if> --%>
 					<div class="recipe-content" id="img-recipe" data-aos="fade-right"
 						data-aos-delay="100">
 						<div class="side-and-side">
@@ -235,7 +234,7 @@
 							<i class="bx bxl-dribbble"></i>
 						</div>
 						<h4>${recipe.recommendCount}</h4>
-						<h4>좋아요</h4>
+						<button type='button' id='recommendCountBtn'>좋아요</button>
 					</div>
 				</div>
 
@@ -368,7 +367,35 @@
 		</script>
 			
 
-
+ <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+		 <script>
+  $(function(){
+     $("#recommendCountBtn").on("click",function(){
+        var userNo = $("#userNo").val();
+        var recipeNo = $("#recipeNo").val();
+        console.log(userNo);
+        console.log(recipeNo);
+        $.ajax({
+           url:"updateRecommendCount",
+           type:"post",
+           data: {recipeNo: recipeNo},
+           success: function(data) {
+               if (data == 'ok') {
+                 var count = ${recipe.recommendCount};
+                 $("#recommendCount").text("추천수: ");
+                 $("#recommendCount").text(count + 1);
+                 
+               }
+               console.log("정보 가져오기 성공");
+    },
+      error: function () {
+        console.log("정보를 가져오기 실패");
+      }
+        });
+     });
+  });
+ </script> 
+		
 </body>
 
 </html>

@@ -125,7 +125,7 @@ body {
 							<td>${n.noticeNo}</td>
 							<td>-</td>
 							<td class="notice-title"><a
-								href='detail?noticeNo=${n.noticeNo}'>${n.title}</a></td>
+								href='noticeDetail?noticeNo=${n.noticeNo}'>${n.title}</a></td>
 							<td>관리자</td>
 							<td class="notice-color">공지사항</td>
 							<td>${n.registeredDate}</td>

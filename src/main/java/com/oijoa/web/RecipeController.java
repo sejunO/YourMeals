@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Comment;
@@ -41,6 +42,7 @@ import net.coobird.thumbnailator.name.Rename;
 
 @Controller
 @RequestMapping("/recipe")
+@SessionAttributes("loginUser")
 public class RecipeController {
 
   @Autowired
@@ -194,7 +196,10 @@ public class RecipeController {
     }
     model.addAttribute("notices", noticeService.list());
   }
-
+  @GetMapping("noticeDetail")
+  public void noticeDetail(Model model, int noticeNo) throws Exception {
+    model.addAttribute("notice", noticeService.get(noticeNo));
+  }
   @RequestMapping("detail")
   public void detail(Model model, int recipeNo) throws Exception {
     Recipe recipe = recipeService.get(recipeNo);
@@ -403,36 +408,36 @@ public class RecipeController {
   private void generatePhotoThumbnail(String saveFilePath) {
     try {
       Thumbnails.of(saveFilePath).size(500, 500).outputFormat("jpg").crop(Positions.CENTER)
-          .toFiles(new Rename() {
-            @Override
-            public String apply(String name, ThumbnailParameter param) {
-              return name + "_500x500";
-            }
-          });
+      .toFiles(new Rename() {
+        @Override
+        public String apply(String name, ThumbnailParameter param) {
+          return name + "_500x500";
+        }
+      });
 
       Thumbnails.of(saveFilePath).size(120, 120).outputFormat("jpg").crop(Positions.CENTER)
-          .toFiles(new Rename() {
-            @Override
-            public String apply(String name, ThumbnailParameter param) {
-              return name + "_120x120";
-            }
-          });
+      .toFiles(new Rename() {
+        @Override
+        public String apply(String name, ThumbnailParameter param) {
+          return name + "_120x120";
+        }
+      });
 
       Thumbnails.of(saveFilePath).size(1280, 720).outputFormat("jpg").crop(Positions.CENTER)
-          .toFiles(new Rename() {
-            @Override
-            public String apply(String name, ThumbnailParameter param) {
-              return name + "_1280x720";
-            }
-          });
+      .toFiles(new Rename() {
+        @Override
+        public String apply(String name, ThumbnailParameter param) {
+          return name + "_1280x720";
+        }
+      });
 
       Thumbnails.of(saveFilePath).size(360, 240).outputFormat("jpg").crop(Positions.CENTER)
-          .toFiles(new Rename() {
-            @Override
-            public String apply(String name, ThumbnailParameter param) {
-              return name + "_360x240";
-            }
-          });
+      .toFiles(new Rename() {
+        @Override
+        public String apply(String name, ThumbnailParameter param) {
+          return name + "_360x240";
+        }
+      });
     } catch (Exception e) {
       e.printStackTrace();
     }
