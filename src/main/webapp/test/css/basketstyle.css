@@ -246,3 +246,9 @@
   font-weight: bold;
   margin-left: 10px;
 }
+.payment {
+	font-size: 18px;
+	display: flex;
+	flex-direction: row;
+	padding-left: 10px;
+}

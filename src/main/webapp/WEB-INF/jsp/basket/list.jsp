@@ -94,19 +94,18 @@
                     <div class="in-col1">
                       <div class="imgbox"> 
                         <div class="imgin">
-							<img src="../../upload/${b.product.photo}_80x80.jpg" 
-							class="figure-img img-fluid rounded" alt="...">
+							<img src="../../upload/${b.product.photo}_80x80.jpg" alt="...">
 							           </div>
 							        </div>
                       <div class="goodsinfo">
                         <p class="goodstitle">
-                          ${b.product.title}  </p>
+                          ${b.product.title}</p>
                    <!--  <c:if test="${o.orderLists.size() -1 > 0}">외
                   ${b.orderLists.size() -1} 건</c:if></p>
                         <div class="price">${o.totalPrice} 원</div> -->
                         </div>
                     </div>
-                    <!-- 상품사진, 품명 -->
+                    <!-- 상품사진, 품명 끝 -->
                     <!-- 내용 -->
                     <div class="in-col2">
                           ${b.product.content}
@@ -117,10 +116,10 @@
                     ${b.amount}  
                     </div>
                      <div class="in-col3">
-                      ${b.product.price}
+                      ${b.product.price}원
                       </div>
                       <div class="in-col3">
-                        ${b.amount * b.product.price}
+                        ${b.amount * b.product.price}원
                         </div>
                 </div>
                 </div>
