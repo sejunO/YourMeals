@@ -55,6 +55,7 @@
         <div class="box4">Order</div>
       </div>
     </div>
+    </div>
   
     <div class="sub-container">
   <div class="vertical">
@@ -166,9 +167,10 @@
       </c:forEach>
      </div> 
      
-    <button class="userbtn" style="margin: 20px 0 70px 0;">결제하기</button>
+    <button class="userbtn" onmouseout="change2(this)" onmouseover="change1(this)"
+    style="margin: 20px 0 70px 0;" onclick="location.href='success'">
+    결제하기</button>
     </div>
-   
    
    
    
