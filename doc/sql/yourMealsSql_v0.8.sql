@@ -124,7 +124,7 @@ CREATE TABLE oi_recipe (
    COMMENT '작성일', -- 작성일
   mdt     DATETIME     NULL     DEFAULT now() COMMENT '수정일', -- 수정일
   min     INTEGER      NOT NULL COMMENT '조리시간', -- 조리시간
-  COL     INTEGER      NOT NULL COMMENT '몇인분' -- 몇인분
+  serving INTEGER      NOT NULL COMMENT '몇인분' -- 몇인분
 )
 COMMENT '레시피';
 
