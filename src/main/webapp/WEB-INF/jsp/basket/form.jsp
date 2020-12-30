@@ -63,8 +63,9 @@
               <div class="content-main-cell-col"> 
                 <div class="card mb-3">
               <form action='add' method='post'>
+                <div class="titlebox">
                   <input type='radio' name='productNo' value="${p.productNo}">  ${p.title}<br>
-                   <%-- <img
+                  </div> <%-- <img
                     class="card-img-top" 
                     src="../../upload/${p.photo}_200x200.jpg"
                     alt="Card image cap" height="180"> --%>

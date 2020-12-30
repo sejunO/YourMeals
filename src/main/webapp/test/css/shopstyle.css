@@ -132,3 +132,11 @@
   border: 2px solid #0d6efd;
   margin: 5px 0px 10px 10px;
 }
+.titlebox {
+	width: 100%;
+	text-align: center;
+	font-size: 17px;
+	font-weight: 700;
+	padding: 10px 0;
+}
+
