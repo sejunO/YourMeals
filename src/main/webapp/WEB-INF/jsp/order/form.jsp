@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -9,40 +9,40 @@
 <meta charset="UTF-8">
 <title>주문</title>
 <link rel="shortcut icon"
-  href="<%=request.getContextPath()%>/test/img/favicon.ico"
-  type="image/x-icon">
+	href="<%=request.getContextPath()%>/test/img/favicon.ico"
+	type="image/x-icon">
 <link rel="apple-touch-icon"
-  href="<%=request.getContextPath()%>/test/img/apple-touch-icon.png">
+	href="<%=request.getContextPath()%>/test/img/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="72x72"
-  href="<%=request.getContextPath()%>/test/img/apple-touch-icon-72x72.png">
+	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114"
-  href="<%=request.getContextPath()%>/test/img/apple-touch-icon-114x114.png">
+	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-114x114.png">
 
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"
-  href="<%=request.getContextPath()%>/test/fonts/font-awesome/css/font-awesome.css">
+	href="<%=request.getContextPath()%>/test/fonts/font-awesome/css/font-awesome.css">
 <link rel="stylesheet" type="text/css"
- href="<%=request.getContextPath() %>/test/css/bootstrap.css">
+	href="<%=request.getContextPath() %>/test/css/bootstrap.css">
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"
-  href="<%=request.getContextPath() %>/test/css/mystyle.css">
+	href="<%=request.getContextPath() %>/test/css/mystyle.css">
 <link rel="stylesheet" type="text/css"
-  href="<%=request.getContextPath()%>/test/css/basketstyle.css">
-  
+	href="<%=request.getContextPath()%>/test/css/basketstyle.css">
+
 <link rel="stylesheet" type="text/css"
-  href="<%=request.getContextPath()%>/test/css/nivo-lightbox/nivo-lightbox.css">
+	href="<%=request.getContextPath()%>/test/css/nivo-lightbox/nivo-lightbox.css">
 <link rel="stylesheet" type="text/css"
-  href="<%=request.getContextPath()%>/test/css/nivo-lightbox/default.css">
+	href="<%=request.getContextPath()%>/test/css/nivo-lightbox/default.css">
 <link
-  href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700"
-  rel="stylesheet">
+	href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700"
+	rel="stylesheet">
 <link
-  href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-  rel="stylesheet">
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+	rel="stylesheet">
 <link
-  href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700"
-  rel="stylesheet">
+	href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700"
+	rel="stylesheet">
 
 </head>
 
@@ -55,7 +55,7 @@
         <div class="box4">Order</div>
       </div>
     </div>
-    </div>
+  </div>
   
     <div class="sub-container">
   <div class="vertical">
@@ -121,7 +121,7 @@
     <div class="updatebox1">
      <span class="labels" style="font-size: 17px; padding-top: -7px;">*이름:</span> 
      <input type='text' class="form-control" id="exampleFormControlInput1"
-      style="margin-left: 50px;" name="userName" placeholder='${user.name}'  readonly>
+      style="margin-left: 50px;" name="userName" placeholder='${user.name}'readonly>
      </div>
            
     <div class="updatebox2">
@@ -164,8 +164,8 @@
     <div class="payment">
     <c:forEach items="${payments}" var="p">
       <input type="radio" name="paymentNo" value="${p.paymentNo}">${p.name}
-      </c:forEach>
-     </div> 
+    </c:forEach>
+    </div>
      
     <button class="userbtn" onmouseout="change2(this)" onmouseover="change1(this)"
     style="margin: 20px 0 70px 0;" onclick="location.href='success'">
@@ -177,6 +177,15 @@
     <jsp:include page="/footer.jsp"></jsp:include>
     
     <%-- <div class="container mt-5" style="min-height: calc(100vh - 132px); max-height: auto">
+			</div>
+
+			<button class="userbtn" style="margin: 20px 0 70px 0;">결제하기</button>
+		</div>
+	</div>
+
+	<jsp:include page="/footer.jsp"></jsp:include>
+
+	<%-- <div class="container mt-5" style="min-height: calc(100vh - 132px); max-height: auto">
           <div class="container-fluid">
             <div class="row">
               <c:forEach items="${baskets}" var="b">
@@ -205,7 +214,7 @@
             </div>
           </div>
           </div> --%>
-    <%-- <div style="margin-bottom: 10px;">
+	<%-- <div style="margin-bottom: 10px;">
             <input type="text" class="text-center" value='' style="margin-left: 10px; width: 200px">
             제품 <input type="text" class="text-center" value='${b.product.title}'
               style="margin-left: 15px; width: 180px">
@@ -219,7 +228,7 @@
 
             </div> --%>
 
-    <%-- <table>
+	<%-- <table>
               <tr>
                 <td>${b.product.title}</td>
                 <td>${b.amount}</td>
@@ -229,10 +238,10 @@
                 <div id="total"></div>
                 </table> --%>
 
-    
-    
-    <!--  스크립트  -->
-    <script>
+
+
+	<!--  스크립트  -->
+	<script>
               function execPostCode() {
                 new daum.Postcode(
                     {
@@ -295,7 +304,7 @@
                     }).open();
               }
             </script>
-  <script>
+	<script>
   function change1(obj){
     obj.style.background = 'rgb(193, 212, 209)';
     obj.style.color = 'rgb(0, 0, 0)';
@@ -306,16 +315,23 @@
     obj.style.color = 'rgb(255, 255, 255)';
   }
 </script>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/main.js"></script>
-            
+	<script
+		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath() %>/test/js/contact_me.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath() %>/test/js/main.js"></script>
 </body>
-
 </html>
