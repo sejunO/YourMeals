@@ -68,29 +68,29 @@
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="<%=request.getContextPath()%>/app/basket/form" class="page-scroll"
-							style="color: rgba(255, 255, 255, 0.8)";>Shop</a></li>
+							style="color: rgba(255, 255, 255, 0.8)">Shop</a></li>
 						<li><a href="<%=request.getContextPath()%>/app/recipe/list" class="page-scroll"
-							style="color: rgba(255, 255, 255, 0.8)";>Recipe</a></li>
+							style="color: rgba(255, 255, 255, 0.8)">Recipe</a></li>
 
 						<c:if test="${empty sessionScope.loginUser}">
 							<li><a href="<%=request.getContextPath()%>/app/auth/login"
-								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)";>Login</a></li>
+								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)">Login</a></li>
 							<li><a href="<%=request.getContextPath()%>/app/user/form"
-								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)";>Sign
+								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)">Sign
 									up</a></li>
 						</c:if>
 						<c:if test="${not empty sessionScope.loginUser}">
 							<li><a href="<%=request.getContextPath()%>/app/mypage/index" class="page-scroll"
-								style="color: rgba(255, 255, 255, 0.8)";>My page</a></li>
+								style="color: rgba(255, 255, 255, 0.8)">My page</a></li>
 							<li><a href="<%=request.getContextPath()%>/app/basket/list" class="page-scroll"
-								style="color: rgba(255, 255, 255, 0.8)";>My cart</a></li>
+								style="color: rgba(255, 255, 255, 0.8)">Basket</a></li>
 							<li><a href="<%=request.getContextPath()%>/app/auth/logout"
-								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)";>Logout</a></li>
+								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)">Logout</a></li>
 						</c:if>
 						<c:if test="${sessionScope.loginUser.userTypeNo == 5}">
 							<li><a
 								href="<%=request.getContextPath()%>/app/admin/userList"
-								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)";>ADMIN</a></li>
+								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)">ADMIN</a></li>
 						</c:if>
 
 					</ul>
