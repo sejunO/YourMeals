@@ -90,19 +90,50 @@ ALTER TABLE oi_user
 
 -- 레시피
 CREATE TABLE oi_recipe (
+<<<<<<< HEAD
+<<<<<<< HEAD
+  rno     INTEGER      NOT NULL, -- 레시피번호
+  uno     INTEGER      NOT NULL, -- 사용자번호
+  lno     INTEGER      NOT NULL, -- 난이도번호
+  title   VARCHAR(255) NULL, -- 제목
+=======
   rno     INTEGER      NOT NULL, -- 레시피번호
   uno     INTEGER      NOT NULL, -- 사용자번호
   lno     INTEGER      NOT NULL, -- 난이도번호
   title   VARCHAR(255) NOT NULL, -- 제목
+>>>>>>> 9db21ed268e16ab9d5c5b7b075b4700bf4e40661
   content MEDIUMTEXT   NOT NULL, -- 내용
   photo   VARCHAR(255) NULL,     -- 사진
   hits    INTEGER      NOT NULL DEFAULT 0, -- 조회수
   rcmd    INTEGER      NOT NULL DEFAULT 0, -- 추천수
   cdt     DATETIME     NOT NULL DEFAULT now(), -- 작성일
   mdt     DATETIME     NULL     DEFAULT now(), -- 수정일
+<<<<<<< HEAD
+  min     INTEGER      NULL,  -- 조리시간
+  serving INTEGER      NOT NULL DEFAULT 0 -- 몇인분
+);
+=======
+  rno     INTEGER      NOT NULL COMMENT '레시피번호', -- 레시피번호
+  uno     INTEGER      NOT NULL COMMENT '사용자번호', -- 사용자번호
+  lno     INTEGER      NOT NULL COMMENT '난이도번호', -- 난이도번호
+  title   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
+  content MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
+  photo   VARCHAR(255) NULL     COMMENT '사진', -- 사진
+  hits    INTEGER      NOT NULL COMMENT '조회수', -- 조회수
+  rcmd    INTEGER      NOT NULL COMMENT '추천수', -- 추천수
+  cdt     DATETIME     NOT NULL DEFAULT now()
+   COMMENT '작성일', -- 작성일
+  mdt     DATETIME     NULL     DEFAULT now() COMMENT '수정일', -- 수정일
+  min     INTEGER      NOT NULL COMMENT '조리시간', -- 조리시간
+  serving INTEGER      NOT NULL COMMENT '몇인분' -- 몇인분
+)
+COMMENT '레시피';
+>>>>>>> d3003d88498b53d3750cc13ed58de08b51b2d75f
+=======
   min     INTEGER      NOT NULL,  -- 조리시간
   serving INTEGER      NOT NULL DEFAULT 0 -- 몇인분
 );
+>>>>>>> 9db21ed268e16ab9d5c5b7b075b4700bf4e40661
 
 -- 레시피
 ALTER TABLE oi_recipe
@@ -176,9 +207,22 @@ ALTER TABLE oi_notice
 
 -- 요리유형
 CREATE TABLE oi_category (
+<<<<<<< HEAD
+<<<<<<< HEAD
+  cno  INTEGER     NOT NULL, -- 요리유형번호
+  name VARCHAR(50) NULL  -- 유형명
+);
+=======
+  cno  INTEGER     NOT NULL COMMENT '요리유형번호', -- 요리유형번호
+  name VARCHAR(50) NOT NULL COMMENT '유형명' -- 유형명
+)
+COMMENT '요리유형';
+>>>>>>> d3003d88498b53d3750cc13ed58de08b51b2d75f
+=======
   cno  INTEGER     NOT NULL, -- 요리유형번호
   name VARCHAR(50) NOT NULL  -- 유형명
 );
+>>>>>>> 9db21ed268e16ab9d5c5b7b075b4700bf4e40661
 
 -- 요리유형
 ALTER TABLE oi_category
@@ -810,6 +854,18 @@ CREATE TABLE oi_food (
   amount MEDIUMTEXT  NOT NULL  -- 계량
 );
 
+<<<<<<< HEAD
+    
+-- 음식재료
+CREATE TABLE oi_food (
+  fno    INTEGER     NOT NULL, -- 음식번호
+  rno    INTEGER     NOT NULL, -- 레시피번호
+  name   VARCHAR(50) NULL, -- 이름
+  amount MEDIUMTEXT  NULL  -- 계량
+);
+
+
+=======
   
 -- 음식재료
 ALTER TABLE oi_food
@@ -818,6 +874,7 @@ ALTER TABLE oi_food
       fno -- 음식번호
     );
     
+>>>>>>> 9db21ed268e16ab9d5c5b7b075b4700bf4e40661
 -- 음식재료
 ALTER TABLE oi_food
   ADD CONSTRAINT FK_oi_recipe_TO_oi_food -- 레시피 -> 음식재료
