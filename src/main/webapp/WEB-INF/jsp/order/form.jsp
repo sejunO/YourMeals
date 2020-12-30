@@ -17,7 +17,7 @@
 	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114"
 	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-114x114.png">
-
+ 
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/test/fonts/font-awesome/css/font-awesome.css">
