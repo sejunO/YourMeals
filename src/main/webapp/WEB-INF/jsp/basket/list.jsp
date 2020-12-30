@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>장바구니</title>
+<title>Basket</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -71,7 +71,7 @@
   <div class="sub-container">
   <div class="vertical">
    <div class="mylist">
-        <div class="headtitle">상품 담기</div>
+        <div class="headtitle">장바구니</div>
         <!-- 장바구니 리스트 시작 -->
         
     <form action="../order/form" method="post">
