@@ -86,7 +86,7 @@
 									<c:forEach items="${followingList}" var="fwng">
 										<tr>
 											<td><img class="user-img"
-												src='../../upload/${fwng.user.photo}_120x120.jpg'></td>
+												src='../../../upload/${fwng.user.photo}_120x120.jpg'></td>
 											<td><a href='followerList?uNo=${fwng.user.userNo}'>${fwng.user.nick}</a></td>
 										</tr>
 									</c:forEach>
