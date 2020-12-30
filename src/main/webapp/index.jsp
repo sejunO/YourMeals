@@ -81,9 +81,9 @@
         </div>
         <div class="col-xs-12 col-md-6">
           <div class="about-text">
-            <h2>${first.title}</h2>
+            <h2>${recipe.title}</h2>
             <hr>
-            <p>로렘입숨</p>
+            <p>${recipe.content}</p>
             <h3>재료</h3>
             <p>설명</p>
           </div>
@@ -91,159 +91,7 @@
       </div>
     </div>
   </div>
-  <!-- Restaurant Menu Section -->
-  <div id="restaurant-menu">
-    <div class="section-title text-center center">
-      <div class="overlay">
-        <h2>Menu</h2>
-        <hr>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis
-          sed.</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Breakfast & Starters</h2>
-            <hr>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$35</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Main Course</h2>
-            <hr>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$45</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Dinner</h2>
-            <hr>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$45</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$350</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam..</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Coffee & Drinks</h2>
-            <hr>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$35</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">Delicious Dish</div>
-              <div class="menu-item-price">$30</div>
-              <div class="menu-item-description">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, duis sed dapibus leo nec
-                ornare diam.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <!-- Portfolio Section -->
   <div id="portfolio">
     <div class="section-title text-center center">
@@ -261,9 +109,9 @@
             <li>
               <ol class="type">
                 <li><a href="#" data-filter="*" class="active">All</a></li>
-                <li><a href="#" data-filter=".breakfast">Breakfast</a></li>
-                <li><a href="#" data-filter=".lunch">Lunch</a></li>
-                <li><a href="#" data-filter=".dinner">Dinner</a></li>
+              <c:forEach items="${categoryList}" var="c">
+                <li><a href="#" data-filter=".${c.categoryNo}">${c.categoryName}</a></li>
+                </c:forEach>
               </ol>
             </li>
           </ul>
@@ -272,21 +120,24 @@
       </div>
       <div class="row">
         <div class="portfolio-items">
-          <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+        <c:forEach items="${recipeList}" var="r">
+          <div class="col-sm-6 col-md-4 col-lg-4 ${r.category.categoryNo}">
             <div class="portfolio-item">
               <div class="hover-bg">
                 <a
-                  href="<%=request.getContextPath() %>/test/img/portfolio/01-large.jpg"
+                  href="./recipe/detail?recipeNo=${r.recipeNo}"
                   title="Dish Name" data-lightbox-gallery="gallery1">
                   <div class="hover-text">
-                    <h4>Dish Name</h4>
+                    <h4>${r.title}</h4>
                   </div> <img
-                  src="<%=request.getContextPath() %>/test/img/portfolio/01-small.jpg"
+                  src="../upload/${r.photo}_360x240.jpg"
                   class="img-responsive" alt="Project Title">
                 </a>
               </div>
             </div>
           </div>
+          
+          </c:forEach>
           <div class="col-sm-6 col-md-4 col-lg-4 dinner">
             <div class="portfolio-item">
               <div class="hover-bg">

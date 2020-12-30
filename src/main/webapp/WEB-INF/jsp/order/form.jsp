@@ -163,7 +163,7 @@
          style="border-bottom: 4px solid #000; padding-bottom: 10px; margin-top: 50px;"> 결제</h2>
     <div class="payment">
     <c:forEach items="${payments}" var="p">
-      <input type="radio" name="paymentNo" value="${p.paymentNo}">${p.name}
+      <input type="radio" style="margin-left: 10px;" name="paymentNo" value="${p.paymentNo}">${p.name}
     </c:forEach>
     </div>
      
