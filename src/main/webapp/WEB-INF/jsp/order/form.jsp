@@ -91,8 +91,9 @@
                   placeholder="이름" style="width: 500px;">
               </p>
               <p style="padding-bottom: 10px">
-                <input type="text" name="tel" class="form-control text-center"
-                  id="exampleFormControlInput2" placeholder="연락처"
+                <input type="text" name="tel" value ="${user.tel}"
+                class="form-control text-center"
+                  id="exampleFormControlInput2" placeholder="연락처" 
                   style="width: 500px;">
               </p>
               <div style="margin-bottom: 10px;">

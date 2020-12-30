@@ -1092,7 +1092,6 @@ label {
 	border-radius: 10px;
 }
 
-
 .footbox {
 	display: flex;
 	justify-content: space-between;
@@ -1112,31 +1111,32 @@ label {
 
 .addRecipeBtn {
 	top: 0px;
-    right: -2px;
-    bottom: 0;
-    border: 0;
-    background: none;
-    font-size: 16px;
-    padding: 5px 20px;
-    background: #009970;
-    color: #fff;
-    transition: 0.3s;
-    border-radius: 10px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+	right: -2px;
+	bottom: 0;
+	border: 0;
+	background: none;
+	font-size: 16px;
+	padding: 5px 20px;
+	background: #009970;
+	color: #fff;
+	transition: 0.3s;
+	border-radius: 10px;
+	box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
 }
 
 .side-and-side {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 15px;
-  }
+}
 
-  #left{
+#left {
 	text-align: left;
 	padding-left: 65px;
 	padding-top: 15px;
-  }
-  #right{
+}
+
+#right {
 	text-align: right;
 	padding-right: 65px;
-  }
+}

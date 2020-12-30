@@ -12,7 +12,16 @@ public class User {
   private String address;
   private String detailAddress;
   private String photo;
+  private String tel;
 
+
+  public String getTel() {
+    return tel;
+  }
+
+  public void setTel(String tel) {
+    this.tel = tel;
+  }
 
   public int getUserNo() {
     return userNo;

@@ -7,6 +7,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>YourMeals</title>
+<script>
+  function change1(obj){
+    obj.style.color = 'white';
+  }
+  
+  function change2(obj){
+    obj.style.color = '#aaa';
+  }
+</script>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -68,29 +77,29 @@
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="<%=request.getContextPath()%>/app/basket/form" class="page-scroll"
-							style="color: rgba(255, 255, 255, 0.8)";>Shop</a></li>
+							onmouseout="change2(this)" onmouseover="change1(this)">Shop</a></li>
 						<li><a href="<%=request.getContextPath()%>/app/recipe/list" class="page-scroll"
-							style="color: rgba(255, 255, 255, 0.8)";>Recipe</a></li>
+							onmouseout="change2(this)" onmouseover="change1(this)">Recipe</a></li>
 
 						<c:if test="${empty sessionScope.loginUser}">
 							<li><a href="<%=request.getContextPath()%>/app/auth/login"
-								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)";>Login</a></li>
+								class="page-scroll" onmouseout="change2(this)" onmouseover="change1(this)">Login</a></li>
 							<li><a href="<%=request.getContextPath()%>/app/user/form"
-								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)";>Sign
+								class="page-scroll" onmouseout="change2(this)" onmouseover="change1(this)">Sign
 									up</a></li>
 						</c:if>
 						<c:if test="${not empty sessionScope.loginUser}">
 							<li><a href="<%=request.getContextPath()%>/app/mypage/index" class="page-scroll"
-								style="color: rgba(255, 255, 255, 0.8)";>My page</a></li>
+								onmouseout="change2(this)" onmouseover="change1(this)">My page</a></li>
 							<li><a href="<%=request.getContextPath()%>/app/basket/list" class="page-scroll"
-								style="color: rgba(255, 255, 255, 0.8)";>My cart</a></li>
+								onmouseout="change2(this)" onmouseover="change1(this)">Basket</a></li>
 							<li><a href="<%=request.getContextPath()%>/app/auth/logout"
-								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)";>Logout</a></li>
+								class="page-scroll" onmouseout="change2(this)" onmouseover="change1(this)">Logout</a></li>
 						</c:if>
 						<c:if test="${sessionScope.loginUser.userTypeNo == 5}">
 							<li><a
 								href="<%=request.getContextPath()%>/app/admin/userList"
-								class="page-scroll" style="color: rgba(255, 255, 255, 0.8)";>ADMIN</a></li>
+								class="page-scroll" onmouseout="change2(this)" onmouseover="change1(this)">ADMIN</a></li>
 						</c:if>
 
 					</ul>
