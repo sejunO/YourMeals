@@ -67,11 +67,19 @@ public class RecipeController {
   NoticeService noticeService;
 
 
-
+@RequestMapping("auth")
+public String auth(HttpSession session) throws Exception {
+  if (session.getAttribute("loginUser") == null) {
+    return "redirect:../auth/login";
+  }
+  return "redirect:form";
+}
   @RequestMapping("form")
-  public void form(Model model) throws Exception {
+  public void form(Model model,HttpSession session) throws Exception {
+  
     model.addAttribute("categoryList", categoryService.list());
     model.addAttribute("materialList", materialService.list());
+   
   }
 
   @RequestMapping("add")

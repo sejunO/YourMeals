@@ -80,7 +80,8 @@
         <c:if test="${recipe.writer.userNo == sessionScope.loginUser.userNo}">
 				<div class="updateAndDelete" style="text-align: right; padding-bottom: 20px;">
 				  <button class="updateBtn" onclick="location.href='beforeUpdate?recipeNo=${recipe.recipeNo}'" style="margin-right: 15px;">수정</button>
-				  <button class="deleteBtn" href="delete?recipeNo=${recipe.recipeNo}" onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</button>
+				  <a href="delete?recipeNo=${recipe.recipeNo}" id="btnDeleteRecipe"
+				  onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</a>
 				</div>
         </c:if>
 				</div>
@@ -102,7 +103,7 @@
 									<h5>${recipe.category.categoryName}</h5>
 								</c:if>
 							</div>
-						</div>
+						</div>  
 						<h2>${recipe.title}</h2>
 						<img src="../../upload/${recipe.photo}_1280x720.jpg"
 							class="img-thumbnail" alt="..."><br>
@@ -234,7 +235,6 @@
 							<i class="bx bxl-dribbble"></i>
 						</div>
 						<h4>${recipe.recommendCount}</h4>
-						<button type='button' id='recommendCountBtn'>좋아요</button>
 					</div>
 				</div>
 
