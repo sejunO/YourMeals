@@ -80,7 +80,8 @@
         <c:if test="${recipe.writer.userNo == sessionScope.loginUser.userNo}">
 				<div class="updateAndDelete" style="text-align: right; padding-bottom: 20px;">
 				  <button class="updateBtn" onclick="location.href='beforeUpdate?recipeNo=${recipe.recipeNo}'" style="margin-right: 15px;">수정</button>
-				  <button class="deleteBtn" href="delete?recipeNo=${recipe.recipeNo}" onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</button>
+				  <a href="delete?recipeNo=${recipe.recipeNo}" id="btnDeleteRecipe"
+				  onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</a>
 				</div>
         </c:if>
 				</div>
