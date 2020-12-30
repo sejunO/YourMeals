@@ -17,7 +17,7 @@
 }
 
 .box2 {
-  background: url(../img/basket.jpg) center center/cover no-repeat;
+  background: url(../img/basket5.jpg) center center/cover no-repeat;
   content: "";
   position: absolute;
   width: 100%;
@@ -34,7 +34,7 @@
 .box4 {
   position: absolute;
   font-family: 'Dancing Script', cursive;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 169);
   font-size: 7em;
   width: 100%;
   text-align: center;
