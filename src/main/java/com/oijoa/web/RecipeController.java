@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -186,13 +185,11 @@ public class RecipeController {
   }
 
   @RequestMapping("detail")
-  public void detail(@ModelAttribute("loginUser") User loginUser, 
-      Model model, int recipeNo) throws Exception {
+  public void detail(Model model, int recipeNo) throws Exception {
     Recipe recipe = recipeService.get(recipeNo);
     if (recipe == null) {
       System.out.println("레시피가 존재하지 않습니다.");
     }
-    model.addAttribute("loginUser", loginUser);
     model.addAttribute("recipe", recipe);
     model.addAttribute("categorys", categoryService.list());
     model.addAttribute("levels", levelService.list());

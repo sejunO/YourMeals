@@ -125,7 +125,7 @@
             <div class="portfolio-item">
               <div class="hover-bg">
                 <a
-                  href="../upload/${r.photo}_1280x720.jpg"
+                  href="./recipe/detail?recipeNo=${r.recipeNo}"
                   title="Dish Name" data-lightbox-gallery="gallery1">
                   <div class="hover-text">
                     <h4>${r.title}</h4>

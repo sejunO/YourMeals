@@ -92,12 +92,12 @@
 				   <a href="list" style="text-decoration: underline; padding-top: 50px;">전체 레시피 보기</a>
 				  </div>
 				  <div id="right">
-        <%-- <c:if test="${recipe.writer.userNo == loginUser.userNo}"> --%>
+        <c:if test="${recipe.writer.userNo == sessionScope.loginUser.userNo}">
 				<div class="updateAndDelete" style="text-align: right; padding-bottom: 20px;">
 				  <button class="updateBtn" onclick="location.href='beforeUpdate?recipeNo=${recipe.recipeNo}'" style="margin-right: 15px;">수정</button>
 				  <button class="deleteBtn" href="delete?recipeNo=${recipe.recipeNo}" onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</button>
 				</div>
-        <%-- </c:if> --%>
+        </c:if>
 				</div>
 				</div> 
 					<div class="recipe-content" id="img-recipe" data-aos="fade-right"
