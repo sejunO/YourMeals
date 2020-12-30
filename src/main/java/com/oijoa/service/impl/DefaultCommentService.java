@@ -45,5 +45,24 @@ public class DefaultCommentService implements CommentService {
 	  return commentDao.findByNo(no);
 	}
 
+  @Override
+  public void create(Comment comment) throws Exception {
+    commentDao.create(comment);
+  }
+  
+  @Override
+  public void delete(Integer commentNo) throws Exception {
+    
+  }
+  
+  @Override
+  public List<Comment> list(Integer recipeNo) throws Exception {
+    return commentDao.list(recipeNo);
+  }
+  
+  @Override
+  public void update(Comment comment) throws Exception {
+    
+  }
 
 }

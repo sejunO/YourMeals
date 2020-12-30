@@ -8,29 +8,52 @@
 <title>레시피 등록</title>
 
 <!-- Bootstrap core CSS -->
-<link
-	href="<%=request.getContextPath()%>/node_modules/bootstrap/dist/css/bootstrap.min.css"
-	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/recipeForm.css"
 	rel="stylesheet">
+
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+  rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link
+  href="<%=request.getContextPath()%>/test/css/bootstrap.css"
+  rel="stylesheet">
+<link
+  href="<%=request.getContextPath()%>/node_modules/bootstrap/dist/css/bootstrap-grid.css"
+  rel="stylesheet">
+
+
+<link rel="canonical"
+  href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+<link
+  href="<%=request.getContextPath()%>/test/css/bootstrap.min.css">
+
+    
+
+  <script src="<%=request.getContextPath()%>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="<%=request.getContextPath()%>/jquery/jquery.min.js"></script>
+  <script src="<%=request.getContextPath()%>/js/bootstrap.bundle.min.js"></script>
+  <script
+    src="<%=request.getContextPath()%>/jquery.easing/jquery.easing.min.js"></script>
+  <script
+    src="<%=request.getContextPath()%>/waypoints/jquery.waypoints.min.js"></script>
+  <script src="<%=request.getContextPath()%>/venobox/venobox.min.js"></script>
+  <script
+    src="<%=request.getContextPath()%>/owl.carousel/owl.carousel.min.js"></script>
+  <script src="<%=request.getContextPath()%>/aos/aos.js"></script>
+  <script src="<%=request.getContextPath()%>/php-email-form/validate.js"></script>
+
 </head>
 
 <body>
-
+<jsp:include page="/header.jsp"></jsp:include>
 
 
 	<section id="hero" class="align-items-center img-add">
-	
-	<header class="container d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3">
-  <p class="h5 my-0 me-md-auto fw-normal">Company name</p>
-  <nav class="my-2 my-md-0 me-md-3">
-    <a class="p-2 text-dark" href="#">Features</a>
-    <a class="p-2 text-dark" href="#">Enterprise</a>
-    <a class="p-2 text-dark" href="#">Support</a>
-    <a class="p-2 text-dark" href="#">Pricing</a>
-  </nav>
-  <a class="btn btn-outline-primary" href="#">Sign up</a>
-</header>
 		<div
 			class="container text-center position-relative aos-init aos-animate"
 			data-aos="fade-in" data-aos-delay="200">
@@ -45,7 +68,10 @@
 			
 		<section>
 		<div class="container" style="margin-bottom: 100px; margin-top: 200px;">
-		    <h3 style="font-weight: bold; text-align: center;">레시피 소개하기</h3>
+      <div id="left">
+           <a href="list" style="text-decoration: underline; padding-top: 50px;">레시피 목록으로 돌아가기</a>
+          </div>
+		    <h3 style="font-weight: bold; text-align: center; padding-top: 50px;">레시피 소개하기</h3>
 		    <p style="text-align: center; padding-bottom: 50px; padding-top: 20px;">
 		     소개하고자 하는 레시피의 <b>이름</b>, <b>사진</b> 그리고 <b>간단한 설명</b>을 
 		      쓸 수 있습니다:) <br>

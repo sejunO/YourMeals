@@ -11,4 +11,9 @@ public interface CommentService {
   Comment get(int no) throws Exception;
   //int update(int no) throws Exception;
   int deleteByRecipeNo(int recipeNo) throws Exception;
+  
+  List<Comment> list(Integer recipeNo) throws Exception;
+  void create(Comment comment) throws Exception;
+  void update(Comment comment) throws Exception;
+  void delete(Integer commentNo) throws Exception;
 }

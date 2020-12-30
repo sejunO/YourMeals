@@ -224,6 +224,19 @@
   	limit 0,1
   </select>
   
+   <select id="listByRecommendCount" resultMap="RecipeMap">
+   <include refid="sql1"/>
+    order by 
+      rcmd desc
+  </select>
+  
+   <select id="listByhits" resultMap="RecipeMap">
+   <include refid="sql1"/>
+    order by 
+      hits desc
+  </select>
+
+  
 </mapper>
 
 

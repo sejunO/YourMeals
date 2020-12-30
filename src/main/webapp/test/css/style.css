@@ -1065,6 +1065,12 @@ label {
   appearance: none;
 }
 
+#show .right {
+	text-align: right;
+	padding-right: 65px;
+	padding-top: 20px;
+}
+
 .notice-color {
   color: #FF5675;
   font-weight: bold;
@@ -1111,32 +1117,44 @@ label {
 }
 
 .addRecipeBtn {
-  top: 0px;
-    right: -2px;
-    bottom: 0;
-    border: 0;
-    background: none;
-    font-size: 16px;
-    padding: 5px 20px;
-    background: #009970;
-    color: #fff;
-    transition: 0.3s;
-    border-radius: 10px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+	top: 0px;
+	right: -2px;
+	bottom: 0;
+	border: 0;
+	background: none;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 5px 20px;
+	background: rgb(235, 234, 234);
+	color: #black;
+	transition: 0.3s;
+	border-radius: 10px;
+	box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
+
 }
+  
+  .addRecipeBtn:hover {
+	background-color: #009970;
+	color: white;
+  }
 
 .side-and-side {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+#left {
+	text-align: left;
+	padding-left: 65px;
+	padding-top: 15px;
+}
+
+#right {
+	text-align: right;
+	padding-right: 65px;
+
+	padding-top: 25px;
   }
 
-  #left{
-  text-align: left;
-  padding-left: 65px;
-  padding-top: 15px;
-  }
-  #right{
-  text-align: right;
-  padding-right: 65px;
-  }
+

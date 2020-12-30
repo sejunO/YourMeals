@@ -2,8 +2,8 @@ package com.oijoa.web;
 
 import java.beans.PropertyEditorSupport;
 import java.io.File;
-import java.sql.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -13,11 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Food;
 import com.oijoa.domain.Recipe;
@@ -136,8 +139,11 @@ public class RecipeController {
     return "redirect:detail?recipeNo=" + recipeNo;
   }
 
+  
+
   @GetMapping("list")
-  public void getList(Model model, String option, String keyword) throws Exception {
+  public void getList(Model model, String option, String keyword, String sort) throws Exception {
+    model.addAttribute("notices", noticeService.list());
     if (option == null) {
       model.addAttribute("list", recipeService.list());
     } else if (option.equalsIgnoreCase("all")) {
@@ -154,10 +160,17 @@ public class RecipeController {
       HashMap<String, Object> keywordMap = new HashMap<>();
       keywordMap.put("category", keyword);
       model.addAttribute("list", recipeService.list(keywordMap));
+    }
+      
+    if (sort != null) {
+      if (sort.equals("hits")) {
+        model.addAttribute("list", recipeService.listByhits()); 
+      } else if (sort.equals("recommendCount")) {
+        model.addAttribute("list", recipeService.listByRecommendCount());  
+      }
     } else {
       model.addAttribute("list", recipeService.list());
     }
-    model.addAttribute("notices", noticeService.list());
   }
 
   @PostMapping("list")
@@ -183,7 +196,10 @@ public class RecipeController {
     }
     model.addAttribute("notices", noticeService.list());
   }
-
+  @GetMapping("noticeDetail")
+  public void noticeDetail(Model model, int noticeNo) throws Exception {
+    model.addAttribute("notice", noticeService.get(noticeNo));
+  }
   @RequestMapping("detail")
   public void detail(Model model, int recipeNo) throws Exception {
     Recipe recipe = recipeService.get(recipeNo);
@@ -265,19 +281,19 @@ public class RecipeController {
     return "ok";
   }
 
-  @RequestMapping("updateComment")
-  public String updateComment(int recipeNo, Comment comment, String content, Date modifiedDate,
-      Model model, HttpSession session) throws Exception {
-    Recipe recipe = recipeService.get(recipeNo);
-    User user = (User) session.getAttribute("loginUser");
-    if (user != recipe.getWriter()) {
-      System.out.println("수정할 수 있는 권한이 없습니다.");
-    }
-    comment.setContent(content);
-    comment.setModifiedDate(modifiedDate);
-    model.addAttribute("comment", comment);
-    return "redirect:detail?recipeNo=" + recipeNo;
-  }
+//  @RequestMapping("updateComment")
+//  public String updateComment(int recipeNo, Comment comment, String content, Date modifiedDate,
+//      Model model, HttpSession session) throws Exception {
+//    Recipe recipe = recipeService.get(recipeNo);
+//    User user = (User) session.getAttribute("loginUser");
+//    if (user != recipe.getWriter()) {
+//      System.out.println("수정할 수 있는 권한이 없습니다.");
+//    }
+//    comment.setContent(content);
+//    comment.setModifiedDate(modifiedDate);
+//    model.addAttribute("comment", comment);
+//    return "redirect:detail?recipeNo=" + recipeNo;
+//  }
 
   @RequestMapping("updatePhoto")
   public String updatePhoto(int no, MultipartFile photoFile) throws Exception {
@@ -309,16 +325,63 @@ public class RecipeController {
 
   }
 
-  @RequestMapping("deleteComment")
-  public String deleteComment(HttpSession session, int recipeNo) throws Exception {
-    Recipe recipe = recipeService.get(recipeNo);
-    User user = (User) session.getAttribute("loginUser");
-    if (user != recipe.getWriter()) {
-      System.out.println("삭제할 수 있는 권한이 없습니다.");
-    }
-    commentService.deleteByRecipeNo(recipeNo);
-    return "redirect:detail?recipeNo=" + recipeNo;
+//  @RequestMapping("deleteComment")
+//  public String deleteComment(HttpSession session, int recipeNo) throws Exception {
+//    Recipe recipe = recipeService.get(recipeNo);
+//    User user = (User) session.getAttribute("loginUser");
+//    if (user != recipe.getWriter()) {
+//      System.out.println("삭제할 수 있는 권한이 없습니다.");
+//    }
+//    commentService.deleteByRecipeNo(recipeNo);
+//    return "redirect:detail?recipeNo=" + recipeNo;
+//  }
+  
+  
+  @RequestMapping("/comment/insert.do")
+  public void insert(
+      @ModelAttribute Comment comment,
+      HttpSession session) {
+   try {
+    User loginUser = (User) session.getAttribute("loginUser");
+    comment.setWriter(loginUser);
+    commentService.create(comment);
+   } catch (Exception e) {
+     System.out.println("댓글 작성 중 오류 발생");
+   }
   }
+  
+  @RequestMapping("/comment/list.do")
+  public ModelAndView list(
+      @RequestParam int recipeNo,
+      ModelAndView mv) {
+    try {
+    List<Comment> commentList = commentService.list(recipeNo);
+    mv.setViewName("recipe/commentList");
+    mv.addObject("commentList", commentList);
+    
+    } catch (Exception e) {
+      System.out.println("댓글 목록 가져오는 중 오류 발생");
+    }
+    return mv;
+  }
+  
+  
+  @RequestMapping("/comment/listJson.do")
+  public List<Comment> listJson(
+      @RequestParam int recipeNo) {
+    
+    List<Comment> commentList = null;
+    
+    try {
+    commentList = commentService.list(recipeNo);  
+    } catch (Exception e) {
+      System.out.println("댓글 Json 가져오는 중 오류 발생");
+    }
+    return commentList;
+  }
+
+      
+  
 
 
 
