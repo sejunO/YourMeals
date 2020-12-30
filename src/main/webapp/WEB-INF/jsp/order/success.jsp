@@ -38,7 +38,7 @@
                 style="width: 500px">
             </p>
             <p>
-              <input type="text" name="tel" class="form-control text-center"
+              <input type="text" name="tel" value='${order.tel}'class="form-control text-center"
                 id="exampleFormControlInput2" placeholder="연락처"
                 style="width: 500px">
             </p>

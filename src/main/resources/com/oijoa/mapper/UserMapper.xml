@@ -16,6 +16,8 @@
     <result column="addr"  property="address"/>
     <result column="det_addr"  property="detailAddress"/>
     <result column="photo"  property="photo"/>
+    <result column="tel"  property="tel"/>
+    
      
   </resultMap>
 
@@ -31,7 +33,8 @@
       postno,
       addr,
       det_addr,
-      photo
+      photo,
+      tel
     from 
       oi_user
     <if test="keyword != null">
@@ -68,6 +71,7 @@
       name,
       nick, 
       email,
+      tel,
       password,
       postno,
       addr,
@@ -89,6 +93,7 @@
       <if test="address != null">addr = #{address},</if>
       <if test="detailAddress != null">det_addr = #{detailAddress},</if>
       <if test="photo != null">photo = #{photo}</if>
+      <if test="tel != null">tel = #{tel}</if>
     </set>
     where
     uno = #{userNo}
@@ -104,6 +109,7 @@
       uno,
       name,
       nick,
+      tel,
       email,
       point,
       postno,
@@ -119,8 +125,8 @@
   </select>
 
   <insert id="insert" parameterType="user">
-    insert into oi_user(name,email,password,photo,nick,point,utype) 
-    values(#{name},#{email},password(#{password}),#{photo},#{nick},0,0)
+    insert into oi_user(name,email,tel,password,photo,nick,point,utype) 
+    values(#{name},#{email},#{tel}password(#{password}),#{photo},#{nick},0,0)
   </insert>
   
 </mapper>

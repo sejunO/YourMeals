@@ -15,6 +15,7 @@
     <result column="odt"   property="orderDate"/>
     <result column="addr"   property="address"/>
     <result column="det_addr"   property="detailAddress"/>
+    <result column="tel"   property="tel"/>
 
     <association property="userNo" javaType="user">
       <id column="user_no"    property="userNo"/>
@@ -71,6 +72,7 @@
       o.odt,
       o.pno,
       o.dcno,
+      o.tel,
       o.transno,
       o.memo,
       o.postno,
@@ -95,6 +97,7 @@
       b.uno basket_user_no,
       o.odt,
       o.pno,
+      o.tel,
       o.dcno,
       o.transno,
       o.memo,
@@ -149,6 +152,7 @@
       o.dcno,
       o.transno,
       o.memo,
+      o.tel,
       o.postno,
       o.addr,
       o.det_addr,
@@ -197,6 +201,7 @@
       ol.price orderLists_price,
       ol.discount orderLists_dscnt,
       o.stat,
+      o.tel,
       o.postno,
       o.addr,
       o.det_addr
@@ -221,6 +226,7 @@
       ol.price orderLists_price,
       ol.discount orderLists_dscnt,
       o.stat,
+      o.tel,
       o.postno,
       o.addr,
       o.det_addr
@@ -245,6 +251,7 @@
   		o.stat,
   		o.memo,
   		o.odt,
+  		o.tel,
   		o.addr,
   		o.det_addr
   	from
@@ -264,6 +271,7 @@
       <if test="postNo != null">postno = #{postNo},</if>
       <if test="address != null">addr = #{address},</if>
       <if test="detailAddress != null">det_addr = #{detailAddress},</if>
+      <if test="tel != null">tel = #{tel},</if>
       <if test="status != null">stat = #{status}</if>
     </set>
     where
@@ -273,9 +281,9 @@
 
   
   <insert id="insert" parameterType="order"> 
-    insert into oi_order(uno,pno,dcno,transno,memo,postno,addr,det_addr)
+    insert into oi_order(uno,pno,dcno,transno,memo,tel,postno,addr,det_addr)
     values(#{userNo.userNo},#{paymentNo},#{deliveryCompanyNo},
-           #{transportNo},#{memo},#{postNo},#{address},#{detailAddress})
+           #{transportNo},#{memo},#{tel},#{postNo},#{address},#{detailAddress})
   </insert>
   
   <insert id="insertList" parameterType="orderList">

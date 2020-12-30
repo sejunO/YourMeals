@@ -7,15 +7,43 @@
 <head>
 <title>레시피 수정</title>
 
-<!-- Bootstrap core CSS -->
 <link
-	href="<%=request.getContextPath()%>/node_modules/bootstrap/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+  rel="stylesheet">
+
+<link
+  href="<%=request.getContextPath()%>/test/css/bootstrap.css"
+  rel="stylesheet">
+<link
+  href="<%=request.getContextPath()%>/node_modules/bootstrap/dist/css/bootstrap-grid.css"
+  rel="stylesheet">
+
 <link href="<%=request.getContextPath()%>/css/recipeForm.css"
 	rel="stylesheet">
 	
+	<link rel="canonical"
+  href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+<link
+  href="<%=request.getContextPath()%>/test/css/bootstrap.min.css">    
+
+  <script src="<%=request.getContextPath()%>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="<%=request.getContextPath()%>/jquery/jquery.min.js"></script>
+  <script src="<%=request.getContextPath()%>/js/bootstrap.bundle.min.js"></script>
+  <script
+    src="<%=request.getContextPath()%>/jquery.easing/jquery.easing.min.js"></script>
+  <script
+    src="<%=request.getContextPath()%>/waypoints/jquery.waypoints.min.js"></script>
+  <script src="<%=request.getContextPath()%>/venobox/venobox.min.js"></script>
+  <script
+    src="<%=request.getContextPath()%>/owl.carousel/owl.carousel.min.js"></script>
+  <script src="<%=request.getContextPath()%>/aos/aos.js"></script>
+  <script src="<%=request.getContextPath()%>/php-email-form/validate.js"></script>
+	
+	
 	<style>
-body {
+  body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
 }
@@ -24,6 +52,7 @@ body {
 </head>
 
 <body>
+<jsp:include page="/header.jsp"></jsp:include>
 
 	<section id="hero" class="d-flex align-items-center img-add">
 		<div

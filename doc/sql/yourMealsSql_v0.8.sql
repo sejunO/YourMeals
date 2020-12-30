@@ -1,75 +1,97 @@
--- 공지사항
-DROP TABLE IF EXISTS oi_notice RESTRICT;
--- 레시피재료
-DROP TABLE IF EXISTS oi_recipe_material RESTRICT;
--- 레시피요리유형
-DROP TABLE IF EXISTS oi_recipe_category RESTRICT;
--- 팔로잉
-DROP TABLE IF EXISTS oi_follow RESTRICT;
--- 댓글
-DROP TABLE IF EXISTS oi_comment RESTRICT;
--- 레시피단계
-DROP TABLE IF EXISTS oi_recipe_step RESTRICT;
--- 공지사항분류
-DROP TABLE IF EXISTS oi_notice_type RESTRICT;
--- QNA
-DROP TABLE IF EXISTS oi_qna RESTRICT;
--- 게시글좋아요
-DROP TABLE IF EXISTS oi_board_like RESTRICT;
--- 장바구니
-DROP TABLE IF EXISTS oi_basket RESTRICT;
--- 환불
-DROP TABLE IF EXISTS oi_refund RESTRICT;
--- 신고
-DROP TABLE IF EXISTS oi_report RESTRICT;
--- 계좌이체
-DROP TABLE IF EXISTS oi_account_transfer RESTRICT;
--- 카카오페이
-DROP TABLE IF EXISTS oi_kakaopay RESTRICT;
--- 주문항목
-DROP TABLE IF EXISTS oi_order_list RESTRICT;
--- 신고유형
-DROP TABLE IF EXISTS oi_report_type RESTRICT;
--- 상품
-DROP TABLE IF EXISTS oi_product RESTRICT;
--- 요리유형
-DROP TABLE IF EXISTS oi_category RESTRICT;
--- 재료
-DROP TABLE IF EXISTS oi_material RESTRICT;
--- 주문
-DROP TABLE IF EXISTS oi_order RESTRICT;
--- 배송사
-DROP TABLE IF EXISTS oi_delivery_company RESTRICT;
--- 결제방법
-DROP TABLE IF EXISTS oi_payment RESTRICT;
--- 음식재료
-DROP TABLE IF EXISTS oi_food RESTRICT;
--- 레시피
-DROP TABLE IF EXISTS oi_recipe RESTRICT;
--- 난이도
-DROP TABLE IF EXISTS oi_level RESTRICT;
 -- 회원
 DROP TABLE IF EXISTS oi_user RESTRICT;
 
--- 전체 테이블 확인
-SHOW tables;
+-- 레시피
+DROP TABLE IF EXISTS oi_recipe RESTRICT;
 
+-- 주문
+DROP TABLE IF EXISTS oi_order RESTRICT;
 
+-- 재료
+DROP TABLE IF EXISTS oi_material RESTRICT;
+
+-- 공지사항
+DROP TABLE IF EXISTS oi_notice RESTRICT;
+
+-- 요리유형
+DROP TABLE IF EXISTS oi_category RESTRICT;
+
+-- 레시피재료
+DROP TABLE IF EXISTS oi_recipe_material RESTRICT;
+
+-- 레시피요리유형
+DROP TABLE IF EXISTS oi_recipe_category RESTRICT;
+
+-- 팔로잉
+DROP TABLE IF EXISTS oi_follow RESTRICT;
+
+-- 댓글
+DROP TABLE IF EXISTS oi_comment RESTRICT;
+
+-- 상품
+DROP TABLE IF EXISTS oi_product RESTRICT;
+
+-- 레시피단계
+DROP TABLE IF EXISTS oi_recipe_step RESTRICT;
+
+-- 공지사항분류
+DROP TABLE IF EXISTS oi_notice_type RESTRICT;
+
+-- QNA
+DROP TABLE IF EXISTS oi_qna RESTRICT;
+
+-- 난이도
+DROP TABLE IF EXISTS oi_level RESTRICT;
+
+-- 게시글좋아요
+DROP TABLE IF EXISTS oi_board_like RESTRICT;
+
+-- 장바구니
+DROP TABLE IF EXISTS oi_basket RESTRICT;
+
+-- 환불
+DROP TABLE IF EXISTS oi_refund RESTRICT;
+
+-- 신고
+DROP TABLE IF EXISTS oi_report RESTRICT;
+
+-- 배송사
+DROP TABLE IF EXISTS oi_delivery_company RESTRICT;
+
+-- 결제방법
+DROP TABLE IF EXISTS oi_payment RESTRICT;
+
+-- 계좌이체
+DROP TABLE IF EXISTS oi_account_transfer RESTRICT;
+
+-- 카카오페이
+DROP TABLE IF EXISTS oi_kakaopay RESTRICT;
+
+-- 주문항목
+DROP TABLE IF EXISTS oi_order_list RESTRICT;
+
+-- 신고유형
+DROP TABLE IF EXISTS oi_report_type RESTRICT;
+
+-- 음식재료
+DROP TABLE IF EXISTS oi_food RESTRICT;
 
 -- 회원
 CREATE TABLE oi_user (
-  uno      INTEGER      NOT NULL, -- 사용자번호
-  name     VARCHAR(50)  NOT NULL, -- 이름
-  nick     VARCHAR(50)  NOT NULL, -- 닉네임
-  email    VARCHAR(40)  NOT NULL, -- 이메일
-  password VARCHAR(50)  NOT NULL, -- 암호
-  point    INTEGER      NOT NULL, -- 포인트
-  postno   VARCHAR(6)   NULL,     -- 우편번호
-  addr     VARCHAR(255) NULL,     -- 기본주소
-  det_addr VARCHAR(255) NULL,     -- 상세주소
-  photo    VARCHAR(255) NULL,     -- 사진
-  utype    INTEGER      NOT NULL  -- 회원유형
-);
+  uno      INTEGER      NOT NULL COMMENT '사용자번호', -- 사용자번호
+  name     VARCHAR(50)  NOT NULL COMMENT '이름', -- 이름
+  nick     VARCHAR(50)  NOT NULL COMMENT '닉네임', -- 닉네임
+  email    VARCHAR(40)  NOT NULL COMMENT '이메일', -- 이메일
+  password VARCHAR(50)  NOT NULL COMMENT '암호', -- 암호
+  point    INTEGER      NOT NULL COMMENT '포인트', -- 포인트
+  tel      VARCHAR(255) NULL     COMMENT '연락처', -- 연락처
+  postno   VARCHAR(6)   NULL     COMMENT '우편번호', -- 우편번호
+  addr     VARCHAR(255) NULL     COMMENT '기본주소', -- 기본주소
+  det_addr VARCHAR(255) NULL     COMMENT '상세주소', -- 상세주소
+  photo    VARCHAR(255) NULL     COMMENT '사진', -- 사진
+  utype    INTEGER      NOT NULL COMMENT '회원유형' -- 회원유형
+)
+COMMENT '회원';
 
 -- 회원
 ALTER TABLE oi_user
@@ -86,10 +108,11 @@ CREATE UNIQUE INDEX UIX_oi_user
   );
 
 ALTER TABLE oi_user
-  MODIFY COLUMN uno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN uno INTEGER NOT NULL AUTO_INCREMENT COMMENT '사용자번호';
 
 -- 레시피
 CREATE TABLE oi_recipe (
+<<<<<<< HEAD
   rno     INTEGER      NOT NULL, -- 레시피번호
   uno     INTEGER      NOT NULL, -- 사용자번호
   lno     INTEGER      NOT NULL, -- 난이도번호
@@ -103,6 +126,23 @@ CREATE TABLE oi_recipe (
   min     INTEGER      NULL,  -- 조리시간
   serving INTEGER      NOT NULL DEFAULT 0 -- 몇인분
 );
+=======
+  rno     INTEGER      NOT NULL COMMENT '레시피번호', -- 레시피번호
+  uno     INTEGER      NOT NULL COMMENT '사용자번호', -- 사용자번호
+  lno     INTEGER      NOT NULL COMMENT '난이도번호', -- 난이도번호
+  title   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
+  content MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
+  photo   VARCHAR(255) NULL     COMMENT '사진', -- 사진
+  hits    INTEGER      NOT NULL COMMENT '조회수', -- 조회수
+  rcmd    INTEGER      NOT NULL COMMENT '추천수', -- 추천수
+  cdt     DATETIME     NOT NULL DEFAULT now()
+   COMMENT '작성일', -- 작성일
+  mdt     DATETIME     NULL     DEFAULT now() COMMENT '수정일', -- 수정일
+  min     INTEGER      NOT NULL COMMENT '조리시간', -- 조리시간
+  serving INTEGER      NOT NULL COMMENT '몇인분' -- 몇인분
+)
+COMMENT '레시피';
+>>>>>>> d3003d88498b53d3750cc13ed58de08b51b2d75f
 
 -- 레시피
 ALTER TABLE oi_recipe
@@ -112,22 +152,24 @@ ALTER TABLE oi_recipe
     );
 
 ALTER TABLE oi_recipe
-  MODIFY COLUMN rno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN rno INTEGER NOT NULL AUTO_INCREMENT COMMENT '레시피번호';
 
 -- 주문
 CREATE TABLE oi_order (
-  odno     INTEGER      NOT NULL, -- 주문번호
-  uno      INTEGER      NOT NULL, -- 사용자번호
-  dcno     INTEGER      NOT NULL, -- 배송사번호
-  pno      INTEGER      NOT NULL, -- 결제방법번호
-  odt      DATETIME     NOT NULL DEFAULT now(), -- 주문일자
-  transno  VARCHAR(20)  NULL,     -- 운송장번호
-  memo     MEDIUMTEXT   NULL,     -- 배송메모
-  postno   VARCHAR(6)   NOT NULL, -- 배송지우편번호
-  addr     VARCHAR(255) NOT NULL, -- 배송지기본주소
-  det_addr VARCHAR(255) NOT NULL, -- 배송지상세주소
-  stat     INTEGER      NOT NULL DEFAULT 0 -- 주문상태
-);
+  odno     INTEGER      NOT NULL COMMENT '주문번호', -- 주문번호
+  uno      INTEGER      NOT NULL COMMENT '사용자번호', -- 사용자번호
+  dcno     INTEGER      NOT NULL COMMENT '배송사번호', -- 배송사번호
+  pno      INTEGER      NOT NULL COMMENT '결제방법번호', -- 결제방법번호
+  odt      DATETIME     NOT NULL DEFAULT now() COMMENT '주문일자', -- 주문일자
+  transno  VARCHAR(20)  NULL     COMMENT '운송장번호', -- 운송장번호
+  tel      VARCHAR(255) NULL     COMMENT '연락처', -- 연락처
+  memo     MEDIUMTEXT   NULL     COMMENT '배송메모', -- 배송메모
+  postno   VARCHAR(6)   NOT NULL COMMENT '배송지우편번호', -- 배송지우편번호
+  addr     VARCHAR(255) NOT NULL COMMENT '배송지기본주소', -- 배송지기본주소
+  det_addr VARCHAR(255) NOT NULL COMMENT '배송지상세주소', -- 배송지상세주소
+  stat     INTEGER      NOT NULL DEFAULT 0 COMMENT '주문상태' -- 주문상태
+)
+COMMENT '주문';
 
 -- 주문
 ALTER TABLE oi_order
@@ -137,13 +179,14 @@ ALTER TABLE oi_order
     );
 
 ALTER TABLE oi_order
-  MODIFY COLUMN odno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN odno INTEGER NOT NULL AUTO_INCREMENT COMMENT '주문번호';
 
 -- 재료
 CREATE TABLE oi_material (
-  mno  INTEGER      NOT NULL, -- 재료번호
-  name VARCHAR(255) NOT NULL  -- 재료이름
-);
+  mno  INTEGER      NOT NULL COMMENT '재료번호', -- 재료번호
+  name VARCHAR(255) NOT NULL COMMENT '재료이름' -- 재료이름
+)
+COMMENT '재료';
 
 -- 재료
 ALTER TABLE oi_material
@@ -153,16 +196,17 @@ ALTER TABLE oi_material
     );
 
 ALTER TABLE oi_material
-  MODIFY COLUMN mno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN mno INTEGER NOT NULL AUTO_INCREMENT COMMENT '재료번호';
 
 -- 공지사항
 CREATE TABLE oi_notice (
-  nono    INTEGER      NOT NULL, -- 공지사항번호
-  ntno    INTEGER      NOT NULL, -- 공지사항분류번호
-  title   VARCHAR(255) NOT NULL, -- 제목
-  content MEDIUMTEXT   NOT NULL, -- 내용
-  rdt     DATETIME     NOT NULL DEFAULT now() -- 등록일
-);
+  nono    INTEGER      NOT NULL COMMENT '공지사항번호', -- 공지사항번호
+  ntno    INTEGER      NOT NULL COMMENT '공지사항분류번호', -- 공지사항분류번호
+  title   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
+  content MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
+  rdt     DATETIME     NOT NULL DEFAULT now() COMMENT '등록일' -- 등록일
+)
+COMMENT '공지사항';
 
 -- 공지사항
 ALTER TABLE oi_notice
@@ -172,13 +216,20 @@ ALTER TABLE oi_notice
     );
 
 ALTER TABLE oi_notice
-  MODIFY COLUMN nono INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN nono INTEGER NOT NULL AUTO_INCREMENT COMMENT '공지사항번호';
 
 -- 요리유형
 CREATE TABLE oi_category (
+<<<<<<< HEAD
   cno  INTEGER     NOT NULL, -- 요리유형번호
   name VARCHAR(50) NULL  -- 유형명
 );
+=======
+  cno  INTEGER     NOT NULL COMMENT '요리유형번호', -- 요리유형번호
+  name VARCHAR(50) NOT NULL COMMENT '유형명' -- 유형명
+)
+COMMENT '요리유형';
+>>>>>>> d3003d88498b53d3750cc13ed58de08b51b2d75f
 
 -- 요리유형
 ALTER TABLE oi_category
@@ -188,13 +239,14 @@ ALTER TABLE oi_category
     );
 
 ALTER TABLE oi_category
-  MODIFY COLUMN cno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN cno INTEGER NOT NULL AUTO_INCREMENT COMMENT '요리유형번호';
 
 -- 레시피재료
 CREATE TABLE oi_recipe_material (
-  mno INTEGER NOT NULL, -- 재료번호
-  rno INTEGER NOT NULL  -- 레시피번호
-);
+  mno INTEGER NOT NULL COMMENT '재료번호', -- 재료번호
+  rno INTEGER NOT NULL COMMENT '레시피번호' -- 레시피번호
+)
+COMMENT '레시피재료';
 
 -- 레시피재료
 ALTER TABLE oi_recipe_material
@@ -206,9 +258,10 @@ ALTER TABLE oi_recipe_material
 
 -- 레시피요리유형
 CREATE TABLE oi_recipe_category (
-  rno INTEGER NOT NULL, -- 레시피번호
-  cno INTEGER NOT NULL  -- 요리유형번호
-);
+  rno INTEGER NOT NULL COMMENT '레시피번호', -- 레시피번호
+  cno INTEGER NOT NULL COMMENT '요리유형번호' -- 요리유형번호
+)
+COMMENT '레시피요리유형';
 
 -- 레시피요리유형
 ALTER TABLE oi_recipe_category
@@ -220,9 +273,10 @@ ALTER TABLE oi_recipe_category
 
 -- 팔로잉
 CREATE TABLE oi_follow (
-  follower  INTEGER NOT NULL, -- 팔로워
-  following INTEGER NOT NULL  -- 팔로잉대상
-);
+  follower  INTEGER NOT NULL COMMENT '팔로워', -- 팔로워
+  following INTEGER NOT NULL COMMENT '팔로잉대상' -- 팔로잉대상
+)
+COMMENT '팔로잉';
 
 -- 팔로잉
 ALTER TABLE oi_follow
@@ -234,13 +288,14 @@ ALTER TABLE oi_follow
 
 -- 댓글
 CREATE TABLE oi_comment (
-  cno     INTEGER    NOT NULL, -- 댓글번호
-  uno     INTEGER    NOT NULL, -- 사용자번호
-  rno     INTEGER    NOT NULL, -- 레시피번호
-  content MEDIUMTEXT NULL,     -- 댓글내용
-  cdt     DATETIME   NOT NULL DEFAULT now(), -- 작성일
-  mdt     DATETIME   NULL      -- 수정일
-);
+  cno     INTEGER    NOT NULL COMMENT '댓글번호', -- 댓글번호
+  uno     INTEGER    NOT NULL COMMENT '사용자번호', -- 사용자번호
+  rno     INTEGER    NOT NULL COMMENT '레시피번호', -- 레시피번호
+  content MEDIUMTEXT NULL     COMMENT '댓글내용', -- 댓글내용
+  cdt     DATETIME   NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
+  mdt     DATETIME   NULL     COMMENT '수정일' -- 수정일
+)
+COMMENT '댓글';
 
 -- 댓글
 ALTER TABLE oi_comment
@@ -250,18 +305,19 @@ ALTER TABLE oi_comment
     );
 
 ALTER TABLE oi_comment
-  MODIFY COLUMN cno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN cno INTEGER NOT NULL AUTO_INCREMENT COMMENT '댓글번호';
 
 -- 상품
 CREATE TABLE oi_product (
-  pno      INTEGER      NOT NULL, -- 상품번호
-  title    VARCHAR(255) NULL,     -- title
-  content  MEDIUMTEXT   NOT NULL, -- 내용
-  stock    INTEGER      NOT NULL, -- 재고
-  price    INTEGER      NOT NULL, -- 단위가격
-  discount INTEGER      NOT NULL, -- 할인금액
-  photo    VARCHAR(255) NOT NULL  -- 사진
-);
+  pno      INTEGER      NOT NULL COMMENT '상품번호', -- 상품번호
+  title    VARCHAR(255) NULL     COMMENT 'title', -- title
+  content  MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
+  stock    INTEGER      NOT NULL COMMENT '재고', -- 재고
+  price    INTEGER      NOT NULL COMMENT '단위가격', -- 단위가격
+  discount INTEGER      NOT NULL COMMENT '할인금액', -- 할인금액
+  photo    VARCHAR(255) NOT NULL COMMENT '사진' -- 사진
+)
+COMMENT '상품';
 
 -- 상품
 ALTER TABLE oi_product
@@ -271,16 +327,17 @@ ALTER TABLE oi_product
     );
 
 ALTER TABLE oi_product
-  MODIFY COLUMN pno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN pno INTEGER NOT NULL AUTO_INCREMENT COMMENT '상품번호';
 
 -- 레시피단계
 CREATE TABLE oi_recipe_step (
-  rsno    INTEGER      NOT NULL, -- 레시피단계번호
-  rno     INTEGER      NOT NULL, -- 레시피번호
-  step    INTEGER      NOT NULL, -- 순서
-  photo   VARCHAR(255) NULL,     -- 사진
-  content MEDIUMTEXT   NOT NULL  -- 내용
-);
+  rsno    INTEGER      NOT NULL COMMENT '레시피단계번호', -- 레시피단계번호
+  rno     INTEGER      NOT NULL COMMENT '레시피번호', -- 레시피번호
+  step    INTEGER      NOT NULL COMMENT '순서', -- 순서
+  photo   VARCHAR(255) NULL     COMMENT '사진', -- 사진
+  content MEDIUMTEXT   NOT NULL COMMENT '내용' -- 내용
+)
+COMMENT '레시피단계';
 
 -- 레시피단계
 ALTER TABLE oi_recipe_step
@@ -297,13 +354,14 @@ CREATE UNIQUE INDEX UIX_oi_recipe_step
   );
 
 ALTER TABLE oi_recipe_step
-  MODIFY COLUMN rsno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN rsno INTEGER NOT NULL AUTO_INCREMENT COMMENT '레시피단계번호';
 
 -- 공지사항분류
 CREATE TABLE oi_notice_type (
-  ntno INTEGER     NOT NULL, -- 공지사항분류번호
-  name VARCHAR(50) NOT NULL  -- 분류명
-);
+  ntno INTEGER     NOT NULL COMMENT '공지사항분류번호', -- 공지사항분류번호
+  name VARCHAR(50) NOT NULL COMMENT '분류명' -- 분류명
+)
+COMMENT '공지사항분류';
 
 -- 공지사항분류
 ALTER TABLE oi_notice_type
@@ -313,19 +371,20 @@ ALTER TABLE oi_notice_type
     );
 
 ALTER TABLE oi_notice_type
-  MODIFY COLUMN ntno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN ntno INTEGER NOT NULL AUTO_INCREMENT COMMENT '공지사항분류번호';
 
 -- QNA
 CREATE TABLE oi_qna (
-  qnano   INTEGER      NOT NULL, -- QNA번호
-  writer  INTEGER      NOT NULL, -- 사용자번호
-  title   VARCHAR(255) NOT NULL, -- 제목
-  content MEDIUMTEXT   NOT NULL, -- 내용
-  cdt     DATETIME     NOT NULL DEFAULT  now(), -- 작성일
-  secret  INTEGER      NOT NULL, -- 비밀글여부
-  answer  MEDIUMTEXT   NULL,     -- 답변내용
-  adt     DATETIME     NULL      -- 답변일
-);
+  qnano   INTEGER      NOT NULL COMMENT 'QNA번호', -- QNA번호
+  writer  INTEGER      NOT NULL COMMENT '사용자번호', -- 사용자번호
+  title   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
+  content MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
+  cdt     DATETIME     NOT NULL DEFAULT  now() COMMENT '작성일', -- 작성일
+  secret  INTEGER      NOT NULL COMMENT '비밀글여부', -- 비밀글여부
+  answer  MEDIUMTEXT   NULL     COMMENT '답변내용', -- 답변내용
+  adt     DATETIME     NULL     COMMENT '답변일' -- 답변일
+)
+COMMENT 'QNA';
 
 -- QNA
 ALTER TABLE oi_qna
@@ -335,13 +394,14 @@ ALTER TABLE oi_qna
     );
 
 ALTER TABLE oi_qna
-  MODIFY COLUMN qnano INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN qnano INTEGER NOT NULL AUTO_INCREMENT COMMENT 'QNA번호';
 
 -- 난이도
 CREATE TABLE oi_level (
-  lno INTEGER NOT NULL, -- 난이도번호
-  lv  INTEGER NOT NULL  -- 난이도
-);
+  lno INTEGER NOT NULL COMMENT '난이도번호', -- 난이도번호
+  lv  INTEGER NOT NULL COMMENT '난이도' -- 난이도
+)
+COMMENT '난이도';
 
 -- 난이도
 ALTER TABLE oi_level
@@ -351,14 +411,15 @@ ALTER TABLE oi_level
     );
 
 ALTER TABLE oi_level
-  MODIFY COLUMN lno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN lno INTEGER NOT NULL AUTO_INCREMENT COMMENT '난이도번호';
 
 -- 게시글좋아요
 CREATE TABLE oi_board_like (
-  uno INTEGER  NOT NULL, -- 사용자번호
-  rno INTEGER  NOT NULL, -- 레시피번호
-  rdt DATETIME NOT NULL DEFAULT now() -- 등록일
-);
+  uno INTEGER  NOT NULL COMMENT '사용자번호', -- 사용자번호
+  rno INTEGER  NOT NULL COMMENT '레시피번호', -- 레시피번호
+  rdt DATETIME NOT NULL DEFAULT now() COMMENT '등록일' -- 등록일
+)
+COMMENT '게시글좋아요';
 
 -- 게시글좋아요
 ALTER TABLE oi_board_like
@@ -370,11 +431,12 @@ ALTER TABLE oi_board_like
 
 -- 장바구니
 CREATE TABLE oi_basket (
-  bkno   INTEGER NOT NULL, -- 장바구니번호
-  pno    INTEGER NOT NULL, -- 상품번호
-  amount INTEGER NOT NULL, -- 개수
-  uno    INTEGER NOT NULL  -- 사용자번호
-);
+  bkno   INTEGER NOT NULL COMMENT '장바구니번호', -- 장바구니번호
+  pno    INTEGER NOT NULL COMMENT '상품번호', -- 상품번호
+  amount INTEGER NOT NULL COMMENT '개수', -- 개수
+  uno    INTEGER NOT NULL COMMENT '사용자번호' -- 사용자번호
+)
+COMMENT '장바구니';
 
 -- 장바구니
 ALTER TABLE oi_basket
@@ -384,16 +446,17 @@ ALTER TABLE oi_basket
     );
 
 ALTER TABLE oi_basket
-  MODIFY COLUMN bkno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN bkno INTEGER NOT NULL AUTO_INCREMENT COMMENT '장바구니번호';
 
 -- 환불
 CREATE TABLE oi_refund (
-  odno INTEGER    NOT NULL, -- 주문번호
-  rdt  DATETIME   NOT NULL DEFAULT now(), -- 접수일
-  rsn  MEDIUMTEXT NULL,     -- 환불사유
-  pdt  DATETIME   NOT NULL, -- 처리일
-  stat INTEGER    NOT NULL  -- 처리상태
-);
+  odno INTEGER    NOT NULL COMMENT '주문번호', -- 주문번호
+  rdt  DATETIME   NOT NULL DEFAULT now() COMMENT '접수일', -- 접수일
+  rsn  MEDIUMTEXT NULL     COMMENT '환불사유', -- 환불사유
+  pdt  DATETIME   NOT NULL COMMENT '처리일', -- 처리일
+  stat INTEGER    NOT NULL COMMENT '처리상태' -- 처리상태
+)
+COMMENT '환불';
 
 -- 환불
 ALTER TABLE oi_refund
@@ -404,14 +467,15 @@ ALTER TABLE oi_refund
 
 -- 신고
 CREATE TABLE oi_report (
-  rpno     INTEGER    NOT NULL, -- 신고번호
-  reporter INTEGER    NOT NULL, -- 신고자
-  attacker INTEGER    NOT NULL, -- 피신고자
-  rtno     INTEGER    NOT NULL, -- 신고유형번호
-  content  MEDIUMTEXT NOT NULL, -- 내용
-  rdt      DATETIME   NOT NULL DEFAULT now(), -- 신고일
-  stat     INTEGER    NOT NULL  -- 처리상태
-);
+  rpno     INTEGER    NOT NULL COMMENT '신고번호', -- 신고번호
+  reporter INTEGER    NOT NULL COMMENT '신고자', -- 신고자
+  attacker INTEGER    NOT NULL COMMENT '피신고자', -- 피신고자
+  rtno     INTEGER    NOT NULL COMMENT '신고유형번호', -- 신고유형번호
+  content  MEDIUMTEXT NOT NULL COMMENT '내용', -- 내용
+  rdt      DATETIME   NOT NULL DEFAULT now() COMMENT '신고일', -- 신고일
+  stat     INTEGER    NOT NULL COMMENT '처리상태' -- 처리상태
+)
+COMMENT '신고';
 
 -- 신고
 ALTER TABLE oi_report
@@ -421,13 +485,14 @@ ALTER TABLE oi_report
     );
 
 ALTER TABLE oi_report
-  MODIFY COLUMN rpno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN rpno INTEGER NOT NULL AUTO_INCREMENT COMMENT '신고번호';
 
 -- 배송사
 CREATE TABLE oi_delivery_company (
-  dcno INTEGER     NOT NULL, -- 배송사번호
-  name VARCHAR(50) NOT NULL  -- 배송사
-);
+  dcno INTEGER     NOT NULL COMMENT '배송사번호', -- 배송사번호
+  name VARCHAR(50) NOT NULL COMMENT '배송사' -- 배송사
+)
+COMMENT '배송사';
 
 -- 배송사
 ALTER TABLE oi_delivery_company
@@ -437,13 +502,14 @@ ALTER TABLE oi_delivery_company
     );
 
 ALTER TABLE oi_delivery_company
-  MODIFY COLUMN dcno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN dcno INTEGER NOT NULL AUTO_INCREMENT COMMENT '배송사번호';
 
 -- 결제방법
 CREATE TABLE oi_payment (
-  pno  INTEGER     NOT NULL, -- 결제방법번호
-  name VARCHAR(50) NOT NULL  -- 결제방법명
-);
+  pno  INTEGER     NOT NULL COMMENT '결제방법번호', -- 결제방법번호
+  name VARCHAR(50) NOT NULL COMMENT '결제방법명' -- 결제방법명
+)
+COMMENT '결제방법';
 
 -- 결제방법
 ALTER TABLE oi_payment
@@ -453,16 +519,17 @@ ALTER TABLE oi_payment
     );
 
 ALTER TABLE oi_payment
-  MODIFY COLUMN pno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN pno INTEGER NOT NULL AUTO_INCREMENT COMMENT '결제방법번호';
 
 -- 계좌이체
 CREATE TABLE oi_account_transfer (
-  odno    INTEGER     NOT NULL, -- 주문번호
-  name    VARCHAR(50) NOT NULL, -- 사용자명
-  account VARCHAR(20) NOT NULL, -- 계좌번호
-  tdt     DATETIME    NOT NULL DEFAULT now(), -- 입금날짜
-  bname   VARCHAR(50) NOT NULL  -- 은행명
-);
+  odno    INTEGER     NOT NULL COMMENT '주문번호', -- 주문번호
+  name    VARCHAR(50) NOT NULL COMMENT '사용자명', -- 사용자명
+  account VARCHAR(20) NOT NULL COMMENT '계좌번호', -- 계좌번호
+  tdt     DATETIME    NOT NULL DEFAULT now() COMMENT '입금날짜', -- 입금날짜
+  bname   VARCHAR(50) NOT NULL COMMENT '은행명' -- 은행명
+)
+COMMENT '계좌이체';
 
 -- 계좌이체
 ALTER TABLE oi_account_transfer
@@ -473,11 +540,12 @@ ALTER TABLE oi_account_transfer
 
 -- 카카오페이
 CREATE TABLE oi_kakaopay (
-  odno    INTEGER     NOT NULL, -- 주문번호
-  name    VARCHAR(50) NOT NULL, -- 사용자명
-  account VARCHAR(20) NOT NULL, -- 계좌번호
-  tdt     DATETIME    NOT NULL DEFAULT now() -- 입금날짜
-);
+  odno    INTEGER     NOT NULL COMMENT '주문번호', -- 주문번호
+  name    VARCHAR(50) NOT NULL COMMENT '사용자명', -- 사용자명
+  account VARCHAR(20) NOT NULL COMMENT '계좌번호', -- 계좌번호
+  tdt     DATETIME    NOT NULL DEFAULT now() COMMENT '입금날짜' -- 입금날짜
+)
+COMMENT '카카오페이';
 
 -- 카카오페이
 ALTER TABLE oi_kakaopay
@@ -488,13 +556,14 @@ ALTER TABLE oi_kakaopay
 
 -- 주문항목
 CREATE TABLE oi_order_list (
-  olno     INTEGER NOT NULL, -- 주문항목번호
-  odno     INTEGER NOT NULL, -- 주문번호
-  pno      INTEGER NOT NULL, -- 상품번호
-  amount   INTEGER NOT NULL, -- 개수
-  discount INTEGER NOT NULL, -- 할인금액
-  price    INTEGER NOT NULL  -- 단위가격
-);
+  olno     INTEGER NOT NULL COMMENT '주문항목번호', -- 주문항목번호
+  odno     INTEGER NOT NULL COMMENT '주문번호', -- 주문번호
+  pno      INTEGER NOT NULL COMMENT '상품번호', -- 상품번호
+  amount   INTEGER NOT NULL COMMENT '개수', -- 개수
+  discount INTEGER NOT NULL COMMENT '할인금액', -- 할인금액
+  price    INTEGER NOT NULL COMMENT '단위가격' -- 단위가격
+)
+COMMENT '주문항목';
 
 -- 주문항목
 ALTER TABLE oi_order_list
@@ -504,13 +573,14 @@ ALTER TABLE oi_order_list
     );
 
 ALTER TABLE oi_order_list
-  MODIFY COLUMN olno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN olno INTEGER NOT NULL AUTO_INCREMENT COMMENT '주문항목번호';
 
 -- 신고유형
 CREATE TABLE oi_report_type (
-  rtno INTEGER     NOT NULL, -- 신고유형번호
-  name VARCHAR(50) NOT NULL  -- 신고유형명
-);
+  rtno INTEGER     NOT NULL COMMENT '신고유형번호', -- 신고유형번호
+  name VARCHAR(50) NOT NULL COMMENT '신고유형명' -- 신고유형명
+)
+COMMENT '신고유형';
 
 -- 신고유형
 ALTER TABLE oi_report_type
@@ -520,7 +590,26 @@ ALTER TABLE oi_report_type
     );
 
 ALTER TABLE oi_report_type
-  MODIFY COLUMN rtno INTEGER NOT NULL AUTO_INCREMENT;
+  MODIFY COLUMN rtno INTEGER NOT NULL AUTO_INCREMENT COMMENT '신고유형번호';
+
+-- 음식재료
+CREATE TABLE oi_food (
+  fno    INTEGER     NOT NULL COMMENT '음식번호', -- 음식번호
+  rno    INTEGER     NOT NULL COMMENT '레시피번호', -- 레시피번호
+  name   VARCHAR(50) NOT NULL COMMENT '이름', -- 이름
+  amount MEDIUMTEXT  NOT NULL COMMENT '계량' -- 계량
+)
+COMMENT '음식재료';
+
+-- 음식재료
+ALTER TABLE oi_food
+  ADD CONSTRAINT PK_oi_food -- 음식재료 기본키
+    PRIMARY KEY (
+      fno -- 음식번호
+    );
+
+ALTER TABLE oi_food
+  MODIFY COLUMN fno INTEGER NOT NULL AUTO_INCREMENT COMMENT '음식번호';
 
 -- 레시피
 ALTER TABLE oi_recipe
@@ -801,6 +890,7 @@ ALTER TABLE oi_order_list
     REFERENCES oi_product ( -- 상품
       pno -- 상품번호
     );
+
     
 -- 음식재료
 CREATE TABLE oi_food (
@@ -810,14 +900,7 @@ CREATE TABLE oi_food (
   amount MEDIUMTEXT  NULL  -- 계량
 );
 
-  
--- 음식재료
-ALTER TABLE oi_food
-  ADD CONSTRAINT PK_oi_food -- 음식재료 기본키
-    PRIMARY KEY (
-      fno -- 음식번호
-    );
-    
+
 -- 음식재료
 ALTER TABLE oi_food
   ADD CONSTRAINT FK_oi_recipe_TO_oi_food -- 레시피 -> 음식재료
@@ -827,8 +910,3 @@ ALTER TABLE oi_food
     REFERENCES oi_recipe ( -- 레시피
       rno -- 레시피번호
     );
-ALTER TABLE oi_food
-  MODIFY COLUMN fno INTEGER NOT NULL AUTO_INCREMENT;
-    
--- 전체 테이블확인
-SHOW tables;

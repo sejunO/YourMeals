@@ -11,60 +11,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--=========== example 따온거 =============-->
 
 <!-- Google Fonts -->
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
 	rel="stylesheet">
 
-<!-- Vendor CSS Files -->
 <link
-	href="<%=request.getContextPath()%>/node_modules/css/bootstrap.css"
+	href="<%=request.getContextPath()%>/test/css/bootstrap.css"
 	rel="stylesheet">
 <link
-	href="<%=request.getContextPath()%>/node_modules/css/bootstrap.grid.css"
-	rel="stylesheet">
-<link
-	href="<%=request.getContextPath()%>/node_modules/vendor/icofont/icofont.min.css"
-	rel="stylesheet">
-<link
-	href="<%=request.getContextPath()%>/node_modules/vendor/boxicons/css/boxicons.min.css"
-	rel="stylesheet">
-<link
-	href="<%=request.getContextPath()%>/node_modules/vendor/remixicon/remixicon.css"
-	rel="stylesheet">
-<link
-	href="<%=request.getContextPath()%>/node_modules/vendor/venobox/venobox.css"
-	rel="stylesheet">
-<link
-	href="<%=request.getContextPath()%>/node_modules/vendor/owl.carousel/assets/owl.carousel.min.css"
-	rel="stylesheet">
-<link
-	href="<%=request.getContextPath()%>/node_modules/vendor/aos/aos.css"
+	href="<%=request.getContextPath()%>/node_modules/bootstrap/dist/css/bootstrap-grid.css"
 	rel="stylesheet">
 
 <!-- Template Main CSS File -->
 <link href="<%=request.getContextPath()%>/css/recipe.css"
 	rel="stylesheet">
 
-<!-- Font Awesome Icons-->
-<link rel="stylesheet"
-	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-	integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-	crossorigin="anonymous" />
 
-<!-- ============= 글상자 ================-->
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/4.5/examples/album/">
 
-<!-- Bootstrap core CSS -->
 <link
-	href="<%=request.getContextPath()%>/node_modules/bootstrap/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-	crossorigin="anonymous">
+	href="<%=request.getContextPath()%>/test/css/bootstrap.min.css">
 
+    
+
+  <script src="<%=request.getContextPath()%>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="<%=request.getContextPath()%>/jquery/jquery.min.js"></script>
+  <script src="<%=request.getContextPath()%>/js/bootstrap.bundle.min.js"></script>
+  <script
+    src="<%=request.getContextPath()%>/jquery.easing/jquery.easing.min.js"></script>
+  <script
+    src="<%=request.getContextPath()%>/waypoints/jquery.waypoints.min.js"></script>
+  <script src="<%=request.getContextPath()%>/venobox/venobox.min.js"></script>
+  <script
+    src="<%=request.getContextPath()%>/owl.carousel/owl.carousel.min.js"></script>
+  <script src="<%=request.getContextPath()%>/aos/aos.js"></script>
+  <script src="<%=request.getContextPath()%>/php-email-form/validate.js"></script>
 
 </head>
 
@@ -89,7 +74,7 @@
 				<div class="row content">
 				<div class="side-and-side">
 				  <div id="left">
-				   <a href="list" style="text-decoration: underline; padding-top: 50px;">전체 레시피 보기</a>
+				   <a href="list" style="text-decoration: underline; padding-top: 50px;">레시피 목록으로 돌아가기</a>
 				  </div>
 				  <div id="right">
 <%-- 				<c:if test="${recipe.writer == loginUser}"> --%>
@@ -201,7 +186,7 @@
 
 							<div class="php-email-form">
 								<div class="text-center">
-									<button type="submit">부족한 재료 주문하기</button>
+									<button type="submit"  onclick="location.href='../basket/form'">부족한 재료 주문하기</button>
 								</div>
 							</div>
 
@@ -277,26 +262,22 @@
 					</div>
 					<div class="php-email-form mt-4">
 						<div class="form-group" style="padding-bottom: 8px; margin-right: 250px">
-							<textarea class="form-control" name="content" rows="5"
+							<textarea id="commentText" class="form-control" rows="5"
 								placeholder="댓글을 입력하세요."></textarea>
 						</div>
 						<div class="text-center" style="margin:0px; float:left">
-							<button type="submit">입력</button>
+							<button id="commentBtn" type="button">입력</button>
 						</div>
 					</div>
-					 <div class="col-lg-4" style="background: #f1f0f2; width: 100%; padding: 30px;">
+					
+					 <div id="listComment" class="col-lg-4" style="background: #f1f0f2; width: 100%; padding: 30px;">
 					   <c:forEach items="${comments}" var="c">
 					     <div class="side-and-side">
                 <div id="left">
                   <h5><a href='../user/recipeList?uNo=${c.writer.userNo}'>${c.writer.nick}</a></h5>
                 </div>
                 <div id="right">
-                 <c:if test='${recipe.modifiedDate == null}'>
-                  <h6>${recipe.createdDate}</h6>
-                 </c:if>
-                 <c:if test='${recipe.modifiedDate != null}'>
-                  <h5>${recipe.createdDate}(최종수정일:${recipe.modifiedDate})</h5>
-                </c:if>                
+                  <fmt:formatDate value="${c.createdDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
               </div>
             </div>
             <div style="text-align: left; padding-top: 15px">
@@ -315,35 +296,79 @@
 
 <jsp:include page="footer.jsp"></jsp:include>
 
-		
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script>
-		window.jQuery
-				|| document
-						.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')
-	</script>
-	<script
-		src="<%=request.getContextPath()%>/node_modules/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-		crossorigin="anonymous"></script>
 
-	<!-- Vendor JS Files -->
-	<script src="<%=request.getContextPath()%>/jquery/jquery.min.js"></script>
-	<script src="<%=request.getContextPath()%>/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="<%=request.getContextPath()%>/jquery.easing/jquery.easing.min.js"></script>
-	<script
-		src="<%=request.getContextPath()%>/waypoints/jquery.waypoints.min.js"></script>
-	<script src="<%=request.getContextPath()%>/venobox/venobox.min.js"></script>
-	<script
-		src="<%=request.getContextPath()%>/owl.carousel/owl.carousel.min.js"></script>
-	<script src="<%=request.getContextPath()%>/aos/aos.js"></script>
-	<script src="<%=request.getContextPath()%>/php-email-form/validate.js"></script>
+<!--   댓글  -->
+		<script>
+	 	 $(document).ready(function(){
+	 		 
+	 		listComment();
+	 		
+	 	   $("#commentBtn").click(function(){
+	 	         var commentText = $("#commentText").val();
+	 	         var recipeNo = "${recipe.recipeNo}";
+	 	         var param = "commentText=" + commentText + "&recipeNo=" + recipeNo;
+	 	         $.ajax({
+	 	           type: "post",
+	 	           url: "${path}/app/recipe/comment/insert.do",
+	 	           data: param,
+	 	           success : function() {
+	 	             alert("댓글이 등록되었습니다.");
+	 	             listComment();
+	 	           }           
+	 	         });
+	 	       });
+	 	 });
+	 	 
+// 	 	 Controller 방식
+  	 function listComment(){
+  		$.ajax({
+  			 type: "get",
+  			 url: "${path}/app/recipe/comment/list.do?recipeNo=${recipe.recipeNo}",
+  				success: function(result){
+  					$("#listComment").html(result);
+  				}
+  		});
+}
+	 	 
+  
+     
+// 	 	 Json 형식
+	 	 function listComment2(){
+	 		 $.ajax({
+	 			 type: "get",
+	 			 url:"{path}/recipe/comment/listJson.do?recipeNo=${recipe.recipeNo}",
+	 			 success: function(result){
+	 				 console.log(result);
+	 				 var output = "<table>";
+	 				 for(var i in result){
+	 					 output += "<tr>";
+	 					 output += "<td>" + result[i].writer.nick;
+	 					 output += "(" + changeDate(result[i].createdDate) + ")<br>";
+	 					 output += result[i].content + "</td>";
+	 					 output += "<tr>";
+	 				 }
+	 				 output += "</table>";
+	 				 $("#listComment").html(output);
+	 			 }
+	 		 });
+	 	 }
+	 	 
+	 	 function changeDate(date){
+	 		 date = new Date(parseInt(date));
+	 		 year = date.getFullYear();
+	 		 month = date.getMonth();
+	 		 day = date.getDate();
+	 		 hour = date.getHours();
+	 		 minute = date.getMinutes();
+	 		 second = date.getSeconds();
+	 		 strDate = year + "-" + month + "-" + day + "-" + hour + ":" + minute + ":" + second;
+	 		 return strDate;
+	 	 }
+	 	 
+		</script>
+			
 
-	<!-- Template Main JS File -->
-	<script src="assets/js/main.js"></script>
+
 </body>
 
 </html>

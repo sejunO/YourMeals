@@ -71,7 +71,7 @@
   <div class="sub-container">
   <div class="vertical">
    <div class="mylist">
-        <h1>장바구니</h1>
+        <div class="headtitle">상품 담기</div>
         <!-- 장바구니 리스트 시작 -->
         
     <form action="../order/form" method="post">

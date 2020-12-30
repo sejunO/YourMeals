@@ -127,8 +127,17 @@
 .btn-outline-primary {
 	width: 25%;
   height: 30px;
-  color: #0d6efd;
+  color: white;
+  background-color: #0d6efd;
   border-radius: 10px;
   border: 2px solid #0d6efd;
   margin: 5px 0px 10px 10px;
 }
+.titlebox {
+	width: 100%;
+	text-align: center;
+	font-size: 17px;
+	font-weight: 700;
+	padding: 10px 0;
+}
+
