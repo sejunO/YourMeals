@@ -42,7 +42,7 @@ public class UserController {
     //    user.setPhoto("67852bd8-9a5a-448a-a411-6e3c46b760a8");
 
     userService.add(user);
-    return "redirect:../..";
+    return "redirect:../index";
   }
 
   @GetMapping("delete")
@@ -53,7 +53,7 @@ public class UserController {
     if (userService.delete(loginUser.getUserNo()) == 0) {
       throw new Exception("회원 탈퇴를 실패하였습니다.");
     }
-    return "redirect:.";
+    return "redirect:app/index";
   }
 
   @GetMapping("list")
@@ -94,7 +94,7 @@ public class UserController {
   }
 
   @GetMapping("recipeList")
-  public void recipeList(@ModelAttribute("loginUser") User loginUser, 
+  public void recipeList(@ModelAttribute("loginUser") User loginUser,
       int uNo, Model model) throws Exception {
     User user = userService.get(uNo);
     List<Recipe> recipeList = recipeService.userNoList(uNo);
@@ -124,7 +124,7 @@ public class UserController {
   }
 
   @GetMapping("followerList")
-  public void followerList(@ModelAttribute("loginUser") User loginUser, 
+  public void followerList(@ModelAttribute("loginUser") User loginUser,
       int uNo, Model model) throws Exception {
     User user = userService.get(uNo);
     List<Recipe> recipeList = recipeService.userNoList(uNo);
@@ -153,7 +153,7 @@ public class UserController {
   }
 
   @GetMapping("followingList")
-  public void followingList(@ModelAttribute("loginUser") User loginUser, 
+  public void followingList(@ModelAttribute("loginUser") User loginUser,
       int uNo, Model model) throws Exception {
     User user = userService.get(uNo);
     List<Recipe> recipeList = recipeService.userNoList(uNo);
@@ -182,8 +182,8 @@ public class UserController {
   }
 
   @GetMapping("follow")
-  public String follow(@ModelAttribute("loginUser") User loginUser, 
-      int followUserNo, 
+  public String follow(@ModelAttribute("loginUser") User loginUser,
+      int followUserNo,
       HttpServletRequest request) throws Exception {
     String referer = request.getHeader("Referer"); // 이전페이지
     Follow followUsers = new Follow();
@@ -198,8 +198,8 @@ public class UserController {
   }
 
   @GetMapping("unfollow")
-  public String unfollow(@ModelAttribute("loginUser") User loginUser, 
-      int unfollowUserNo, 
+  public String unfollow(@ModelAttribute("loginUser") User loginUser,
+      int unfollowUserNo,
       HttpServletRequest request) throws Exception {
     String referer = request.getHeader("Referer");
     Follow unfollowUsers = new Follow();

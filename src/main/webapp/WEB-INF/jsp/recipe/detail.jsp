@@ -249,7 +249,7 @@
 							<i class="bx bxl-dribbble"></i>
 						</div>
 						<h4>${recipe.recommendCount}</h4>
-						<h4>추천</h4>
+						<button type='button' id='recommendCountBtn'>추천</button>
 					</div>
 				</div>
 
@@ -314,6 +314,34 @@
 
 <jsp:include page="footer.jsp"></jsp:include>
 
+ <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+		 <script>
+  $(function(){
+     $("#recommendCountBtn").on("click",function(){
+        var userNo = $("#userNo").val();
+        var recipeNo = $("#recipeNo").val();
+        console.log(userNo);
+        console.log(recipeNo);
+        $.ajax({
+           url:"updateRecommendCount",
+           type:"post",
+           data: {recipeNo: recipeNo},
+           success: function(data) {
+               if (data == 'ok') {
+                 var count = ${recipe.recommendCount};
+                 $("#recommendCount").text("추천수: ");
+                 $("#recommendCount").text(count + 1);
+                 
+               }
+               console.log("정보 가져오기 성공");
+    },
+      error: function () {
+        console.log("정보를 가져오기 실패");
+      }
+        });
+     });
+  });
+ </script> 
 		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

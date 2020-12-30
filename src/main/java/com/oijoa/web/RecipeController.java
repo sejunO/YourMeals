@@ -183,7 +183,10 @@ public class RecipeController {
     }
     model.addAttribute("notices", noticeService.list());
   }
-
+  @GetMapping("noticeDetail")
+  public void noticeDetail(Model model, int noticeNo) throws Exception {
+    model.addAttribute("notice", noticeService.get(noticeNo));
+  }
   @RequestMapping("detail")
   public void detail(Model model, int recipeNo) throws Exception {
     Recipe recipe = recipeService.get(recipeNo);

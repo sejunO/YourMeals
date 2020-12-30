@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>레시피 목록</title>
+<title>레시피 보기</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -66,103 +66,86 @@
 	crossorigin="anonymous">
 
 
-<style>
-body {
-	font-family: "Open Sans", sans-serif;
-	color: #444444;
-}
-</style>
-
 </head>
 
 <body>
-	<jsp:include page="/header.jsp"></jsp:include>
+<jsp:include page="/header.jsp"></jsp:include>
 
-	<section id="hero" class="d-flex align-items-center img-list">
+	<section id="hero" class="d-flex align-items-center img-detail">
 		<div
 			class="container text-center position-relative aos-init aos-animate"
 			data-aos="fade-in" data-aos-delay="200">
-			<h1>YOUR MEALS</h1>
+			<h1>레시피 살펴보기</h1>
 			<br>
-			<h2>여러분만의 레시피를 공유해 보세요!</h2>
+			<h2>오늘은 어떤 레시피로 요리해 볼까요?</h2>
 		</div>
 	</section>
-<
 
-
-	<section name="search" >
-		<div class="container" id="show">
-			 <h3 style="font-weight: bold; padding-bottom: 20px; padding-left: 50px">레시피 검색</h3>
-				<form action="list" method="get" style="padding-left: 30px;">
-					<div class="form-inline" style="padding-left: 20px; display: flex;">
-						<select id="selectbox" name="option">
-							<option value="all">전체</option>
-							<option value="title">제목</option>
-							<option value="writer">작성자</option>
-							<option value="category">카테고리</option>
-						</select> <input class="form-control" type="text" id="keyword"
-							name="keyword" placeholder="검색어를 입력하세요" />
-						<button class="searchBtn">검색</button>
+	<div class="container">
+		<!-- 레시피 소개 -->
+		<section id="about" class="about">
+			<div class="container">
+				<div class="row content">
+				<div class="side-and-side">
+				  <div id="left">
+				   <a href="list" style="text-decoration: underline; padding-top: 50px;">전체 레시피 보기</a>
+				  </div>
+				  <div id="right">
+        <c:if test="${recipe.writer.userNo == sessionScope.loginUser.userNo}">
+				<div class="updateAndDelete" style="text-align: right; padding-bottom: 20px;">
+				  <button class="updateBtn" onclick="location.href='beforeUpdate?recipeNo=${recipe.recipeNo}'" style="margin-right: 15px;">수정</button>
+				  <button class="deleteBtn" href="delete?recipeNo=${recipe.recipeNo}" onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</button>
+				</div>
+        </c:if>
+				</div>
+				</div> 
+					<div class="recipe-content" id="img-recipe" data-aos="fade-right"
+						data-aos-delay="100">
+						<div class="side-and-side">
+							<div id="left">
+								<h5>조회수: ${recipe.hits}</h5>
+								<h5>게시물 ${recipe.recipeNo} 번</h5>
+							</div>
+							<div id="right">
+								<c:if test='${recipe.modifiedDate == null}'>
+									<h6>${recipe.createdDate}</h6>
+									<h5>${recipe.category.categoryName}</h5>
+								</c:if>
+								<c:if test='${recipe.modifiedDate != null}'>
+									<h5>${recipe.createdDate}(최종수정일:${recipe.modifiedDate})</h5>
+									<h5>${recipe.category.categoryName}</h5>
+								</c:if>
+							</div>
+						</div>
+						<h2>${recipe.title}</h2>
+						<img src="../../upload/${recipe.photo}_1280x720.jpg"
+							class="img-thumbnail" alt="..."><br>
 					</div>
-				</form>
-		</div>
-	</section>
+					<div class="recipe-content2 text-center pt-4 pt-lg-0"
+						data-aos="fade-left" data-aos-delay="200">
+						<p>${recipe.content}</p>
+						<br>
+					</div>
+					<div id="left">
+						<h5>작성자: <a href='../user/recipeList?uNo=${recipe.writer.userNo}'>${recipe.writer.nick}</a></h5>
+						<br>
+					</div>
+				</div>
+				<i class="fa-user-friends:before"></i>
+			</div>
+
+		</section>
 
 
-	<section name="showlist" style="padding-bottom: 500px;">
-		<div class="container" >
-		<div class="side-and-side" style="padding-bottom: 30px;" >
-		  <div id="left">
-		    <a href="list" style="text-decoration: underline;">전체 레시피 보기</a>
-		  </div>
-		   <div id="right">
-		    <a href="form"><button class="addRecipeBtn">새 레시피 만들기</button></a>
-	     </div>
-		</div>
-			<table class="table" style="text-align: center">
-				<thead>
-					<tr style="background-color: rgb(250, 247, 240);">
-						<th class="notice-category" style="text-align: center">번호</th>
-						<th class="notice-category" style="text-align: center">사진</th>
-						<th class="notice-category" style="text-align: center">제목</th>
-						<th class="notice-category" style="text-align: center">작성자</th>
-						<th class="notice-category" style="text-align: center">방법</th>
-						<th class="notice-category" style="text-align: center">작성일</th>
-						<th class="notice-category" style="text-align: center">조회</th>
-					</tr>
-				</thead>
 
-				<tbody>
-					<c:forEach items="${notices}" var="n">
-						<tr>
-							<td>${n.noticeNo}</td>
-							<td>-</td>
-							<td class="notice-title"><a
-								href='noticeDetail?noticeNo=${n.noticeNo}'>${n.title}</a></td>
-							<td>관리자</td>
-							<td class="notice-color">공지사항</td>
-							<td>${n.registeredDate}</td>
-							<td>-</td>
-						</tr>
-					</c:forEach>
-					<c:forEach items="${list}" var="recipe">
-						<tr>
-							<td>${recipe.recipeNo}</td>
-							<td><img src='../upload/%1$s_30x30.jpg'>${recipe.photo}</td>
-							<td><a href='detail?recipeNo=${recipe.recipeNo}'>${recipe.title}</a></td>
-							<td><a href='../user/recipeList?uNo=${recipe.writer.userNo}'>${recipe.writer.nick}</a></td>
-							<td class="list-color'">${recipe.category.categoryName}</td>
-							<td>${recipe.createdDate}</td>
-							<td>${recipe.hits}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-	</section>
 
-	<jsp:include page="footer.jsp"></jsp:include>
 
+
+	</div>
+
+<jsp:include page="footer.jsp"></jsp:include>
+
+		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
@@ -190,7 +173,7 @@ body {
 	<script src="<%=request.getContextPath()%>/php-email-form/validate.js"></script>
 
 	<!-- Template Main JS File -->
-	<script src="js/main.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 
 </html>
