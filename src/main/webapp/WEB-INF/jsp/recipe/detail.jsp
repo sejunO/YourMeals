@@ -280,7 +280,7 @@
                     ${recipe.createdDate}
                   </c:if>
                   <c:if test="${recipe.modifiedDate != null}">
-                     ${recipe.createdDate}(수정일: ${recipe.modifietDate})
+                     ${recipe.createdDate}(수정일: ${recipe.modifiedDate})
                   </c:if>
               </div>
             </div>

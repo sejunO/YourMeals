@@ -101,7 +101,7 @@
     values(#{writer.userNo}, #{recipeNo}, #{content})
   </insert>
   
-  <select id="listAsc" resultType="CommentMap" parameterType="Integer">
+  <select id="listAsc" resultMap="CommentMap" parameterType="Integer">
      select
       u.uno writer_no,
       u.nick writer_nick,
@@ -114,7 +114,7 @@
       inner join oi_user u on c.uno = u.uno
     where 
       c.rno = #{recipeNo}
-    order by c.cno
+    order by c.cdt
   </select>
   
 </mapper>
