@@ -12,12 +12,14 @@ import com.oijoa.domain.DeliveryCompany;
 import com.oijoa.domain.Order;
 import com.oijoa.domain.OrderList;
 import com.oijoa.domain.Payment;
+import com.oijoa.domain.Product;
 import com.oijoa.domain.User;
 import com.oijoa.service.BasketService;
 import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.OrderListService;
 import com.oijoa.service.OrderService;
 import com.oijoa.service.PaymentService;
+import com.oijoa.service.ProductService;
 import com.oijoa.service.UserService;
 
 @Controller
@@ -35,6 +37,9 @@ public class OrderController {
   PaymentService paymentService;
   @Autowired
   UserService userService;
+  @Autowired
+  ProductService productService;
+
 
   @RequestMapping("add")
   public String add(HttpSession session, Order order) throws Exception {
@@ -81,11 +86,13 @@ public class OrderController {
     User user = userService.get(loginUser.getUserNo());
     List<Basket> baskets = basketService.myList(user.getUserNo());
     List<Payment> payments = paymentService.list(null);
+    List<Product> products = productService.list(null);
 
     ModelAndView mv = new ModelAndView();
     model.addAttribute("baskets", baskets);
     model.addAttribute("payments", payments);
     model.addAttribute("user", user);
+    model.addAttribute("products", products);
 
   }
 

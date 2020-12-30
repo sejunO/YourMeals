@@ -42,6 +42,19 @@
 <link
   href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700"
   rel="stylesheet">
+  
+  <script>
+  function change1(obj){
+    obj.style.background = 'rgb(193, 212, 209)';
+    obj.style.color = 'rgb(0, 0, 0)';
+  }
+  
+  function change2(obj){
+    obj.style.background = 'rgb(193, 212, 209)';
+    obj.style.color = 'rgb(255, 255, 255)';
+  }
+</script>
+
 </head>
 
 <body id="userpage">
@@ -59,88 +72,72 @@
   <div class="vertical">
    <div class="mylist">
         <h1>장바구니</h1>
-        <!-- 주문내역 리스트 시작 -->
+        <!-- 장바구니 리스트 시작 -->
+        
+    <form action="../order/form" method="post">
         <ul class="list">
           <li class="thead">
             <div class="td-col1">상품정보</div>
-            <div class="td-col2">배송정보</div>
-            <div class="td-col3">상태</div>
+            <div class="td-col2">내용</div>
+            <div class="td-col3">수량</div>
+            <div class="td-col3">가격</div>
+            <div class="td-col3">총가격</div>
           </li>
-        <c:forEach items="${descOrderList}" var="o" end="2">
+          
+          
+        <c:forEach items="${basketList}" var="b">
           <li class="tbox">
-          <!-- 주문일자, 번호 박스 -->
-            <div class="td-box">
-              <ul class="order-num">
-              
-                <li class="order-date">
-                <span>주문일자</span>
-                <span class="order">${o.orderDate}</span>
-                </li>
-                
-                <li class="ordernum">
-                <span>주문번호</span>
-                <span class="order">${o.orderNo}</span>
-                </li>
-                </ul>
-                </div>
+          
               <!-- 물품 -->
                 <div class="goods">
                   <div class="goodsbox">
                     <div class="in-col1">
                       <div class="imgbox"> 
                         <div class="imgin">
-                          <img src="<%=request.getContextPath()%>/upload/${product.photo}_100x100.jpg"/>
-                        </div>
-                      </div>
+							<img src="../../upload/${b.product.photo}_80x80.jpg" 
+							class="figure-img img-fluid rounded" alt="...">
+							           </div>
+							        </div>
                       <div class="goodsinfo">
                         <p class="goodstitle">
-                  ${o.orderLists.get(0).orderProduct.title}
-                    <c:if test="${o.orderLists.size() -1 > 0}">외
-                  ${o.orderLists.size() -1} 건</c:if></p>
-                        <div class="price">${o.totalPrice} 원</div>
-                      </div>
+                          ${b.product.title}  </p>
+                   <!--  <c:if test="${o.orderLists.size() -1 > 0}">외
+                  ${b.orderLists.size() -1} 건</c:if></p>
+                        <div class="price">${o.totalPrice} 원</div> -->
+                        </div>
                     </div>
-                    <!-- 상품사진, 상품명, 가격 끝 -->
-                    <!-- 배송정보 -->
+                    <!-- 상품사진, 품명 -->
+                    <!-- 내용 -->
                     <div class="in-col2">
-                      <div class="delivery">
-                      <p class="pfont">(${o.postNo})</p>
-                      <p class="pfont">${o.address}</p>
-                      <p class="pfont">${o.detailAddress}</p>     
-                      </div>
+                          ${b.product.content}
                     </div>
-                    <!-- 배송정보 끝 -->
-                    <!--  상태  -->
+                    <!-- 내용 끝 -->
+                    <!--  수량  -->
                     <div class="in-col3">
-                      <div class="status"><strong>
-                      <c:choose>
-                        <c:when test="${o.status == 0}">
-                      입금확인중
-                        </c:when>
-                        <c:when test="${o.status == 1}">
-                      결제완료
-                        </c:when>
-                        <c:when test="${o.status == 2}">
-                      배송준비
-                        </c:when>
-                        <c:when test="${o.status == 3}">
-                      배송중
-                        </c:when>
-                        <c:when test="${o.status == 4}">
-                      배송완료
-                        </c:when>
-                    
-                      <c:otherwise>
-                      상태값오류
-                      </c:otherwise>
-                    </c:choose>
-                  </strong>           
-                  </div>
+                    ${b.amount}  
+                    </div>
+                     <div class="in-col3">
+                      ${b.product.price}
+                      </div>
+                      <div class="in-col3">
+                        ${b.amount * b.product.price}
+                        </div>
                 </div>
-              </div>
-            </div>
+                </div>
+                </li>
                 </c:forEach>
-              </ul>
+                </ul>
+            <div class="userbtnbox">
+                <button type="button" class="userbtn" onmouseout="change2(this)"
+                onmouseover="change1(this)" onclick="location.href='form'">
+                  장바구니 채우기</button>
+                      
+               <button class="userbtn" onmouseout="change2(this)" 
+                onmouseover="change1(this)">주문하기</button>
+                </div>
+                </form>
+            </div>
+            </div>
             </div>
     
     
@@ -151,7 +148,7 @@
     
     
     
-    </div>
+    
   
   
   
@@ -166,7 +163,7 @@
 
 
 
-<!--  
+<!-- 
         <a href='form'>장바구니 등록</a><br>
         <form action="../order/form" method="post">
           <table class="table table-striped" border='2'>
@@ -207,8 +204,6 @@
 
 
 
-    </div>  
-  </div>
     <jsp:include page="/footer.jsp"></jsp:include>
     
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 

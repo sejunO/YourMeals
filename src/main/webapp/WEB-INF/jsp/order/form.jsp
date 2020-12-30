@@ -55,15 +55,15 @@
             <div class="imgbox">
               <div class="imgin">
                 <img
-                  src="../../upload/${basket.products.get(1).photo}_80x80.jpg" />
+                  src="../../upload/${baskets.get(0).product.photo}_80x80.jpg" />
               </div>
             </div>
             <div>
-              ${basket.product.get(0).title}
+              ${baskets.get(0).product.title}
               <div class="goodsinfo">
                 <p class="goodstitle">
-                  <c:if test="${basket.product.size() -1 > 0}">외
-                        ${basket.product.size() -1} 건</c:if>
+                  <c:if test="${baskets.size() -1 > 0}">외
+                        ${baskets.size() -1} 건</c:if>
               </div>
             </div>
           </div>
