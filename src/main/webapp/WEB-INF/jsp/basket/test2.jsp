@@ -44,7 +44,7 @@
   rel="stylesheet">
 </head>
 
-<body id="userpage">
+<body id="basketpage">
   <div class="main-container">
     <div class="box1">
       <div class="box2">
@@ -69,14 +69,21 @@
                     src="../../upload/${p.photo}_200x200.jpg"
                     alt="Card image cap" height="180">
                   <div class="card-body">
-                    <h5 class="card-title">${p.content}</h5>
-                    <p class="card-text">가격 : ${p.price}원</p>
-                      <p class="card-text">수량 : <input type='number' name='amount'>
+                    <h5 class="card-title"
+                      style="text-align :right; max-height: 50px; margin-top: 16px; font-size: 18px;">${p.content}
+                    </h5>
+                    <p class="card-text"
+                      style="text-align :right; padding-top: 6px; font-weight: 700; font-size: 12px; line-height: 20px;">
+                      가격 : ${p.price}원</p>
+                      <p class="card-text"
+                      style="text-align :right; padding-top: 6px; font-weight: 700; font-size: 12px; line-height: 20px;">
+                      수량 : <input type='number' name='amount'>
                     <button class="btn btn-outline-primary">추가</button>
                   </div>
              </form>
                 </div>
               </div>
+  </form>
             </c:forEach>
           </div>
         </div>
