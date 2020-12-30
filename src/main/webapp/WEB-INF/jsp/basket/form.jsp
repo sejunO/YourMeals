@@ -63,7 +63,7 @@
               <div class="content-main-cell-col"> 
                 <div class="card mb-3">
               <form action='add' method='post'>
-                  <input type='radio' name='productNo' value="${p.productNo}">${p.title}<br>
+                  <input type='radio' name='productNo' value="${p.productNo}">  ${p.title}<br>
                    <%-- <img
                     class="card-img-top" 
                     src="../../upload/${p.photo}_200x200.jpg"
