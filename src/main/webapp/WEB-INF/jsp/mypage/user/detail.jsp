@@ -27,6 +27,19 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+
+<script>
+  function change1(obj){
+    obj.style.background = 'rgb(193, 212, 209)';
+    obj.style.color = 'rgb(0, 0, 0)';
+  }
+  
+  function change2(obj){
+    obj.style.background = 'rgb(193, 212, 209)';
+    obj.style.color = 'rgb(255, 255, 255)';
+  }
+</script>
+
 </head>
 <body id="mypage">
 	<div class="main-container">
@@ -71,8 +84,8 @@
      <div class="updatebox3">
     <span class="labels"> 우편번호:</span> <input type='text'  class="form-control"
       style="margin:5px 0 0 70px; position: relative;" id="postNo" name='postNo' value='${user.postNo}'>
-   	 <input type="button" onclick="execPostCode()" class="userbtn" 
-   	 style="margin: 5px 0 0 5px; position: relative;" value="우편번호 찾기">
+   	 <input type="button" onmouseout="change2(this)" onmouseover="change1(this)"
+   	 onclick="execPostCode()" class="userbtn" style="margin: 5px 0 0 5px; position: relative;" value="우편번호 찾기">
      </div>
      
      <div class="updatebox4">
@@ -89,10 +102,11 @@
     <div class="userbtnbox">
     <%--메모: <input type="text" id='memo' name="memo"><br> --%>
     <%--비밀번호: <input type='text' name='password' value='${user.password}' readonly><br> --%>
-    <button type="button" class="userbtn" onclick="location.href='detailPhoto'">회원사진변경</button>
+    <button type="button" class="userbtn" onmouseout="change2(this)" onmouseover="change1(this)"
+    onclick="location.href='detailPhoto'">회원사진변경</button>
      
-    <button type="button" class="userbtn" style="margin-top: 10px;"
-    onclick="location.href='detailPassword'">비밀번호변경</button>
+    <button type="button" class="userbtn" style="margin-top: 10px;" onmouseout="change2(this)" 
+    onmouseover="change1(this)" onclick="location.href='detailPassword'">비밀번호변경</button>
     
     <%--<button type="button" onclick="location.href='deleteMyUser'">회원탈퇴</button><br> --%>
     </div>
@@ -167,7 +181,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script> 
-<%--<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script>--%>
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/main.js"></script>
     
 </body>
