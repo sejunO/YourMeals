@@ -16,7 +16,7 @@
 		<br>
 		<p>
 		<button>변경</button>
-		<button type="button" onclick="location.href='../../../mypage/index.html'">취소</button>
+		<button type="button" onclick="location.href='detail'">취소</button>
 		</p>
 	</form>
 	
