@@ -17,10 +17,6 @@
 		<form class="form-signin" action="add" method="post" enctype='multipart/form-data'>
 			<div class="sign"><h7>회원가입</h7></div>
 			
-			<div class="myimg">
-			<img src="<%=request.getContextPath()%>/upload/${user.photo}_100x100.jpg"/>
-			</div>
-			
 			<label for="inputEmail" class="sr-only">이메일</label>
 			<input type="email" value='${email}' id="sign-inputEmail" 
 			name="email" class="form-control" placeholder="이메일(example@gmail.com)" required>

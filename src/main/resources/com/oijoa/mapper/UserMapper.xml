@@ -126,7 +126,7 @@
 
   <insert id="insert" parameterType="user">
     insert into oi_user(name,email,tel,password,photo,nick,point,utype) 
-    values(#{name},#{email},#{tel}password(#{password}),#{photo},#{nick},0,0)
+    values(#{name},#{email},#{tel},password(#{password}),#{photo},#{nick},0,0)
   </insert>
   
 </mapper>
