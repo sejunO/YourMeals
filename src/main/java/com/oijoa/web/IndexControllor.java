@@ -27,7 +27,7 @@ public class IndexControllor {
 
     model.addAttribute("recipeList", recipeService.list());
     model.addAttribute("categoryList", categoryService.list());
-    model.addAttribute("recipe", recipeService.list().get(1));
+    //    model.addAttribute("recipe", recipeService.list().get(1));
     // model.addAttribute("hits", hits);
   }
 }

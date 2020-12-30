@@ -55,7 +55,6 @@
         <div class="box4">Order</div>
       </div>
     </div>
-  </div>
   
     <div class="sub-container">
   <div class="vertical">
