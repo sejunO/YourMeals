@@ -24,9 +24,9 @@ public class AuthController {
 
   @PostMapping("login")
   public String login(
-      String email, 
-      String password, 
-      String saveEmail, 
+      String email,
+      String password,
+      String saveEmail,
       HttpServletResponse response,
       HttpSession session) throws Exception {
 
@@ -44,7 +44,7 @@ public class AuthController {
       return "redirect:loginError";
     }
     session.setAttribute("loginUser", user);
-    return "redirect:../..";
+    return "redirect:../../app/index";
   }
 
   @GetMapping("loginError")

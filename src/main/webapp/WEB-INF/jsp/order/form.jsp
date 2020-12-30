@@ -48,6 +48,18 @@
 </head>
 
 <body>
+    
+     <!--   <table>
+        <tr>
+          <td></td>
+          <td>${b.amount}</td>
+          <td>${b.product.price}</td>
+          <td>${b.writer.name}</td>
+          <td>${b.product.price} * ${b.amount}</td>
+      </table>-->
+
+    
+
   <form action="add" method="post">
     <div class="goods">
       <div class="goodsbox">
@@ -55,15 +67,15 @@
             <div class="imgbox">
               <div class="imgin">
                 <img
-                  src="../../upload/${basket.products.get(1).photo}_80x80.jpg" />
+                  src="../../upload/${products.get(0).photo}_80x80.jpg" />
               </div>
             </div>
             <div>
-              ${basket.product.get(0).title}
+              ${products.get(0).title}
               <div class="goodsinfo">
                 <p class="goodstitle">
-                  <c:if test="${basket.product.size() -1 > 0}">외
-                        ${basket.product.size() -1} 건</c:if>
+                  <c:if test="${products.size() -1 > 0}">외
+                        ${products.size() -1} 건</c:if>
               </div>
             </div>
           </div>

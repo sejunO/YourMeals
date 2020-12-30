@@ -60,7 +60,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand page-scroll" href="<%=request.getContextPath()%>">YourMeals</a>
+					<a class="navbar-brand page-scroll" href="<%=request.getContextPath()%>/app/index">YourMeals</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
