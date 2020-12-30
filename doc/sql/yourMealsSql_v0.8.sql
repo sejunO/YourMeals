@@ -93,14 +93,14 @@ CREATE TABLE oi_recipe (
   rno     INTEGER      NOT NULL, -- 레시피번호
   uno     INTEGER      NOT NULL, -- 사용자번호
   lno     INTEGER      NOT NULL, -- 난이도번호
-  title   VARCHAR(255) NOT NULL, -- 제목
+  title   VARCHAR(255) NULL, -- 제목
   content MEDIUMTEXT   NOT NULL, -- 내용
   photo   VARCHAR(255) NULL,     -- 사진
   hits    INTEGER      NOT NULL DEFAULT 0, -- 조회수
   rcmd    INTEGER      NOT NULL DEFAULT 0, -- 추천수
   cdt     DATETIME     NOT NULL DEFAULT now(), -- 작성일
   mdt     DATETIME     NULL     DEFAULT now(), -- 수정일
-  min     INTEGER      NOT NULL,  -- 조리시간
+  min     INTEGER      NULL,  -- 조리시간
   serving INTEGER      NOT NULL DEFAULT 0 -- 몇인분
 );
 
@@ -177,7 +177,7 @@ ALTER TABLE oi_notice
 -- 요리유형
 CREATE TABLE oi_category (
   cno  INTEGER     NOT NULL, -- 요리유형번호
-  name VARCHAR(50) NOT NULL  -- 유형명
+  name VARCHAR(50) NULL  -- 유형명
 );
 
 -- 요리유형
@@ -806,8 +806,8 @@ ALTER TABLE oi_order_list
 CREATE TABLE oi_food (
   fno    INTEGER     NOT NULL, -- 음식번호
   rno    INTEGER     NOT NULL, -- 레시피번호
-  name   VARCHAR(50) NOT NULL, -- 이름
-  amount MEDIUMTEXT  NOT NULL  -- 계량
+  name   VARCHAR(50) NULL, -- 이름
+  amount MEDIUMTEXT  NULL  -- 계량
 );
 
   
