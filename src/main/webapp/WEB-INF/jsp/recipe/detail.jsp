@@ -102,7 +102,7 @@
 									<h5>${recipe.category.categoryName}</h5>
 								</c:if>
 							</div>
-						</div>
+						</div>  
 						<h2>${recipe.title}</h2>
 						<img src="../../upload/${recipe.photo}_1280x720.jpg"
 							class="img-thumbnail" alt="..."><br>
