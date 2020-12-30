@@ -28,7 +28,7 @@
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"
-  href="<%=request.getContextPath()%>/test/css/basketstyle2.css">
+  href="<%=request.getContextPath()%>/test/css/shopstyle.css">
 <link rel="stylesheet" type="text/css"
   href="<%=request.getContextPath()%>/test/css/nivo-lightbox/nivo-lightbox.css">
 <link rel="stylesheet" type="text/css"
@@ -86,6 +86,6 @@
     src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
-
+  <jsp:include page="/footer.jsp"></jsp:include>
 </body>
 </html>

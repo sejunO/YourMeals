@@ -1,0 +1,142 @@
+#basketpage {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+.box1 {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.box2 {
+  background: url(../img/shop.jpg) center center/cover no-repeat;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.box3 {
+  display: block;
+  position: relative;
+  padding-top: 250px;
+}
+
+.box4 {
+  position: absolute;
+  font-family: 'Dancing Script', cursive;
+  color: #000000;
+  font-size: 7em;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+}
+
+.content-main {
+  width: 80%;
+  padding-right: var(- -bs-gutter-x, .75rem);
+  padding-left: var(- -bs-gutter-x, .75rem);
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 100px;
+}
+
+.content-main-container {
+  flex-wrap: wrap;
+  padding: 10px 0px 10px 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.content-main-cell {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y)* -1);
+  margin-right: calc(var(--bs-gutter-x)/-2);
+  margin-left: calc(var(--bs-gutter-x)/-2);
+}
+
+.content-main-cell-col {
+  flex: 0 0 auto;
+  width: 23%;
+  margin: 20px 10px 20px 10px
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+}
+
+.card mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.card-img-top {
+  
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+
+.card-title {
+  margin-bottom: .5rem;
+  text-align :right; 
+  max-height: 50px; 
+  margin-top: 16px; 
+  font-size: 18px;
+}
+
+.card-text {
+  text-align :right; 
+  padding-top: 6px; 
+  font-weight: 700; 
+  font-size: 12px; 
+  sline-height: 20px;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out,
+    border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn btn-outline-primary {
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
