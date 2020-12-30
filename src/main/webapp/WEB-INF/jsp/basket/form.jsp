@@ -55,24 +55,28 @@
     </div>
   </div>
   
-  <h1 style="text-align: center">재료 담기</h1>
       <div class="content-main" style="min-height: calc(100vh - 132px); max-height: auto; ">
         <div class="content-main-container">
+        <div class="headtitle">상품 담기</div>
           <div class="content-main-cell"> 
             <c:forEach items="${products}" var="p">
               <div class="content-main-cell-col"> 
                 <div class="card mb-3">
               <form action='add' method='post'>
                   <input type='radio' name='productNo' value="${p.productNo}">${p.title}<br>
-                   <img
+                   <%-- <img
                     class="card-img-top" 
                     src="../../upload/${p.photo}_200x200.jpg"
+                    alt="Card image cap" height="180"> --%>
+                    <img
+                    class="card-img-top" 
+                    src="<%=request.getContextPath()%>/upload/default.png"
                     alt="Card image cap" height="180">
                   <div class="card-body">
                     <h5 class="card-title">${p.content}</h5>
                     <p class="card-text">가격 : ${p.price}원</p>
-                      <p class="card-text">수량 : <input type='number' name='amount'>
-                    <button class="btn btn-outline-primary">추가</button>
+                      <p class="card-text">수량 : <input type='number' name='amount' style="width: 30%;height: 25px">
+                    <button class="btn-outline-primary">추가</button></p>
                   </div>
              </form>
                 </div>

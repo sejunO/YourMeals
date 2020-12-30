@@ -35,11 +35,18 @@
 .box4 {
   position: absolute;
   font-family: 'Dancing Script', cursive;
-  color: #000000;
+  color: #ffffff;
   font-size: 7em;
   width: 100%;
   text-align: center;
   font-weight: 600;
+}
+
+.headtitle {
+  text-align: left;
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 .content-main {
@@ -70,8 +77,8 @@
 
 .content-main-cell-col {
   flex: 0 0 auto;
-  width: 23%;
-  margin: 20px 10px 20px 10px
+  width: 20%;
+  margin: 20px 20px 20px 20px
 }
 
 .card {
@@ -91,7 +98,10 @@
 }
 
 .card-img-top {
-  
+  max-width: 100%;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .card-body {
@@ -112,31 +122,13 @@
   padding-top: 6px; 
   font-weight: 700; 
   font-size: 12px; 
-  sline-height: 20px;
 }
 
-.btn {
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid transparent;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  border-radius: .25rem;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out,
-    border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-.btn btn-outline-primary {
+.btn-outline-primary {
+	width: 25%;
+  height: 30px;
   color: #0d6efd;
-  border-color: #0d6efd;
+  border-radius: 10px;
+  border: 2px solid #0d6efd;
+  margin: 5px 0px 10px 10px;
 }
