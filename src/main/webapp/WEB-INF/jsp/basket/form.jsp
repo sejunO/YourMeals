@@ -66,14 +66,14 @@
                 <div class="titlebox">
                   <input type='radio' name='productNo' value="${p.productNo}">  ${p.title}<br>
                   </div> 
-                  <%-- <img
+                  <img
                     class="card-img-top" 
                     src="../../upload/${p.photo}_200x200.jpg"
                     alt="Card image cap" height="180">
                     <%-- <img
                     class="card-img-top" 
                     src="<%=request.getContextPath()%>/upload/default.png"
-                    alt="Card image cap" height="180"> --%>
+                    alt="Card image cap" height="180">  --%>
                   <div class="card-body">
                     <h5 class="card-title">${p.content}</h5>
                     <p class="card-text">가격 : ${p.price}원</p>
