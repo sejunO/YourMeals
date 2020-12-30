@@ -103,31 +103,22 @@
 						data-aos-delay="100">
 						<div class="side-and-side">
 							<div id="left">
-								<h5>조회수: ${recipe.hits}</h5>
-								<h5>게시물 ${recipe.recipeNo} 번</h5>
+								<h5>게시물 ${notice.noticeNo} 번</h5>
 							</div>
 							<div id="right">
-								<c:if test='${recipe.modifiedDate == null}'>
-									<h6>${recipe.createdDate}</h6>
-									<h5>${recipe.category.categoryName}</h5>
-								</c:if>
-								<c:if test='${recipe.modifiedDate != null}'>
-									<h5>${recipe.createdDate}(최종수정일:${recipe.modifiedDate})</h5>
-									<h5>${recipe.category.categoryName}</h5>
-								</c:if>
+							     <h6>${notice.noticeType.name}</h6>
+									<h6>${notice.registeredDate}</h6>
 							</div>
 						</div>
-						<h2>${recipe.title}</h2>
-						<img src="../../upload/${recipe.photo}_1280x720.jpg"
-							class="img-thumbnail" alt="..."><br>
+						<h2>${notice.title}</h2>
 					</div>
 					<div class="recipe-content2 text-center pt-4 pt-lg-0"
 						data-aos="fade-left" data-aos-delay="200">
-						<p>${recipe.content}</p>
+						<p>${notice.content}</p>
 						<br>
 					</div>
 					<div id="left">
-						<h5>작성자: <a href='../user/recipeList?uNo=${recipe.writer.userNo}'>${recipe.writer.nick}</a></h5>
+						<h5>작성자: admin</a></h5>
 						<br>
 					</div>
 				</div>

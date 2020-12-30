@@ -234,7 +234,6 @@
 							<i class="bx bxl-dribbble"></i>
 						</div>
 						<h4>${recipe.recommendCount}</h4>
-						<button type='button' id='recommendCountBtn'>좋아요</button>
 					</div>
 				</div>
 
