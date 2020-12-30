@@ -88,7 +88,7 @@
               <li><a href="<%=request.getContextPath()%>/app/auth/logout"
                 class="page-scroll" style="color: rgba(255, 255, 255, 0.8)">Logout</a></li>
             </c:if>
-            <c:if test="${sessionScope.loginUser.userTypeNo == 5}">
+            <c:if test="${sessionScope.loginUser.userTypeNo == 1}">
               <li><a
                 href="<%=request.getContextPath()%>/app/admin/userList"
                 class="page-scroll" style="color: rgba(255, 255, 255, 0.8)">ADMIN</a></li>
