@@ -103,7 +103,7 @@
 									<h5>${recipe.category.categoryName}</h5>
 								</c:if>
 							</div>
-						</div>
+						</div>  
 						<h2>${recipe.title}</h2>
 						<img src="../../upload/${recipe.photo}_1280x720.jpg"
 							class="img-thumbnail" alt="..."><br>
@@ -235,7 +235,6 @@
 							<i class="bx bxl-dribbble"></i>
 						</div>
 						<h4>${recipe.recommendCount}</h4>
-						<button type='button' id='recommendCountBtn'>좋아요</button>
 					</div>
 				</div>
 
