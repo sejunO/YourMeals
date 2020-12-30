@@ -8,6 +8,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shop</title>
+<script>
+  function change1(obj){
+    obj.style.color = '#0d6efd';
+    obj.style.background = 'white';
+  }
+  
+  function change2(obj){
+    obj.style.color = 'white';
+    obj.style.background = '#0d6efd';
+  }
+</script>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -78,7 +89,7 @@
                     <h5 class="card-title">${p.content}</h5>
                     <p class="card-text">가격 : ${p.price}원</p>
                       <p class="card-text">수량 : <input type='number' name='amount' style="width: 30%;height: 25px">
-                    <button class="btn-outline-primary">추가</button></p>
+                    <button class="btn-outline-primary" onmouseout="change2(this)" onmouseover="change1(this)">추가</button></p>
                   </div>
              </form>
                 </div>
