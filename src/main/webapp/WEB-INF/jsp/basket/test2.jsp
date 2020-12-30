@@ -8,17 +8,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shop</title>
-<script>
-  function change1(obj){
-    obj.style.color = '#0d6efd';
-    obj.style.background = 'white';
-  }
-  
-  function change2(obj){
-    obj.style.color = 'white';
-    obj.style.background = '#0d6efd';
-  }
-</script>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -66,30 +55,24 @@
     </div>
   </div>
   
+  <h1 style="text-align: center">재료 담기</h1>
       <div class="content-main" style="min-height: calc(100vh - 132px); max-height: auto; ">
         <div class="content-main-container">
-        <div class="headtitle">상품 담기</div>
           <div class="content-main-cell"> 
             <c:forEach items="${products}" var="p">
               <div class="content-main-cell-col"> 
                 <div class="card mb-3">
               <form action='add' method='post'>
-                <div class="titlebox">
-                  <input type='radio' name='productNo' value="${p.productNo}">  ${p.title}<br>
-                  </div> 
-                  <img
+                  <input type='radio' name='productNo' value="${p.productNo}">${p.title}<br>
+                   <img
                     class="card-img-top" 
                     src="../../upload/${p.photo}_200x200.jpg"
                     alt="Card image cap" height="180">
-                    <%-- <img
-                    class="card-img-top" 
-                    src="<%=request.getContextPath()%>/upload/default.png"
-                    alt="Card image cap" height="180">  --%>
                   <div class="card-body">
                     <h5 class="card-title">${p.content}</h5>
                     <p class="card-text">가격 : ${p.price}원</p>
-                      <p class="card-text">수량 : <input type='number' name='amount' style="width: 30%;height: 25px">
-                    <button class="btn-outline-primary" onmouseout="change2(this)" onmouseover="change1(this)">추가</button></p>
+                      <p class="card-text">수량 : <input type='number' name='amount'>
+                    <button class="btn btn-outline-primary">추가</button>
                   </div>
              </form>
                 </div>
@@ -103,6 +86,6 @@
     src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
-  <jsp:include page="/footer.jsp"></jsp:include>
+
 </body>
 </html>

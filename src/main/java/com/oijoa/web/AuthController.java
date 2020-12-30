@@ -52,12 +52,13 @@ public class AuthController {
   }
 
   @GetMapping("logout")
-  public void logout(HttpSession session, Model model) throws Exception {
+  public String logout(HttpSession session, Model model) throws Exception {
 
     User loginUser = (User) session.getAttribute("loginUser");
     if (loginUser != null) {
       session.invalidate();
     }
     model.addAttribute("loginUser", loginUser);
+    return "redirect:../../app/index";
   }
 }

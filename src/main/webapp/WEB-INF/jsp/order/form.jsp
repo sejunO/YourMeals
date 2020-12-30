@@ -66,16 +66,15 @@
           <div class="in-col1">
             <div class="imgbox">
               <div class="imgin">
-                <img
-                  src="../../upload/${products.get(0).photo}_80x80.jpg" />
+                <img src="../../upload/${baskets.get(0).product.photo}_80x80.jpg" />
               </div>
             </div>
             <div>
-              ${products.get(0).title}
+              ${baskets.get(0).product.title}
               <div class="goodsinfo">
                 <p class="goodstitle">
-                  <c:if test="${products.size() -1 > 0}">외
-                        ${products.size() -1} 건</c:if>
+                  <c:if test="${baskets.size() -1 > 0}">외
+                        ${baskets.size() -1} 건</c:if>
               </div>
             </div>
           </div>
@@ -103,8 +102,9 @@
                   placeholder="이름" style="width: 500px;">
               </p>
               <p style="padding-bottom: 10px">
-                <input type="text" name="tel" class="form-control text-center"
-                  id="exampleFormControlInput2" placeholder="연락처"
+                <input type="text" name="tel" value ="${user.tel}"
+                class="form-control text-center"
+                  id="exampleFormControlInput2" placeholder="연락처" 
                   style="width: 500px;">
               </p>
               <div style="margin-bottom: 10px;">

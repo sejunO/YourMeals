@@ -1,12 +1,12 @@
 package com.oijoa.web;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import com.oijoa.domain.Basket;
 import com.oijoa.domain.DeliveryCompany;
 import com.oijoa.domain.Order;
@@ -19,6 +19,7 @@ import com.oijoa.service.DeliveryCompanyService;
 import com.oijoa.service.OrderListService;
 import com.oijoa.service.OrderService;
 import com.oijoa.service.PaymentService;
+import com.oijoa.service.ProductService;
 import com.oijoa.service.UserService;
 
 @Controller
@@ -36,6 +37,9 @@ public class OrderController {
   PaymentService paymentService;
   @Autowired
   UserService userService;
+  @Autowired
+  ProductService productService;
+
 
   @RequestMapping("add")
   public String add(HttpSession session, Order order) throws Exception {
@@ -82,14 +86,13 @@ public class OrderController {
     User user = userService.get(loginUser.getUserNo());
     List<Basket> baskets = basketService.myList(user.getUserNo());
     List<Payment> payments = paymentService.list(null);
-    List<Product> products = new ArrayList<>();
-    for (int i = 0; i < baskets.size(); i++) {
-      products.add(baskets.get(i).getProduct());
-    }
-    model.addAttribute("products", products);
+    List<Product> products = productService.list(null);
+
+    ModelAndView mv = new ModelAndView();
     model.addAttribute("baskets", baskets);
     model.addAttribute("payments", payments);
     model.addAttribute("user", user);
+    model.addAttribute("products", products);
 
   }
 
