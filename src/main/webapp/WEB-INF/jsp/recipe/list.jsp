@@ -135,7 +135,7 @@ body {
 					<c:forEach items="${list}" var="recipe">
 						<tr>
 							<td>${recipe.recipeNo}</td>
-							<td><img src='../upload/%1$s_30x30.jpg'>${recipe.photo}</td>
+							<td><img src='../upload/${recipe.photo}_30x30.jpg'></td>
 							<td><a href='detail?recipeNo=${recipe.recipeNo}'>${recipe.title}</a></td>
 							<td><a href='../user/recipeList?uNo=${recipe.writer.userNo}'>${recipe.writer.nick}</a></td>
 							<td class="list-color'">${recipe.category.categoryName}</td>
