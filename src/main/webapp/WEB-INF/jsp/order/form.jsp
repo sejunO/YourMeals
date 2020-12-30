@@ -8,11 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <title>주문</title>
-<link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../../css/carousel.css">
 <link rel="shortcut icon"
   href="<%=request.getContextPath()%>/test/img/favicon.ico"
   type="image/x-icon">
@@ -26,11 +21,15 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"
   href="<%=request.getContextPath()%>/test/fonts/font-awesome/css/font-awesome.css">
-
+<link rel="stylesheet" type="text/css"
+ href="<%=request.getContextPath() %>/test/css/bootstrap.css">
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"
-  href="<%=request.getContextPath()%>/test/css/mystyle.css">
+  href="<%=request.getContextPath() %>/test/css/mystyle.css">
+<link rel="stylesheet" type="text/css"
+  href="<%=request.getContextPath()%>/test/css/basketstyle.css">
+  
 <link rel="stylesheet" type="text/css"
   href="<%=request.getContextPath()%>/test/css/nivo-lightbox/nivo-lightbox.css">
 <link rel="stylesheet" type="text/css"
@@ -47,79 +46,192 @@
 
 </head>
 
-<body>
-  <form action="add" method="post">
-    <div class="goods">
-      <div class="goodsbox">
-          <div class="in-col1">
-            <div class="imgbox">
-              <div class="imgin">
-                <img
-                  src="../../upload/${baskets.get(0).product.photo}_80x80.jpg" />
-              </div>
-            </div>
-            <div>
-              ${baskets.get(0).product.title}
-              <div class="goodsinfo">
-                <p class="goodstitle">
-                  <c:if test="${baskets.size() -1 > 0}">외
-                        ${baskets.size() -1} 건</c:if>
-              </div>
-            </div>
-          </div>
+<body id="userpage">
+  <div class="main-container">
+    <div class="box1">
+      <div class="box2">
+        <header><jsp:include page="/header.jsp"></jsp:include></header>
+        <div class="box3"></div>
+        <div class="box4">Order</div>
       </div>
     </div>
-    <h2 style="padding-bottom: 25px; text-align: center">배송지 정보</h2>
-    <div class="container mt-6" style="align : center">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="d-flex justify-content-center">
-            <div class="col-sm-1">
-              <p class="text-left" style="padding-bottom: 30px;">*이름</p>
-              <p class="text-left" style="padding-bottom: 30px;">*연락처</p>
-              <p class="text-left"
-                style="padding-bottom: 25px; padding-left: 7px; padding-top: 10px;">
-                *주소</p>
-              <p class="text-left"
-                style="padding-bottom: 77px; padding-left: 7px; padding-top: 10px;">
-                *메모</p>
+  </div>
+  
+    <div class="sub-container">
+  <div class="vertical">
+   <div class="mylist">
+       <div class="headtitle"><h1 style="font-size: 50px;
+       margin-bottom: 40px; text-align: center;">주문</h1></div>
+       
+   <div class="headtitle">주문내역</div>
+   <ul class="list">
+          <li class="thead">
+            <div class="td-col1">상품정보</div>
+            <div class="td-col3">수량</div>
+            <div class="td-col3">가격</div>
+            <div class="td-col3">총금액</div>
+          </li>
+          
+          
+        <c:forEach items="${baskets}" var="b">
+          <li class="tbox">
+          
+              <!-- 물품 -->
+                <div class="goods">
+                  <div class="goodsbox" style="justify-content: center;">
+                    <div class="in-col1"
+                     style="margin-left: 120px; margin-right: 100px;">
+                      <div class="imgbox"> 
+                        <div class="imgin">
+              <img src="../../upload/${b.product.photo}_80x80.jpg" alt="...">
+                         </div>
+                      </div>
+                      <div class="goodsinfo">
+                        <p class="goodstitle">
+                          ${b.product.title}  </p>
+                       </div>
+                    </div>
+                    
+                    <!-- 상품정보 끝 -->
+                    
+                    <!--  내용 -->
+                    <div class="in-col3">
+                      ${b.amount}  
+                    </div>
+                    <div class="in-col3">
+                      ${b.product.price}원
+                    </div>
+                    <div class="in-col3">
+                      ${b.product.price * b.amount}원
+                    </div>
+                </div>
+                </div>
+                </li>
+                </c:forEach>
+                </ul>
             </div>
-            <div class="col-sm-7">
-              <p style="padding-bottom: 10px">
-                <input type="text" readonly name="userName" value='${user.name}'
-                  class="form-control text-center" id="exampleFormControlInput1"
-                  placeholder="이름" style="width: 500px;">
-              </p>
-              <p style="padding-bottom: 10px">
-                <input type="text" name="tel" value ="${user.tel}"
-                class="form-control text-center"
-                  id="exampleFormControlInput2" placeholder="연락처" 
-                  style="width: 500px;">
-              </p>
-              <div style="margin-bottom: 10px;">
-                <input type="text" class="text-center" id="postNo" name="postNo"
-                  value="${user.postNo}" placeholder="우편번호" style="width: 200px">
-                <input type="button" onclick="execPostCode()" value="찾기"
-                  style="width: 100px"><br>
-              </div>
-              <div style="margin-bottom: 10px;">
-                <input type="text" class="text-center" id="address"
-                  name="address"
-                  value="<c:if test=" ${not empty
-                      user.address}">${user.address}</c:if>"
-                  placeholder="주소" style="width: 300px"> <input
-                  type="text" class="text-center" id="detailAddress"
-                  name="detailAddress"
-                  value="<c:if test=" ${not empty user.detailAddress}">${user.detailAddress}
-                    </c:if>"
-                  placeholder="상세주소" style="margin-left: 15px; width: 180px">
-              </div>
-              <div style="margin-bottom: 10px;">
-                <input type="text" class="text-center" id='memo' name="memo"
-                  placeholder="메모" style="width: 200px">
-              </div>
+          </div>
+       
+            <!--  배송지 정보 -->
+    <form action="add" method="post">
+          <h2 class="headtitle"
+         style="border-bottom: 4px solid #000; padding-bottom: 10px;"> 배송지 정보</h2>
+    <input type='hidden' name='userNo' value='${user.userNo}'>
+    
+    <div class="updatebox1">
+     <span class="labels" style="font-size: 17px; padding-top: -7px;">*이름:</span> 
+     <input type='text' class="form-control" id="exampleFormControlInput1"
+      style="margin-left: 50px;" name="userName" placeholder='${user.name}'  readonly>
+     </div>
+           
+    <div class="updatebox2">
+    <span class="labels" style="font-size: 17px; padding-top: -7px;"> *연락처: </span>
+     <input type='text' class="form-control" style="margin:5px 0 0 65px;"
+     name="tel" id="exampleFormControlInput2" placeholder='ex)000-0000-0000'>
+     </div>     
+            
+   <div class="updatebox3">
+    <span class="labels" style="font-size: 17px; padding-top: -7px; margin-left: 5px;"> 우편번호:</span>
+     <input type='text'  class="form-control" id="postNo" name='postNo' value='${user.postNo}'
+      style="margin:5px 0 0 80px; position: relative;">
+     <input type="button" onmouseout="change2(this)" onmouseover="change1(this)"
+     onclick="execPostCode()" class="userbtn" style="margin: 5px 0 0 5px; position: relative;" value="우편번호 찾기">
+     </div>     
+     
+  <div class="updatebox4">
+     <span class="labels" style="font-size: 17px; padding-top: -7px; margin-left: 5px;"> 기본주소: </span>
+     <input type='text' class="form-control"
+       style="margin:5px 0 0 80px; position: relative;" id="address" name='address'
+       value="<c:if test=" ${not empty user.address}">${user.address}</c:if>">
+     </div>
+     
+  <div class="updatebox4">
+     <span class="labels" style="font-size: 17px; padding-top: -7px; margin-left: 5px;">세부주소:</span>
+      <input type='text'  class="form-control"
+       style="margin:5px 0 0 80px; position: relative;" id="detailAddress" name='detailAddress'
+       value="<c:if test=" ${not empty user.detailAddress}">${user.detailAddress}</c:if>">
+     </div>    
+           
+  <div class="updatebox4">
+     <span class="labels" style="font-size: 17px; padding-top: -7px; margin-left: 37px;">메모:</span>
+      <input type='text' class="form-control" id="memo" name='memo'
+      style="margin:5px 0 0 80px; placeholder="메모">
+     </div>
+     </form>
+     
+  <h2 class="headtitle"
+         style="border-bottom: 4px solid #000; padding-bottom: 10px; margin-top: 50px;"> 결제</h2>
+    <div class="payment">
+    <c:forEach items="${payments}" var="p">
+      <input type="radio" name="paymentNo" value="${p.paymentNo}">${p.name}
+      </c:forEach>
+     </div> 
+     
+    <button class="userbtn" style="margin: 20px 0 70px 0;">결제하기</button>
+    </div>
+   
+   
+   
+   
+    <jsp:include page="/footer.jsp"></jsp:include>
+    
+    <%-- <div class="container mt-5" style="min-height: calc(100vh - 132px); max-height: auto">
+          <div class="container-fluid">
+            <div class="row">
+              <c:forEach items="${baskets}" var="b">
+                <div class="col-3">
+                  <div class="card mb-3">
+                    <!-- <img src="../../upload/${product.photo}_200x200.jpg"/> -->
+                    <img class="card-img-top" src=img src="../../upload/${b.product.photo}_30x30.jpg"
+                      alt="Card image cap" height="50">${b.product.title}
+                    <div class="card-body">
+                      <p class="card-title"
+                        style="text-align: left; max-height: 50px; margin-top: 11px; font-size: 16px;">${p.content}
+                      </p>
+                      <p class="card-text"
+                        style="text-align: right; padding-top: 4px; font-weight: 500; font-size: 14px; line-height: 20px;">
+                        가격 : ${b.product.price}</p>
+                      <p class="card-text"
+                        style="text-align: right; padding-top: 4px; font-weight: 400; font-size: 12px; line-height: 20px;">
+                        수량 : ${b.amount}</p>
+                      <p class="card-text"
+                        style="text-align: right; padding-top: 4px; font-weight: 400; font-size: 12px; line-height: 20px;">
+                        주문금액 : ${b.product.price}*${b.amount}</p>
+                    </div>
+                  </div>
+                </div>
+              </c:forEach>
             </div>
-            <script>
+          </div>
+          </div> --%>
+    <%-- <div style="margin-bottom: 10px;">
+            <input type="text" class="text-center" value='' style="margin-left: 10px; width: 200px">
+            제품 <input type="text" class="text-center" value='${b.product.title}'
+              style="margin-left: 15px; width: 180px">
+            수량 <input type="text" class="text-center" id='amount' value=''
+              style="margin-top: 10px; margin-left: 15px; width: 20px"><br>
+            가격 <input type="text" class="text-center" id='price' value='원'
+              style="margin-left: 5px; margin-top: 10px; width: 80px">
+            주문금액 <input type="text" class="text-center" id='total' value='total()'
+              style="margin-top: 10px; width: 120px">
+            <input type="text" class="text-center" value='${b.writer.name}' style="width: 150px">
+
+            </div> --%>
+
+    <%-- <table>
+              <tr>
+                <td>${b.product.title}</td>
+                <td>${b.amount}</td>
+                <td>${b.product.price}</td>
+                <td>${b.writer.name}</td>
+                <td></td>
+                <div id="total"></div>
+                </table> --%>
+
+    
+    
+    <!--  스크립트  -->
+    <script>
               function execPostCode() {
                 new daum.Postcode(
                     {
@@ -182,132 +294,27 @@
                     }).open();
               }
             </script>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container mt-6">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="curOrder">
-            <h3>나의 주문내역</h3>
-            <!-- 주문내역 리스트 시작 -->
+  <script>
+  function change1(obj){
+    obj.style.background = 'rgb(193, 212, 209)';
+    obj.style.color = 'rgb(0, 0, 0)';
+  }
+  
+  function change2(obj){
+    obj.style.background = 'rgb(193, 212, 209)';
+    obj.style.color = 'rgb(255, 255, 255)';
+  }
+</script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/main.js"></script>
             
-            <ul class="list">
-              <li class="thead">
-                <div class="td-col1">상품정보</div>
-                <div class="td-col1" style= "margin-left: 87px">수  량</div>
-                <div class="td-col1">가   격</div>
-                <div class="td-col1">주문금액</div>
-              </li>
-              <c:forEach items="${baskets}" var="b">
-                <!-- 주문일자, 번호 박스 -->
-                <div class="td-box">
-                  <ul class="orderinfo">
-                    <li class="prodinfo"><span class="basket" style= "margin-left: 87px">${b.product.title}</span>
-                    </li>
-                  </ul>
-                </div>
-                <!-- 물품 -->
-                <div class="tbody">
-                  <div class="goodsbox">
-                    <div class="in-col1" style= "margin-left: 70px">
-                      <div class="imgbox">
-                        <div class="imgin">
-                          <img src="../../upload/${b.product.photo}_80x80.jpg" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="in-col2">
-                      <div class="goods">
-                        <p class="amount">${b.product.content}</p>
-                        <div class="amount">${b.amount}개</div>
-                      </div>
-                    </div>
-                    <!-- 상품사진, 상품명, 가격 끝 -->
-                    <div class="in-col2" style= "margin-left: 17px">
-                      <div class="goods">
-                        <p class="price">${b.product.price}원</p>
-                      </div>
-                    </div>
-                    <!-- 배송정보 끝 -->
-                    <!--  상태  -->
-                    <div class="in-col2">
-                      <div class="goods">
-                        <p>${b.product.price * b.amount}원</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </c:forEach>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <%-- <div class="container mt-5" style="min-height: calc(100vh - 132px); max-height: auto">
-          <div class="container-fluid">
-            <div class="row">
-              <c:forEach items="${baskets}" var="b">
-                <div class="col-3">
-                  <div class="card mb-3">
-                    <!-- <img src="../../upload/${product.photo}_200x200.jpg"/> -->
-                    <img class="card-img-top" src=img src="../../upload/${b.product.photo}_30x30.jpg"
-                      alt="Card image cap" height="50">${b.product.title}
-                    <div class="card-body">
-                      <p class="card-title"
-                        style="text-align: left; max-height: 50px; margin-top: 11px; font-size: 16px;">${p.content}
-                      </p>
-                      <p class="card-text"
-                        style="text-align: right; padding-top: 4px; font-weight: 500; font-size: 14px; line-height: 20px;">
-                        가격 : ${b.product.price}</p>
-                      <p class="card-text"
-                        style="text-align: right; padding-top: 4px; font-weight: 400; font-size: 12px; line-height: 20px;">
-                        수량 : ${b.amount}</p>
-                      <p class="card-text"
-                        style="text-align: right; padding-top: 4px; font-weight: 400; font-size: 12px; line-height: 20px;">
-                        주문금액 : ${b.product.price}*${b.amount}</p>
-                    </div>
-                  </div>
-                </div>
-              </c:forEach>
-            </div>
-          </div>
-          </div> --%>
-    <%-- <div style="margin-bottom: 10px;">
-            <input type="text" class="text-center" value='' style="margin-left: 10px; width: 200px">
-            제품 <input type="text" class="text-center" value='${b.product.title}'
-              style="margin-left: 15px; width: 180px">
-            수량 <input type="text" class="text-center" id='amount' value=''
-              style="margin-top: 10px; margin-left: 15px; width: 20px"><br>
-            가격 <input type="text" class="text-center" id='price' value='원'
-              style="margin-left: 5px; margin-top: 10px; width: 80px">
-            주문금액 <input type="text" class="text-center" id='total' value='total()'
-              style="margin-top: 10px; width: 120px">
-            <input type="text" class="text-center" value='${b.writer.name}' style="width: 150px">
-
-            </div> --%>
-
-    <%-- <table>
-              <tr>
-                <td>${b.product.title}</td>
-                <td>${b.amount}</td>
-                <td>${b.product.price}</td>
-                <td>${b.writer.name}</td>
-                <td></td>
-                <div id="total"></div>
-                </table> --%>
-
-    <h3>결제 방법 선택</h3>
-    <c:forEach items="${payments}" var="p">
-      <input type="radio" name="paymentNo" value="${p.paymentNo}">${p.name}
-                </c:forEach>
-    <button>결제하기</button>
-  </form>
-
-
-  <script
-    src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 
 </html>
