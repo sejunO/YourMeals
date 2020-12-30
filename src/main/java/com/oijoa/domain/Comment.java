@@ -46,4 +46,11 @@ public class Comment {
   public void setModifiedDate(Date modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
+@Override
+public String toString() {
+	return "Comment [commentNo=" + commentNo + ", writer=" + writer + ", recipeNo=" + recipeNo + ", content=" + content
+			+ ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate + "]";
+}
+  
+  
 }

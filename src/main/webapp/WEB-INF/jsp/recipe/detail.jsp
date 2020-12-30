@@ -276,7 +276,12 @@
                   <h5><a href='../user/recipeList?uNo=${c.writer.userNo}'>${c.writer.nick}</a></h5>
                 </div>
                 <div id="right">
-                  <fmt:formatDate value="${c.createdDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                  <c:if test="${recipe.modifiedDate == null}">
+                    ${recipe.createdDate}
+                  </c:if>
+                  <c:if test="${recipe.modifiedDate != null}">
+                     ${recipe.createdDate}(수정일: ${recipe.modifietDate})
+                  </c:if>
               </div>
             </div>
             <div style="text-align: left; padding-top: 15px">
@@ -303,17 +308,19 @@
 	 		listComment();
 	 		
 	 	   $("#commentBtn").click(function(){
-	 	         var commentText = $("#commentText").val();
+	 	         var content = $("#commentText").val();
 	 	         var recipeNo = "${recipe.recipeNo}";
-	 	         var param = "commentText=" + commentText + "&recipeNo=" + recipeNo;
+	 	         console.log(content, recipeNo);
 	 	         $.ajax({
 	 	           type: "post",
-	 	           url: "${path}/app/recipe/comment/insert.do",
-	 	           data: param,
+	 	           url: "/YourMeals/app/recipe/comment/insert",
+	 	           data: {content: content, recipeNo: recipeNo},
 	 	           success : function() {
 	 	             alert("댓글이 등록되었습니다.");
-	 	             listComment();
-	 	           }           
+	 	           },
+	 	           error : function() {
+	 	        	  location.reload();
+	 	               }
 	 	         });
 	 	       });
 	 	 });
@@ -322,7 +329,7 @@
   	 function listComment(){
   		$.ajax({
   			 type: "get",
-  			 url: "${path}/app/recipe/comment/list.do?recipeNo=${recipe.recipeNo}",
+  			 url: "/YourMeals/app/recipe/comment/list?recipeNo=${recipe.recipeNo}",
   				success: function(result){
   					$("#listComment").html(result);
   				}

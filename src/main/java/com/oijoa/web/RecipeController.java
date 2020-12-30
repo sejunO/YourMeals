@@ -5,15 +5,16 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Food;
 import com.oijoa.domain.Recipe;
@@ -35,6 +37,7 @@ import com.oijoa.service.NoticeService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.RecipeStepService;
 import com.oijoa.service.UserService;
+
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -344,26 +347,20 @@ public String auth(HttpSession session) throws Exception {
 //    return "redirect:detail?recipeNo=" + recipeNo;
 //  }
   
-  
-  @RequestMapping("/comment/insert.do")
+  @RequestMapping("/comment/insert")
   public void insert(
-      @ModelAttribute Comment comment,
-      HttpSession session) {
-   try {
+      Comment comment, HttpSession session) throws Exception {
     User loginUser = (User) session.getAttribute("loginUser");
     comment.setWriter(loginUser);
     commentService.create(comment);
-   } catch (Exception e) {
-     System.out.println("댓글 작성 중 오류 발생");
-   }
   }
   
-  @RequestMapping("/comment/list.do")
+  @RequestMapping("/comment/list")
   public ModelAndView list(
       @RequestParam int recipeNo,
       ModelAndView mv) {
     try {
-    List<Comment> commentList = commentService.list(recipeNo);
+    List<Comment> commentList = commentService.listAsc(recipeNo);
     mv.setViewName("recipe/commentList");
     mv.addObject("commentList", commentList);
     
@@ -374,7 +371,7 @@ public String auth(HttpSession session) throws Exception {
   }
   
   
-  @RequestMapping("/comment/listJson.do")
+  @RequestMapping("/comment/listJson")
   public List<Comment> listJson(
       @RequestParam int recipeNo) {
     

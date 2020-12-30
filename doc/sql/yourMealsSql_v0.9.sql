@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS oi_recipe_material RESTRICT;
 -- 레시피요리유형
 DROP TABLE IF EXISTS oi_recipe_category RESTRICT;
 -- 팔로잉
-DROP TABLE IF EXISTS oi_follow RESTRICT;
+DROP TABLE IF EXISTS oi_follow RESTRICT; 
 -- 댓글
 DROP TABLE IF EXISTS oi_comment RESTRICT;
 -- 레시피단계

@@ -56,8 +56,8 @@ public class DefaultCommentService implements CommentService {
   }
   
   @Override
-  public List<Comment> list(Integer recipeNo) throws Exception {
-    return commentDao.list(recipeNo);
+  public List<Comment> listAsc(Integer recipeNo) throws Exception {
+    return commentDao.listAsc(recipeNo);
   }
   
   @Override
