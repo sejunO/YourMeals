@@ -55,6 +55,16 @@ public class DefaultRecipeService implements RecipeService {
   public List<Recipe> myLikeList(int userNo) throws Exception {
     return recipeDao.findByLike(userNo);
   }
+  
+  @Override
+  public List<Recipe> listByhits() throws Exception {
+    return recipeDao.listByhits();
+  }
+  
+  @Override
+  public List<Recipe> listByRecommendCount() throws Exception {
+    return recipeDao.listByRecommendCount();
+  }
 
 
   @Override

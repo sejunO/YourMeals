@@ -16,6 +16,10 @@ public interface RecipeDao {
   List<Recipe> findByDetailKeyword(Map<String, Object> map) throws Exception;
 
   List<Recipe> findRecipeMaterial(int recipeNo) throws Exception;
+  
+  List<Recipe> listByhits() throws Exception;
+  
+  List<Recipe> listByRecommendCount() throws Exception;
 
   Recipe findByRecipeNo(int no) throws Exception;
 

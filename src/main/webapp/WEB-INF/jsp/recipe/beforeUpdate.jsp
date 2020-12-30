@@ -211,9 +211,10 @@ body {
 	<hr>
 
 	<div class="btn-center" style="margin: 50px;">
-		<p>
-			<button id="btnAddRecipe" >레시피 변경</button>
-			 <button id="btnDeleteRecipe" type="button" >레시피 삭제</button>
+		<p> 
+			<button id="btnAddRecipe" onclick="updateAlert();" >레시피 변경</button>
+			   <a href="delete?recipeNo=${recipe.recipeNo}" id="btnDeleteRecipe" 
+          onclick="if(!confirm('삭제하시겠습니까?')){return false;}">레시피 삭제</a>
 		</p>
 	</div>
 
@@ -239,6 +240,11 @@ body {
 			e2.querySelector(".name").innerHTML = "STEP " + inputNameIndex;
 			inputStepContainer.appendChild(e2);
 		};
+		
+		
+		function updateAlert() {
+			alert("수정되었습니다!");
+		}
 	</script>
 
 </body>

@@ -250,7 +250,7 @@
 							<i class="bx bxl-dribbble"></i>
 						</div>
 						<h4>${recipe.recommendCount}</h4>
-						<h4>추천</h4>
+						<h4>좋아요</h4>
 					</div>
 				</div>
 
@@ -281,7 +281,7 @@
 								placeholder="댓글을 입력하세요."></textarea>
 						</div>
 						<div class="text-center" style="margin:0px; float:left">
-							<button type="submit">전송</button>
+							<button type="submit">입력</button>
 						</div>
 					</div>
 					 <div class="col-lg-4" style="background: #f1f0f2; width: 100%; padding: 30px;">

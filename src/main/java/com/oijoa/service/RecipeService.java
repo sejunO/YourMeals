@@ -17,6 +17,10 @@ public interface RecipeService {
   List<Recipe> myLikeList(int loginUserNo) throws Exception;
 
   List<Recipe> getRecipeMaterial(int recipeNo) throws Exception;
+  
+  List<Recipe> listByhits() throws Exception;
+  
+  List<Recipe> listByRecommendCount() throws Exception;
 
   int add(Recipe recipe) throws Exception;
 

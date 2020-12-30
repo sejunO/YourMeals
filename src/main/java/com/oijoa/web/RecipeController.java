@@ -134,8 +134,11 @@ public class RecipeController {
     return "redirect:detail?recipeNo=" + recipeNo;
   }
 
+  
+
   @GetMapping("list")
-  public void getList(Model model, String option, String keyword) throws Exception {
+  public void getList(Model model, String option, String keyword, String sort) throws Exception {
+    model.addAttribute("notices", noticeService.list());
     if (option == null) {
       model.addAttribute("list", recipeService.list());
     } else if (option.equalsIgnoreCase("all")) {
@@ -152,10 +155,17 @@ public class RecipeController {
       HashMap<String, Object> keywordMap = new HashMap<>();
       keywordMap.put("category", keyword);
       model.addAttribute("list", recipeService.list(keywordMap));
+    }
+      
+    if (sort != null) {
+      if (sort.equals("hits")) {
+        model.addAttribute("list", recipeService.listByhits()); 
+      } else if (sort.equals("recommendCount")) {
+        model.addAttribute("list", recipeService.listByRecommendCount());  
+      }
     } else {
       model.addAttribute("list", recipeService.list());
     }
-    model.addAttribute("notices", noticeService.list());
   }
 
   @PostMapping("list")

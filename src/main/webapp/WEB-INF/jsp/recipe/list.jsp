@@ -69,7 +69,7 @@
 <style>
 body {
 	font-family: "Open Sans", sans-serif;
-	color: #444444;
+/* 	color: #444444; */
 }
 </style>
 
@@ -102,8 +102,11 @@ body {
 							<option value="category">카테고리</option>
 						</select> <input class="form-control" type="text" id="keyword"
 							name="keyword" placeholder="검색어를 입력하세요" />
-						<button class="searchBtn">검색</button>
+						<button class="searchBtn">검색</button>						
 					</div>
+					  <div class="right">
+        <a href="list" style="text-decoration: underline;">전체 레시피 보기</a>
+      </div>
 				</form>
 		</div>
 	</section>
@@ -111,12 +114,14 @@ body {
 
 	<section name="showlist" style="padding-bottom: 500px;">
 		<div class="container" >
-		<div class="side-and-side" style="padding-bottom: 30px;" >
-		  <div id="left">
-		    <a href="list" style="text-decoration: underline;">전체 레시피 보기</a>
-		  </div>
-		   <div id="right">
+		<div class="side-and-side" style="padding-bottom: 30px;" >	  
+		   <div id="left">
 		    <a href="form"><button class="addRecipeBtn">새 레시피 만들기</button></a>
+	     </div>
+	     <div id="right">
+	     <a href='list'>최신순 &nbsp;|&nbsp;</a>
+	     <a href='list?sort=recommendCount'>추천순 &nbsp;|&nbsp;</a>
+	     <a href='list?sort=hits'>조회순 </a>
 	     </div>
 		</div>
 			<table class="table" style="text-align: center">

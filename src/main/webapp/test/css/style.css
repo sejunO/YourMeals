@@ -1065,6 +1065,12 @@ label {
 	appearance: none;
 }
 
+#show .right {
+	text-align: right;
+	padding-right: 65px;
+	padding-top: 20px;
+}
+
 .notice-color {
 	color: #FF5675;
 	font-weight: bold;
@@ -1139,4 +1145,5 @@ label {
   #right{
 	text-align: right;
 	padding-right: 65px;
+	padding-top: 25px;
   }
