@@ -32,7 +32,7 @@ insert into oi_product(pno, title, content, stock, price, discount, photo) value
 insert into oi_product(pno, title, content, stock, price, discount, photo) value (10, '평창한우', '맛있어요', 10, 45000, 0, 'j.jpeg');
 
 -- 회원 
-insert into oi_user(uno, name, nick, email, password, point, utype) values (1, 'sejunO854', 'sj', 'sj@test.com', password(1111), 0, 1);
+insert into oi_user(uno, name, nick, email, password, point, utype) values (1, 'admin', 'admin', 'admin@test.com', password(1111), 0, 1);
 insert into oi_user(uno, name, nick, email, password, point, utype) values (2, 'eunchae-Cho', 'ec', 'ec@test.com', password(1111), 0, 0);
 insert into oi_user(uno, name, nick, email, password, point, utype) values (3, 'aramYu', 'ar', 'ar@test.com', password(1111), 0, 0);
 insert into oi_user(uno, name, nick, email, password, point, utype) values (4, 'seunghyuck', 'sh', 'sh@test.com', password(1111), 0, 0);
