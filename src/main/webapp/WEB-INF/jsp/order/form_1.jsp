@@ -83,7 +83,6 @@
           <td>${b.writer.name}</td>
           <td>${b.product.price} * ${b.amount}</td>
       </table>
-
     </c:forEach>
 
 
