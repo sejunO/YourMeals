@@ -113,7 +113,7 @@
    
    <div class="button2">
     <button style="margin-right: 10px;">변경</button>
-    <button type="button" onclick="location.href='<%=request.getContextPath() %>/app/mypage/index'">취소</button>
+    <button onclick="location.href='<%=request.getContextPath() %>/app/mypage/index'">취소</button>
 	</div>
   </form>
   </div>
@@ -181,7 +181,6 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath() %>/test/js/contact_me.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/test/js/main.js"></script>
     
 </body>

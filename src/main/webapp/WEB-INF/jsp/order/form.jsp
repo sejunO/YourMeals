@@ -162,24 +162,21 @@
         <input type='text' class="form-control" id="memo" name='memo'
           style="margin: 5px 0 0 80px;"메모">
       </div>
-
       <h2 class="headtitle"
         style="border-bottom: 4px solid #000; padding-bottom: 10px; margin-top: 50px;">
         결제</h2>
       <div class="payment">
         <c:forEach items="${payments}" var="p">
-          <input type="radio" name="paymentNo" value="${p.paymentNo}">${p.name}
+        <input type="radio" style="margin-left: 10px;" name="paymentNo"
+          value="${p.paymentNo}">${p.name}
     </c:forEach>
       </div>
-
       <button class="userbtn" onmouseout="change2(this)"
         onmouseover="change1(this)" style="margin: 20px 0 70px 0;">
         결제하기</button>
     </form>
   </div>
-
   <jsp:include page="/footer.jsp"></jsp:include>
-
   <!--  스크립트  -->
   <script>
               function execPostCode() {
