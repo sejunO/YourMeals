@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -9,176 +9,176 @@
 <meta charset="UTF-8">
 <title>주문</title>
 <link rel="shortcut icon"
-	href="<%=request.getContextPath()%>/test/img/favicon.ico"
-	type="image/x-icon">
+  href="<%=request.getContextPath()%>/test/img/favicon.ico"
+  type="image/x-icon">
 <link rel="apple-touch-icon"
-	href="<%=request.getContextPath()%>/test/img/apple-touch-icon.png">
+  href="<%=request.getContextPath()%>/test/img/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="72x72"
-	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-72x72.png">
+  href="<%=request.getContextPath()%>/test/img/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114"
-	href="<%=request.getContextPath()%>/test/img/apple-touch-icon-114x114.png">
+  href="<%=request.getContextPath()%>/test/img/apple-touch-icon-114x114.png">
 
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/test/fonts/font-awesome/css/font-awesome.css">
+  href="<%=request.getContextPath()%>/test/fonts/font-awesome/css/font-awesome.css">
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/test/css/bootstrap.css">
+  href="<%=request.getContextPath() %>/test/css/bootstrap.css">
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath() %>/test/css/mystyle.css">
+  href="<%=request.getContextPath() %>/test/css/mystyle.css">
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/test/css/basketstyle.css">
+  href="<%=request.getContextPath()%>/test/css/basketstyle.css">
 
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/test/css/nivo-lightbox/nivo-lightbox.css">
+  href="<%=request.getContextPath()%>/test/css/nivo-lightbox/nivo-lightbox.css">
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/test/css/nivo-lightbox/default.css">
+  href="<%=request.getContextPath()%>/test/css/nivo-lightbox/default.css">
 <link
-	href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700"
-	rel="stylesheet">
+  href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700"
+  rel="stylesheet">
 <link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-	rel="stylesheet">
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+  rel="stylesheet">
 <link
-	href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700"
-	rel="stylesheet">
+  href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700"
+  rel="stylesheet">
 
 </head>
 
 <body id="userpage">
-	<div class="main-container">
-		<div class="box1">
-			<div class="box2">
-				<header><jsp:include page="/header.jsp"></jsp:include></header>
-				<div class="box3"></div>
-				<div class="box4">Order</div>
-			</div>
-		</div>
-	</div>
+  <div class="main-container">
+    <div class="box1">
+      <div class="box2">
+        <header><jsp:include page="/header.jsp"></jsp:include></header>
+        <div class="box3"></div>
+        <div class="box4">Order</div>
+      </div>
+    </div>
+  </div>
 
-	<div class="sub-container">
-		<div class="vertical">
-			<div class="mylist">
-				<div class="headtitle">
-					<h1
-						style="font-size: 50px; margin-bottom: 40px; text-align: center;">주문</h1>
-				</div>
+  <div class="sub-container">
+    <div class="vertical">
+      <div class="mylist">
+        <div class="headtitle">
+          <h1
+            style="font-size: 50px; margin-bottom: 40px; text-align: center;">주문</h1>
+        </div>
 
-				<div class="headtitle">주문내역</div>
-				<ul class="list">
-					<li class="thead">
-						<div class="td-col1">상품정보</div>
-						<div class="td-col3">수량</div>
-						<div class="td-col3">가격</div>
-						<div class="td-col3">총금액</div>
-					</li>
+        <div class="headtitle">주문내역</div>
+        <ul class="list">
+          <li class="thead">
+            <div class="td-col1">상품정보</div>
+            <div class="td-col3">수량</div>
+            <div class="td-col3">가격</div>
+            <div class="td-col3">총금액</div>
+          </li>
 
 
-					<c:forEach items="${baskets}" var="b">
-						<li class="tbox">
-							<!-- 물품 -->
-							<div class="goods">
-								<div class="goodsbox" style="justify-content: center;">
-									<div class="in-col1"
-										style="margin-left: 120px; margin-right: 100px;">
-										<div class="imgbox">
-											<div class="imgin">
-												<img src="../../upload/${b.product.photo}_80x80.jpg"
-													alt="...">
-											</div>
-										</div>
-										<div class="goodsinfo">
-											<p class="goodstitle">${b.product.title}</p>
-										</div>
-									</div>
+          <c:forEach items="${baskets}" var="b">
+            <li class="tbox">
+              <!-- 물품 -->
+              <div class="goods">
+                <div class="goodsbox" style="justify-content: center;">
+                  <div class="in-col1"
+                    style="margin-left: 120px; margin-right: 100px;">
+                    <div class="imgbox">
+                      <div class="imgin">
+                        <img src="../../upload/${b.product.photo}_80x80.jpg"
+                          alt="...">
+                      </div>
+                    </div>
+                    <div class="goodsinfo">
+                      <p class="goodstitle">${b.product.title}</p>
+                    </div>
+                  </div>
 
-									<!-- 상품정보 끝 -->
+                  <!-- 상품정보 끝 -->
 
-									<!--  내용 -->
-									<div class="in-col3">${b.amount}</div>
-									<div class="in-col3">${b.product.price}원</div>
-									<div class="in-col3">${b.product.price * b.amount}원</div>
-								</div>
-							</div>
-						</li>
-					</c:forEach>
-				</ul>
-			</div>
-		</div>
+                  <!--  내용 -->
+                  <div class="in-col3">${b.amount}</div>
+                  <div class="in-col3">${b.product.price}원</div>
+                  <div class="in-col3">${b.product.price * b.amount}원</div>
+                </div>
+              </div>
+            </li>
+          </c:forEach>
+        </ul>
+      </div>
+    </div>
 
-		<!--  배송지 정보 -->
-		<h2 class="headtitle"
-			style="border-bottom: 4px solid #000; padding-bottom: 10px;">
-			배송지 정보</h2>
-		<form action="add" method="post">
-			<div class="updatebox1">
-				<span class="labels" style="font-size: 17px; padding-top: -7px;">*이름:</span>
-				<input type='text' class="form-control"
-					id="exampleFormControlInput1" style="margin-left: 50px;"
-					name="userName" placeholder='${user.name}' readonly>
-			</div>
+    <!--  배송지 정보 -->
+    <h2 class="headtitle"
+      style="border-bottom: 4px solid #000; padding-bottom: 10px;">
+      배송지 정보</h2>
+    <form action="add" method="post">
+      <div class="updatebox1">
+        <span class="labels" style="font-size: 17px; padding-top: -7px;">*이름:</span>
+        <input type='text' class="form-control"
+          id="exampleFormControlInput1" style="margin-left: 50px;"
+          name="userName" placeholder='${user.name}' readonly>
+      </div>
 
-			<div class="updatebox2">
-				<span class="labels" style="font-size: 17px; padding-top: -7px;">
-					*연락처: </span> <input type='tel' class="form-control"
-					style="margin: 5px 0 0 65px;" name="tel"
-					id="exampleFormControlInput2" placeholder='ex)000-0000-0000'>
-			</div>
+      <div class="updatebox2">
+        <span class="labels" style="font-size: 17px; padding-top: -7px;">
+          *연락처: </span> <input type='tel' class="form-control"
+          style="margin: 5px 0 0 65px;" name="tel"
+          id="exampleFormControlInput2" placeholder='ex)000-0000-0000'>
+      </div>
 
-			<div class="updatebox3">
-				<span class="labels"
-					style="font-size: 17px; padding-top: -7px; margin-left: 5px;">
-					우편번호:</span> <input type='text' class="form-control" id="postNo"
-					name='postNo' value='${user.postNo}'
-					style="margin: 5px 0 0 80px; position: relative;"> <input
-					type="button" onmouseout="change2(this)"
-					onmouseover="change1(this)" onclick="execPostCode()"
-					class="userbtn" style="margin: 5px 0 0 5px; position: relative;"
-					value="우편번호 찾기">
-			</div>
+      <div class="updatebox3">
+        <span class="labels"
+          style="font-size: 17px; padding-top: -7px; margin-left: 5px;">
+          우편번호:</span> <input type='text' class="form-control" id="postNo"
+          name='postNo' value='${user.postNo}'
+          style="margin: 5px 0 0 80px; position: relative;"> <input
+          type="button" onmouseout="change2(this)"
+          onmouseover="change1(this)" onclick="execPostCode()"
+          class="userbtn" style="margin: 5px 0 0 5px; position: relative;"
+          value="우편번호 찾기">
+      </div>
 
-			<div class="updatebox4">
-				<span class="labels"
-					style="font-size: 17px; padding-top: -7px; margin-left: 5px;">
-					기본주소: </span> <input type='text' class="form-control"
-					style="margin: 5px 0 0 80px; position: relative;" id="address"
-					name='address'
-					value="<c:if test=" ${not empty user.address}">${user.address}</c:if>">
-			</div>
+      <div class="updatebox4">
+        <span class="labels"
+          style="font-size: 17px; padding-top: -7px; margin-left: 5px;">
+          기본주소: </span> <input type='text' class="form-control"
+          style="margin: 5px 0 0 80px; position: relative;" id="address"
+          name='address'
+          value="<c:if test=" ${not empty user.address}">${user.address}</c:if>">
+      </div>
 
-			<div class="updatebox4">
-				<span class="labels"
-					style="font-size: 17px; padding-top: -7px; margin-left: 5px;">세부주소:</span>
-				<input type='text' class="form-control"
-					style="margin: 5px 0 0 80px; position: relative;"
-					id="detailAddress" name='detailAddress'
-					value="<c:if test=" ${not empty user.detailAddress}">${user.detailAddress}</c:if>">
-			</div>
+      <div class="updatebox4">
+        <span class="labels"
+          style="font-size: 17px; padding-top: -7px; margin-left: 5px;">세부주소:</span>
+        <input type='text' class="form-control"
+          style="margin: 5px 0 0 80px; position: relative;"
+          id="detailAddress" name='detailAddress'
+          value="<c:if test=" ${not empty user.detailAddress}">${user.detailAddress}</c:if>">
+      </div>
 
-			<div class="updatebox4">
-				<span class="labels"
-					style="font-size: 17px; padding-top: -7px; margin-left: 37px;">메모:</span>
-				<input type='text' class="form-control" id="memo" name='memo'
-					style="margin: 5px 0 0 80px;"메모">
-			</div>
-			<h2 class="headtitle"
-				style="border-bottom: 4px solid #000; padding-bottom: 10px; margin-top: 50px;">
-				결제</h2>
-			<div class="payment">
-				<c:forEach items="${payments}" var="p">
-					<input type="radio" style="margin-left: 10px;" name="paymentNo"
-						value="${p.paymentNo}">${p.name}
+      <div class="updatebox4">
+        <span class="labels"
+          style="font-size: 17px; padding-top: -7px; margin-left: 37px;">메모:</span>
+        <input type='text' class="form-control" id="memo" name='memo'
+          style="margin: 5px 0 0 80px;"메모">
+      </div>
+      <h2 class="headtitle"
+        style="border-bottom: 4px solid #000; padding-bottom: 10px; margin-top: 50px;">
+        결제</h2>
+      <div class="payment">
+        <c:forEach items="${payments}" var="p">
+        <input type="radio" style="margin-left: 10px;" name="paymentNo"
+          value="${p.paymentNo}">${p.name}
     </c:forEach>
-			</div>
-			<button class="userbtn" onmouseout="change2(this)"
-				onmouseover="change1(this)" style="margin: 20px 0 70px 0;">
-				결제하기</button>
-		</form>
-	</div>
-	<jsp:include page="/footer.jsp"></jsp:include>
-	<!--  스크립트  -->
-	<script>
+      </div>
+      <button class="userbtn" onmouseout="change2(this)"
+        onmouseover="change1(this)" style="margin: 20px 0 70px 0;">
+        결제하기</button>
+    </form>
+  </div>
+  <jsp:include page="/footer.jsp"></jsp:include>
+  <!--  스크립트  -->
+  <script>
               function execPostCode() {
                 new daum.Postcode(
                     {
@@ -236,7 +236,7 @@
                     }).open();
               }
             </script>
-	<script>
+  <script>
   function change1(obj){
     obj.style.background = 'rgb(193, 212, 209)';
     obj.style.color = 'rgb(0, 0, 0)';
@@ -247,21 +247,21 @@
     obj.style.color = 'rgb(255, 255, 255)';
   }
 </script>
-	<script
-		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath() %>/test/js/main.js"></script>
+  <script
+    src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath() %>/test/js/jquery.1.11.1.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath() %>/test/js/bootstrap.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath() %>/test/js/SmoothScroll.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath() %>/test/js/nivo-lightbox.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath() %>/test/js/jquery.isotope.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath() %>/test/js/jqBootstrapValidation.js"></script>
+  <script type="text/javascript"
+    src="<%=request.getContextPath() %>/test/js/main.js"></script>
 </body>
 </html>

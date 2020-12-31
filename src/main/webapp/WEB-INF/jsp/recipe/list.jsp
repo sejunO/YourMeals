@@ -98,7 +98,7 @@ body {
 		<div class="container" >
 		<div class="side-and-side" style="padding-bottom: 30px;" >	  
 		   <div id="left">
-		    <a href="auth"><button id="addRecipeBtn">새 레시피 만들기</button></a>
+		    <button id="addRecipeBtn" onclick="loginAlert()">새 레시피 만들기</button>
 	     </div>
 	     <div id="right">
 	     <a href='list'>최신순 &nbsp;|&nbsp;</a>
@@ -152,7 +152,12 @@ body {
 
 <script>
 function loginAlert() {
-    alert("로그인이 필요합니다!");
+	 if("${loginUser}" == undefined || "${loginUser}" == ""){
+         alert("로그인이 필요합니다.");
+         location.href="/YourMeals/app/auth/login";
+       } else {
+    	   location.href="/YourMeals/app/recipe/form";
+       }
   }
 </script>
 
