@@ -20,11 +20,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import com.oijoa.domain.BoardLike;
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Food;
 import com.oijoa.domain.Recipe;
 import com.oijoa.domain.RecipeStep;
 import com.oijoa.domain.User;
+import com.oijoa.service.BoardLikeService;
 import com.oijoa.service.CategoryService;
 import com.oijoa.service.CommentService;
 import com.oijoa.service.FoodService;
@@ -64,6 +66,8 @@ public class RecipeController {
   FoodService foodService;
   @Autowired
   NoticeService noticeService;
+  @Autowired
+  BoardLikeService boardLikeService;
 
 
   @RequestMapping("auth")
@@ -286,8 +290,17 @@ public class RecipeController {
 
   @ResponseBody
   @RequestMapping("updateRecommendCount")
-  public String updateRecommendCount(int recipeNo) throws Exception {
+  public String updateRecommendCount(int recipeNo, HttpSession session) throws Exception {
+
+ User loginUser = (User) session.getAttribute("loginUser");
+    if(loginUser == null) {
+      return "redirect:../auth/login";
+    }
     recipeService.updateRecommendCount(recipeNo);
+    BoardLike boardLike = new BoardLike();
+    boardLike.setRecipeNo(recipeNo);
+    boardLike.setUserNo(loginUser.getUserNo());
+    boardLikeService.insert(boardLike);
     return "ok";
   }
 

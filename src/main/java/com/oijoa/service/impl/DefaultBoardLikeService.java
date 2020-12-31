@@ -29,6 +29,11 @@ public class DefaultBoardLikeService implements BoardLikeService {
   public List<BoardLike> list() throws Exception {
     return boardLikeDao.findAll(null);
   }
+  
+  @Override
+  public int insert(BoardLike boardLike) throws Exception {
+    return boardLikeDao.insert(boardLike);
+  }
 
   // @Override
   // public List<Order> list(String keyword) throws Exception {

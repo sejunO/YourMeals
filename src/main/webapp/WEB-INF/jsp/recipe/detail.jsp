@@ -243,8 +243,8 @@
 						<div class="icon">
 							<i class="bx bxl-dribbble"></i>
 						</div>
-						<h4>${recipe.recommendCount}</h4>
-						<h4>좋아요</h4>
+						<h4 id="countView">${recipe.recommendCount}</h4>
+						<h4 id="recommendCountBtn" style="cursor: pointer;">좋아요</h4>
 					</div>
 				</div>
 
@@ -364,29 +364,28 @@
 	 	 
 		</script>
 			
-
- <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+			
+<!--  종아요 -->
 		 <script>
   $(function(){
      $("#recommendCountBtn").on("click",function(){
-        var userNo = $("#userNo").val();
-        var recipeNo = $("#recipeNo").val();
+        var userNo = "<c:out value='${recipe.writer.userNo}'/>";
+        var recipeNo = "<c:out value='${recipe.recipeNo}'/>";
         console.log(userNo);
         console.log(recipeNo);
         $.ajax({
-           url:"updateRecommendCount",
+           url:"/YourMeals/app/recipe/updateRecommendCount",
            type:"post",
            data: {recipeNo: recipeNo},
            success: function(data) {
                if (data == 'ok') {
                  var count = ${recipe.recommendCount};
-                 $("#recommendCount").text("추천수: ");
-                 $("#recommendCount").text(count + 1);
+                 $("#countView").text(count + 1);
                  
                }
                console.log("정보 가져오기 성공");
     },
-      error: function () {
+    error: function () {
         console.log("정보를 가져오기 실패");
       }
         });

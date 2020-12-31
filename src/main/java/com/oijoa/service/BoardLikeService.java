@@ -7,5 +7,6 @@ public interface BoardLikeService {
 
   List<BoardLike> list() throws Exception;
   int deleteByRecipeNo(int recipeNo) throws Exception;
+  int insert(BoardLike boardLike) throws Exception;
 
 }

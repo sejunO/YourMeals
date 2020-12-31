@@ -8,6 +8,7 @@ public interface BoardLikeDao {
   BoardLike findByRecipeNo(int recipeNo) throws Exception;
   int countBoardLike(BoardLike boardLike) throws Exception;
   int deleteByRecipeNo(int reicpeNo) throws Exception;
+  int insert(BoardLike boardLike) throws Exception;
 }
 
 

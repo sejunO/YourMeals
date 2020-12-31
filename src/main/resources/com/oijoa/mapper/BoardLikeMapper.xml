@@ -34,6 +34,11 @@
      where rno = #{recipeNo}
   </select>
   
+  <insert id="insert" parameterType="BoardLike">
+    insert into oi_board_like(uno,rno)
+    values(#{userNo},#{recipeNo})
+  </insert>
+  
   <delete id="deleteByRecipeNo" parameterType="int">
     delete from oi_board_like
     where rno = #{recipeNo}

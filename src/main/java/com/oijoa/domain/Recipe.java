@@ -11,6 +11,7 @@ public class Recipe {
   private String photo;
   private int hits;
   private int recommendCount;
+  private int recommendCountCheck;
   private Date createdDate;
   private Date modifiedDate;
   private int min;
@@ -123,5 +124,14 @@ public class Recipe {
   public void setServing(int serving) {
     this.serving = serving;
   }
+
+  public int getRecommendCountCheck() {
+    return recommendCountCheck;
+  }
+
+  public void setRecommendCountCheck(int recommendCountCheck) {
+    this.recommendCountCheck = recommendCountCheck;
+  }
+  
 
 }
