@@ -79,16 +79,16 @@
 		      그리고 이와 알맞는 <b>카테고리</b>, <b>조리 시간</b>, <b>요리의 양</b>과 <b>난이도</b>를
 		      선택해주세요!</p>
 		    <div style="margin-inline: 80px;">
-				<div class="input-group mb-3 " >
-					<span class="input-group-text" id="basic-addon1">제목</span> <input
+				<div class="input-group mb-3 " style="display: inline-flex; align-items: center;">
+					<span class="input-group-text" id="basic-addon1" style=" display: inline-block; width: 57px;">제목</span> <input
 						type="text" class="form-control" placeholder="제목을 입력하세요."
 						aria-label="제목을 입력하세요." aria-describedby="basic-addon1"
 						name='title'>
 				</div>
 
 
-				<div class="main-file-style">
-					<div class="input-group mb-3">
+				<div class="main-file-style" >
+					<div class="input-group mb-3" style="display: inline-flex; align-items: center;">
 						<input type="file" class="form-control" id="inputGroupFile02"
 							name='recipe_photo'> <label class="input-group-text"
 							for="inputGroupFile02">Upload</label>
@@ -97,10 +97,8 @@
 				</div>
 
 				<div class="input-group">
-					<textarea class="form-control" aria-label="With textarea"
-						name='content' rows='10' cols='10'>
-  레시피 등록 규정에 따라 입력해주세요 !
-  주제와 상관없는 글은 제제 대상입니다 !
+					<textarea class="form-control" placeholder="레시피 등록 규정에 따라 입력해주세요 ! 주제와 상관없는 글은 제제 대상입니다 !" aria-label="With textarea"
+						name='content' rows='10' cols='100'>
   </textarea>
 				</div>
 				</div>
@@ -121,21 +119,21 @@
 					</select>
 				</div>
 				<div class="input-sm">
-					<div class="input-group mb-3">
-						<span class="input-group-text">걸리는 시간</span> <input type="text"
+					<div class="input-group mb-3" style="display: inline-flex; align-items: center;">
+						<span class="input-group-text" style=" display: inline-block; width: 170px;">걸리는 시간</span> <input type="text"
 							class="form-control" placeholder="15" name="min"
 							aria-label="Username"> <span class="input-group-text">분</span>
 					</div>
 				</div>
 
 				<div class="input-sm">
-					<div class="input-group mb-3">
-						<span class="input-group-text">요리의 양</span> <input type="text"
+					<div class="input-group mb-3" style="display: inline-flex; align-items: center;">
+						<span class="input-group-text" style="display: inline-block; width: 145px;">요리의 양</span> <input type="text"
 							class="form-control" placeholder="1" aria-label="Server"
-							name="serving"> <span class="input-group-text">인분</span>
+							name="serving"> <span class="input-group-text" style="isplay: inline-block; width: 75px;">인분</span>
 					</div>
 				</div>
-				<div class="level-box">
+				<div class="level-box" style="display: inline-flex; align-items: center;">
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name='levelNo'
 							id="inlineRadio1" value="3"> <label
@@ -170,16 +168,16 @@
 						<div class="meta-input-style">
 							<div></div>
 							<div class="meta-input-size">
-								<div class="input-group mb-3 ">
-									<span class="input-group-text" id="basic-addon1">재료</span> <input
+								<div class="input-group mb-3 " style="display: inline-flex; align-items: center;">
+									<span class="input-group-text" id="basic-addon1" style="display: inline-block; width: 70px;">재료</span> <input
 										type="text" class="form-control" placeholder="양파"
 										aria-label="재료입력" aria-describedby="basic-addon1"
 										name='metaname'>
 								</div>
 							</div>
 							<div class="meta-input-size">
-								<div class="input-group mb-3 ">
-									<span class="input-group-text" id="basic-addon1">계량</span> <input
+								<div class="input-group mb-3 " style="display: inline-flex; align-items: center;">
+									<span class="input-group-text" id="basic-addon1" style="display: inline-block; width: 70px;">계량</span> <input
 										type="text" class="form-control" placeholder="1개"
 										aria-label="재료입력" aria-describedby="basic-addon1"
 										name='metaamount'>
