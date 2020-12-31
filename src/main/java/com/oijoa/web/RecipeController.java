@@ -5,10 +5,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.oijoa.domain.Comment;
 import com.oijoa.domain.Food;
 import com.oijoa.domain.Recipe;
@@ -37,7 +34,6 @@ import com.oijoa.service.NoticeService;
 import com.oijoa.service.RecipeService;
 import com.oijoa.service.RecipeStepService;
 import com.oijoa.service.UserService;
-
 import net.coobird.thumbnailator.ThumbnailParameter;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -70,19 +66,19 @@ public class RecipeController {
   NoticeService noticeService;
 
 
-@RequestMapping("auth")
-public String auth(HttpSession session) throws Exception {
-  if (session.getAttribute("loginUser") == null) {
-    return "redirect:../auth/login";
+  @RequestMapping("auth")
+  public String auth(HttpSession session) throws Exception {
+    if (session.getAttribute("loginUser") == null) {
+      return "redirect:../auth/login";
+    }
+    return "redirect:form";
   }
-  return "redirect:form";
-}
   @RequestMapping("form")
   public void form(Model model,HttpSession session) throws Exception {
-  
+
     model.addAttribute("categoryList", categoryService.list());
     model.addAttribute("materialList", materialService.list());
-   
+
   }
 
   @RequestMapping("add")
@@ -150,7 +146,7 @@ public String auth(HttpSession session) throws Exception {
     return "redirect:detail?recipeNo=" + recipeNo;
   }
 
-  
+
 
   @GetMapping("list")
   public void getList(Model model, String option, String keyword, String sort) throws Exception {
@@ -172,12 +168,12 @@ public String auth(HttpSession session) throws Exception {
       keywordMap.put("category", keyword);
       model.addAttribute("list", recipeService.list(keywordMap));
     }
-      
+
     if (sort != null) {
       if (sort.equals("hits")) {
-        model.addAttribute("list", recipeService.listByhits()); 
+        model.addAttribute("list", recipeService.listByhits());
       } else if (sort.equals("recommendCount")) {
-        model.addAttribute("list", recipeService.listByRecommendCount());  
+        model.addAttribute("list", recipeService.listByRecommendCount());
       }
     } else {
       model.addAttribute("list", recipeService.list());
@@ -252,29 +248,33 @@ public String auth(HttpSession session) throws Exception {
     recipe_photo.transferTo(new File(saveFilePath));
     generatePhotoThumbnail(saveFilePath);
 
+    if (metaname.length > 0) {
 
-    foodService.delete(recipeNo);
+      foodService.delete(recipeNo);
 
-    for (int i = 0; i < metaname.length; i++) {
-      Food food = new Food();
-      food.setRecipeNo(recipeNo);
-      food.setName(metaname[i]);
-      food.setAmount(metaamount[i]);
-      foodService.add(food);
+      for (int i = 0; i < metaname.length; i++) {
+        Food food = new Food();
+        food.setRecipeNo(recipeNo);
+        food.setName(metaname[i]);
+        food.setAmount(metaamount[i]);
+        foodService.add(food);
+      }
     }
+    if (step_photo.length[0].) {
 
-    recipeStepService.delete(recipeNo);
-    for (int i = 0; i < step.length; i++) {
-      RecipeStep recipestep = new RecipeStep();
-      recipestep.setRecipeNo(recipeNo);
-      recipestep.setStep(i + 1);
-      recipestep.setContent(step[i]);
-      filename = UUID.randomUUID().toString();
-      saveFilePath = servletContext.getRealPath("/upload/" + filename);
-      step_photo[i].transferTo(new File(saveFilePath));
-      generatePhotoThumbnail(saveFilePath);
-      recipestep.setPhoto(filename);
-      recipeStepService.add(recipestep);
+      recipeStepService.delete(recipeNo);
+      for (int i = 0; i < step.length; i++) {
+        RecipeStep recipestep = new RecipeStep();
+        recipestep.setRecipeNo(recipeNo);
+        recipestep.setStep(i + 1);
+        recipestep.setContent(step[i]);
+        filename = UUID.randomUUID().toString();
+        saveFilePath = servletContext.getRealPath("/upload/" + filename);
+        step_photo[i].transferTo(new File(saveFilePath));
+        generatePhotoThumbnail(saveFilePath);
+        recipestep.setPhoto(filename);
+        recipeStepService.add(recipestep);
+      }
     }
 
 
@@ -331,50 +331,50 @@ public String auth(HttpSession session) throws Exception {
     comment.setWriter(loginUser);
     commentService.create(comment);
   }
-  
+
   // 댓글 목록
   @RequestMapping("/comment/list")
   public ModelAndView list(
       @RequestParam int recipeNo,
       ModelAndView mv) {
     try {
-    List<Comment> commentList = commentService.listAsc(recipeNo);
-    mv.setViewName("recipe/commentList");
-    mv.addObject("commentList", commentList);
-    
+      List<Comment> commentList = commentService.listAsc(recipeNo);
+      mv.setViewName("recipe/commentList");
+      mv.addObject("commentList", commentList);
+
     } catch (Exception e) {
       System.out.println("댓글 목록 가져오는 중 오류 발생");
     }
     return mv;
   }
-  
-// 댓글 수정
-//@RequestMapping("updateComment")
-//public String updateComment(int recipeNo, Comment comment, String content, Date modifiedDate,
-//    Model model, HttpSession session) throws Exception {
-//  Recipe recipe = recipeService.get(recipeNo);
-//  User user = (User) session.getAttribute("loginUser");
-//  if (user != recipe.getWriter()) {
-//    System.out.println("수정할 수 있는 권한이 없습니다.");
-//  }
-//  comment.setContent(content);
-//  comment.setModifiedDate(modifiedDate);
-//  model.addAttribute("comment", comment);
-//  return "redirect:detail?recipeNo=" + recipeNo;
-//}
+
+  // 댓글 수정
+  //@RequestMapping("updateComment")
+  //public String updateComment(int recipeNo, Comment comment, String content, Date modifiedDate,
+  //    Model model, HttpSession session) throws Exception {
+  //  Recipe recipe = recipeService.get(recipeNo);
+  //  User user = (User) session.getAttribute("loginUser");
+  //  if (user != recipe.getWriter()) {
+  //    System.out.println("수정할 수 있는 권한이 없습니다.");
+  //  }
+  //  comment.setContent(content);
+  //  comment.setModifiedDate(modifiedDate);
+  //  model.addAttribute("comment", comment);
+  //  return "redirect:detail?recipeNo=" + recipeNo;
+  //}
 
   // 댓글 삭제
-//  @RequestMapping("/comment/delete")
-//  public String deleteComment(HttpSession session, int recipeNo) throws Exception {
-//	  Recipe recipe = recipeService.get(recipeNo);
-//	  User user = (User) session.getAttribute("loginUser");
-//	  if (user != recipe.getWriter()) {
-//		  System.out.println("삭제할 수 있는 권한이 없습니다.");
-//	  }
-//	  commentService.deleteByRecipeNo(recipeNo);
-//	  return "redirect:detail?recipeNo=" + recipeNo;
-//  }
-//  
+  //  @RequestMapping("/comment/delete")
+  //  public String deleteComment(HttpSession session, int recipeNo) throws Exception {
+  //	  Recipe recipe = recipeService.get(recipeNo);
+  //	  User user = (User) session.getAttribute("loginUser");
+  //	  if (user != recipe.getWriter()) {
+  //		  System.out.println("삭제할 수 있는 권한이 없습니다.");
+  //	  }
+  //	  commentService.deleteByRecipeNo(recipeNo);
+  //	  return "redirect:detail?recipeNo=" + recipeNo;
+  //  }
+  //
 
 
 

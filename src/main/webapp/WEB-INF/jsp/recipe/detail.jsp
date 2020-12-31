@@ -221,7 +221,7 @@
 								<h4>STEP${rs.step}</h4>
 								<div class="recipe-step-con">
 									<div>
-										<img src="../../upload/${rs.photo}_500x500.jpg"
+										<img src="../../upload/${rs.photo}_120x120.jpg"
 											class="img-thumbnail" alt="...">
 									</div>
 									<div>${rs.content}</div>
