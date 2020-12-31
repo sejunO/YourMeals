@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
@@ -13,8 +13,8 @@
 
 <!-- Google Fonts -->
 <link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-	rel="stylesheet">
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+  rel="stylesheet">
 <link
   href="<%=request.getContextPath()%>/test/css/bootstrap.css"
   rel="stylesheet">
@@ -50,113 +50,113 @@
 
 <style>
 body {
-	font-family: "Open Sans", sans-serif;
-/* 	color: #444444; */
+  font-family: "Open Sans", sans-serif;
+/*  color: #444444; */
 }
 </style>
 
 </head>
 
 <body>
-	<jsp:include page="/header.jsp"></jsp:include>
+  <jsp:include page="/header.jsp"></jsp:include>
 
-	<section id="hero" class="d-flex align-items-center img-list">
-		<div
-			class="container text-center position-relative aos-init aos-animate"
-			data-aos="fade-in" data-aos-delay="200">
-			<h1>YOUR MEALS</h1>
-			<br>
-			<h2>여러분만의 레시피를 공유해 보세요!</h2>
-		</div>
-	</section>
+  <section id="hero" class="d-flex align-items-center img-list">
+    <div
+      class="container text-center position-relative aos-init aos-animate"
+      data-aos="fade-in" data-aos-delay="200">
+      <h1>YOUR MEALS</h1>
+      <br>
+      <h2>여러분만의 레시피를 공유해 보세요!</h2>
+    </div>
+  </section>
 
 
 
-	<section name="search" >
-		<div class="container" id="show">
-			 <h3 style="font-weight: bold; padding-bottom: 20px; padding-left: 50px">레시피 검색</h3>
-				<form action="list" method="get" style="padding-left: 30px;">
-					<div class="form-inline" style="padding-left: 20px; display: flex;">
-						<select id="selectbox" name="option">
-							<option value="all">전체</option>
-							<option value="title">제목</option>
-							<option value="writer">작성자</option>
-							<option value="category">카테고리</option>
-						</select> <input class="form-control" type="text" id="keyword"
-							name="keyword" placeholder="검색어를 입력하세요" />
-						<button class="searchBtn">검색</button>						
-					</div>
-					  <div class="right">
+  <section name="search" >
+    <div class="container" id="show">
+       <h3 style="font-weight: bold; padding-bottom: 20px; padding-left: 50px">레시피 검색</h3>
+        <form action="list" method="get" style="padding-left: 30px;">
+          <div class="form-inline" style="padding-left: 20px; display: flex;">
+            <select id="selectbox" name="option">
+              <option value="all">전체</option>
+              <option value="title">제목</option>
+              <option value="writer">작성자</option>
+              <option value="category">카테고리</option>
+            </select> <input class="form-control" type="text" id="keyword"
+              name="keyword" placeholder="검색어를 입력하세요" />
+            <button class="searchBtn">검색</button>           
+          </div>
+            <div class="right">
         <a href="list" style="text-decoration: underline;">전체 레시피 보기</a>
       </div>
-				</form>
-		</div>
-	</section>
+        </form>
+    </div>
+  </section>
 
 
-	<section name="showlist" style="padding-bottom: 500px;">
-		<div class="container" >
-		<div class="side-and-side" style="padding-bottom: 30px;" >	  
-		   <div id="left">
-		    <button id="addRecipeBtn" onclick="loginAlert()">새 레시피 만들기</button>
-	     </div>
-	     <div id="right">
-	     <a href='list'>최신순 &nbsp;|&nbsp;</a>
-	     <a href='list?sort=recommendCount'>추천순 &nbsp;|&nbsp;</a>
-	     <a href='list?sort=hits'>조회순 </a>
-	     </div>
-		</div>
-			<table class="table" style="text-align: center">
-				<thead>
-					<tr style="background-color: rgb(250, 247, 240);">
-						<th class="notice-category" style="text-align: center">번호</th>
-						<th class="notice-category" style="text-align: center">사진</th>
-						<th class="notice-category" style="text-align: center">제목</th>
-						<th class="notice-category" style="text-align: center">작성자</th>
-						<th class="notice-category" style="text-align: center">방법</th>
-						<th class="notice-category" style="text-align: center">작성일</th>
-						<th class="notice-category" style="text-align: center">조회</th>
-					</tr>
-				</thead>
+  <section name="showlist" style="padding-bottom: 500px;">
+    <div class="container" >
+    <div class="side-and-side" style="padding-bottom: 30px;" >    
+       <div id="left">
+        <button id="addRecipeBtn" onclick="loginAlert()">새 레시피 만들기</button>
+       </div>
+       <div id="right">
+       <a href='list'>최신순 &nbsp;|&nbsp;</a>
+       <a href='list?sort=recommendCount'>추천순 &nbsp;|&nbsp;</a>
+       <a href='list?sort=hits'>조회순 </a>
+       </div>
+    </div>
+      <table class="table" style="text-align: center">
+        <thead>
+          <tr style="background-color: rgb(250, 247, 240);">
+            <th class="notice-category" style="text-align: center">번호</th>
+            <th class="notice-category" style="text-align: center">사진</th>
+            <th class="notice-category" style="text-align: center">제목</th>
+            <th class="notice-category" style="text-align: center">작성자</th>
+            <th class="notice-category" style="text-align: center">방법</th>
+            <th class="notice-category" style="text-align: center">작성일</th>
+            <th class="notice-category" style="text-align: center">조회</th>
+          </tr>
+        </thead>
 
-				<tbody>
-					<c:forEach items="${notices}" var="n">
-						<tr>
-							<td>${n.noticeNo}</td>
-							<td>-</td>
-							<td class="notice-title"><a
-								href='noticeDetail?noticeNo=${n.noticeNo}'>${n.title}</a></td>
-							<td>관리자</td>
-							<td class="notice-color">공지사항</td>
-							<td>${n.registeredDate}</td>
-							<td>-</td>
-						</tr>
-					</c:forEach>
-					<c:forEach items="${list}" var="recipe">
-						<tr>
-							<td>${recipe.recipeNo}</td>
-							<td><img src='../../upload/${recipe.photo}_120x120.jpg'></td>
-							<td><a href='detail?recipeNo=${recipe.recipeNo}'>${recipe.title}</a></td>
-							<td><a href='../../user/recipeList?uNo=${recipe.writer.userNo}'>${recipe.writer.nick}</a></td>
-							<td class="list-color'">${recipe.category.categoryName}</td>
-							<td>${recipe.createdDate}</td>
-							<td>${recipe.hits}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-	</section>
+        <tbody>
+          <c:forEach items="${notices}" var="n">
+            <tr>
+              <td>${n.noticeNo}</td>
+              <td>-</td>
+              <td class="notice-title"><a
+                href='noticeDetail?noticeNo=${n.noticeNo}'>${n.title}</a></td>
+              <td>관리자</td>
+              <td class="notice-color">공지사항</td>
+              <td>${n.registeredDate}</td>
+              <td>-</td>
+            </tr>
+          </c:forEach>
+          <c:forEach items="${list}" var="recipe">
+            <tr>
+              <td>${recipe.recipeNo}</td>
+              <td><img src='../../upload/${recipe.photo}_120x120.jpg'></td>
+              <td><a href='detail?recipeNo=${recipe.recipeNo}'>${recipe.title}</a></td>
+              <td><a href='../user/recipeList?uNo=${recipe.writer.userNo}'>${recipe.writer.nick}</a></td>
+              <td class="list-color'">${recipe.category.categoryName}</td>
+              <td>${recipe.createdDate}</td>
+              <td>${recipe.hits}</td>
+            </tr>
+          </c:forEach>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
   <jsp:include page="../../../footer.jsp"></jsp:include>
 
 <script>
 function loginAlert() {
-	 if("${loginUser}" == undefined || "${loginUser}" == ""){
+   if("${loginUser}" == undefined || "${loginUser}" == ""){
          alert("로그인이 필요합니다.");
          location.href="/YourMeals/app/auth/login";
        } else {
-    	   location.href="/YourMeals/app/recipe/form";
+         location.href="/YourMeals/app/recipe/form";
        }
   }
 </script>
