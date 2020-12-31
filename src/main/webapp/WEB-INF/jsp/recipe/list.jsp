@@ -69,7 +69,7 @@ body {
 			<h2>여러분만의 레시피를 공유해 보세요!</h2>
 		</div>
 	</section>
-<
+
 
 
 	<section name="search" >
