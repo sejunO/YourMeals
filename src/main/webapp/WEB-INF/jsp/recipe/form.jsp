@@ -64,6 +64,7 @@
 	</section>
 
 			<form action='add' method='post' enctype='multipart/form-data'>
+			
 			<input type="hidden" name="recipeNo" value="${recipe.recipeNo}"/>
 			
 		<section>

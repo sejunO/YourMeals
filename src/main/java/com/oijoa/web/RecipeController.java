@@ -292,19 +292,6 @@ public String auth(HttpSession session) throws Exception {
     return "ok";
   }
 
-//  @RequestMapping("updateComment")
-//  public String updateComment(int recipeNo, Comment comment, String content, Date modifiedDate,
-//      Model model, HttpSession session) throws Exception {
-//    Recipe recipe = recipeService.get(recipeNo);
-//    User user = (User) session.getAttribute("loginUser");
-//    if (user != recipe.getWriter()) {
-//      System.out.println("수정할 수 있는 권한이 없습니다.");
-//    }
-//    comment.setContent(content);
-//    comment.setModifiedDate(modifiedDate);
-//    model.addAttribute("comment", comment);
-//    return "redirect:detail?recipeNo=" + recipeNo;
-//  }
 
   @RequestMapping("updatePhoto")
   public String updatePhoto(int no, MultipartFile photoFile) throws Exception {
@@ -336,17 +323,7 @@ public String auth(HttpSession session) throws Exception {
 
   }
 
-//  @RequestMapping("deleteComment")
-//  public String deleteComment(HttpSession session, int recipeNo) throws Exception {
-//    Recipe recipe = recipeService.get(recipeNo);
-//    User user = (User) session.getAttribute("loginUser");
-//    if (user != recipe.getWriter()) {
-//      System.out.println("삭제할 수 있는 권한이 없습니다.");
-//    }
-//    commentService.deleteByRecipeNo(recipeNo);
-//    return "redirect:detail?recipeNo=" + recipeNo;
-//  }
-  
+  // 댓글 입력
   @RequestMapping("/comment/insert")
   public void insert(
       Comment comment, HttpSession session) throws Exception {
@@ -355,6 +332,7 @@ public String auth(HttpSession session) throws Exception {
     commentService.create(comment);
   }
   
+  // 댓글 목록
   @RequestMapping("/comment/list")
   public ModelAndView list(
       @RequestParam int recipeNo,
@@ -370,23 +348,33 @@ public String auth(HttpSession session) throws Exception {
     return mv;
   }
   
-  
-  @RequestMapping("/comment/listJson")
-  public List<Comment> listJson(
-      @RequestParam int recipeNo) {
-    
-    List<Comment> commentList = null;
-    
-    try {
-    commentList = commentService.list(recipeNo);  
-    } catch (Exception e) {
-      System.out.println("댓글 Json 가져오는 중 오류 발생");
-    }
-    return commentList;
-  }
+// 댓글 수정
+//@RequestMapping("updateComment")
+//public String updateComment(int recipeNo, Comment comment, String content, Date modifiedDate,
+//    Model model, HttpSession session) throws Exception {
+//  Recipe recipe = recipeService.get(recipeNo);
+//  User user = (User) session.getAttribute("loginUser");
+//  if (user != recipe.getWriter()) {
+//    System.out.println("수정할 수 있는 권한이 없습니다.");
+//  }
+//  comment.setContent(content);
+//  comment.setModifiedDate(modifiedDate);
+//  model.addAttribute("comment", comment);
+//  return "redirect:detail?recipeNo=" + recipeNo;
+//}
 
-      
-  
+  // 댓글 삭제
+//  @RequestMapping("/comment/delete")
+//  public String deleteComment(HttpSession session, int recipeNo) throws Exception {
+//	  Recipe recipe = recipeService.get(recipeNo);
+//	  User user = (User) session.getAttribute("loginUser");
+//	  if (user != recipe.getWriter()) {
+//		  System.out.println("삭제할 수 있는 권한이 없습니다.");
+//	  }
+//	  commentService.deleteByRecipeNo(recipeNo);
+//	  return "redirect:detail?recipeNo=" + recipeNo;
+//  }
+//  
 
 
 
