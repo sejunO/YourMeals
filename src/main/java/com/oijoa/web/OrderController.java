@@ -44,6 +44,8 @@ public class OrderController {
   @RequestMapping("add")
   public String add(HttpSession session, Order order) throws Exception {
 
+    System.out.println(order.getMemo());
+    System.out.println(order.getAddress());
     User user = (User) session.getAttribute("loginUser");
     DeliveryCompany dc = deliveryCompanyService.get(1);
     List<Basket> baskets = basketService.myList(user.getUserNo());

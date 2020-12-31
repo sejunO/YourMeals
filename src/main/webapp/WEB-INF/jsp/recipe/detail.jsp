@@ -317,7 +317,10 @@
 	 	   $("#commentBtn").click(function(){
 	 	         var content = $("#commentText").val();
 	 	         var recipeNo = "${recipe.recipeNo}";
-	 	         console.log(content, recipeNo);
+	 	         if("${loginUser}" == undefined || "${loginUser}" == ""){
+	 	        	 alert("로그인이 필요합니다.");
+	 	        	 location.href="/YourMeals/app/auth/login";
+	 	         } 
 	 	         $.ajax({
 	 	           type: "post",
 	 	           url: "/YourMeals/app/recipe/comment/insert",
@@ -343,29 +346,7 @@
   		});
 }
 	 	 
-  
-     
-// 	 	 Json 형식
-	 	 function listComment2(){
-	 		 $.ajax({
-	 			 type: "get",
-	 			 url:"{path}/recipe/comment/listJson.do?recipeNo=${recipe.recipeNo}",
-	 			 success: function(result){
-	 				 console.log(result);
-	 				 var output = "<table>";
-	 				 for(var i in result){
-	 					 output += "<tr>";
-	 					 output += "<td>" + result[i].writer.nick;
-	 					 output += "(" + changeDate(result[i].createdDate) + ")<br>";
-	 					 output += result[i].content + "</td>";
-	 					 output += "<tr>";
-	 				 }
-	 				 output += "</table>";
-	 				 $("#listComment").html(output);
-	 			 }
-	 		 });
-	 	 }
-	 	 
+ 	 	 
 	 	 function changeDate(date){
 	 		 date = new Date(parseInt(date));
 	 		 year = date.getFullYear();
