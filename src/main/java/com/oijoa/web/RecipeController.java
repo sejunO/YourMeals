@@ -260,8 +260,7 @@ public class RecipeController {
         foodService.add(food);
       }
     }
-    if (step_photo.length[0].) {
-
+    if (step_photo[0].getSize() > 100) {
       recipeStepService.delete(recipeNo);
       for (int i = 0; i < step.length; i++) {
         RecipeStep recipestep = new RecipeStep();

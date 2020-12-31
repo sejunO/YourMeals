@@ -581,7 +581,10 @@ section {
 
 .recipe-step-con {
 	display:flex;
-	justify-content:space-between;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
 }
 #img-recipe {
   text-align: center;
