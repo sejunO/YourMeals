@@ -189,7 +189,9 @@ display:flex;
 }
 .input-group-text {
 	background: #009970;
-    color: #fff;	
+	color: #fff;	
+	padding: 10px;
+    border-radius: 10px;
 }
 
 #btnAddMeta {
