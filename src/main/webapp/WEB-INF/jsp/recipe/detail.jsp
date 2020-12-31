@@ -224,7 +224,7 @@
 										<img src="../../upload/${rs.photo}_120x120.jpg"
 											class="img-thumbnail" alt="...">
 									</div>
-									<div>${rs.content}</div>
+									<div style="padding-left: 100px">${rs.content}</div>
 									<div></div>
 								</div>
 							</div>
