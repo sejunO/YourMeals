@@ -47,6 +47,8 @@ public class MyOrderController {
     List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
     List<Product> productList = productService.list();
     
+    model.addAttribute("orderList", orderList);
+    
     int totalPrice = 0;
     for (Order order : orderList) {
       for (OrderList orderlist : order.getOrderLists()) {
@@ -55,8 +57,6 @@ public class MyOrderController {
       order.setTotalPrice(totalPrice);
       totalPrice = 0;
     }
-    
-    model.addAttribute("orderList", orderList);
     
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
@@ -84,6 +84,8 @@ public class MyOrderController {
     List<Qna> qnaList = qnaService.userNoList(user.getUserNo());
     List<Product> productList = productService.list();
     
+    model.addAttribute("updateList", updateList);
+    
     int totalPrice = 0;
     for (Order order : updateList) {
       for (OrderList orderlist : order.getOrderLists()) {
@@ -92,8 +94,6 @@ public class MyOrderController {
       order.setTotalPrice(totalPrice);
       totalPrice = 0;
     }
-    
-    model.addAttribute("updateList", updateList);
 
     int recipeSize = recipeList.size();
     int followerSize = followList.size();
