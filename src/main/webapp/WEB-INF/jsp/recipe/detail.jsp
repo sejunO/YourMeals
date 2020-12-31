@@ -148,7 +148,14 @@
 						<div class="icon">
 							<i class="bx bx-tachometer"></i>
 						</div>
-						<h4>${recipe.levelNo}단계</h4>
+						<h4>
+						
+						<c:choose>
+							<c:when test="${recipe.levelNo} == 1">하</c:when>
+							<c:when test="${recipe.levelNo} == 2">중</c:when>
+							<c:otherwise>상</c:otherwise>
+						</c:choose>
+						</h4>
 					</div>
 				</div>
 			</div>
