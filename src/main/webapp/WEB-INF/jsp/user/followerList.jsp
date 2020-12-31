@@ -74,7 +74,7 @@
 							<tr>
 								<td><img class="user-img"
 									src='../../upload/${fwer.user.photo}_120x120.jpg'></td>
-								<td><a href='followerList?uNo=${fwer.user.userNo}'>${fwer.user.nick}</a></td>
+								<td><a href='recipeList?uNo=${fwer.user.userNo}' style="font-size: 20px">${fwer.user.nick}</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
