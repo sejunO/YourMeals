@@ -224,7 +224,9 @@
 										<img src="../../upload/${rs.photo}_500x500.jpg"
 											class="img-thumbnail" alt="...">
 									</div>
-									<div style="padding-left: 100px">${rs.content}</div>
+									<div style="padding: 50px 0">
+									<h3 style="font-size: 17px;">${rs.content}</h3>
+									</div>
 									<div></div>
 								</div>
 							</div>
@@ -305,7 +307,7 @@
 		</section>
 	</div>
 
-<jsp:include page="footer.jsp"></jsp:include>
+  <jsp:include page="../../../footer.jsp"></jsp:include>
 
 
 <!--   댓글  -->
