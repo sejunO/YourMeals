@@ -88,7 +88,7 @@
                     <div class="in-col1">
                       <div class="imgbox"> 
                         <div class="imgin">
-                          <img src="<%=request.getContextPath()%>/upload/${product.photo}_80x80.jpg"/>
+                          <img src="<%=request.getContextPath()%>/upload/${o.orderLists.get(0).orderProduct.photo}_80x80.jpg"/>
                         </div>
                       </div>
                       <div class="goodsinfo">
