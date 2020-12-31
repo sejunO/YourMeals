@@ -242,17 +242,18 @@
 							<i class="bx bxl-dribbble"></i>
 						</div>
 						<h4>${recipe.recommendCount}</h4>
+						<h4>좋아요</h4>
 					</div>
 				</div>
 
-				<div class="col-icon d-flex align-items-stretch">
-					<div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-						<div class="icon">
-							<i class="bx bx-file"></i>
-						</div><br>
-						<h4>스크랩</h4>
-					</div>
-				</div>
+<!-- 				<div class="col-icon d-flex align-items-stretch"> -->
+<!-- 					<div class="icon-box" data-aos="zoom-in" data-aos-delay="200"> -->
+<!-- 						<div class="icon"> -->
+<!-- 							<i class="bx bx-file"></i> -->
+<!-- 						</div><br> -->
+<!-- 						<h4>스크랩</h4> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 			</div>
 		</section>
 
